@@ -107,7 +107,8 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |  CLASE | SEMANA | FECHAS | TOPIC | SCRIPTS | EJ. | CASO PRÁCTICO | ENTREGA | 
 |:------:|:--------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
 |     [1](#clase-1-primeros-pasos)      | S1     | 12 sep |                  Primeros pasos en R                   | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |                 [💻](#tu-turno)                 |                        |         | 
-|     [2](#clase-2-primeros-datos)      | S1     | 15 sep |                 Tipos básicos de datos                 | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |     
+|     [2](#clase-2-primeros-datos)      | S1     | 15 sep |                 Tipos básicos de datos                 | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |   
+|     [3](#clase-3-vectores-I)      | S2     | 19 sep |                 Operaciones con vectores                 | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-3)    |  [🐣](#caso-práctico)  |         |   
 :::
 :::
 
@@ -667,10 +668,10 @@ nombre <- "javi"
 :::
 
 ::: {.fragment .fade-up}
--   A la pregunta «¿está usted soltero/a?» la respuesta será lo que llamamos una [**variable lógica**]{.hl-yellow} (`TRUE` si está soltero/a o `FALSE` en otro caso).
+-   A la pregunta «¿estás matriculado en la Facultad?» la respuesta será lo que llamamos una [**variable lógica**]{.hl-yellow} (`TRUE` si está matriculado o `FALSE` en otro caso).
 
 ```{r}
-soltero <- TRUE
+matriculado <- TRUE
 ```
 :::
 
@@ -680,7 +681,7 @@ soltero <- TRUE
 
 ---
 
-## Variables numéricos
+## Variables numéricas
 
 El dato más sencillo (ya lo hemos usado) serán las [**variables numéricas**]{.hl-yellow}
 
@@ -709,12 +710,55 @@ class(a)
 
 . . .
 
-Con las variables numéricas podemos realizar las [**operaciones aritméticas**]{.hl-yellow} de una calculadora: sumar (`+`), raíz cuadrada (`sqrt()`), cuadrado (`^2`), etc.
+Además de los números «normales» tendremos el [**valor infinito**]{.hl-yellow}
+
+```{r}
+1/0
+```
+
+. . .
+
+Y valores que [**no son números reales**]{.hl-yellow} _not a number_ (indeterminaciones, complejos, etc)
+
+```{r}
+0/0
+```
+
+
+---
+
+## Variables numéricas
+
+Con las variables numéricas podemos realizar las [**operaciones aritméticas**]{.hl-yellow} de una calculadora: sumar (`+`)...
+
+```{r}
+a + b
+```
+
+. . .
+
+...raíz cuadrada (`sqrt()`)...
+
+```{r}
+sqrt(a)
+```
+
+. . .
+
+... potencias (`^2`, `^3`)...
 
 ```{r}
 a^2
+```
+
+. . .
+
+...valor absoluto (`abs()`), etc.
+
+```{r}
 abs(a)
 ```
+
 
 ---
 
@@ -786,6 +830,26 @@ Existe una función similar llamada `paste0()` que pega por defecto con `sep = "
 paste0("Javier", "Álvarez")
 ```
 
+--- 
+
+## Funciones: argumentos por defecto
+
+Es muy importante entender el concepto de [**argumento por defecto de una función**]{.hl-yellow} en `R`: es un valor que la función usa pero a veces podemos no ver porque [**ya tiene un valor asignado**]{.hl-yellow}. 
+
+```{r}
+# Hacen lo mismo
+paste("Javier", "Álvarez")
+paste("Javier", "Álvarez", sep = " ")
+```
+
+. . .
+
+::: callout-note
+## Toma nota
+
+El operador `=` lo [**reservaremos para asignar argumentos**]{.hl-yellow} dentro de funciones. Para todas las demás asignaciones usaremos `<-`
+:::
+
 ---
 
 ## Primer paquete: glue
@@ -805,7 +869,7 @@ library(glue)
 
 . . .
 
-Con dicho paquete podemos usar [**variables dentro de cadenas de texto**]{.hl-yellow}. Por ejemplo, «la edad es de ... años», donde la edad está guardada en una variable.
+Con la función `glue()` de dicho paquete podemos usar [**variables dentro de cadenas de texto**]{.hl-yellow}. Por ejemplo, «la edad es de ... años», donde la edad está guardada en una variable.
 
 ```{r}
 edad <- 33
@@ -814,7 +878,7 @@ glue("La edad es de {edad} años")
 
 . . .
 
-Dentro de las llaves también podemos ejecutar operaciones
+Dentro de las llaves también podemos [**ejecutar operaciones**]{.hl-yellow}
 
 ```{r}
 unidades <- "días"
@@ -837,7 +901,24 @@ class(soltero)
 
 . . .
 
-Puede tomar un tercer valor, `NA` o [**dato ausente**]{.hl-yellow}, representando las siglas de *not available*.
+Dado que internamente están guardados como variables binarias, podemos [**realizar operaciones aritméticas**]{.hl-yellow} con ellas
+
+```{r}
+2 * TRUE
+FALSE - 1
+```
+
+---
+
+## Variables lógicas
+
+Como veremos en breve, las variables lógicas en realidad puede tomar un tercer valor: `NA` o [**dato ausente**]{.hl-yellow}, representando las siglas de *not available*, y será muy habitual encontrarlo dentro de una base de datos.
+
+```{r}
+ausente <- NA
+ausente + 1
+```
+
 
 . . .
 
@@ -857,15 +938,16 @@ TRUE + 1
 
 ## Condiciones lógicas
 
-Los valores lógicos suelen ser resultado de [**evaluar condiciones lógicas**]{.hl-yellow}. Por ejemplo, imaginemos que queremos comprobar si una persona se llama Javi.
+Los valores lógicos suelen ser resultado de [**evaluar condiciones lógicas**]{.hl-yellow}. Por ejemplo, imaginemos que queremos [**comprobar**]{.hl-yellow} si una persona se llama Javi.
 
 ```{r}
 nombre <- "María"
 ```
 
+
 . . .
 
-Con el [**operador lógico**]{.hl-yellow} `==` preguntamos sí a la izquierda es igual a la derecha
+Con el [**operador lógico**]{.hl-yellow} `==` preguntamos sí lo que tenemos guardado a la izquierda es igual que lo que tenemos a la derecha: es una [**pregunta**]{.hl-yellow}
 
 ```{r}
 nombre == "Javi"
@@ -896,9 +978,11 @@ Además de las comparaciones «igual a» frente «distinto», también comparaci
 **¿Tiene la persona menos de 32 años?**
 
 ```{r}
-edad <- 38
+edad <- 34
 edad < 32 # ¿Es la edad menor de 32 años?
 ```
+
+. . .
 
 **¿La edad es mayor o igual que 38 años?**
 
@@ -906,6 +990,14 @@ edad < 32 # ¿Es la edad menor de 32 años?
 edad >= 38
 ```
 
+. . .
+
+**¿El nombre guardado es Javi?**
+
+```{r}
+nombre <- "Javi"
+nombre == "Javi"
+```
 
 ---
 
@@ -917,25 +1009,69 @@ Un tipo de datos muy especial: los [**datos de tipo fecha**]{.hl-yellow}.
 fecha_char <- "2021-04-21"
 ```
 
-. . .
+Parece una simple cadena de texto pero [**debería representar un instante en el tiempo**]{.hl-yellow}. ¿Qué debería suceder si [**sumamos un 1 a una fecha**]{.hl-purple}?
 
-Parece una simple cadena de texto pero [**representa un instante en el tiempo**]{.hl-yellow}. ¿Qué debería suceder si [**sumamos un 1 a una fecha**]{.hl-purple}?
+. . .
 
 ```{r}
 #| error: true
 fecha_char + 1
 ```
 
+
+Las fechas [**NO pueden ser texto**]{.hl-red}: debemos convertir la cadena de texto a fecha.
+
 . . .
 
-Las fechas [**no pueden ser texto**]{.hl-red}: debemos convertir la cadena de texto a fecha con `as_date()` del paquete `{lubridate}`
+&nbsp;
+
+Para trabajar con fechas usaremos el paquete `{lubridate}`, que deberemos instalar antes de poder usarlo.
+
+```{r}
+#| eval: false
+install.packages("lubridate")
+```
+
+---
+
+## Variables de fecha
+
+Una vez instalado, de todos los paquetes (libros) que tenemos, le indicaremos que nos cargue ese concretamente.
 
 ```{r}
 library(lubridate) # instala si no lo has hecho
+
+```
+
+. . .
+
+Para [**convertir a tipo fecha**]{.hl-yellow} usaremos la función `as_date()` del paquete `{lubridate}`
+
+&nbsp;
+
+:::: columns
+::: {.column width="50%"}
+
+```{r}
+#| error: true
+# ¡no es una fecha, es un texto!
+fecha_char + 1
+class(fecha_char)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
 fecha <- as_date("2023-03-28")
 fecha + 1
 class(fecha)
 ```
+
+:::
+
+::::
 
 ---
 
@@ -998,19 +1134,30 @@ nombre <- "Javi"
 
 ### [**Ejercicio 2**]{.hl-yellow}
 
-📝 Define otra variable llamada `hermanos` que responda la pregunta «¿tienes hermanos?» y otra con la fecha de tu nacimiento (llamada `fecha_nacimiento`).
+📝 Comprueba si NO tienes 60 años o si te llamas "Ornitorrinco" (debes obtener variables lógicas)
+
+```{r}
+#| code-fold: true
+#| eval: false
+edad != 60 # distinto de
+nombre == "Ornitorrinco" # igual a
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Define otra variable llamada `hermanos` que responda la pregunta «¿tienes hermanos?» y otra variable que almacene tu fecha de nacimiento (llamada `fecha_nacimiento`).
 
 ```{r}
 #| code-fold: true
 hermanos <- TRUE
 
-library(lubridate)
+library(lubridate) # sino lo tenías ya cargado
 fecha_nacimiento <- as_date("1989-09-10")
 ```
 
-### [**Ejercicio 3**]{.hl-yellow}
+### [**Ejercicio 4**]{.hl-yellow}
 
-📝 Define otra variable con tus apellidos (llamada `apellidos`) y usa `glue()` para tener una sola variable `nombre_completo` (separando nombre y apellido por una coma)
+📝 Define otra variable con tus apellidos (llamada `apellidos`) y usa `glue()` para tener, en una sola variable  llamada `nombre_completo`, tu nombre y apellidos separando nombre y apellido por una coma
 
 ```{r}
 #| code-fold: true
@@ -1019,9 +1166,19 @@ apellidos <- "Álvarez Liébana"
 glue("{nombre}, {apellidos}")
 ```
 
-### [**Ejercicio 4**]{.hl-yellow}
+### [**Ejercicio 5**]{.hl-yellow}
 
-📝 Calcula los días que han pasado desde la fecha de tu nacimiento hasta hoy (con la fecha de nacimiento definida en el ejercicio 2).
+📝 De `fecha_nacimiento` extrae el mes.
+
+```{r}
+#| code-fold: true
+#| eval: false
+month(fecha_nacimiento)
+```
+
+### [**Ejercicio 6**]{.hl-yellow}
+
+📝 Calcula los días que han pasado desde la fecha de tu nacimiento hasta hoy (con la fecha de nacimiento definida en el ejercicio 3).
 
 ```{r}
 #| code-fold: true
@@ -1034,21 +1191,21 @@ today() - fecha_nacimiento
 
 ## Vectores: concatenar
 
-Cuando trabajamos con datos normalmente tendremos [**columnas que representan variables**]{.hl-yellow}: llamaremos [**vectores**]{.hl-yellow} a una [**concatenación**]{.hl-purple} de celdas (valores) del [**mismo tipo**]{.hl-purple}
+Cuando trabajamos con datos normalmente tendremos [**columnas que representan variables**]{.hl-yellow}: llamaremos [**vectores**]{.hl-yellow} a una [**concatenación**]{.hl-purple} de celdas (valores) del [**mismo tipo**]{.hl-purple} (lo que sería una columna de una tabla).
 
 . . .
 
 La forma más sencilla es con el comando `c()` (c de **concatenar**), y basta con introducir sus **elementos entre paréntesis y separados por comas**
 
 ```{r}
-edades <- c(33, 27, 60, 61)
+edades <- c(32, 27, 60, 61)
 edades
 ```
 
 . . .
 
 ::: callout-tip
-Un número individual `x <- 1` (o bien `x <- c(1)`) es en realidad un vector de longitud uno.
+Un número individual `x <- 1` (o bien `x <- c(1)`) es en realidad un **vector de longitud uno** --> todo lo que sepamos [**hacer con un número podemos hacerlo con un vector de ellos**]{.hl-green}.
 :::
 
 ---
@@ -1071,7 +1228,7 @@ edades
 
 . . .
 
- 
+
 
 La [**longitud de un vector**]{.hl-yellow} se puede calcular con `length()`
 
@@ -1081,7 +1238,7 @@ length(edades)
 
 . . .
 
-También podemos [**concatenar vectores**]{.hl-yellow}
+También podemos [**concatenar vectores**]{.hl-yellow} entre sí (los repite uno tras otro)
 
 ```{r}
 c(edades, edades, 8)
@@ -1091,7 +1248,11 @@ c(edades, edades, 8)
 
 ## Secuencias numéricas
 
-En muchas ocasiones querremos crear [**secuencias numéricas**]{.hl-yellow} (por ejemplo, los días del mes). El comando `seq(inicio, fin)` nos permite crear una **secuencia** desde un elemento inicial hasta uno final, [**avanzando de uno en uno**]{.hl-purple}.
+El vector más famoso será el de tipo numérico, y en concreto, las conocidas como [**secuencias numéricas**]{.hl-yellow} (por ejemplo, los días del mes), usadas para, entre otras cosas, indexar bucles.
+
+. . .
+
+El comando `seq(inicio, fin)` nos permite crear una [**secuencia numérica**]{.hl-yellow} desde un elemento inicial hasta uno final, [**avanzando de uno en uno**]{.hl-purple}.
 
 ```{r}
 seq(1, 31)
@@ -1099,24 +1260,42 @@ seq(1, 31)
 
 . . .
 
-El comando `1:n` nos devuelve lo mismo que `seq(1, n)` (si el elemento inicial es mayor que el final, entenderá que la secuencia es [**decreciente**]{.hl-purple})
+Fíjate que si hacemos eso con [**caracteres no podremos hacerlo**]{.hl-red} ya que no hay un orden a priori entre textos.
 
 ```{r}
-1:5
-7:-3
+#| error: true
+"a":"z"
 ```
 
 ---
 
 ## Secuencias numéricas
 
-También podemos definir [**otro tipo de distancia**]{.hl-yellow} (paso) entre consecutivos
+
+Un atajo es el comando `1:n`, que nos devuelve lo mismo que `seq(1, n)`
+
+```{r}
+1:7
+```
+
+Si el elemento inicial es mayor que el final, entenderá que la secuencia es [**en orden decreciente**]{.hl-purple}.
+
+```{r}
+7:-3
+```
+
+. . .
+
+También podemos definir [**otro tipo de distancia**]{.hl-yellow} (paso) entre consecutivos con el argumento `by = ...`
 
 ```{r}
 seq(1, 7, by = 0.5) # secuencia desde 1 a 7 de 0.5 en 0.5
 ```
 
-. . .
+---
+
+## Secuencias numéricas
+
 
 Otras veces nos interesará definir una [**secuencia con una longitud concreta**]{.hl-yellow}
 
@@ -1131,6 +1310,16 @@ Incluso puede nos interese generar un vector de [**n elementos repetidos**]{.hl-
 ```{r}
 rep(0, 7) # vector de 7 ceros
 ```
+
+. . .
+
+
+Dado que internamente son guardados como números también podremos hacer esto con [**fechas**]{.hl-yellow}.
+
+```{r}
+seq(as_date("2023-09-01"), as_date("2023-09-10"), by = 1)
+```
+
 
 ---
 
@@ -1285,6 +1474,180 @@ all(x < 30)
 
 ## Operaciones con vectores
 
+Otra operación muy habitual es la de [**acceder a elementos**]{.hl-yellow}. La forma más sencilla es usar el operador `[i]` (acceder al elemento i-ésimo)
+
+```{r}
+edades <- c(20, 30, 33, NA, 61) 
+edades[3] # accedemos a la edad de la tercera persona 
+```
+
+. . .
+
+
+Dado que un número no es más que un vector de longitud uno, esta operación también la podemos aplicar usando un [**vector de índices a seleccionar**]{.hl-yellow}
+
+```{r}
+y <- c("hola", "qué", "tal", "estás", "?")
+y[c(1:2, 4)] # primer, segundo y cuarto elemento
+```
+
+. . .
+
+::: callout-tip
+Para acceder al último, sin preocuparnos de cuál es, podemos pasarle como índice la propia longitud `x[length(x)]`
+:::
+
+---
+
+## Operaciones con vectores
+
+Otras veces no querremos seleccionar sino [**eliminar algunos elementos**]{.hl-yellow}. Deberemos repetir la misma operación pero con el signo - delante: el operador `[-i]` no selecciona el elemento i-ésimo del vector sino que lo «des-selecciona»
+
+```{r}
+y
+y[-2]
+```
+
+
+. . .
+
+En muchas ocasiones los queremos [**seleccionar o eliminar en base a condiciones lógicas**]{.hl-yellow}, en función de los valores, así que pasaremos como índice la propia condición (recuerda, `x < 2` nos devuelve un vector lógico)
+
+```{r}
+edades <- c(15, 21, 30, 17, 45)
+nombres <- c("javi", "maría", "laura", "carla", "luis")
+nombres[edades < 18] # nombres de los menores de edad
+```
+
+---
+
+
+## 💻 Tu turno {#tu-turno-2}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Define el vector `x` como la concatenación de los 5 primeros números impares. Calcula la longitud del vector
+
+```{r}
+#| code-fold: true
+#| eval: false
+# Dos formas
+x <- c(1, 3, 5, 7, 9)
+x <- seq(1, 9, by = 2)
+
+length(x)
+```
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 Accede al tercer elemento. Accede al último elemento (sin importar la longitud, un código que pueda ejecutarse siempre). Elimina el primer elemento.
+
+```{r}
+#| code-fold: true
+#| eval: false
+x[3]
+x[length(x)]
+x[-1]
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Obtén de dicho vector los elementos de `x` mayores que 4. Calcula el vector `1/x` y guárdalo en una variable.
+
+```{r}
+#| code-fold: true
+#| eval: false
+x[x > 4]
+z <- 1/x
+z
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Crea un vector que represente los nombres de 5 personas, de los cuales uno es desconocido.
+
+```{r}
+#| code-fold: true
+#| eval: false
+nombres <- c("Javi", "Sandra", NA, "Laura", "Carlos")
+nombres
+```
+
+### [**Ejercicio 5**]{.hl-yellow}
+
+📝 Encuentra del vector `x` de ejercicios anteriores los elementos mayores (estrictos) que 1 Y ADEMÁS menores (estrictos) que 7. Encuentra una forma de averiguar si todos los elementos son o no positivos.
+
+```{r}
+#| code-fold: true
+#| eval: false
+x[x > 1 & x < 7]
+all(x > 0)
+```
+
+### [**Ejercicio 6**]{.hl-yellow}
+
+📝 Dado el vector `x <- c(1, -5, 8, NA, 10, -3, 9)`, extrae los elementos que ocupan los lugares 1, 2, 5, 6. Elimina del vector el segundo elemento. Tras eliminarlo determina su suma y su media
+
+```{r}
+#| code-fold: true
+#| eval: false
+x <- c(1, -5, 8, NA, 10, -3, 9)
+x[c(1, 2, 5, 6)]
+x[-2]
+```
+
+### [**Ejercicio 7**]{.hl-yellow}
+
+📝 Dado el vector del ejercicio anterior, ¿cuales tienen un dato ausente? Pista: las funciones `is.algo()` comprueban si el elemento es tipo `algo`. Busca en internet como comprobar que un dato es ausente o escribe `is.` en consola y tabula.
+
+```{r}
+#| code-fold: true
+#| eval: false
+is.na(x)
+```
+
+:::
+
+---
+
+
+## 🐣 Caso práctico {#caso-práctico}
+
+En el paquete `{datasets}` tenemos diversos conjuntos de datos y uno de ellos es `airquality`. Debajo te he extraído 3 variables de dicho dataset
+
+```{r}
+temperature <- airquality$Temp
+month <- airquality$Month
+day <- airquality$Day
+```
+
+1. ¿Qué [**representan los datos**]{.hl-yellow}? ¿Cómo averiguarlo?
+
+. . .
+
+2. ¿Cuántos [**registros tenemos de mayo**]{.hl-yellow}? ¿Y de abril? Construye una nueva variable `date` con la [**fecha**]{.hl-yellow} de cada registro (combinando año, mes y día). Echa un vistazo a la chuleta de `{lubridate}`.
+
+. . .
+
+3. Crea una nueva variable `temp_celsius` con la [**temperatura en ºC**]{.hl-yellow} (está en Fahrenheit)
+
+. . .
+
+4. Selecciona de `day` los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow}
+
+# Clase 3: primeras operaciones con vectores {#clase-3-vectores-I}
+
+[**Primeras operaciones con vectores. Variables de tipo texto y fecha**]{style="color:#444442;"}
+
+
+---
+
+
+## Operaciones con vectores
+
 También podemos hacer uso de [**operaciones estadísticas**]{.hl-yellow} como por ejemplo `sum()` que, dado un vector, nos devuelve la suma de todos sus elementos.
 
 ```{r}
@@ -1313,7 +1676,6 @@ sum(x, na.rm = TRUE)
 
 Como hemos comentado que los valores lógicos son guardados internamente como 0 y 1, podremos usarlos en operaciones aritméticas.
 
- 
 
 Por ejemplo, si queremos [**averiguar el número de elementos que cumplen una condición**]{.hl-yellow} (por ejemplo, menores que 3), los que lo hagan tendrán asignado un 1 (`TRUE`) y los que no un 0 (`FALSE`) , por lo que basta con sumar dicho vector lógico para obtener el número de elementos que cumplen
 
@@ -1328,8 +1690,6 @@ sum(x < 3)
 
 Otras operaciones habituales son la [**media**]{.hl-yellow}, [**mediana**]{.hl-yellow}, [**percentiles**]{.hl-yellow}, etc.
 
- 
-
 -   [**Media**]{.hl-yellow}: medida de centralidad que consiste en sumar todos los elementos y dividirlos entre la cantidad de elementos sumados. La más conocida pero la [**menos robusta**]{.hl-red}: dado un conjunto, si se introducen valores atípicos o outliers (valores muy grandes o muy pequeños), la media se perturba con mucha facilidad.
 
 ```{r}
@@ -1343,7 +1703,6 @@ mean(x, na.rm = TRUE)
 
 Otras operaciones habituales son la [**media**]{.hl-yellow}, [**mediana**]{.hl-yellow}, [**percentiles**]{.hl-yellow}, etc.
 
- 
 
 -   [**Mediana**]{.hl-yellow}: medida de centralidad que consiste en ordenar los elementos y quedarse con el que ocupa la mitad.
 
@@ -1359,55 +1718,6 @@ median(x)
 ```{r}
 quantile(x) # por defecto percentiles 0-25-50-75-100
 quantile(x, probs = c(0.1, 0.4, 0.9))
-```
-
----
-
-## Operaciones con vectores
-
-Otra operación muy habitual es la de [**acceder a elementos**]{.hl-yellow} del mismo. La forma más sencilla es usar el operador `[i]` (acceder al elemento i-ésimo)
-
-```{r}
-edades <- c(20, 30, 33, NA, 61) 
-edades[3] # accedemos a la edad de la tercera persona 
-```
-
-. . .
-
- 
-
-Dado que un número no es más que un vector de longitud uno, esta operación también la podemos aplicar usando un [**vector de índices a seleccionar**]{.hl-yellow}
-
-```{r}
-y <- c("hola", "qué", "tal", "estás", "?")
-y[c(1:2, 4)] # primer, segundo y cuarto elemento
-```
-
-::: callout-tip
-Para acceder al último, sin preocuparnos de cuál, podemos pasarle como índice la longitud `x[length(x)]`
-:::
-
----
-
-## Operaciones con vectores
-
-Otras veces no querremos seleccionar sino [**eliminar algunos elementos**]{.hl-yellow}. Deberemos repetir la misma operación pero con el signo - delante: el operador `[-i]` no selecciona el elemento i-ésimo del vector sino que lo «des-selecciona»
-
-```{r}
-y
-y[-2]
-```
-
- 
-
-. . .
-
-En muchas ocasiones los queremos [**seleccionar o eliminar en base a condiciones lógicas**]{.hl-yellow}, en función de los valores, así que pasaremos como índice la propia condición (recuerda, `x < 2` nos devuelve un vector lógico)
-
-```{r}
-edades <- c(15, 21, 30, 17, 45)
-nombres <- c("javi", "maría", "laura", "carla", "luis")
-nombres[edades < 18] # nombres de los menores de edad
 ```
 
 ---
@@ -1435,28 +1745,28 @@ x[order(x)]
 
 ---
 
-## 💻 Tu turno {#tu-turno-2}
+## 💻 Tu turno {#tu-turno-3}
 
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
 ::: panel-tabset
 ### [**Ejercicio 1**]{.hl-yellow}
 
-📝 Define el vector `x` como la concatenación de los 5 primeros números impares, y calcula su suma.
+📝 Define el vector `x` como la concatenación de los 4 primeros números pares, y calcula su suma.
 
 ```{r}
 #| code-fold: true
 #| eval: false
 # Dos formas
-x <- c(1, 3, 5, 7, 9)
-x <- seq(1, 9, by = 2)
+x <- c(2, 4, 6, 8)
+x <- seq(2, 8, by = 2)
 
 sum(x)
 ```
 
 ### [**Ejercicio 2**]{.hl-yellow}
 
-📝 Obtén los elementos de `x` mayores que 4. Calcula el número de elementos de `x` mayores que 4.
+📝 Obtén los elementos de `x` menores estrictamente que 5. Calcula el número de elementos de `x` menores estrictamente que 5.
 
 ```{r}
 #| code-fold: true
@@ -1467,7 +1777,7 @@ sum(x > 4)
 
 ### [**Ejercicio 3**]{.hl-yellow}
 
-📝 Calcula el vector `1/x` y obtén la versión ordenada (de menor a mayor).
+📝 Calcula el vector `1/x` y obtén la versión ordenada (de menor a mayor) de las dos formas posibles
 
 ```{r}
 #| code-fold: true
@@ -1490,7 +1800,7 @@ max(x)
 
 ### [**Ejercicio 5**]{.hl-yellow}
 
-📝 Encuentra del vector `x` los elementos mayores (estrictos) que 1 y menores (estrictos) que 7. Encuentra una forma de averiguar si todos los elementos son o no positivos.
+📝 Encuentra del vector `x` los elementos mayores (estrictos) que 1 y menores (estrictos) que 6. Encuentra una forma de averiguar si todos los elementos son o no negativos.
 
 ```{r}
 #| code-fold: true
@@ -1501,41 +1811,16 @@ all(x > 0)
 
 ### [**Ejercicio 6**]{.hl-yellow}
 
-📝 Dado el vector `x <- c(1, -5, 8, NA, 10, -3, 9)`, extrae los elementos que ocupan los lugares 1, 2, 5, 6. Elimina del vector el segundo elemento. Tras eliminarlo determina su suma y su media
+📝 Dado el vector `x <- c(1, -5, 8, NA, 10, -3, 9)`, calcula su suma y su media de forma que devuelva un valor numérico conocido.
 
 ```{r}
 #| code-fold: true
 #| eval: false
 x <- c(1, -5, 8, NA, 10, -3, 9)
-x[c(1, 2, 5, 6)]
-y <- x[-2]
-sum(y, na.rm = TRUE)
-mean(y, na.rm = TRUE)
+sum(x, na.rm = TRUE)
+mean(x, na.rm = TRUE)
 ```
 :::
 
 ---
 
-## 🐣 Caso práctico {#caso-práctico}
-
-En el paquete `{datasets}` tenemos diversos conjuntos de datos y uno de ellos es `airquality`. Debajo te he extraído 3 variables de dicho dataset
-
-```{r}
-temperature <- airquality$Temp
-month <- airquality$Month
-day <- airquality$Day
-```
-
-1. ¿Qué [**representan los datos**]{.hl-yellow}? ¿Cómo averiguarlo?
-
-. . .
-
-2. ¿Cuántos [**registros tenemos de mayo**]{.hl-yellow}? ¿Y de abril? Construye una nueva variable `date` con la [**fecha**]{.hl-yellow} de cada registro (combinando año, mes y día)
-
-. . .
-
-3. Crea una nueva variable `temp_celsius` con la [**temperatura en ºC**]{.hl-yellow}
-
-. . .
-
-4. ¿Cuál fue la [**media de temperatura**]{.hl-yellow} del mes de agosto? Extrae los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow} y calcula la cantidad de días en los que lo hizo.

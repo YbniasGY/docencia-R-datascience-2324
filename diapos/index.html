@@ -511,6 +511,18 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
+<tr class="odd">
+<td style="text-align: center;"><a href="#/clase-3-vectores-I">3</a></td>
+<td style="text-align: center;">S2</td>
+<td style="text-align: center;">19 sep</td>
+<td style="text-align: center;">Operaciones con vectores</td>
+<td style="text-align: center;"><a href="https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts">📝</a></td>
+<td style="text-align: center;"><a href="#/tu-turno-3">💻</a></td>
+<td style="text-align: center;"><a href="#/caso-práctico">🐣</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1020,10 +1032,10 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>A la pregunta «¿está usted soltero/a?» la respuesta será lo que llamamos una <span class="hl-yellow"><strong>variable lógica</strong></span> (<code>TRUE</code> si está soltero/a o <code>FALSE</code> en otro caso).</li>
+<li>A la pregunta «¿estás matriculado en la Facultad?» la respuesta será lo que llamamos una <span class="hl-yellow"><strong>variable lógica</strong></span> (<code>TRUE</code> si está matriculado o <code>FALSE</code> en otro caso).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>soltero <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>matriculado <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment fade-up">
@@ -1033,8 +1045,8 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 </div>
 </section>
-<section id="variables-numéricos" class="slide level2">
-<h2>Variables numéricos</h2>
+<section id="variables-numéricas" class="slide level2">
+<h2>Variables numéricas</h2>
 <p>El dato más sencillo (ya lo hemos usado) serán las <span class="hl-yellow"><strong>variables numéricas</strong></span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>a <span class="ot">&lt;-</span> <span class="dv">5</span></span>
@@ -1051,13 +1063,55 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 </div>
 <div class="fragment">
-<p>Con las variables numéricas podemos realizar las <span class="hl-yellow"><strong>operaciones aritméticas</strong></span> de una calculadora: sumar (<code>+</code>), raíz cuadrada (<code>sqrt()</code>), cuadrado (<code>^2</code>), etc.</p>
+<p>Además de los números «normales» tendremos el <span class="hl-yellow"><strong>valor infinito</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Inf</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Y valores que <span class="hl-yellow"><strong>no son números reales</strong></span> <em>not a number</em> (indeterminaciones, complejos, etc)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="variables-numéricas-1" class="slide level2">
+<h2>Variables numéricas</h2>
+<p>Con las variables numéricas podemos realizar las <span class="hl-yellow"><strong>operaciones aritméticas</strong></span> de una calculadora: sumar (<code>+</code>)…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>a <span class="sc">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>…raíz cuadrada (<code>sqrt()</code>)…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">sqrt</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.236068</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>… potencias (<code>^2</code>, <code>^3</code>)…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">abs</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>…valor absoluto (<code>abs()</code>), etc.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">abs</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -1068,8 +1122,8 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <h2>Variables de texto</h2>
 <p>Imagina que además de la edad de una persona queremos guardar su nombre: ahora la variable será de tipo <code>character</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>nombre <span class="ot">&lt;-</span> <span class="st">"Javier"</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">class</span>(nombre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>nombre <span class="ot">&lt;-</span> <span class="st">"Javier"</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">class</span>(nombre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -1077,7 +1131,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="fragment">
 <p>Las <span class="hl-yellow"><strong>cadenas de texto</strong></span> son un tipo con el que obviamente <span class="hl-red"><strong>no podremos hacer operaciones aritméticas</strong></span> (sí otras operaciones como pegar o localizar patrones).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>nombre <span class="sc">+</span> <span class="dv">1</span> <span class="co"># error al sumar número a texto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>nombre <span class="sc">+</span> <span class="dv">1</span> <span class="co"># error al sumar número a texto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in nombre + 1: non-numeric argument to binary operator</code></pre>
 </div>
@@ -1103,7 +1157,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <h2>Primera función: paste</h2>
 <p>En <code>R</code> llamaremos <span class="hl-yellow"><strong>función</strong></span> a un trozo de <span class="hl-yellow"><strong>código encapsulado</strong></span> bajo un nombre, y que depende de unos <span class="hl-yellow"><strong>argumentos</strong></span> de entrada. Nuestra primera función será <code>paste()</code>: dadas dos cadenas de texto nos permite pegarlas.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">paste</span>(<span class="st">"Javier"</span>, <span class="st">"Álvarez"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">paste</span>(<span class="st">"Javier"</span>, <span class="st">"Álvarez"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Javier Álvarez"</code></pre>
 </div>
@@ -1111,7 +1165,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="fragment">
 <p>Fíjate que <span class="hl-yellow"><strong>por defecto</strong></span> nos pega las cadenas con un espacio, pero podemos añadir un <span class="hl-yellow"><strong>argumento opcional</strong></span> para indicarle el separador (en <code>sep = ...</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">paste</span>(<span class="st">"Javier"</span>, <span class="st">"Álvarez"</span>, <span class="at">sep =</span> <span class="st">"*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">paste</span>(<span class="st">"Javier"</span>, <span class="st">"Álvarez"</span>, <span class="at">sep =</span> <span class="st">"*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Javier*Álvarez"</code></pre>
 </div>
@@ -1131,9 +1185,39 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="fragment">
 <p>Existe una función similar llamada <code>paste0()</code> que pega por defecto con <code>sep = ""</code> (sin nada).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">paste0</span>(<span class="st">"Javier"</span>, <span class="st">"Álvarez"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">paste0</span>(<span class="st">"Javier"</span>, <span class="st">"Álvarez"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "JavierÁlvarez"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="funciones-argumentos-por-defecto" class="slide level2">
+<h2>Funciones: argumentos por defecto</h2>
+<p>Es muy importante entender el concepto de <span class="hl-yellow"><strong>argumento por defecto de una función</strong></span> en <code>R</code>: es un valor que la función usa pero a veces podemos no ver porque <span class="hl-yellow"><strong>ya tiene un valor asignado</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Hacen lo mismo</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">paste</span>(<span class="st">"Javier"</span>, <span class="st">"Álvarez"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Javier Álvarez"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">paste</span>(<span class="st">"Javier"</span>, <span class="st">"Álvarez"</span>, <span class="at">sep =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Javier Álvarez"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Toma nota</strong></p>
+</div>
+<div class="callout-content">
+<p>El operador <code>=</code> lo <span class="hl-yellow"><strong>reservaremos para asignar argumentos</strong></span> dentro de funciones. Para todas las demás asignaciones usaremos <code>&lt;-</code></p>
+</div>
 </div>
 </div>
 </div>
@@ -1142,27 +1226,27 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <h2>Primer paquete: glue</h2>
 <p>Una forma más intuitiva de trabajar con textos es usar el paquete <code>{glue}</code>: lo primero que haremos será «comprar el libro» (si nunca lo hemos hecho). Tras ello <span class="hl-yellow"><strong>cargamos el paquete</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">install.packages</span>(<span class="st">"glue"</span>) <span class="co"># solo la primra vez</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">library</span>(glue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">install.packages</span>(<span class="st">"glue"</span>) <span class="co"># solo la primra vez</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">library</span>(glue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 
 </div>
 <div class="fragment">
-<p>Con dicho paquete podemos usar <span class="hl-yellow"><strong>variables dentro de cadenas de texto</strong></span>. Por ejemplo, «la edad es de … años», donde la edad está guardada en una variable.</p>
+<p>Con la función <code>glue()</code> de dicho paquete podemos usar <span class="hl-yellow"><strong>variables dentro de cadenas de texto</strong></span>. Por ejemplo, «la edad es de … años», donde la edad está guardada en una variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">33</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="fu">glue</span>(<span class="st">"La edad es de {edad} años"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">33</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a><span class="fu">glue</span>(<span class="st">"La edad es de {edad} años"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>La edad es de 33 años</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p>Dentro de las llaves también podemos ejecutar operaciones</p>
+<p>Dentro de las llaves también podemos <span class="hl-yellow"><strong>ejecutar operaciones</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>unidades <span class="ot">&lt;-</span> <span class="st">"días"</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">glue</span>(<span class="st">"La edad es de {edad * 365} {unidades}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>unidades <span class="ot">&lt;-</span> <span class="st">"días"</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a><span class="fu">glue</span>(<span class="st">"La edad es de {edad * 365} {unidades}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>La edad es de 12045 días</code></pre>
 </div>
@@ -1177,14 +1261,35 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li><code>FALSE</code>: <span class="hl-yellow"><strong>falso</strong></span> guardado internamente como un 0.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>soltero <span class="ot">&lt;-</span> <span class="cn">TRUE</span> <span class="co"># ¿Es soltero? --&gt; SÍ</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">class</span>(soltero)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>soltero <span class="ot">&lt;-</span> <span class="cn">TRUE</span> <span class="co"># ¿Es soltero? --&gt; SÍ</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a><span class="fu">class</span>(soltero)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "logical"</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>Puede tomar un tercer valor, <code>NA</code> o <span class="hl-yellow"><strong>dato ausente</strong></span>, representando las siglas de <em>not available</em>.</p>
+<p>Dado que internamente están guardados como variables binarias, podemos <span class="hl-yellow"><strong>realizar operaciones aritméticas</strong></span> con ellas</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="cn">FALSE</span> <span class="sc">-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="variables-lógicas-1" class="slide level2">
+<h2>Variables lógicas</h2>
+<p>Como veremos en breve, las variables lógicas en realidad puede tomar un tercer valor: <code>NA</code> o <span class="hl-yellow"><strong>dato ausente</strong></span>, representando las siglas de <em>not available</em>, y será muy habitual encontrarlo dentro de una base de datos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>ausente <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>ausente <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
 </div>
 <div class="fragment">
 <div class="callout callout-important callout-captioned callout-style-default">
@@ -1198,11 +1303,11 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="callout-content">
 <p>Las variables lógicas <span class="hl-red"><strong>NO son variables de texto</strong></span>: <code>"TRUE"</code> es un texto, <code>TRUE</code> es un valor lógico.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="st">"TRUE"</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="st">"TRUE"</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in "TRUE" + 1: non-numeric argument to binary operator</code></pre>
 </div>
@@ -1214,14 +1319,14 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </section>
 <section id="condiciones-lógicas" class="slide level2">
 <h2>Condiciones lógicas</h2>
-<p>Los valores lógicos suelen ser resultado de <span class="hl-yellow"><strong>evaluar condiciones lógicas</strong></span>. Por ejemplo, imaginemos que queremos comprobar si una persona se llama Javi.</p>
+<p>Los valores lógicos suelen ser resultado de <span class="hl-yellow"><strong>evaluar condiciones lógicas</strong></span>. Por ejemplo, imaginemos que queremos <span class="hl-yellow"><strong>comprobar</strong></span> si una persona se llama Javi.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>nombre <span class="ot">&lt;-</span> <span class="st">"María"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>nombre <span class="ot">&lt;-</span> <span class="st">"María"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<p>Con el <span class="hl-yellow"><strong>operador lógico</strong></span> <code>==</code> preguntamos sí a la izquierda es igual a la derecha</p>
+<p>Con el <span class="hl-yellow"><strong>operador lógico</strong></span> <code>==</code> preguntamos sí lo que tenemos guardado a la izquierda es igual que lo que tenemos a la derecha: es una <span class="hl-yellow"><strong>pregunta</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>nombre <span class="sc">==</span> <span class="st">"Javi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>nombre <span class="sc">==</span> <span class="st">"Javi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -1230,7 +1335,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="fragment">
 <p>Con su opuesto <code>!=</code> preguntamos si es distinto.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>nombre <span class="sc">!=</span> <span class="st">"Javi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a>nombre <span class="sc">!=</span> <span class="st">"Javi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -1257,17 +1362,29 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <p>Además de las comparaciones «igual a» frente «distinto», también comparaciones de orden como <code>&lt;, &lt;=, &gt; o &gt;=</code>.</p>
 <p><strong>¿Tiene la persona menos de 32 años?</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">38</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>edad <span class="sc">&lt;</span> <span class="dv">32</span> <span class="co"># ¿Es la edad menor de 32 años?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">34</span></span>
+<span id="cb75-2"><a href="#cb75-2"></a>edad <span class="sc">&lt;</span> <span class="dv">32</span> <span class="co"># ¿Es la edad menor de 32 años?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
+<div class="fragment">
 <p><strong>¿La edad es mayor o igual que 38 años?</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>edad <span class="sc">&gt;=</span> <span class="dv">38</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a>edad <span class="sc">&gt;=</span> <span class="dv">38</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>¿El nombre guardado es Javi?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>nombre <span class="ot">&lt;-</span> <span class="st">"Javi"</span></span>
+<span id="cb79-2"><a href="#cb79-2"></a>nombre <span class="sc">==</span> <span class="st">"Javi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -1275,41 +1392,72 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <h2>Variables de fecha</h2>
 <p>Un tipo de datos muy especial: los <span class="hl-yellow"><strong>datos de tipo fecha</strong></span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>fecha_char <span class="ot">&lt;-</span> <span class="st">"2021-04-21"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>fecha_char <span class="ot">&lt;-</span> <span class="st">"2021-04-21"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Parece una simple cadena de texto pero <span class="hl-yellow"><strong>debería representar un instante en el tiempo</strong></span>. ¿Qué debería suceder si <span class="hl-purple"><strong>sumamos un 1 a una fecha</strong></span>?</p>
 <div class="fragment">
-<p>Parece una simple cadena de texto pero <span class="hl-yellow"><strong>representa un instante en el tiempo</strong></span>. ¿Qué debería suceder si <span class="hl-purple"><strong>sumamos un 1 a una fecha</strong></span>?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>fecha_char <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a>fecha_char <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in fecha_char + 1: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
+<p>Las fechas <span class="hl-red"><strong>NO pueden ser texto</strong></span>: debemos convertir la cadena de texto a fecha.</p>
 </div>
 <div class="fragment">
-<p>Las fechas <span class="hl-red"><strong>no pueden ser texto</strong></span>: debemos convertir la cadena de texto a fecha con <code>as_date()</code> del paquete <code>{lubridate}</code></p>
+<p>&nbsp;</p>
+<p>Para trabajar con fechas usaremos el paquete <code>{lubridate}</code>, que deberemos instalar antes de poder usarlo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">library</span>(lubridate) <span class="co"># instala si no lo has hecho</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a>fecha <span class="ot">&lt;-</span> <span class="fu">as_date</span>(<span class="st">"2023-03-28"</span>)</span>
-<span id="cb64-3"><a href="#cb64-3"></a>fecha <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="fu">install.packages</span>(<span class="st">"lubridate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="variables-de-fecha-1" class="slide level2">
+<h2>Variables de fecha</h2>
+<p>Una vez instalado, de todos los paquetes (libros) que tenemos, le indicaremos que nos cargue ese concretamente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="fu">library</span>(lubridate) <span class="co"># instala si no lo has hecho</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Para <span class="hl-yellow"><strong>convertir a tipo fecha</strong></span> usaremos la función <code>as_date()</code> del paquete <code>{lubridate}</code></p>
+<p>&nbsp;</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># ¡no es una fecha, es un texto!</span></span>
+<span id="cb86-2"><a href="#cb86-2"></a>fecha_char <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in fecha_char + 1: non-numeric argument to binary operator</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="fu">class</span>(fecha_char)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a>fecha <span class="ot">&lt;-</span> <span class="fu">as_date</span>(<span class="st">"2023-03-28"</span>)</span>
+<span id="cb90-2"><a href="#cb90-2"></a>fecha <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2023-03-29"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">class</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="fu">class</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Date"</code></pre>
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
-<section id="variables-de-fecha-1" class="slide level2">
+<section id="variables-de-fecha-2" class="slide level2">
 <h2>Variables de fecha</h2>
 <p>En dicho paquete tenemos funciones muy útiles para <span class="hl-yellow"><strong>manejar fechas</strong></span>:</p>
 <ul>
 <li>Con <code>today()</code> podemos obtener directamente la <span class="hl-purple"><strong>fecha actual</strong></span>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2023-09-12"</code></pre>
 </div>
@@ -1319,9 +1467,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li>Con <code>now()</code> podemos obtener la <span class="hl-purple"><strong>fecha y hora actual</strong></span></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-09-12 12:45:17 CEST"</code></pre>
+<pre><code>[1] "2023-09-12 18:23:42 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -1330,12 +1478,12 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li>Con <code>year()</code>, <code>month()</code> o <code>day()</code> podemos <span class="hl-purple"><strong>extraer el año, mes y día</strong></span></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>fecha <span class="ot">&lt;-</span> <span class="fu">today</span>()</span>
-<span id="cb72-2"><a href="#cb72-2"></a><span class="fu">year</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a>fecha <span class="ot">&lt;-</span> <span class="fu">today</span>()</span>
+<span id="cb98-2"><a href="#cb98-2"></a><span class="fu">year</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2023</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">month</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="fu">month</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9</code></pre>
 </div>
@@ -1363,46 +1511,65 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-2-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-2-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-2-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-2-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-2-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-2-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-2-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-2-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>📝 Define una variable que guarde tu edad (llamada <code>edad</code>) y otra con tu nombre (llamada <code>nombre</code>)</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">33</span></span>
-<span id="cb76-2"><a href="#cb76-2"></a>nombre <span class="ot">&lt;-</span> <span class="st">"Javi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">33</span></span>
+<span id="cb102-2"><a href="#cb102-2"></a>nombre <span class="ot">&lt;-</span> <span class="st">"Javi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 <div id="tabset-2-2">
-<p>📝 Define otra variable llamada <code>hermanos</code> que responda la pregunta «¿tienes hermanos?» y otra con la fecha de tu nacimiento (llamada <code>fecha_nacimiento</code>).</p>
+<p>📝 Comprueba si NO tienes 60 años o si te llamas “Ornitorrinco” (debes obtener variables lógicas)</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a>hermanos <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb77-2"><a href="#cb77-2"></a></span>
-<span id="cb77-3"><a href="#cb77-3"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb77-4"><a href="#cb77-4"></a>fecha_nacimiento <span class="ot">&lt;-</span> <span class="fu">as_date</span>(<span class="st">"1989-09-10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a>edad <span class="sc">!=</span> <span class="dv">60</span> <span class="co"># distinto de</span></span>
+<span id="cb103-2"><a href="#cb103-2"></a>nombre <span class="sc">==</span> <span class="st">"Ornitorrinco"</span> <span class="co"># igual a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 <div id="tabset-2-3">
-<p>📝 Define otra variable con tus apellidos (llamada <code>apellidos</code>) y usa <code>glue()</code> para tener una sola variable <code>nombre_completo</code> (separando nombre y apellido por una coma)</p>
+<p>📝 Define otra variable llamada <code>hermanos</code> que responda la pregunta «¿tienes hermanos?» y otra variable que almacene tu fecha de nacimiento (llamada <code>fecha_nacimiento</code>).</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a>apellidos <span class="ot">&lt;-</span> <span class="st">"Álvarez Liébana"</span></span>
-<span id="cb78-2"><a href="#cb78-2"></a><span class="fu">glue</span>(<span class="st">"{nombre}, {apellidos}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a>hermanos <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb104-2"><a href="#cb104-2"></a></span>
+<span id="cb104-3"><a href="#cb104-3"></a><span class="fu">library</span>(lubridate) <span class="co"># sino lo tenías ya cargado</span></span>
+<span id="cb104-4"><a href="#cb104-4"></a>fecha_nacimiento <span class="ot">&lt;-</span> <span class="fu">as_date</span>(<span class="st">"1989-09-10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 <div id="tabset-2-4">
-<p>📝 Calcula los días que han pasado desde la fecha de tu nacimiento hasta hoy (con la fecha de nacimiento definida en el ejercicio 2).</p>
+<p>📝 Define otra variable con tus apellidos (llamada <code>apellidos</code>) y usa <code>glue()</code> para tener, en una sola variable llamada <code>nombre_completo</code>, tu nombre y apellidos separando nombre y apellido por una coma</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="fu">today</span>() <span class="sc">-</span> fecha_nacimiento</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a>apellidos <span class="ot">&lt;-</span> <span class="st">"Álvarez Liébana"</span></span>
+<span id="cb105-2"><a href="#cb105-2"></a><span class="fu">glue</span>(<span class="st">"{nombre}, {apellidos}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-2-5">
+<p>📝 De <code>fecha_nacimiento</code> extrae el mes.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="fu">month</span>(fecha_nacimiento)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-2-6">
+<p>📝 Calcula los días que han pasado desde la fecha de tu nacimiento hasta hoy (con la fecha de nacimiento definida en el ejercicio 3).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a><span class="fu">today</span>() <span class="sc">-</span> fecha_nacimiento</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -1411,14 +1578,14 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </section>
 <section id="vectores-concatenar" class="slide level2">
 <h2>Vectores: concatenar</h2>
-<p>Cuando trabajamos con datos normalmente tendremos <span class="hl-yellow"><strong>columnas que representan variables</strong></span>: llamaremos <span class="hl-yellow"><strong>vectores</strong></span> a una <span class="hl-purple"><strong>concatenación</strong></span> de celdas (valores) del <span class="hl-purple"><strong>mismo tipo</strong></span></p>
+<p>Cuando trabajamos con datos normalmente tendremos <span class="hl-yellow"><strong>columnas que representan variables</strong></span>: llamaremos <span class="hl-yellow"><strong>vectores</strong></span> a una <span class="hl-purple"><strong>concatenación</strong></span> de celdas (valores) del <span class="hl-purple"><strong>mismo tipo</strong></span> (lo que sería una columna de una tabla).</p>
 <div class="fragment">
 <p>La forma más sencilla es con el comando <code>c()</code> (c de <strong>concatenar</strong>), y basta con introducir sus <strong>elementos entre paréntesis y separados por comas</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">33</span>, <span class="dv">27</span>, <span class="dv">60</span>, <span class="dv">61</span>)</span>
-<span id="cb80-2"><a href="#cb80-2"></a>edades</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">27</span>, <span class="dv">60</span>, <span class="dv">61</span>)</span>
+<span id="cb108-2"><a href="#cb108-2"></a>edades</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 33 27 60 61</code></pre>
+<pre><code>[1] 32 27 60 61</code></pre>
 </div>
 </div>
 </div>
@@ -1432,7 +1599,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Un número individual <code>x &lt;- 1</code> (o bien <code>x &lt;- c(1)</code>) es en realidad un vector de longitud uno.</p>
+<p>Un número individual <code>x &lt;- 1</code> (o bien <code>x &lt;- c(1)</code>) es en realidad un <strong>vector de longitud uno</strong> –&gt; todo lo que sepamos <span class="hl-green"><strong>hacer con un número podemos hacerlo con un vector de ellos</strong></span>.</p>
 </div>
 </div>
 </div>
@@ -1446,81 +1613,106 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div><div class="column" style="width:60%;">
 <p>Como ves ahora en el <code>environment</code> tenemos una <strong>colección de elementos</strong> guardada</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a>edades</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a>edades</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 33 27 60 61</code></pre>
+<pre><code>[1] 32 27 60 61</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p>&nbsp;</p>
 <p>La <span class="hl-yellow"><strong>longitud de un vector</strong></span> se puede calcular con <code>length()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="fu">length</span>(edades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="fu">length</span>(edades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p>También podemos <span class="hl-yellow"><strong>concatenar vectores</strong></span></p>
+<p>También podemos <span class="hl-yellow"><strong>concatenar vectores</strong></span> entre sí (los repite uno tras otro)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="fu">c</span>(edades, edades, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a><span class="fu">c</span>(edades, edades, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 33 27 60 61 33 27 60 61  8</code></pre>
+<pre><code>[1] 32 27 60 61 32 27 60 61  8</code></pre>
 </div>
 </div>
 </div>
 </section>
 <section id="secuencias-numéricas" class="slide level2">
 <h2>Secuencias numéricas</h2>
-<p>En muchas ocasiones querremos crear <span class="hl-yellow"><strong>secuencias numéricas</strong></span> (por ejemplo, los días del mes). El comando <code>seq(inicio, fin)</code> nos permite crear una <strong>secuencia</strong> desde un elemento inicial hasta uno final, <span class="hl-purple"><strong>avanzando de uno en uno</strong></span>.</p>
+<p>El vector más famoso será el de tipo numérico, y en concreto, las conocidas como <span class="hl-yellow"><strong>secuencias numéricas</strong></span> (por ejemplo, los días del mes), usadas para, entre otras cosas, indexar bucles.</p>
+<div class="fragment">
+<p>El comando <code>seq(inicio, fin)</code> nos permite crear una <span class="hl-yellow"><strong>secuencia numérica</strong></span> desde un elemento inicial hasta uno final, <span class="hl-purple"><strong>avanzando de uno en uno</strong></span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">31</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">31</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 [26] 26 27 28 29 30 31</code></pre>
 </div>
 </div>
-<div class="fragment">
-<p>El comando <code>1:n</code> nos devuelve lo mismo que <code>seq(1, n)</code> (si el elemento inicial es mayor que el final, entenderá que la secuencia es <span class="hl-purple"><strong>decreciente</strong></span>)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="dv">7</span><span class="sc">:-</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  7  6  5  4  3  2  1  0 -1 -2 -3</code></pre>
+<div class="fragment">
+<p>Fíjate que si hacemos eso con <span class="hl-red"><strong>caracteres no podremos hacerlo</strong></span> ya que no hay un orden a priori entre textos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a><span class="st">"a"</span><span class="sc">:</span><span class="st">"z"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in "a":"z": NA/NaN argument</code></pre>
 </div>
 </div>
 </div>
 </section>
 <section id="secuencias-numéricas-1" class="slide level2">
 <h2>Secuencias numéricas</h2>
-<p>También podemos definir <span class="hl-yellow"><strong>otro tipo de distancia</strong></span> (paso) entre consecutivos</p>
+<p>Un atajo es el comando <code>1:n</code>, que nos devuelve lo mismo que <code>seq(1, n)</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="at">by =</span> <span class="fl">0.5</span>) <span class="co"># secuencia desde 1 a 7 de 0.5 en 0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5 6 7</code></pre>
+</div>
+</div>
+<p>Si el elemento inicial es mayor que el final, entenderá que la secuencia es <span class="hl-purple"><strong>en orden decreciente</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1"></a><span class="dv">7</span><span class="sc">:-</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  7  6  5  4  3  2  1  0 -1 -2 -3</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>También podemos definir <span class="hl-yellow"><strong>otro tipo de distancia</strong></span> (paso) entre consecutivos con el argumento <code>by = ...</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="at">by =</span> <span class="fl">0.5</span>) <span class="co"># secuencia desde 1 a 7 de 0.5 en 0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0</code></pre>
 </div>
 </div>
-<div class="fragment">
+</div>
+</section>
+<section id="secuencias-numéricas-2" class="slide level2">
+<h2>Secuencias numéricas</h2>
 <p>Otras veces nos interesará definir una <span class="hl-yellow"><strong>secuencia con una longitud concreta</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="at">l =</span> <span class="dv">7</span>) <span class="co"># secuencia desde 1 a 50 de longitud 7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">50</span>, <span class="at">l =</span> <span class="dv">7</span>) <span class="co"># secuencia desde 1 a 50 de longitud 7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1.000000  9.166667 17.333333 25.500000 33.666667 41.833333 50.000000</code></pre>
-</div>
 </div>
 </div>
 <div class="fragment">
 <p>Incluso puede nos interese generar un vector de <span class="hl-yellow"><strong>n elementos repetidos</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">7</span>) <span class="co"># vector de 7 ceros</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a><span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">7</span>) <span class="co"># vector de 7 ceros</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0 0 0 0 0 0 0</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Dado que internamente son guardados como números también podremos hacer esto con <span class="hl-yellow"><strong>fechas</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="fu">seq</span>(<span class="fu">as_date</span>(<span class="st">"2023-09-01"</span>), <span class="fu">as_date</span>(<span class="st">"2023-09-10"</span>), <span class="at">by =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "2023-09-01" "2023-09-02" "2023-09-03" "2023-09-04" "2023-09-05"
+ [6] "2023-09-06" "2023-09-07" "2023-09-08" "2023-09-09" "2023-09-10"</code></pre>
 </div>
 </div>
 </div>
@@ -1529,12 +1721,12 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <h2>Vectores de caracteres</h2>
 <p>Un vector es una <strong>concatenación</strong> de elementos del <span class="hl-yellow"><strong>mismo tipo</strong></span>, pero no tienen porque ser necesariamente números. Vamos a crear una frase de ejemplo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a>frase <span class="ot">&lt;-</span> <span class="st">"Me llamo Javi"</span></span>
-<span id="cb100-2"><a href="#cb100-2"></a>frase</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a>frase <span class="ot">&lt;-</span> <span class="st">"Me llamo Javi"</span></span>
+<span id="cb132-2"><a href="#cb132-2"></a>frase</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Me llamo Javi"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a><span class="fu">length</span>(frase)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a><span class="fu">length</span>(frase)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -1542,12 +1734,12 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="fragment">
 <p>En el caso anterior no era un vector, era un solo elemento de texto. Para crear un vector debemos usar de nuevo <code>c()</code> y separar elementos entre comas</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Me"</span>, <span class="st">"llamo"</span>, <span class="st">"Javi"</span>)</span>
-<span id="cb104-2"><a href="#cb104-2"></a>vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Me"</span>, <span class="st">"llamo"</span>, <span class="st">"Javi"</span>)</span>
+<span id="cb136-2"><a href="#cb136-2"></a>vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Me"    "llamo" "Javi" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="fu">length</span>(vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a><span class="fu">length</span>(vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
@@ -1559,7 +1751,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <p>¿Qué sucederá si <span class="hl-yellow"><strong>concatenamos elementos de diferente tipo</strong></span>?</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"javi"</span>, <span class="st">"3"</span>, <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"javi"</span>, <span class="st">"3"</span>, <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1"    "2"    "javi" "3"    "TRUE"</code></pre>
 </div>
@@ -1568,7 +1760,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1"></a><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3 4 1 0</code></pre>
 </div>
@@ -1584,12 +1776,12 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb112-2"><a href="#cb112-2"></a>x <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb144-2"><a href="#cb144-2"></a>x <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 4 6 8</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>x <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1"></a>x <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  6 10 14</code></pre>
 </div>
@@ -1613,9 +1805,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <h2>Operaciones con vectores</h2>
 <p>Los vectores también pueden interactuar entre ellos, así que podemos definir, por ejemplo, <span class="hl-yellow"><strong>sumas de vectores</strong></span> (elemento a elemento)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb116-2"><a href="#cb116-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
-<span id="cb116-3"><a href="#cb116-3"></a>x <span class="sc">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb148-2"><a href="#cb148-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb148-3"><a href="#cb148-3"></a>x <span class="sc">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  3  7 11</code></pre>
 </div>
@@ -1625,8 +1817,8 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb118-2"><a href="#cb118-2"></a>x <span class="sc">+</span> z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb150-2"><a href="#cb150-2"></a>x <span class="sc">+</span> z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  3  7 11  9</code></pre>
 </div>
@@ -1639,11 +1831,11 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <p>Una operación muy habitual es <span class="hl-yellow"><strong>preguntar a los datos</strong></span> mediante el uso de <span class="hl-purple"><strong>condiciones lógicas</strong></span>. Por ejemplo, si definimos un vector de temperaturas…</p>
 <p><span class="hl-yellow"><strong>¿Qué días hizo menos de 22 grados?</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">31</span>, <span class="dv">27</span>, <span class="dv">15</span>, <span class="dv">29</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">31</span>, <span class="dv">27</span>, <span class="dv">15</span>, <span class="dv">29</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a>x <span class="sc">&lt;</span> <span class="dv">22</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1"></a>x <span class="sc">&lt;</span> <span class="dv">22</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
 </div>
@@ -1653,8 +1845,8 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="fragment">
 <p>Si tuviéramos un <span class="hl-yellow"><strong>dato ausente</strong></span> (por error del aparato ese día), la condición evaluada también sería <code>NA</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="cn">NA</span>, <span class="dv">31</span>, <span class="dv">27</span>, <span class="dv">7</span>, <span class="dv">29</span>, <span class="dv">10</span>)</span>
-<span id="cb123-2"><a href="#cb123-2"></a>y <span class="sc">&lt;</span> <span class="dv">22</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="cn">NA</span>, <span class="dv">31</span>, <span class="dv">27</span>, <span class="dv">7</span>, <span class="dv">29</span>, <span class="dv">10</span>)</span>
+<span id="cb155-2"><a href="#cb155-2"></a>y <span class="sc">&lt;</span> <span class="dv">22</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE  TRUE    NA FALSE FALSE  TRUE FALSE  TRUE</code></pre>
 </div>
@@ -1668,7 +1860,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li><span class="hl-yellow"><strong>Intersección</strong></span>: <span class="hl-purple"><strong>todas</strong></span> las condiciones concatenadas se deben cumplir (<span class="hl-purple"><strong>conjunción y</strong></span> con <code>&amp;</code>) para devolver un <code>TRUE</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a>x <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> x <span class="sc">&gt;</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a>x <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> x <span class="sc">&gt;</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
 </div>
@@ -1677,7 +1869,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li><span class="hl-yellow"><strong>Unión</strong></span>: basta con que <span class="hl-purple"><strong>al menos una</strong></span> se cumpla (<span class="hl-purple"><strong>conjunción o</strong></span> con <code>|</code>)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1"></a>x <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">|</span> x <span class="sc">&gt;</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1"></a>x <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">|</span> x <span class="sc">&gt;</span> <span class="dv">15</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
@@ -1685,11 +1877,11 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="fragment">
 <p>Con <code>any()</code> y <code>all()</code> podemos comprobar que <span class="hl-yellow"><strong>todos los elementos</strong></span> cumplen</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1"></a><span class="fu">any</span>(x <span class="sc">&lt;</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1"></a><span class="fu">any</span>(x <span class="sc">&lt;</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1"></a><span class="fu">all</span>(x <span class="sc">&lt;</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1"></a><span class="fu">all</span>(x <span class="sc">&lt;</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -1698,112 +1890,25 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </section>
 <section id="operaciones-con-vectores-4" class="slide level2">
 <h2>Operaciones con vectores</h2>
-<p>También podemos hacer uso de <span class="hl-yellow"><strong>operaciones estadísticas</strong></span> como por ejemplo <code>sum()</code> que, dado un vector, nos devuelve la suma de todos sus elementos.</p>
+<p>Otra operación muy habitual es la de <span class="hl-yellow"><strong>acceder a elementos</strong></span>. La forma más sencilla es usar el operador <code>[i]</code> (acceder al elemento i-ésimo)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb133-2"><a href="#cb133-2"></a><span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-<p><span class="hl-yellow"><strong>¿Qué sucede cuando falta un dato (ausente)?</strong></span></p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb135-2"><a href="#cb135-2"></a><span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] NA</code></pre>
-</div>
-</div>
-<p>Por defecto, si tenemos un dato ausente, la <span class="hl-yellow"><strong>operación también será ausente</strong></span>. Para poder <span class="hl-purple"><strong>obviar ese dato</strong></span>, usamos un argumento opcional <code>na.rm = TRUE</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1"></a><span class="fu">sum</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="operaciones-con-vectores-5" class="slide level2">
-<h2>Operaciones con vectores</h2>
-<p>Como hemos comentado que los valores lógicos son guardados internamente como 0 y 1, podremos usarlos en operaciones aritméticas.</p>
-<p>&nbsp;</p>
-<p>Por ejemplo, si queremos <span class="hl-yellow"><strong>averiguar el número de elementos que cumplen una condición</strong></span> (por ejemplo, menores que 3), los que lo hagan tendrán asignado un 1 (<code>TRUE</code>) y los que no un 0 (<code>FALSE</code>) , por lo que basta con sumar dicho vector lógico para obtener el número de elementos que cumplen</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb139-2"><a href="#cb139-2"></a><span class="fu">sum</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-</section>
-<section id="operaciones-con-vectores-6" class="slide level2">
-<h2>Operaciones con vectores</h2>
-<p>Otras operaciones habituales son la <span class="hl-yellow"><strong>media</strong></span>, <span class="hl-yellow"><strong>mediana</strong></span>, <span class="hl-yellow"><strong>percentiles</strong></span>, etc.</p>
-<p>&nbsp;</p>
-<ul>
-<li><span class="hl-yellow"><strong>Media</strong></span>: medida de centralidad que consiste en sumar todos los elementos y dividirlos entre la cantidad de elementos sumados. La más conocida pero la <span class="hl-red"><strong>menos robusta</strong></span>: dado un conjunto, si se introducen valores atípicos o outliers (valores muy grandes o muy pequeños), la media se perturba con mucha facilidad.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">181</span>, <span class="dv">191</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">167</span>, <span class="cn">NA</span>, <span class="dv">173</span>, <span class="dv">177</span>)</span>
-<span id="cb141-2"><a href="#cb141-2"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 169.8889</code></pre>
-</div>
-</div>
-</section>
-<section id="operaciones-con-vectores-7" class="slide level2">
-<h2>Operaciones con vectores</h2>
-<p>Otras operaciones habituales son la <span class="hl-yellow"><strong>media</strong></span>, <span class="hl-yellow"><strong>mediana</strong></span>, <span class="hl-yellow"><strong>percentiles</strong></span>, etc.</p>
-<p>&nbsp;</p>
-<ul>
-<li><span class="hl-yellow"><strong>Mediana</strong></span>: medida de centralidad que consiste en ordenar los elementos y quedarse con el que ocupa la mitad.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">181</span>, <span class="dv">191</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">167</span>, <span class="dv">173</span>, <span class="dv">177</span>)</span>
-<span id="cb143-2"><a href="#cb143-2"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 170</code></pre>
-</div>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="hl-yellow"><strong>Percentiles</strong></span>: medidas de posición (nos dividen en partes iguales los datos).</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="fu">quantile</span>(x) <span class="co"># por defecto percentiles 0-25-50-75-100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  0%  25%  50%  75% 100% 
- 150  165  170  177  191 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1"></a><span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  10%   40%   90% 
-154.0 167.6 183.0 </code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="operaciones-con-vectores-8" class="slide level2">
-<h2>Operaciones con vectores</h2>
-<p>Otra operación muy habitual es la de <span class="hl-yellow"><strong>acceder a elementos</strong></span> del mismo. La forma más sencilla es usar el operador <code>[i]</code> (acceder al elemento i-ésimo)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">33</span>, <span class="cn">NA</span>, <span class="dv">61</span>) </span>
-<span id="cb149-2"><a href="#cb149-2"></a>edades[<span class="dv">3</span>] <span class="co"># accedemos a la edad de la tercera persona </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">33</span>, <span class="cn">NA</span>, <span class="dv">61</span>) </span>
+<span id="cb165-2"><a href="#cb165-2"></a>edades[<span class="dv">3</span>] <span class="co"># accedemos a la edad de la tercera persona </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 33</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>&nbsp;</p>
 <p>Dado que un número no es más que un vector de longitud uno, esta operación también la podemos aplicar usando un <span class="hl-yellow"><strong>vector de índices a seleccionar</strong></span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hola"</span>, <span class="st">"qué"</span>, <span class="st">"tal"</span>, <span class="st">"estás"</span>, <span class="st">"?"</span>)</span>
-<span id="cb151-2"><a href="#cb151-2"></a>y[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span>)] <span class="co"># primer, segundo y cuarto elemento</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hola"</span>, <span class="st">"qué"</span>, <span class="st">"tal"</span>, <span class="st">"estás"</span>, <span class="st">"?"</span>)</span>
+<span id="cb167-2"><a href="#cb167-2"></a>y[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span>)] <span class="co"># primer, segundo y cuarto elemento</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "hola"  "qué"   "estás"</code></pre>
 </div>
 </div>
+</div>
+<div class="fragment">
 <div class="callout callout-tip callout-captioned callout-style-default">
 <div class="callout-body">
 <div class="callout-caption">
@@ -1813,34 +1918,234 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Para acceder al último, sin preocuparnos de cuál, podemos pasarle como índice la longitud <code>x[length(x)]</code></p>
+<p>Para acceder al último, sin preocuparnos de cuál es, podemos pasarle como índice la propia longitud <code>x[length(x)]</code></p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="operaciones-con-vectores-9" class="slide level2">
+<section id="operaciones-con-vectores-5" class="slide level2">
 <h2>Operaciones con vectores</h2>
 <p>Otras veces no querremos seleccionar sino <span class="hl-yellow"><strong>eliminar algunos elementos</strong></span>. Deberemos repetir la misma operación pero con el signo - delante: el operador <code>[-i]</code> no selecciona el elemento i-ésimo del vector sino que lo «des-selecciona»</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "hola"  "qué"   "tal"   "estás" "?"    </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a>y[<span class="sc">-</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a>y[<span class="sc">-</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "hola"  "tal"   "estás" "?"    </code></pre>
 </div>
 </div>
-<p>&nbsp;</p>
 <div class="fragment">
 <p>En muchas ocasiones los queremos <span class="hl-yellow"><strong>seleccionar o eliminar en base a condiciones lógicas</strong></span>, en función de los valores, así que pasaremos como índice la propia condición (recuerda, <code>x &lt; 2</code> nos devuelve un vector lógico)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">21</span>, <span class="dv">30</span>, <span class="dv">17</span>, <span class="dv">45</span>)</span>
-<span id="cb157-2"><a href="#cb157-2"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"javi"</span>, <span class="st">"maría"</span>, <span class="st">"laura"</span>, <span class="st">"carla"</span>, <span class="st">"luis"</span>)</span>
-<span id="cb157-3"><a href="#cb157-3"></a>nombres[edades <span class="sc">&lt;</span> <span class="dv">18</span>] <span class="co"># nombres de los menores de edad</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">21</span>, <span class="dv">30</span>, <span class="dv">17</span>, <span class="dv">45</span>)</span>
+<span id="cb173-2"><a href="#cb173-2"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"javi"</span>, <span class="st">"maría"</span>, <span class="st">"laura"</span>, <span class="st">"carla"</span>, <span class="st">"luis"</span>)</span>
+<span id="cb173-3"><a href="#cb173-3"></a>nombres[edades <span class="sc">&lt;</span> <span class="dv">18</span>] <span class="co"># nombres de los menores de edad</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "javi"  "carla"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tu-turno-2" class="slide level2">
+<h2>💻 Tu turno</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-3-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-3-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-3-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-3-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-3-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li><li><a href="#tabset-3-7"><span class="hl-yellow"><strong>Ejercicio 7</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p>📝 Define el vector <code>x</code> como la concatenación de los 5 primeros números impares. Calcula la longitud del vector</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1"></a><span class="co"># Dos formas</span></span>
+<span id="cb175-2"><a href="#cb175-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span>
+<span id="cb175-3"><a href="#cb175-3"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb175-4"><a href="#cb175-4"></a></span>
+<span id="cb175-5"><a href="#cb175-5"></a><span class="fu">length</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-2">
+<p>📝 Accede al tercer elemento. Accede al último elemento (sin importar la longitud, un código que pueda ejecutarse siempre). Elimina el primer elemento.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1"></a>x[<span class="dv">3</span>]</span>
+<span id="cb176-2"><a href="#cb176-2"></a>x[<span class="fu">length</span>(x)]</span>
+<span id="cb176-3"><a href="#cb176-3"></a>x[<span class="sc">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-3">
+<p>📝 Obtén de dicho vector los elementos de <code>x</code> mayores que 4. Calcula el vector <code>1/x</code> y guárdalo en una variable.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">4</span>]</span>
+<span id="cb177-2"><a href="#cb177-2"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>x</span>
+<span id="cb177-3"><a href="#cb177-3"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-4">
+<p>📝 Crea un vector que represente los nombres de 5 personas, de los cuales uno es desconocido.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Javi"</span>, <span class="st">"Sandra"</span>, <span class="cn">NA</span>, <span class="st">"Laura"</span>, <span class="st">"Carlos"</span>)</span>
+<span id="cb178-2"><a href="#cb178-2"></a>nombres</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-5">
+<p>📝 Encuentra del vector <code>x</code> de ejercicios anteriores los elementos mayores (estrictos) que 1 Y ADEMÁS menores (estrictos) que 7. Encuentra una forma de averiguar si todos los elementos son o no positivos.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">7</span>]</span>
+<span id="cb179-2"><a href="#cb179-2"></a><span class="fu">all</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-6">
+<p>📝 Dado el vector <code>x &lt;- c(1, -5, 8, NA, 10, -3, 9)</code>, extrae los elementos que ocupan los lugares 1, 2, 5, 6. Elimina del vector el segundo elemento. Tras eliminarlo determina su suma y su media</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb180"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href="#cb180-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">9</span>)</span>
+<span id="cb180-2"><a href="#cb180-2"></a>x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>)]</span>
+<span id="cb180-3"><a href="#cb180-3"></a>x[<span class="sc">-</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-7">
+<p>📝 Dado el vector del ejercicio anterior, ¿cuales tienen un dato ausente? Pista: las funciones <code>is.algo()</code> comprueban si el elemento es tipo <code>algo</code>. Busca en internet como comprobar que un dato es ausente o escribe <code>is.</code> en consola y tabula.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1"></a><span class="fu">is.na</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="caso-práctico" class="slide level2">
+<h2>🐣 Caso práctico</h2>
+<p>En el paquete <code>{datasets}</code> tenemos diversos conjuntos de datos y uno de ellos es <code>airquality</code>. Debajo te he extraído 3 variables de dicho dataset</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb182"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1"></a>temperature <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
+<span id="cb182-2"><a href="#cb182-2"></a>month <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Month</span>
+<span id="cb182-3"><a href="#cb182-3"></a>day <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Day</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>¿Qué <span class="hl-yellow"><strong>representan los datos</strong></span>? ¿Cómo averiguarlo?</li>
+</ol>
+<div class="fragment">
+<ol start="2" type="1">
+<li>¿Cuántos <span class="hl-yellow"><strong>registros tenemos de mayo</strong></span>? ¿Y de abril? Construye una nueva variable <code>date</code> con la <span class="hl-yellow"><strong>fecha</strong></span> de cada registro (combinando año, mes y día). Echa un vistazo a la chuleta de <code>{lubridate}</code>.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Crea una nueva variable <code>temp_celsius</code> con la <span class="hl-yellow"><strong>temperatura en ºC</strong></span> (está en Fahrenheit)</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li>Selecciona de <code>day</code> los días en los que la <span class="hl-yellow"><strong>temperatura superó los 30 grados</strong></span></li>
+</ol>
+</div>
+</section></section>
+<section>
+<section id="clase-3-vectores-I" class="title-slide slide level1 center">
+<h1>Clase 3: primeras operaciones con vectores</h1>
+<p><span style="color:#444442;"><strong>Primeras operaciones con vectores. Variables de tipo texto y fecha</strong></span></p>
+</section>
+<section id="operaciones-con-vectores-6" class="slide level2">
+<h2>Operaciones con vectores</h2>
+<p>También podemos hacer uso de <span class="hl-yellow"><strong>operaciones estadísticas</strong></span> como por ejemplo <code>sum()</code> que, dado un vector, nos devuelve la suma de todos sus elementos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb183-2"><a href="#cb183-2"></a><span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p><span class="hl-yellow"><strong>¿Qué sucede cuando falta un dato (ausente)?</strong></span></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb185-2"><a href="#cb185-2"></a><span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>Por defecto, si tenemos un dato ausente, la <span class="hl-yellow"><strong>operación también será ausente</strong></span>. Para poder <span class="hl-purple"><strong>obviar ese dato</strong></span>, usamos un argumento opcional <code>na.rm = TRUE</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1"></a><span class="fu">sum</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="operaciones-con-vectores-7" class="slide level2">
+<h2>Operaciones con vectores</h2>
+<p>Como hemos comentado que los valores lógicos son guardados internamente como 0 y 1, podremos usarlos en operaciones aritméticas.</p>
+<p>Por ejemplo, si queremos <span class="hl-yellow"><strong>averiguar el número de elementos que cumplen una condición</strong></span> (por ejemplo, menores que 3), los que lo hagan tendrán asignado un 1 (<code>TRUE</code>) y los que no un 0 (<code>FALSE</code>) , por lo que basta con sumar dicho vector lógico para obtener el número de elementos que cumplen</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb189-2"><a href="#cb189-2"></a><span class="fu">sum</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="operaciones-con-vectores-8" class="slide level2">
+<h2>Operaciones con vectores</h2>
+<p>Otras operaciones habituales son la <span class="hl-yellow"><strong>media</strong></span>, <span class="hl-yellow"><strong>mediana</strong></span>, <span class="hl-yellow"><strong>percentiles</strong></span>, etc.</p>
+<ul>
+<li><span class="hl-yellow"><strong>Media</strong></span>: medida de centralidad que consiste en sumar todos los elementos y dividirlos entre la cantidad de elementos sumados. La más conocida pero la <span class="hl-red"><strong>menos robusta</strong></span>: dado un conjunto, si se introducen valores atípicos o outliers (valores muy grandes o muy pequeños), la media se perturba con mucha facilidad.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">181</span>, <span class="dv">191</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">167</span>, <span class="cn">NA</span>, <span class="dv">173</span>, <span class="dv">177</span>)</span>
+<span id="cb191-2"><a href="#cb191-2"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 169.8889</code></pre>
+</div>
+</div>
+</section>
+<section id="operaciones-con-vectores-9" class="slide level2">
+<h2>Operaciones con vectores</h2>
+<p>Otras operaciones habituales son la <span class="hl-yellow"><strong>media</strong></span>, <span class="hl-yellow"><strong>mediana</strong></span>, <span class="hl-yellow"><strong>percentiles</strong></span>, etc.</p>
+<ul>
+<li><span class="hl-yellow"><strong>Mediana</strong></span>: medida de centralidad que consiste en ordenar los elementos y quedarse con el que ocupa la mitad.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">181</span>, <span class="dv">191</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">167</span>, <span class="dv">173</span>, <span class="dv">177</span>)</span>
+<span id="cb193-2"><a href="#cb193-2"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 170</code></pre>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Percentiles</strong></span>: medidas de posición (nos dividen en partes iguales los datos).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a><span class="fu">quantile</span>(x) <span class="co"># por defecto percentiles 0-25-50-75-100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  0%  25%  50%  75% 100% 
+ 150  165  170  177  191 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1"></a><span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  10%   40%   90% 
+154.0 167.6 183.0 </code></pre>
 </div>
 </div>
 </div>
@@ -1852,12 +2157,12 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li><code>sort()</code>: devuelve el <span class="hl-yellow"><strong>vector ordenado</strong></span>. Por defecto de menor a mayor pero con <code>decreasing = TRUE</code> podemos cambiarlo</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">41</span>, <span class="dv">65</span>, <span class="dv">20</span>, <span class="dv">33</span>, <span class="dv">23</span>, <span class="dv">77</span>)</span>
-<span id="cb159-2"><a href="#cb159-2"></a><span class="fu">sort</span>(edades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">41</span>, <span class="dv">65</span>, <span class="dv">20</span>, <span class="dv">33</span>, <span class="dv">23</span>, <span class="dv">77</span>)</span>
+<span id="cb199-2"><a href="#cb199-2"></a><span class="fu">sort</span>(edades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  7 20 23 25 33 41 65 77 81</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1"></a><span class="fu">sort</span>(edades, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1"></a><span class="fu">sort</span>(edades, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 81 77 65 41 33 25 23 20  7</code></pre>
 </div>
@@ -1867,121 +2172,95 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li><code>order()</code>: devuelve el <span class="hl-yellow"><strong>vector de índices</strong></span> que tendríamos que usar para tener el vector ordenado</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1"></a><span class="fu">order</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1"></a><span class="fu">order</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 6 1 7 2 8 9 3 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1"></a>x[<span class="fu">order</span>(x)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1"></a>x[<span class="fu">order</span>(x)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 150 155 165 167 170 173 177 181 191</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="tu-turno-2" class="slide level2">
+<section id="tu-turno-3" class="slide level2">
 <h2>💻 Tu turno</h2>
 <p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-3-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-3-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-3-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-3-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-3-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-4-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-4-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-4-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-4-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-4-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1">
-<p>📝 Define el vector <code>x</code> como la concatenación de los 5 primeros números impares, y calcula su suma.</p>
+<div id="tabset-4-1">
+<p>📝 Define el vector <code>x</code> como la concatenación de los 4 primeros números pares, y calcula su suma.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1"></a><span class="co"># Dos formas</span></span>
-<span id="cb167-2"><a href="#cb167-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span>
-<span id="cb167-3"><a href="#cb167-3"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
-<span id="cb167-4"><a href="#cb167-4"></a></span>
-<span id="cb167-5"><a href="#cb167-5"></a><span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1"></a><span class="co"># Dos formas</span></span>
+<span id="cb207-2"><a href="#cb207-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb207-3"><a href="#cb207-3"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">8</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb207-4"><a href="#cb207-4"></a></span>
+<span id="cb207-5"><a href="#cb207-5"></a><span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
-<div id="tabset-3-2">
-<p>📝 Obtén los elementos de <code>x</code> mayores que 4. Calcula el número de elementos de <code>x</code> mayores que 4.</p>
+<div id="tabset-4-2">
+<p>📝 Obtén los elementos de <code>x</code> menores estrictamente que 5. Calcula el número de elementos de <code>x</code> menores estrictamente que 5.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">4</span>]</span>
-<span id="cb168-2"><a href="#cb168-2"></a><span class="fu">sum</span>(x <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb208-1"><a href="#cb208-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">4</span>]</span>
+<span id="cb208-2"><a href="#cb208-2"></a><span class="fu">sum</span>(x <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
-<div id="tabset-3-3">
-<p>📝 Calcula el vector <code>1/x</code> y obtén la versión ordenada (de menor a mayor).</p>
+<div id="tabset-4-3">
+<p>📝 Calcula el vector <code>1/x</code> y obtén la versión ordenada (de menor a mayor) de las dos formas posibles</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>x</span>
-<span id="cb169-2"><a href="#cb169-2"></a><span class="fu">sort</span>(z)</span>
-<span id="cb169-3"><a href="#cb169-3"></a>z[<span class="fu">order</span>(z)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>x</span>
+<span id="cb209-2"><a href="#cb209-2"></a><span class="fu">sort</span>(z)</span>
+<span id="cb209-3"><a href="#cb209-3"></a>z[<span class="fu">order</span>(z)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
-<div id="tabset-3-4">
+<div id="tabset-4-4">
 <p>📝 Encuentra el máximo y el mínimo del vector <code>x</code></p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1"></a><span class="fu">min</span>(x)</span>
-<span id="cb170-2"><a href="#cb170-2"></a><span class="fu">max</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb210-1"><a href="#cb210-1"></a><span class="fu">min</span>(x)</span>
+<span id="cb210-2"><a href="#cb210-2"></a><span class="fu">max</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
-<div id="tabset-3-5">
-<p>📝 Encuentra del vector <code>x</code> los elementos mayores (estrictos) que 1 y menores (estrictos) que 7. Encuentra una forma de averiguar si todos los elementos son o no positivos.</p>
+<div id="tabset-4-5">
+<p>📝 Encuentra del vector <code>x</code> los elementos mayores (estrictos) que 1 y menores (estrictos) que 6. Encuentra una forma de averiguar si todos los elementos son o no negativos.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">7</span>]</span>
-<span id="cb171-2"><a href="#cb171-2"></a><span class="fu">all</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">7</span>]</span>
+<span id="cb211-2"><a href="#cb211-2"></a><span class="fu">all</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
-<div id="tabset-3-6">
-<p>📝 Dado el vector <code>x &lt;- c(1, -5, 8, NA, 10, -3, 9)</code>, extrae los elementos que ocupan los lugares 1, 2, 5, 6. Elimina del vector el segundo elemento. Tras eliminarlo determina su suma y su media</p>
+<div id="tabset-4-6">
+<p>📝 Dado el vector <code>x &lt;- c(1, -5, 8, NA, 10, -3, 9)</code>, calcula su suma y su media de forma que devuelva un valor numérico conocido.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">9</span>)</span>
-<span id="cb172-2"><a href="#cb172-2"></a>x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>)]</span>
-<span id="cb172-3"><a href="#cb172-3"></a>y <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="dv">2</span>]</span>
-<span id="cb172-4"><a href="#cb172-4"></a><span class="fu">sum</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb172-5"><a href="#cb172-5"></a><span class="fu">mean</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb212"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb212-1"><a href="#cb212-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">9</span>)</span>
+<span id="cb212-2"><a href="#cb212-2"></a><span class="fu">sum</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb212-3"><a href="#cb212-3"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="caso-práctico" class="slide level2">
-<h2>🐣 Caso práctico</h2>
-<p>En el paquete <code>{datasets}</code> tenemos diversos conjuntos de datos y uno de ellos es <code>airquality</code>. Debajo te he extraído 3 variables de dicho dataset</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1"></a>temperature <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
-<span id="cb173-2"><a href="#cb173-2"></a>month <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Month</span>
-<span id="cb173-3"><a href="#cb173-3"></a>day <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Day</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>¿Qué <span class="hl-yellow"><strong>representan los datos</strong></span>? ¿Cómo averiguarlo?</li>
-</ol>
-<div class="fragment">
-<ol start="2" type="1">
-<li>¿Cuántos <span class="hl-yellow"><strong>registros tenemos de mayo</strong></span>? ¿Y de abril? Construye una nueva variable <code>date</code> con la <span class="hl-yellow"><strong>fecha</strong></span> de cada registro (combinando año, mes y día)</li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="3" type="1">
-<li>Crea una nueva variable <code>temp_celsius</code> con la <span class="hl-yellow"><strong>temperatura en ºC</strong></span></li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="4" type="1">
-<li>¿Cuál fue la <span class="hl-yellow"><strong>media de temperatura</strong></span> del mes de agosto? Extrae los días en los que la <span class="hl-yellow"><strong>temperatura superó los 30 grados</strong></span> y calcula la cantidad de días en los que lo hizo.</li>
-</ol>
+<section class="slide level2">
+
 <div class="footer footer-default">
 <p><a href="..."><strong>Javier Álvarez Liébana</strong></a> • Grado en Ciencia de Datos Aplicada (UCM) • curso 2023-2024</p>
-</div>
 </div>
 </section></section>
     </div>
