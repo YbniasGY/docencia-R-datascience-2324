@@ -88,7 +88,7 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 
 . . .
 
--   [**Evaluación**]{.hl-yellow}. A lo largo del curso se han planteado [**4 entregas individuales**]{.hl-purple}, así como una [**entrega final grupal**]{.hl-purple} (entre 2 y 4 personas) donde se deberá presentar el análisis realizado de un caso real.
+-   [**Evaluación**]{.hl-yellow}. A lo largo del curso se han planteado [**5 entregas individuales**]{.hl-purple}, así como una [**entrega final grupal**]{.hl-purple} (entre 2 y 4 personas) donde se deberá presentar el análisis realizado de un caso real.
 
 . . .
 
