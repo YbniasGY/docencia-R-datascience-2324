@@ -503,7 +503,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <td style="text-align: center;"><a href="#/clase-2-primeros-datos">2</a></td>
 <td style="text-align: center;">S1</td>
 <td style="text-align: center;">15 sep</td>
-<td style="text-align: center;">Tipos básicos de datos</td>
+<td style="text-align: center;">Tipos básicos de datos y vectores</td>
 <td style="text-align: center;"><a href="https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts">📝</a></td>
 <td style="text-align: center;"><a href="#/tu-turno-1">💻</a> <a href="#/tu-turno-2">💻</a></td>
 <td style="text-align: center;"><a href="#/caso-práctico">🐣</a></td>
@@ -512,13 +512,25 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><a href="#/clase-3-vectores-I">3</a></td>
+<td style="text-align: center;"><a href="#/clase-3">3</a></td>
 <td style="text-align: center;">S2</td>
 <td style="text-align: center;">19 sep</td>
-<td style="text-align: center;">Operaciones con vectores</td>
+<td style="text-align: center;">Primeras bases de datos</td>
 <td style="text-align: center;"><a href="https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts">📝</a></td>
-<td style="text-align: center;"><a href="#/tu-turno-3">💻</a></td>
-<td style="text-align: center;"><a href="#/caso-práctico">🐣</a></td>
+<td style="text-align: center;"><a href="#/tu-turno-3">💻</a> <a href="#/tu-turno-matrices">💻</a> <a href="#/tu-turno-tibble">💻</a></td>
+<td style="text-align: center;"><a href="#/caso-práctico-1">🐣</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><a href="#/clase-4">4</a></td>
+<td style="text-align: center;">S2</td>
+<td style="text-align: center;">19 sep</td>
+<td style="text-align: center;">Comunicar y elaborar informes/entregas</td>
+<td style="text-align: center;"><a href="https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts">📝</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="#/caso-práctico-3a">🐣</a></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -992,7 +1004,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </section></section>
 <section>
 <section id="clase-2-primeros-datos" class="title-slide slide level1 center">
-<h1>Clase 2: primeros datos</h1>
+<h1>Clase 2: primeros datos y vectores</h1>
 <p><span style="color:#444442;"><strong>¿Qué tipos de celdas (datos) existen? Concatenando celdas: vectores</strong></span></p>
 </section>
 <section id="de-la-celda-a-la-tabla" class="slide level2">
@@ -1459,7 +1471,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-09-12"</code></pre>
+<pre><code>[1] "2023-09-17"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1469,7 +1481,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-09-12 18:23:42 CEST"</code></pre>
+<pre><code>[1] "2023-09-17 21:46:22 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -2059,11 +2071,6 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li>Selecciona de <code>day</code> los días en los que la <span class="hl-yellow"><strong>temperatura superó los 30 grados</strong></span></li>
 </ol>
 </div>
-</section></section>
-<section>
-<section id="clase-3-vectores-I" class="title-slide slide level1 center">
-<h1>Clase 3: primeras operaciones con vectores</h1>
-<p><span style="color:#444442;"><strong>Primeras operaciones con vectores. Variables de tipo texto y fecha</strong></span></p>
 </section>
 <section id="operaciones-con-vectores-6" class="slide level2">
 <h2>Operaciones con vectores</h2>
@@ -2107,27 +2114,70 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </section>
 <section id="operaciones-con-vectores-8" class="slide level2">
 <h2>Operaciones con vectores</h2>
+<p>Otra operación habitual que puede sernos útil es la <span class="hl-yellow"><strong>suma acumulada</strong></span> con <code>cumsum()</code> que, dado un vector, nos devuelve un vector a su vez con el primero, el primero más el segundo, el primero más el segundo más el tercero…y así sucesivamente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">8</span>)</span>
+<span id="cb191-2"><a href="#cb191-2"></a><span class="fu">cumsum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  6  8  7 15</code></pre>
+</div>
+</div>
+<p><span class="hl-yellow"><strong>¿Qué sucede cuando falta un dato (ausente)?</strong></span></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb193-2"><a href="#cb193-2"></a><span class="fu">cumsum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 -1  2 NA NA</code></pre>
+</div>
+</div>
+<p>En el caso de la suma acumulada lo que sucede es que <span class="hl-yellow"><strong>a partir de ese valor, todo lo acumulado posterior será ausente</strong></span>.</p>
+</div>
+</section>
+<section id="operaciones-con-vectores-9" class="slide level2">
+<h2>Operaciones con vectores</h2>
+<p>Otra operación habitual que puede sernos útil es la <span class="hl-yellow"><strong>diferencia (con retardo)</strong></span> con <code>diff()</code> que, dado un vector, nos devuelve un vector con el segundo menos el primero, el tercero menos el segundo, el cuarto menos el tercero…y así sucesivamente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb195-2"><a href="#cb195-2"></a><span class="fu">diff</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  7 -3 -2  6 -9 -1  6</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Con el argumento <code>lag =</code> podemos indicar el <span class="hl-yellow"><strong>retardo</strong></span> de dicha diferencia (por ejemplo, <code>lag = 3</code> implica que se resta el cuarto menos el primero, el quinto menos el segundo, etc)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">9</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb197-2"><a href="#cb197-2"></a><span class="fu">diff</span>(x, <span class="at">lag =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2  1 -5 -4 -4</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="operaciones-con-vectores-10" class="slide level2">
+<h2>Operaciones con vectores</h2>
 <p>Otras operaciones habituales son la <span class="hl-yellow"><strong>media</strong></span>, <span class="hl-yellow"><strong>mediana</strong></span>, <span class="hl-yellow"><strong>percentiles</strong></span>, etc.</p>
 <ul>
 <li><span class="hl-yellow"><strong>Media</strong></span>: medida de centralidad que consiste en sumar todos los elementos y dividirlos entre la cantidad de elementos sumados. La más conocida pero la <span class="hl-red"><strong>menos robusta</strong></span>: dado un conjunto, si se introducen valores atípicos o outliers (valores muy grandes o muy pequeños), la media se perturba con mucha facilidad.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">181</span>, <span class="dv">191</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">167</span>, <span class="cn">NA</span>, <span class="dv">173</span>, <span class="dv">177</span>)</span>
-<span id="cb191-2"><a href="#cb191-2"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">181</span>, <span class="dv">191</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">167</span>, <span class="cn">NA</span>, <span class="dv">173</span>, <span class="dv">177</span>)</span>
+<span id="cb199-2"><a href="#cb199-2"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 169.8889</code></pre>
 </div>
 </div>
 </section>
-<section id="operaciones-con-vectores-9" class="slide level2">
+<section id="operaciones-con-vectores-11" class="slide level2">
 <h2>Operaciones con vectores</h2>
 <p>Otras operaciones habituales son la <span class="hl-yellow"><strong>media</strong></span>, <span class="hl-yellow"><strong>mediana</strong></span>, <span class="hl-yellow"><strong>percentiles</strong></span>, etc.</p>
 <ul>
 <li><span class="hl-yellow"><strong>Mediana</strong></span>: medida de centralidad que consiste en ordenar los elementos y quedarse con el que ocupa la mitad.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">181</span>, <span class="dv">191</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">167</span>, <span class="dv">173</span>, <span class="dv">177</span>)</span>
-<span id="cb193-2"><a href="#cb193-2"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">181</span>, <span class="dv">191</span>, <span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">167</span>, <span class="dv">173</span>, <span class="dv">177</span>)</span>
+<span id="cb201-2"><a href="#cb201-2"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 170</code></pre>
 </div>
@@ -2137,32 +2187,37 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li><span class="hl-yellow"><strong>Percentiles</strong></span>: medidas de posición (nos dividen en partes iguales los datos).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a><span class="fu">quantile</span>(x) <span class="co"># por defecto percentiles 0-25-50-75-100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1"></a><span class="fu">quantile</span>(x) <span class="co"># por defecto percentiles 0-25-50-75-100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  0%  25%  50%  75% 100% 
  150  165  170  177  191 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1"></a><span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1"></a><span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  10%   40%   90% 
 154.0 167.6 183.0 </code></pre>
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="clase-3" class="title-slide slide level1 center">
+<h1>Clase 3: primeras bases de datos</h1>
+<p><span style="color:#444442;"><strong>Variables de tipo texto. Primeras bases de datos</strong></span></p>
 </section>
-<section id="operaciones-con-vectores-10" class="slide level2">
-<h2>Operaciones con vectores</h2>
+<section id="última-operación-ordenar" class="slide level2">
+<h2>Última operación: ordenar</h2>
 <p>Por último, una acción habitual es saber <span class="hl-yellow"><strong>ordenar valores</strong></span>:</p>
 <ul>
 <li><code>sort()</code>: devuelve el <span class="hl-yellow"><strong>vector ordenado</strong></span>. Por defecto de menor a mayor pero con <code>decreasing = TRUE</code> podemos cambiarlo</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">41</span>, <span class="dv">65</span>, <span class="dv">20</span>, <span class="dv">33</span>, <span class="dv">23</span>, <span class="dv">77</span>)</span>
-<span id="cb199-2"><a href="#cb199-2"></a><span class="fu">sort</span>(edades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">41</span>, <span class="dv">65</span>, <span class="dv">20</span>, <span class="dv">33</span>, <span class="dv">23</span>, <span class="dv">77</span>)</span>
+<span id="cb207-2"><a href="#cb207-2"></a><span class="fu">sort</span>(edades)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  7 20 23 25 33 41 65 77 81</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1"></a><span class="fu">sort</span>(edades, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1"></a><span class="fu">sort</span>(edades, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 81 77 65 41 33 25 23 20  7</code></pre>
 </div>
@@ -2172,11 +2227,11 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <li><code>order()</code>: devuelve el <span class="hl-yellow"><strong>vector de índices</strong></span> que tendríamos que usar para tener el vector ordenado</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1"></a><span class="fu">order</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1"></a><span class="fu">order</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 6 1 7 2 8 9 3 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1"></a>x[<span class="fu">order</span>(x)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1"></a>x[<span class="fu">order</span>(x)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 150 155 165 167 170 173 177 181 191</code></pre>
 </div>
@@ -2194,11 +2249,11 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1"></a><span class="co"># Dos formas</span></span>
-<span id="cb207-2"><a href="#cb207-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
-<span id="cb207-3"><a href="#cb207-3"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">8</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
-<span id="cb207-4"><a href="#cb207-4"></a></span>
-<span id="cb207-5"><a href="#cb207-5"></a><span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1"></a><span class="co"># Dos formas</span></span>
+<span id="cb215-2"><a href="#cb215-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb215-3"><a href="#cb215-3"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">8</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb215-4"><a href="#cb215-4"></a></span>
+<span id="cb215-5"><a href="#cb215-5"></a><span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -2207,8 +2262,8 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb208-1"><a href="#cb208-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">4</span>]</span>
-<span id="cb208-2"><a href="#cb208-2"></a><span class="fu">sum</span>(x <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb216"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb216-1"><a href="#cb216-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">4</span>]</span>
+<span id="cb216-2"><a href="#cb216-2"></a><span class="fu">sum</span>(x <span class="sc">&gt;</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -2217,9 +2272,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>x</span>
-<span id="cb209-2"><a href="#cb209-2"></a><span class="fu">sort</span>(z)</span>
-<span id="cb209-3"><a href="#cb209-3"></a>z[<span class="fu">order</span>(z)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb217"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href="#cb217-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>x</span>
+<span id="cb217-2"><a href="#cb217-2"></a><span class="fu">sort</span>(z)</span>
+<span id="cb217-3"><a href="#cb217-3"></a>z[<span class="fu">order</span>(z)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -2228,8 +2283,8 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb210-1"><a href="#cb210-1"></a><span class="fu">min</span>(x)</span>
-<span id="cb210-2"><a href="#cb210-2"></a><span class="fu">max</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb218"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb218-1"><a href="#cb218-1"></a><span class="fu">min</span>(x)</span>
+<span id="cb218-2"><a href="#cb218-2"></a><span class="fu">max</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -2238,8 +2293,8 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">7</span>]</span>
-<span id="cb211-2"><a href="#cb211-2"></a><span class="fu">all</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb219"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">7</span>]</span>
+<span id="cb219-2"><a href="#cb219-2"></a><span class="fu">all</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -2248,19 +2303,944 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb212"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb212-1"><a href="#cb212-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">9</span>)</span>
-<span id="cb212-2"><a href="#cb212-2"></a><span class="fu">sum</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb212-3"><a href="#cb212-3"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb220"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">8</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">9</span>)</span>
+<span id="cb220-2"><a href="#cb220-2"></a><span class="fu">sum</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb220-3"><a href="#cb220-3"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section class="slide level2">
+<section id="primera-base-de-datos-matrices" class="slide level2">
+<h2>Primera base de datos: matrices</h2>
+<p>Cuando analizamos datos solemos tener <span class="hl-yellow"><strong>varias variables</strong></span> de cada individuo: necesitamos una «tabla» que las recopile. La opción más inmediata son las <span class="hl-yellow"><strong>matrices</strong></span>: concatenación de variables del <span class="hl-purple"><strong>mismo tipo e igual longitud</strong></span>.</p>
+<div class="fragment">
+<p>Imagina que tenemos estaturas y pesos de 4 personas. ¿Cómo <span class="hl-yellow"><strong>crear un dataset con las dos variables</strong></span>?</p>
+<ul>
+<li>Con <code>cbind()</code> <span class="hl-yellow"><strong>concatenamos vectores en forma de columnas</strong></span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb221"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb221-1"><a href="#cb221-1"></a>estaturas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">180</span>)</span>
+<span id="cb221-2"><a href="#cb221-2"></a>pesos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">63</span>, <span class="dv">70</span>, <span class="dv">85</span>, <span class="dv">95</span>)</span>
+<span id="cb221-3"><a href="#cb221-3"></a>datos_matriz <span class="ot">&lt;-</span> <span class="fu">cbind</span>(estaturas, pesos)</span>
+<span id="cb221-4"><a href="#cb221-4"></a>datos_matriz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     estaturas pesos
+[1,]       150    63
+[2,]       160    70
+[3,]       170    85
+[4,]       180    95</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="primer-intento-matrices" class="slide level2">
+<h2>Primer intento: matrices</h2>
+<ul>
+<li>También podemos <span class="hl-yellow"><strong>construir la matriz por filas</strong></span> con la función <code>rbind()</code> (aunque lo recomendable es tener cada variable en columna e individuo en fila).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb223"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb223-1"><a href="#cb223-1"></a><span class="co"># Construimos la matriz por filas</span></span>
+<span id="cb223-2"><a href="#cb223-2"></a><span class="fu">rbind</span>(estaturas, pesos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1] [,2] [,3] [,4]
+estaturas  150  160  170  180
+pesos       63   70   85   95</code></pre>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>Podemos <span class="hl-yellow"><strong>visualizar la matriz</strong></span> con la función <code>View()</code>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Podemos <span class="hl-yellow"><strong>comprobar las dimensiones</strong></span> con <code>dim()</code>, <code>nrow()</code> y <code>ncol()</code>: nuestros datos están tabulados:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb225"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb225-1"><a href="#cb225-1"></a><span class="fu">dim</span>(datos_matriz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb227"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb227-1"><a href="#cb227-1"></a><span class="fu">nrow</span>(datos_matriz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="primer-intento-matrices-1" class="slide level2">
+<h2>Primer intento: matrices</h2>
+<ul>
+<li>También podemos <span class="hl-yellow"><strong>«darle vuelta» (matriz transpuesta)</strong></span> con <code>t()</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb229"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb229-1"><a href="#cb229-1"></a><span class="fu">t</span>(datos_matriz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1] [,2] [,3] [,4]
+estaturas  150  160  170  180
+pesos       63   70   85   95</code></pre>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>Dado que ahora tenemos dos dimensiones, para <span class="hl-yellow"><strong>acceder a elementos</strong></span> deberemos proporcionar el índice de la fila y de la columna (si quedan libres implica todos de esa dimensión)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb231"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb231-1"><a href="#cb231-1"></a>datos_matriz[<span class="dv">2</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>estaturas 
+      160 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb233-1"><a href="#cb233-1"></a>datos_matriz[, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 63 70 85 95</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="primer-intento-matrices-2" class="slide level2">
+<h2>Primer intento: matrices</h2>
+<ul>
+<li>También podemos definir una <span class="hl-yellow"><strong>matriz a partir de un vector numérico</strong></span>, reorganizando los valores en forma de matriz (sabiendo que los elementos se van <span class="hl-purple"><strong>colocando por columnas</strong></span>).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb235"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb235-1"><a href="#cb235-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">ncol =</span> <span class="dv">5</span>) </span>
+<span id="cb235-2"><a href="#cb235-2"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    4    7   10   13
+[2,]    2    5    8   11   14
+[3,]    3    6    9   12   15</code></pre>
+</div>
+</div>
+</section>
+<section id="primer-intento-matrices-3" class="slide level2">
+<h2>Primer intento: matrices</h2>
+<p>Con las matrices sucede como con los vectores: cuando aplicamos una <span class="hl-yellow"><strong>operación aritmética lo hacemos elemento a elemento</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb237"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb237-1"><a href="#cb237-1"></a>z<span class="sc">/</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]  0.2  0.8  1.4  2.0  2.6
+[2,]  0.4  1.0  1.6  2.2  2.8
+[3,]  0.6  1.2  1.8  2.4  3.0</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Para realizar <span class="hl-yellow"><strong>operaciones en un sentido matricial</strong></span> deberemos añadir <code>%%</code>, por ejemplo, para multiplicar matrices será <code>%*%</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb239"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb239-1"><a href="#cb239-1"></a>z <span class="sc">%*%</span> <span class="fu">t</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]  335  370  405
+[2,]  370  410  450
+[3,]  405  450  495</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="primer-intento-matrices-4" class="slide level2">
+<h2>Primer intento: matrices</h2>
+<p>También podemos <span class="hl-yellow"><strong>realizar operaciones por columnas/filas</strong></span> sin recurrir a bucles con la función <code>apply()</code>, y le indicaremos como <strong>argumentos</strong></p>
+<ul>
+<li>la matriz</li>
+<li>el sentido de la operación (MARGIN = 1 por filas, MARGIN = 2 por columnas)</li>
+<li>la función a aplicar</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb241"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb241-1"><a href="#cb241-1"></a><span class="co"># Media (mean) por columnas (MARGIN = 2)</span></span>
+<span id="cb241-2"><a href="#cb241-2"></a><span class="fu">apply</span>(datos_matriz, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>estaturas     pesos 
+   165.00     78.25 </code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb243"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb243-1"><a href="#cb243-1"></a><span class="co"># (Cuasi)varianza (var) por columnas (MARGIN = 2)</span></span>
+<span id="cb243-2"><a href="#cb243-2"></a><span class="fu">apply</span>(datos_matriz, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> <span class="st">"var"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>estaturas     pesos 
+ 166.6667  208.9167 </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tu-turno-matrices" class="slide level2">
+<h2>💻 Tu turno (matrices)</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-5-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-5-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-5-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<p>📝 Modifica el código para definir una matriz <code>x</code> de ceros de 3 filas y 7 columnas de unos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb245"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb245-1"><a href="#cb245-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb245-2"><a href="#cb245-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb246"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb246-1"><a href="#cb246-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">7</span>)</span>
+<span id="cb246-2"><a href="#cb246-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-5-2">
+<p>📝 A la matriz anterior, suma un 1 a cada número de la matriz y divide el resultado entre 5. Tras ello calcula su transpuesta y obtén sus dimensiones</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb247"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb247-1"><a href="#cb247-1"></a>new_matrix <span class="ot">&lt;-</span> (x <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">/</span><span class="dv">5</span></span>
+<span id="cb247-2"><a href="#cb247-2"></a><span class="fu">t</span>(new_matrix)</span>
+<span id="cb247-3"><a href="#cb247-3"></a><span class="fu">dim</span>(new_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-5-3">
+<p>📝 Define la matriz <code>x &lt;- matrix(1:12, nrow = 4)</code>. Obtén la primera fila, la tercera columna, y el elemento (4, 1).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb248"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb248-1"><a href="#cb248-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb248-2"><a href="#cb248-2"></a>x[<span class="dv">1</span>, ] <span class="co"># primera fila</span></span>
+<span id="cb248-3"><a href="#cb248-3"></a>x[, <span class="dv">3</span>] <span class="co"># tercera columna</span></span>
+<span id="cb248-4"><a href="#cb248-4"></a>x[<span class="dv">4</span>, <span class="dv">1</span>] <span class="co"># elemento (4, 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-5-4">
+<p>📝 Con la matriz anterior definida como <code>x &lt;- matrix(1:12, nrow = 4)</code>, calcula la media de todos los elementos, la media de cada fila y la media de cada columna. Calcula la suma de de cada fila y de cada columna</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb249"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb249-1"><a href="#cb249-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb249-2"><a href="#cb249-2"></a><span class="fu">mean</span>(x) <span class="co"># de todos</span></span>
+<span id="cb249-3"><a href="#cb249-3"></a><span class="fu">apply</span>(x, <span class="at">MARGIN =</span> <span class="dv">1</span>, <span class="at">FUN =</span> <span class="st">"mean"</span>) <span class="co"># media por filas</span></span>
+<span id="cb249-4"><a href="#cb249-4"></a><span class="fu">apply</span>(x, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> <span class="st">"mean"</span>) <span class="co"># media por columnas</span></span>
+<span id="cb249-5"><a href="#cb249-5"></a><span class="fu">apply</span>(x, <span class="at">MARGIN =</span> <span class="dv">1</span>, <span class="at">FUN =</span> <span class="st">"sum"</span>) <span class="co"># suma por filas</span></span>
+<span id="cb249-6"><a href="#cb249-6"></a><span class="fu">apply</span>(x, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> <span class="st">"sum"</span>) <span class="co"># suma por columnas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="segundo-intento-data.frame" class="slide level2">
+<h2>Segundo intento: data.frame</h2>
+<p>Las matrices tienen el mismo problema que los vectores: si juntamos datos de distinto tipo, se <span class="hl-red"><strong>perturba la integridad del dato</strong></span> ya que los convierte</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb250" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb250-1"><a href="#cb250-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">24</span>, <span class="cn">NA</span>)</span>
+<span id="cb250-2"><a href="#cb250-2"></a>soltero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">NA</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb250-3"><a href="#cb250-3"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"javi"</span>, <span class="st">"laura"</span>, <span class="st">"lucía"</span>)</span>
+<span id="cb250-4"><a href="#cb250-4"></a>matriz <span class="ot">&lt;-</span> <span class="fu">cbind</span>(edades, soltero, nombres)</span>
+<span id="cb250-5"><a href="#cb250-5"></a>matriz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     edades soltero nombres
+[1,] "14"   "TRUE"  "javi" 
+[2,] "24"   NA      "laura"
+[3,] NA     "FALSE" "lucía"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Al ya no ser números no podemos realizar operaciones aritméticas</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb252"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb252-1"><a href="#cb252-1"></a>matriz <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in matriz + 1: non-numeric argument to binary operator</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="segundo-intento-data.frame-1" class="slide level2">
+<h2>Segundo intento: data.frame</h2>
+<p>Para poder trabajar con <span class="hl-yellow"><strong>variables de distinto tipo</strong></span> tenemos lo que se conoce como <span class="hl-yellow"><strong>data.frame</strong></span>: concatenación de variables de igual longitud pero pueden ser de <span class="hl-purple"><strong>tipo distinto</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb254" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb254-1"><a href="#cb254-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(edades, soltero, nombres)</span>
+<span id="cb254-2"><a href="#cb254-2"></a><span class="fu">class</span>(tabla)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb256" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb256-1"><a href="#cb256-1"></a>tabla</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  edades soltero nombres
+1     14    TRUE    javi
+2     24      NA   laura
+3     NA   FALSE   lucía</code></pre>
+</div>
+</div>
+</section>
+<section id="segundo-intento-data.frame-2" class="slide level2">
+<h2>Segundo intento: data.frame</h2>
+<p>Dado que un <code>data.frame</code> es ya una «base de datos» las variables no son meros vectores matemáticos: <span class="hl-yellow"><strong>tienen un significado</strong></span> y podemos (debemos) <span class="hl-purple"><strong>ponerles nombres</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb258"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb258-1"><a href="#cb258-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb258-2"><a href="#cb258-2"></a>tabla <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"edad"</span> <span class="ot">=</span> edades, <span class="st">"estado"</span> <span class="ot">=</span> soltero, <span class="st">"nombre"</span> <span class="ot">=</span> nombres,</span>
+<span id="cb258-3"><a href="#cb258-3"></a>             <span class="st">"f_nacimiento"</span> <span class="ot">=</span> <span class="fu">as_date</span>(<span class="fu">c</span>(<span class="st">"1989-09-10"</span>, <span class="st">"1992-04-01"</span>, <span class="st">"1980-11-27"</span>)))</span>
+<span id="cb258-4"><a href="#cb258-4"></a>tabla</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  edad estado nombre f_nacimiento
+1   14   TRUE   javi   1989-09-10
+2   24     NA  laura   1992-04-01
+3   NA  FALSE  lucía   1980-11-27</code></pre>
+</div>
+</div>
+</section>
+<section id="segundo-intento-data.frame-3" class="slide level2">
+<h2>Segundo intento: data.frame</h2>
+<p><span class="hl-yellow"><strong>¡TENEMOS NUESTRO PRIMER CONJUNTO DE DATOS!</strong></span> Puedes visualizarlo escribiendo su nombre en consola o con <code>View(tabla)</code></p>
 
+<img data-src="img/view_tabla.jpg" class="r-stretch"></section>
+<section id="segundo-intento-data.frame-4" class="slide level2">
+<h2>Segundo intento: data.frame</h2>
+<p>Si queremos acceder a sus elementos, podemos como en las matrices (aunque no es recomendable): ahora <span class="hl-yellow"><strong>tenemos dos índices</strong></span> (filas y columnas, dejando libre la que no usemos)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb260"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb260-1"><a href="#cb260-1"></a>tabla[<span class="dv">2</span>, ]  <span class="co"># segunda fila (todas sus variables)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  edad estado nombre f_nacimiento
+2   24     NA  laura   1992-04-01</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb262"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb262-1"><a href="#cb262-1"></a>tabla[, <span class="dv">3</span>]  <span class="co"># tercera columna (de todos los individuos)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "javi"  "laura" "lucía"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb264"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb264-1"><a href="#cb264-1"></a>tabla[<span class="dv">2</span>, <span class="dv">1</span>]  <span class="co"># primera característica de la segunda persona</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><img data-src="img/menu_data_frame.jpg"></p>
+</div><div class="column" style="width:75%;">
+<p>También tiene ventajas de una <span class="hl-yellow"><strong>«base» de datos</strong></span> : podemos <span class="hl-purple"><strong>aceder a las variables por su nombre</strong></span> (<strong>recomendable</strong> ya que las variables pueden cambiar de posición), poniendo el nombre de la tabla seguido del símbolo <code>$</code> (con el <strong>tabulador</strong>, nos aparecerá un menú de columnas a elegir)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="segundo-intento-data.frame-5" class="slide level2">
+<h2>Segundo intento: data.frame</h2>
+<ul>
+<li><code>names()</code>: nos muestra los nombres de las variables</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb266"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb266-1"><a href="#cb266-1"></a><span class="fu">names</span>(tabla)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "edad"         "estado"       "nombre"       "f_nacimiento"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><code>dim()</code>: nos muestra las dimensiones (también <code>nrow()</code> y <code>ncol()</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb268"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb268-1"><a href="#cb268-1"></a><span class="fu">dim</span>(tabla)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3 4</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>Podemos acceder a las variables por su nombre</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb270"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb270-1"><a href="#cb270-1"></a>tabla[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="st">"nombre"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "javi"  "lucía"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="segundo-intento-data.frame-6" class="slide level2">
+<h2>Segundo intento: data.frame</h2>
+<p>Si tenemos uno ya creado y queremos <span class="hl-yellow"><strong>añadir una columna</strong></span> es tan simple como usar la función <code>data.frame()</code> que ya hemos visto para concatenar la columna. Vamos añadir por ejemplo una nueva variable, el número de hermanos de cada individuo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb272"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb272-1"><a href="#cb272-1"></a><span class="co"># Añadimos una nueva columna con nº de hermanos/as</span></span>
+<span id="cb272-2"><a href="#cb272-2"></a>hermanos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb272-3"><a href="#cb272-3"></a>tabla <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tabla, <span class="st">"n_hermanos"</span> <span class="ot">=</span> hermanos)</span>
+<span id="cb272-4"><a href="#cb272-4"></a>tabla</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  edad estado nombre f_nacimiento n_hermanos
+1   14   TRUE   javi   1989-09-10          0
+2   24     NA  laura   1992-04-01          2
+3   NA  FALSE  lucía   1980-11-27          3</code></pre>
+</div>
+</div>
+</section>
+<section id="intento-final-tibble" class="slide level2">
+<h2>Intento final: tibble</h2>
+<p>Las tablas en formato <code>data.frame</code> tienen algunas <span class="hl-red"><strong>limitaciones</strong></span></p>
+<p>La principal es que <span class="hl-red"><strong>no permite la recursividad</strong></span>: imagina que definimos una base de datos con estaturas y pesos, y queremos una tercera variable con el IMC</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb274"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb274-1"><a href="#cb274-1"></a><span class="fu">data.frame</span>(<span class="st">"estatura"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="fl">1.8</span>, <span class="fl">1.6</span>), <span class="st">"peso"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">70</span>),</span>
+<span id="cb274-2"><a href="#cb274-2"></a>           <span class="st">"IMC"</span> <span class="ot">=</span> peso <span class="sc">/</span> (estatura<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in data.frame(estatura = c(1.7, 1.8, 1.6), peso = c(80, 75, 70), : object 'peso' not found</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>&nbsp;</p>
+<p>De ahora en adelante usaremos el formato <code>tibble</code> (un <span class="hl-yellow"><strong>data.frame mejorado</strong></span>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb276"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb276-1"><a href="#cb276-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb276-2"><a href="#cb276-2"></a><span class="fu">tibble</span>(<span class="st">"estatura"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="fl">1.8</span>, <span class="fl">1.6</span>), <span class="st">"peso"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">70</span>),</span>
+<span id="cb276-3"><a href="#cb276-3"></a>       <span class="st">"IMC"</span> <span class="ot">=</span> peso <span class="sc">/</span> (estatura<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  estatura  peso   IMC
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1      1.7    80  27.7
+2      1.8    75  23.1
+3      1.6    70  27.3</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="intento-final-tibble-1" class="slide level2">
+<h2>Intento final: tibble</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb278"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb278-1"><a href="#cb278-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"estatura"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="fl">1.8</span>, <span class="fl">1.6</span>), <span class="st">"peso"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">70</span>),</span>
+<span id="cb278-2"><a href="#cb278-2"></a>                <span class="st">"IMC"</span> <span class="ot">=</span> peso <span class="sc">/</span> (estatura<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb278-3"><a href="#cb278-3"></a>tabla</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  estatura  peso   IMC
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1      1.7    80  27.7
+2      1.8    75  23.1
+3      1.6    70  27.3</code></pre>
+</div>
+</div>
+<p>Las tablas en formato <code>tibble</code> nos permitirá una <span class="hl-yellow"><strong>gestión más ágil, eficiente y coherente</strong></span> de los datos, con 4 ventajas principales:</p>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Metainformación</strong></span>: si te fijas en la cabecera, nos dice ya automáticamente el número de filas y columnas, y el tipo de cada variable</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Recursividad</strong></span>: permite definir las variables secuencialmente (como hemos visto)</li>
+</ul>
+</div>
+</section>
+<section id="intento-final-tibble-2" class="slide level2">
+<h2>Intento final: tibble</h2>
+<ul>
+<li><span class="hl-yellow"><strong>Consistencia</strong></span>: si accedes a una columna que no existe avisa con un warning</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb280"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb280-1"><a href="#cb280-1"></a>tabla<span class="sc">$</span>invent</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `invent`.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Por filas</strong></span>: crear por filas (copiar y pegar de una tabla) con <code>tribble()</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb283"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb283-1"><a href="#cb283-1"></a><span class="fu">tribble</span>(<span class="sc">~</span>colA, <span class="sc">~</span>colB,</span>
+<span id="cb283-2"><a href="#cb283-2"></a>        <span class="st">"a"</span>,   <span class="dv">1</span>,</span>
+<span id="cb283-3"><a href="#cb283-3"></a>        <span class="st">"b"</span>,   <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  colA   colB
+  &lt;chr&gt; &lt;dbl&gt;
+1 a         1
+2 b         2</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>El paquete <code>{datapasta}</code> nos permite <span class="hl-green"><strong>copiar y pegar</strong></span> tablas de páginas web y documentos sencillos</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tu-turno-tibble" class="slide level2">
+<h2>💻 Tu turno (tibble)</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-6-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-6-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-6-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-6-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-6-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<p>📝 Carga del paquete <code>{datasets}</code> el conjunto de datos <code>airquality</code> (variables de la calidad del aire de Nueva York desde mayo hasta septiembre de 1973). ¿Es el conjunto de datos airquality de tipo tibble? En caso negativo, conviértelo a tibble (busca en la documentación del paquete en <a href="https://tibble.tidyverse.org/index.html" class="uri">https://tibble.tidyverse.org/index.html</a>).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb285"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb285-1"><a href="#cb285-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb285-2"><a href="#cb285-2"></a><span class="fu">class</span>(datasets<span class="sc">::</span>airquality)</span>
+<span id="cb285-3"><a href="#cb285-3"></a>airquality_tb <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(datasets<span class="sc">::</span>airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-2">
+<p>📝 Una vez convertido a <code>tibble</code> obtén el nombre de las variables y las dimensiones del conjunto de datos. ¿Cuántas variables hay? ¿Cuántos días se han medido?</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb286"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb286-1"><a href="#cb286-1"></a><span class="fu">names</span>(airquality_tb)</span>
+<span id="cb286-2"><a href="#cb286-2"></a><span class="fu">ncol</span>(airquality_tb)</span>
+<span id="cb286-3"><a href="#cb286-3"></a><span class="fu">nrow</span>(airquality_tb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-3">
+<p>📝 Filtra solo los datos del mes de agosto.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb287"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb287-1"><a href="#cb287-1"></a>airquality_tb[Month <span class="sc">==</span> <span class="dv">8</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-4">
+<p>📝 Selecciona aquellos datos que no sean ni de julio ni de agosto.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb288"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb288-1"><a href="#cb288-1"></a>airquality_tb[Month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-5">
+<p>📝 Modifica el siguiente código para quedarte solo con las variable de ozono y temperatura.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb289"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb289-1"><a href="#cb289-1"></a>airquality_tb[, <span class="fu">c</span>(<span class="st">"Ozone"</span>, <span class="st">"Temp"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-6">
+<p>📝 Selecciona los datos de temperatura y viento de agosto. Traduce a castellano el nombre de las columnas del conjunto filtrado.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb290"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb290-1"><a href="#cb290-1"></a>airquality_tb[Month <span class="sc">==</span> <span class="dv">8</span>, <span class="fu">c</span>(<span class="st">"Temp"</span>, <span class="st">"Wind"</span>)]</span>
+<span id="cb290-2"><a href="#cb290-2"></a><span class="fu">names</span>(airquality_tb) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ozono"</span>, <span class="st">"rad_solar"</span>, <span class="st">"viento"</span>, <span class="st">"temp"</span>, <span class="st">"mes"</span>, <span class="st">"dia"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="resumen-hasta-ahora" class="slide level2">
+<h2>Resumen hasta ahora</h2>
+<ul>
+<li>Cada <span class="hl-yellow"><strong>celda puede ser de un tipo diverso</strong></span>: números, texto, fechas, valores lógicos, etc</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Un <span class="hl-yellow"><strong>vector es una concatenación de celdas</strong></span> (las futuras columnas de nuestras tablas) –&gt; En <code>R</code> por defecto las operaciones se hacen <span class="hl-yellow"><strong>elemento a elemento</strong></span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Una <span class="hl-yellow"><strong>matriz</strong></span> nos permite concatenar <span class="hl-yellow"><strong>variables del MISMO tipo y MISMA longitud</strong></span> –&gt; objeto bidimensional (dos índices)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Un <span class="hl-yellow"><strong>data.frame</strong></span> nos permite concatenar <span class="hl-yellow"><strong>variables de DISTINTO tipo y MISMA longitud</strong></span> –&gt; usaremos <span class="hl-yellow"><strong>tibble</strong></span> como una opción mejorada de base de datos</li>
+</ul>
+</div>
+</section>
+<section id="caso-práctico-1" class="slide level2">
+<h2>🐣 Caso práctico</h2>
+<p>Del paquete <code>Biostatistics</code> usaremos el conunto de datos <code>pinniped</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb291"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb291-1"><a href="#cb291-1"></a>Biostatistics<span class="sc">::</span>pinniped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>¿Qué <span class="hl-yellow"><strong>representan</strong></span> los datos? ¿Qué <span class="hl-yellow"><strong>tipo de dato</strong></span> es? En caso de que no lo sea, convierte la base de datos a un <code>tibble</code> (renombra con <code>pinniped_tb</code>)</li>
+</ol>
+<div class="fragment">
+<ol start="2" type="1">
+<li>¿Cuántos registros hay? ¿Y variables? ¿De qué tipo es cada una?</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Incorpora una <span class="hl-yellow"><strong>variable extra llamada phoca</strong></span> que sea de tipo lógico y que nos diga si una especie es de la categoría <code>Phoca</code> o no.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li>¿A qué sexo le <span class="hl-yellow"><strong>pesa más el cerebro</strong></span>: a las hembras o a los machos? ¿A quienes les <span class="hl-yellow"><strong>pesa más el cuerpo</strong></span>: a los monógamos o a los polígamos?</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="5" type="1">
+<li>Incopora una nueva variable que represente la <span class="hl-yellow"><strong>diferencia entre el peso del cerebro entre machos y hembras</strong></span> (machos - hembras) para cada especie.</li>
+</ol>
+</div>
+</section></section>
+<section>
+<section id="clase-4-importexport-comunicar-clase-4" class="title-slide slide level1 center">
+<h1>Clase 4: import/export, comunicar {clase-4}</h1>
+<p><span style="color:#444442;"><strong>Importar/exportar datos en R. Comunicar resultados: rmd y Quarto</strong></span></p>
+</section>
+<section id="comunicar-rmd-y-quarto" class="slide level2">
+<h2>Comunicar: rmd y Quarto</h2>
+<p>Una de las <span class="hl-yellow"><strong>principales fortalezas</strong></span> de <code>R</code> es la <span class="hl-yellow"><strong>facilidad para generar informes, libros, webs, apuntes y hasta diapositivas</strong></span> (este mismo material por ejemplo). Para ello <span class="hl-purple"><strong>instalaremos</strong></span> antes</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>el paquete <code>{rmarkdown}</code> (para generar archivos <code>.rmd</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb292"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb292-1"><a href="#cb292-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>instalar <a href="https://quarto.org/docs/get-started/"><strong>Quarto</strong></a> (el «nuevo» <code>.rmd</code> ahora como <code>.qmd</code>)</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="img/quarto.png"></p>
+</div>
+</div>
+</section>
+<section id="comunicar-rmd-y-quarto-1" class="slide level2">
+<h2>Comunicar: rmd y Quarto</h2>
+<p>Hasta ahora solo hemos programado en scripts (archivos <code>.R</code>) dentro de proyectos, pero en muchas ocasiones <span class="hl-yellow"><strong>no trabajaremos solos</strong></span> y necesitaremos <span class="hl-yellow"><strong>comunicar los resultados</strong></span> en diferentes formatos:</p>
+<ul>
+<li>apuntes (para nosotros mismos)</li>
+<li>diapositivas</li>
+<li>web</li>
+<li>informes</li>
+</ul>
+<div class="fragment">
+<p>Para todo ello usaremos <span class="hl-yellow"><strong>Quarto (nuevo rmarkdown)</strong></span></p>
+</div>
+</section>
+<section id="comunicar-rmd-y-quarto-2" class="slide level2">
+<h2>Comunicar: rmd y Quarto</h2>
+<p>Los archivos de extensión <code>.qmd</code> (o <code>.rmd</code>) nos permitirán fácilmente combinar:</p>
+<ul>
+<li><span class="hl-yellow"><strong>Markdown</strong></span>: <span class="hl-purple"><strong>lenguaje tipado</strong></span> que nos permite crear contenido simple (tipo wordpress, con texto, <strong>negritas</strong>, <em>cursivas</em>, etc) con un diseño legible.</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Matemáticas (latex)</strong></span>: lenguaje para escribir notación matemática como <span class="math inline">\(x^2\)</span> o <span class="math inline">\(\sqrt{y}\)</span> o <span class="math inline">\(\int_{a}^{b} f(x) dx\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Código y salidas</strong></span>: podremos no solo mostrar el paso final sino el código que has ido realizando (no solo en <code>R</code>), con <span class="hl-purple"><strong>cajitas de código llamadas chunks</strong></span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Imágenes, <span class="hl-yellow"><strong>gráficas</strong></span>, tablas, estilos (css, js), etc.</li>
+</ul>
+</div>
+</section>
+<section id="comunicar-rmd-y-quarto-3" class="slide level2">
+<h2>Comunicar: rmd y Quarto</h2>
+<p>La principal ventaja de realizar este tipo de material en Quarto/Rmarkdown es que, al hacerlo desde <code>RStudio</code>, puedes generar un <span class="hl-yellow"><strong>informe o una presentación sin salirte del entorno de programación</strong></span> en el que estás trabajando</p>
+<p>De esta forma podrás analizar los datos, resumirlos y a la vez comunicarlos con la misma herramienta.</p>
+<div class="fragment">
+<p>Recientemente el equipo de <code>RStudio</code> desarrolló <span class="hl-yellow"><strong>Quarto</strong></span>, una versión mejorada de Rmarkdown (archivos <code>.qmd</code>), con un formato un poco más estético y simple. Tienes toda la documentación y ejemplos en <a href="https://quarto.org/"><strong>https://quarto.org/</strong></a></p>
+</div>
+</section>
+<section id="nuestro-primer-informe" class="slide level2">
+<h2>Nuestro primer informe</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="img/quarto-create.png"></p>
+</div><div class="column" style="width:45%;">
+<p>Vamos a crear el <span class="hl-yellow"><strong>primer fichero rmarkdown con Quarto</strong></span> con extensión <code>.qmd</code>. Para ello solo necesitaremos hacer click en</p>
+<p><code>File &lt;&lt; New File &lt;&lt; Quarto Document</code></p>
+</div>
+</div>
+</section>
+<section id="nuestro-primer-informe-1" class="slide level2">
+<h2>Nuestro primer informe</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="img/quarto-format.png"></p>
+</div><div class="column" style="width:55%;">
+<p>Tras hacerlo nos aparecerán varias <span class="hl-yellow"><strong>opciones de formatos de salida</strong></span>:</p>
+<ul>
+<li>archivo <code>.pdf</code></li>
+<li>archivo <code>.html</code> (<span class="hl-yellow"><strong>recomendable</strong></span>): documento dinámico, permite la interacción con el usuario, como una «página web».</li>
+<li>archivo <code>.doc</code> (nada recomendable)</li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<p>De momento dejaremos marcado el <span class="hl-yellow"><strong>formato HTML que viene por defecto</strong></span>, y escribiremos el <span class="hl-yellow"><strong>título</strong></span> de nuestro documento. Tras ello tendremos nuestro <span class="hl-yellow"><strong>archivo .qmd</strong></span> (ya no es un script .R como los que hemos abierto hasta ahora).</p>
+</div>
+</section>
+<section id="nuestro-primer-informe-2" class="slide level2">
+<h2>Nuestro primer informe</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/quarto-example.png"></p>
+</div><div class="column" style="width:40%;">
+<p>Deberías tener algo similar a la captura de la imagen con <span class="hl-yellow"><strong>dos modos de edición</strong></span>: <code>Source</code> (con código, la opción recomendada hasta que lo domines) y <code>Visual</code> (más parecido a un blog)</p>
+</div>
+</div>
+<p>Para <span class="hl-yellow"><strong>ejecutar TODO el documento</strong></span> debes clickar <code>Render on Save</code> y darle a guardar.</p>
+</section>
+<section id="cabecera-de-un-qmd" class="slide level2">
+<h2>Cabecera de un qmd</h2>
+
+<img data-src="img/quarto-prueba-html.png" class="r-stretch"><p>Deberías haber obtenido una <span class="hl-yellow"><strong>salida en html similar a esta</strong></span> (y se te ha generado en tu ordenador un <span class="hl-yellow"><strong>archivo html</strong></span>)</p>
+</section>
+<section id="nuestro-primer-informe-3" class="slide level2">
+<h2>Nuestro primer informe</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/quarto-example.png"></p>
+</div><div class="column" style="width:50%;">
+<p>Un fichero <code>.qmd</code> se <span class="hl-yellow"><strong>divide básicamente en tres partes</strong></span>:</p>
+<ul>
+<li><p><span class="hl-yellow"><strong>Cabecera</strong></span>: la parte que tienes al inicio entre <code>---</code>.</p></li>
+<li><p><span class="hl-yellow"><strong>Texto</strong></span>: que podremos formatear y mejorar con negritas (escrito como <strong>negritas</strong>, con doble astérisco al inicio y final), cursivas (<em>cursivas</em>, con barra baja al inicio y final) o destacar nombres de funciones o variables de R. Puedes añadir ecuaciones como <span class="math inline">\(x^2\)</span> (he escrito <code>$x^2$</code>, entre dólares).</p></li>
+<li><p><span class="hl-yellow"><strong>Código R</strong></span></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="cabecera-de-un-qmd-1" class="slide level2">
+<h2>Cabecera de un qmd</h2>
+<p>La <span class="hl-yellow"><strong>cabecera están en formato YAML</strong></span> y contiene los <span class="hl-yellow"><strong>metadatos</strong></span> del documento:</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="img/quarto-cabecera.png"></p>
+</div><div class="column" style="width:70%;">
+<ul>
+<li><code>title</code> y <code>subtitle</code>: el título/subtítulo del documento</li>
+<li><code>author</code>: autor del mismo</li>
+<li><code>date</code>: fecha</li>
+<li><code>format</code>: formato de salida (podremos personalizar)
+<ul>
+<li><code>theme</code>: si tienes algún archivo de estilos</li>
+<li><code>toc</code>: si quieres índice o no</li>
+<li><code>toc-location</code>: posición del índice</li>
+<li><code>toc-title</code>: título del índice</li>
+<li><code>toc-depth</code>: profundidad del índice</li>
+</ul></li>
+<li><code>editor</code>: si estás en modo visual o source.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="texto-de-un-qmd" class="slide level2">
+<h2>Texto de un qmd</h2>
+<p>Respecto a la escritura solo hay una <span class="hl-yellow"><strong>cosa importante</strong></span>: salvo que indiquemos lo contrario, <span class="hl-yellow"><strong>TODO lo que vamos a escribir es texto (normal)</strong></span>. No código R.</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><img data-src="img/quarto-prueba-qmd2.png" width="350"> <img data-src="img/quarto-prueba-html2.png" width="320"></p>
+</div><div class="column" style="width:65%;">
+<p>Vamos a empezar escribiendo una sección al inicio (<code># Intro</code> y detrás por ej. la frase</p>
+<blockquote>
+<p>Este material ha sido diseñado por el profesor Javier Álvarez Liébana, docente en la Universidad Complutense de Madrid</p>
+</blockquote>
+<p>Además al <code>Running Code</code> le añadiremos una almohadilla <code>#</code>: las <span class="hl-yellow"><strong>almohadillas FUERA DE CHUNKS</strong></span> nos servirán para crear <span class="hl-yellow"><strong>epígrafes (secciones)</strong></span> en el documento</p>
+</div>
+</div>
+</section>
+<section id="índice-de-un-qmd" class="slide level2">
+<h2>Índice de un qmd</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="img/quarto-indice-qmd-2.png" width="370"> <img data-src="img/quarto-indice-html2.png" width="370"></p>
+</div><div class="column" style="width:60%;">
+<p>Para que el <span class="hl-yellow"><strong>índice capture dichas secciones</strong></span> modificaremos la cabecera del archivo como se observa en la imagen (puedes cambiar la localización del índice y el título si quieres para probar).</p>
+</div>
+</div>
+</section>
+<section id="texto-en-un-qmd" class="slide level2">
+<h2>Texto en un qmd</h2>
+<p>Vamos a <span class="hl-yellow"><strong>personalizar un poco el texto</strong></span> haciendo lo siguiente:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/quarto-texto-mejorado-qmd.png" width="370"> <img data-src="img/quarto-texto-mejorado-html.png" width="370"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>Vamos a añadir <span class="hl-yellow"><strong>negrita al nombre</strong></span> (poniendo ** al inicio y al final).</p></li>
+<li><p>Vamos añadir <span class="hl-yellow"><strong>cursiva</strong></span> a la palabra material (poniendo _ al inicio y al final).</p></li>
+<li><p>Vamos añadir un <span class="hl-yellow"><strong>enlace</strong></span> <a href="https://www.ucm.es" class="uri">https://www.ucm.es</a>, asociándolo al nombre de la Universidad. Para ello el título lo ponemos entre corchetes y justo detrás el enlace entre paréntesis <code>[«Universidad Complutense de Madrid»](https://www.ucm.es)</code></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="código-en-un-qmd" class="slide level2">
+<h2>Código en un qmd</h2>
+<p>Para <span class="hl-yellow"><strong>añadir código R</strong></span> debemos crear nuestras <span class="hl-yellow"><strong>cajas de código llamadas chunks</strong></span>: altos en el camino en nuestro texto markdown donde podremos incluir código de casi cualquier lenguaje (y sus salidas).</p>
+<p>&nbsp;</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/quarto-chunk-qmd.png" width="470"></p>
+</div><div class="column" style="width:50%;">
+<p>Para incluir uno deberá de ir <span class="hl-yellow"><strong>encabezado</strong></span> de la siguiente forma tienes un atajo <code>Command + Option + I</code> (Mac) o <code>Ctrl + Shift + I</code> (Windows)</p>
+</div>
+</div>
+</section>
+<section id="código-en-un-qmd-1" class="slide level2">
+<h2>Código en un qmd</h2>
+<p>Dentro de dicha cajita (que tiene ahora otro color en el documento) <span class="hl-yellow"><strong>escribiremos código R</strong></span> como lo veníamos haciendo hasta ahora en los scripts.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/quarto-chunk-1-qmd.png" width="410"> <img data-src="img/quarto-chunk-1-html.png" width="410"></p>
+</div><div class="column" style="width:50%;">
+<p>Vamos por ejemplo a definir dos variables y su suma de la siguiente manera, escribiendo dicho código en nuestro <code>.qmd</code> (dentro de ese chunk)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb293"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb293-1"><a href="#cb293-1"></a><span class="co"># Código R</span></span>
+<span id="cb293-2"><a href="#cb293-2"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb293-3"><a href="#cb293-3"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb293-4"><a href="#cb293-4"></a>x <span class="sc">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="etiquetando-chunks" class="slide level2">
+<h2>Etiquetando chunks</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/quarto-tag-chunks-qmd.png" width="400"> <img data-src="img/quarto-tag-chunks-html.png" width="400"></p>
+</div><div class="column" style="width:50%;">
+<p>Los chunks pueden tener un <span class="hl-yellow"><strong>nombre o etiqueta</strong></span>, de forma que podamos referenciarlos de nuevo para no repetir código.</p>
+</div>
+</div>
+</section>
+<section id="ejecutando-chunks" class="slide level2">
+<h2>Ejecutando chunks</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="img/quarto-inline-qmd.png" width="400"> <img data-src="img/quarto-inline-html.png" width="380"></p>
+</div><div class="column" style="width:60%;">
+<p>En cada chunk aparecen <span class="hl-yellow"><strong>dos botones</strong></span>:</p>
+<ul>
+<li><p>botón de <span class="hl-yellow"><strong>play</strong></span>: activa la <span class="hl-yellow"><strong>ejecución y salida de ese chunk particular</strong></span> (lo puedes visualizar dentro de tu propio <code>RStudio</code>)</p></li>
+<li><p>botón de <span class="hl-yellow"><strong>rebobinar</strong></span>: activa la <span class="hl-yellow"><strong>ejecución y salida de todos los chunk hasta ese</strong></span> (sin llegar a él)</p></li>
+</ul>
+<p>&nbsp;</p>
+<p>Además podemos <span class="hl-yellow"><strong>incluir código R dentro de la línea de texto</strong></span> (en lugar de mostrar el texto x ejecuta el código R mostrando la variable).</p>
+</div>
+</div>
+</section>
+<section id="personalización-de-chunks" class="slide level2">
+<h2>Personalización de chunks</h2>
+<p>Los <span class="hl-yellow"><strong>chunks podemos personalizarlos</strong></span> con opciones al inicio del chunk precedido de <code>#|</code>:</p>
+<ul>
+<li><p><code>#| echo: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> y se <span class="hl-green"><strong>muestra resultado</strong></span> pero <span class="hl-red"><strong>no visualiza código</strong></span> en la salida.</p></li>
+<li><p><code>#| include: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> pero <span class="hl-red"><strong>no muestra resultado</strong></span> y <span class="hl-red"><strong>no visualiza código</strong></span> en la salida.</p></li>
+<li><p><code>#| eval: false</code>: <span class="hl-red"><strong>no ejecuta código</strong></span>, <span class="hl-red"><strong>no muestra resultado</strong></span> pero <span class="hl-green"><strong>sí visualiza código</strong></span> en la salida.</p></li>
+<li><p><code>#| message: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> pero <span class="hl-red"><strong>no muestra mensajes de salida</strong></span>.</p></li>
+<li><p><code>#| warning: false</code>: <span class="hl-green"><strong>ejecuta código</strong></span> pero <span class="hl-red"><strong>no muestra mensajes de warning</strong></span>.</p></li>
+<li><p><code>#| error: true</code>: <span class="hl-green"><strong>ejecuta código</strong></span> y <span class="hl-green"><strong>permite que haya errores</strong></span> mostrando el mensaje de error en la salida.</p></li>
+</ul>
+
+<img data-src="img/quarto-options-chunk.png" width="380" class="r-stretch"><p>Estas opciones podemos aplicarlas chunk a chunk o fijar los parámetros de forma global con <code>knitr::opts_chunk$set()</code> al inicio del documento (dentro de un chunk).</p>
+</section>
+<section id="organizando-qmd" class="slide level2">
+<h2>Organizando qmd</h2>
+<p>Además de texto y código podemos introducir lo siguiente:</p>
+<ul>
+<li><p><span class="hl-yellow"><strong>Ecuaciones</strong></span>: puedes añadir además ecuaciones como <span class="math inline">\(x^2\)</span> (he escrito <code>$x^2$</code>, la ecuación entre dólares).</p></li>
+<li><p><span class="hl-yellow"><strong>Listas</strong></span>: puedes itemizar elementos poniendo <code>*</code></p></li>
+</ul>
+<p><code>* Paso 1: ...</code></p>
+<p><code>* Paso 2: ...</code></p>
+<ul>
+<li><span class="hl-yellow"><strong>Cross-references</strong></span>: puedes etiquetar partes del documento (la etiqueta se construye con <code>{#nombre-seccion}</code>) y llamarlas luego con <code>[Sección](@nombre-seccion)</code></li>
+</ul>
+</section>
+<section id="gráficasimágenes-en-qmd" class="slide level2">
+<h2>Gráficas/imágenes en qmd</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/quarto-fig-qmd.png" width="340"> <img data-src="img/quarto-fig-html.png" width="390"></p>
+</div><div class="column" style="width:50%;">
+<p>Por último, también podemos <span class="hl-yellow"><strong>añadir pies de gráficas o imágenes</strong></span> añadiendo <code>#| fig-cap: "..."</code></p>
+</div>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>Fíjate que el <span class="hl-yellow"><strong>caption está en el margen</strong></span> (por ejemplo). Puedes cambiarlo introduciendo <span class="hl-yellow"><strong>ajustes en la cabecera</strong></span> (todo lo relativo a figuras empieza por <code>fig-</code>, y puedes ver las opciones tabulando). Tienes más información en <strong><a href="https://quarto.org/" class="uri">https://quarto.org/</a></strong></p>
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/quarto-cabecera-desplegable.png" width="400"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="añadir-estilos" class="slide level2">
+<h2>Añadir estilos</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/quarto-estilos-qmd.png" width="400"> <img data-src="img/quarto-estilos-html.png" width="400"></p>
+</div><div class="column" style="width:50%;">
+<p>Por último puedes añadir un <span class="hl-yellow"><strong>tema personalizado</strong></span> incluyendo un <span class="hl-yellow"><strong>archivo de estilos</strong></span> (archivo en formato <code>.scss</code> o <code>.css</code>). Te he dejado uno en <a href="https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material" class="uri">https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material</a>.</p>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>El archivo de estilos debe estar en la misma carpeta que el archivo <code>.qmd</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="caso-práctico-3a" class="slide level2">
+<h2>🐣 Caso práctico</h2>
+<p>Elabora informes <code>.qmd</code> tal que</p>
+<ul>
+<li>Crea un archivo por cada uno de los <span class="hl-yellow"><strong>casos prácticos de los anteriores temas</strong></span>, uno por tema</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>En cada uno de ellos haz <span class="hl-yellow"><strong>una sección por ejercicio</strong></span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Detalla todos los pasos</strong></span> que consideres mezclando texto, código y salidas</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Si aparecen medidas estadísticas como la media, <span class="hl-yellow"><strong>prueba a meter fórmulas</strong></span> con <code>$$</code> (busca información de cómo introducir ecuaciones en latex)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Para avanzados: investiga las opciones del paquete <code>{DT}</code> (con la función <code>datatable()</code>) que nos permite <span class="hl-yellow"><strong>introducir dentro de los <code>.qmd</code> los datos en formato de tabla dinámica</strong></span>, permitiendo ordenar y filtrar.</li>
+</ul>
 <div class="footer footer-default">
 <p><a href="..."><strong>Javier Álvarez Liébana</strong></a> • Grado en Ciencia de Datos Aplicada (UCM) • curso 2023-2024</p>
+</div>
 </div>
 </section></section>
     </div>

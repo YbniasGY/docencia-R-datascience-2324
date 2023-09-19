@@ -107,8 +107,9 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |  CLASE | SEMANA | FECHAS | TOPIC | SCRIPTS | EJ. | CASO PRÁCTICO | ENTREGA | 
 |:------:|:--------:|:--------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
 |     [1](#clase-1-primeros-pasos)      | S1     | 12 sep |                  Primeros pasos en R                   | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |                 [💻](#tu-turno)                 |                        |         | 
-|     [2](#clase-2-primeros-datos)      | S1     | 15 sep |                 Tipos básicos de datos                 | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |   
-|     [3](#clase-3-vectores-I)      | S2     | 19 sep |                 Operaciones con vectores                 | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-3)    |  [🐣](#caso-práctico)  |         |   
+|     [2](#clase-2-primeros-datos)      | S1     | 15 sep |                 Tipos básicos de datos y vectores                | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |   
+|     [3](#clase-3)      | S2     | 19 sep |                 Primeras bases de datos              | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-3) [💻](#tu-turno-matrices) [💻](#tu-turno-tibble)   |  [🐣](#caso-práctico-1)  |         |   
+|     [4](#clase-4)      | S2     | 19 sep |      Comunicar y elaborar informes/entregas              | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       |  [🐣](#caso-práctico-3a)  |         |  
 :::
 :::
 
@@ -621,7 +622,7 @@ Podemos crear uno en una carpeta nueva o en una carpeta ya existente.
 -   [**Lista**]{.hl-yellow}: concatenación de variables de [**distinto tipo y distinta longitud**]{.hl-purple}
 :::
 
-# Clase 2: primeros datos {#clase-2-primeros-datos}
+# Clase 2: primeros datos y vectores {#clase-2-primeros-datos}
 
 [**¿Qué tipos de celdas (datos) existen? Concatenando celdas: vectores**]{style="color:#444442;"}
 
@@ -1638,11 +1639,6 @@ day <- airquality$Day
 
 4. Selecciona de `day` los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow}
 
-# Clase 3: primeras operaciones con vectores {#clase-3-vectores-I}
-
-[**Primeras operaciones con vectores. Variables de tipo texto y fecha**]{style="color:#444442;"}
-
-
 ---
 
 
@@ -1688,6 +1684,50 @@ sum(x < 3)
 
 ## Operaciones con vectores
 
+Otra operación habitual que puede sernos útil es la [**suma acumulada**]{.hl-yellow} con `cumsum()` que, dado un vector, nos devuelve un vector a su vez con el primero, el primero más el segundo, el primero más el segundo más el tercero...y así sucesivamente.
+
+```{r}
+x <- c(1, 5, 2, -1, 8)
+cumsum(x)
+```
+
+[**¿Qué sucede cuando falta un dato (ausente)?**]{.hl-yellow}
+
+. . .
+
+```{r}
+x <- c(1, -2, 3, NA, -1)
+cumsum(x)
+```
+
+En el caso de la suma acumulada lo que sucede es que [**a partir de ese valor, todo lo acumulado posterior será ausente**]{.hl-yellow}.
+
+---
+
+## Operaciones con vectores
+
+Otra operación habitual que puede sernos útil es la [**diferencia (con retardo)**]{.hl-yellow} con `diff()` que, dado un vector, nos devuelve un vector con el segundo menos el primero, el tercero menos el segundo, el cuarto menos el tercero...y así sucesivamente.
+
+
+```{r}
+x <- c(1, 8, 5, 3, 9, 0, -1, 5)
+diff(x)
+```
+
+. . .
+
+Con el argumento `lag = ` podemos indicar el [**retardo**]{.hl-yellow} de dicha diferencia (por ejemplo, `lag = 3` implica que se resta el cuarto menos el primero, el quinto menos el segundo, etc)
+
+
+```{r}
+x <- c(1, 8, 5, 3, 9, 0, -1, 5)
+diff(x, lag = 3)
+```
+
+---
+
+## Operaciones con vectores
+
 Otras operaciones habituales son la [**media**]{.hl-yellow}, [**mediana**]{.hl-yellow}, [**percentiles**]{.hl-yellow}, etc.
 
 -   [**Media**]{.hl-yellow}: medida de centralidad que consiste en sumar todos los elementos y dividirlos entre la cantidad de elementos sumados. La más conocida pero la [**menos robusta**]{.hl-red}: dado un conjunto, si se introducen valores atípicos o outliers (valores muy grandes o muy pequeños), la media se perturba con mucha facilidad.
@@ -1720,9 +1760,14 @@ quantile(x) # por defecto percentiles 0-25-50-75-100
 quantile(x, probs = c(0.1, 0.4, 0.9))
 ```
 
+# Clase 3: primeras bases de datos {#clase-3}
+
+[**Variables de tipo texto. Primeras bases de datos**]{style="color:#444442;"}
+
+
 ---
 
-## Operaciones con vectores
+## Última operación: ordenar
 
 Por último, una acción habitual es saber [**ordenar valores**]{.hl-yellow}:
 
@@ -1823,4 +1868,959 @@ mean(x, na.rm = TRUE)
 :::
 
 ---
+
+
+## Primera base de datos: matrices
+
+Cuando analizamos datos solemos tener [**varias variables**]{.hl-yellow} de cada individuo: necesitamos una «tabla» que las recopile. La opción más inmediata son las [**matrices**]{.hl-yellow}: concatenación de variables del [**mismo tipo e igual longitud**]{.hl-purple}.
+
+. . .
+
+Imagina que tenemos estaturas y pesos de 4 personas. ¿Cómo [**crear un dataset con las dos variables**]{.hl-yellow}?
+
+-   Con `cbind()` [**concatenamos vectores en forma de columnas**]{.hl-yellow}
+
+```{r}
+estaturas <- c(150, 160, 170, 180)
+pesos <- c(63, 70, 85, 95)
+datos_matriz <- cbind(estaturas, pesos)
+datos_matriz
+```
+
+---
+
+## Primer intento: matrices
+
+-   También podemos [**construir la matriz por filas**]{.hl-yellow} con la función `rbind()` (aunque lo recomendable es tener cada variable en columna e individuo en fila).
+
+```{r}
+# Construimos la matriz por filas
+rbind(estaturas, pesos)
+```
+
+. . .
+
+-   Podemos [**visualizar la matriz**]{.hl-yellow} con la función `View()`.
+
+. . .
+
+-   Podemos [**comprobar las dimensiones**]{.hl-yellow} con `dim()`, `nrow()` y `ncol()`: nuestros datos están tabulados:
+
+```{r}
+dim(datos_matriz)
+nrow(datos_matriz)
+```
+
+---
+
+## Primer intento: matrices
+
+-   También podemos [**«darle vuelta» (matriz transpuesta)**]{.hl-yellow} con `t()`.
+
+```{r}
+t(datos_matriz)
+```
+
+. . .
+
+-   Dado que ahora tenemos dos dimensiones, para [**acceder a elementos**]{.hl-yellow} deberemos proporcionar el índice de la fila y de la columna (si quedan libres implica todos de esa dimensión)
+
+```{r}
+datos_matriz[2, 1]
+datos_matriz[, 2]
+```
+
+---
+
+## Primer intento: matrices
+
+-   También podemos definir una [**matriz a partir de un vector numérico**]{.hl-yellow}, reorganizando los valores en forma de matriz (sabiendo que los elementos se van [**colocando por columnas**]{.hl-purple}).
+
+```{r}
+z <- matrix(1:15, ncol = 5) 
+z
+```
+
+---
+
+## Primer intento: matrices
+
+Con las matrices sucede como con los vectores: cuando aplicamos una [**operación aritmética lo hacemos elemento a elemento**]{.hl-yellow}
+
+```{r}
+z/5
+```
+
+. . .
+
+Para realizar [**operaciones en un sentido matricial**]{.hl-yellow} deberemos añadir `%%`, por ejemplo, para multiplicar matrices será `%*%`
+
+
+```{r}
+z %*% t(z)
+```
+
+
+---
+
+## Primer intento: matrices
+
+También podemos [**realizar operaciones por columnas/filas**]{.hl-yellow} sin recurrir a bucles con la función `apply()`, y le indicaremos como **argumentos**
+
+-   la matriz
+-   el sentido de la operación (MARGIN = 1 por filas, MARGIN = 2 por columnas)
+-   la función a aplicar
+
+. . .
+
+```{r}
+# Media (mean) por columnas (MARGIN = 2)
+apply(datos_matriz, MARGIN = 2, FUN = "mean")
+```
+
+. . .
+
+```{r}
+# (Cuasi)varianza (var) por columnas (MARGIN = 2)
+apply(datos_matriz, MARGIN = 2, FUN = "var")
+```
+
+
+---
+
+## 💻 Tu turno (matrices) {#tu-turno-matrices}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Modifica el código para definir una matriz `x` de ceros de 3 filas y 7 columnas de unos.
+
+```{r}
+#| eval: false
+x <- matrix(0, nrow = 2, ncol = 3)
+x
+```
+
+```{r}
+#| code-fold: true
+#| eval: false
+x <- matrix(1, nrow = 3, ncol = 7)
+x
+```
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 A la matriz anterior, suma un 1 a cada número de la matriz y divide el resultado entre 5. Tras ello calcula su transpuesta y obtén sus dimensiones
+
+```{r}
+#| code-fold: true
+#| eval: false
+new_matrix <- (x + 1)/5
+t(new_matrix)
+dim(new_matrix)
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Define la matriz `x <- matrix(1:12, nrow = 4)`. Obtén la primera fila, la tercera columna, y el elemento (4, 1).
+
+```{r}
+#| code-fold: true
+#| eval: false
+x <- matrix(1:12, nrow = 4)
+x[1, ] # primera fila
+x[, 3] # tercera columna
+x[4, 1] # elemento (4, 1)
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Con la matriz anterior definida como `x <- matrix(1:12, nrow = 4)`, calcula la media de todos los elementos, la media de cada fila y la media de cada columna. Calcula la suma de de cada fila y de cada columna
+
+```{r}
+#| code-fold: true
+#| eval: false
+x <- matrix(1:12, nrow = 4)
+mean(x) # de todos
+apply(x, MARGIN = 1, FUN = "mean") # media por filas
+apply(x, MARGIN = 2, FUN = "mean") # media por columnas
+apply(x, MARGIN = 1, FUN = "sum") # suma por filas
+apply(x, MARGIN = 2, FUN = "sum") # suma por columnas
+
+```
+:::
+
+---
+
+## Segundo intento: data.frame
+
+Las matrices tienen el mismo problema que los vectores: si juntamos datos de distinto tipo, se [**perturba la integridad del dato**]{.hl-red} ya que los convierte
+
+```{r}
+#| code-line-numbers: "4-5"
+edades <- c(14, 24, NA)
+soltero <- c(TRUE, NA, FALSE)
+nombres <- c("javi", "laura", "lucía")
+matriz <- cbind(edades, soltero, nombres)
+matriz
+```
+
+. . .
+
+Al ya no ser números no podemos realizar operaciones aritméticas
+
+```{r}
+#| error: true
+matriz + 1
+```
+
+---
+
+## Segundo intento: data.frame
+
+Para poder trabajar con [**variables de distinto tipo**]{.hl-yellow} tenemos lo que se conoce como [**data.frame**]{.hl-yellow}: concatenación de variables de igual longitud pero pueden ser de [**tipo distinto**]{.hl-purple}.
+
+```{r}
+#| code-line-numbers: "1"
+tabla <- data.frame(edades, soltero, nombres)
+class(tabla)
+tabla
+```
+
+---
+
+## Segundo intento: data.frame
+
+Dado que un `data.frame` es ya una «base de datos» las variables no son meros vectores matemáticos: [**tienen un significado**]{.hl-yellow} y podemos (debemos) [**ponerles nombres**]{.hl-purple}
+
+```{r}
+library(lubridate)
+tabla <- data.frame("edad" = edades, "estado" = soltero, "nombre" = nombres,
+             "f_nacimiento" = as_date(c("1989-09-10", "1992-04-01", "1980-11-27")))
+tabla
+```
+
+---
+
+## Segundo intento: data.frame
+
+[**¡TENEMOS NUESTRO PRIMER CONJUNTO DE DATOS!**]{.hl-yellow} Puedes visualizarlo escribiendo su nombre en consola o con `View(tabla)`
+
+![](img/view_tabla.jpg)
+
+---
+
+## Segundo intento: data.frame
+
+Si queremos acceder a sus elementos, podemos como en las matrices (aunque no es recomendable): ahora [**tenemos dos índices**]{.hl-yellow} (filas y columnas, dejando libre la que no usemos)
+
+```{r}
+tabla[2, ]  # segunda fila (todas sus variables)
+tabla[, 3]  # tercera columna (de todos los individuos)
+tabla[2, 1]  # primera característica de la segunda persona
+```
+
+. . .
+
+::: columns
+::: {.column width="25%"}
+![](img/menu_data_frame.jpg)
+:::
+
+::: {.column width="75%"}
+También tiene ventajas de una [**«base» de datos**]{.hl-yellow} : podemos [**aceder a las variables por su nombre**]{.hl-purple} (**recomendable** ya que las variables pueden cambiar de posición), poniendo el nombre de la tabla seguido del símbolo `$` (con el **tabulador**, nos aparecerá un menú de columnas a elegir)
+:::
+:::
+
+---
+
+## Segundo intento: data.frame
+
+-   `names()`: nos muestra los nombres de las variables
+
+```{r}
+names(tabla)
+```
+
+. . .
+
+-   `dim()`: nos muestra las dimensiones (también `nrow()` y `ncol()`)
+
+```{r}
+dim(tabla)
+```
+
+. . .
+
+-   Podemos acceder a las variables por su nombre
+
+```{r}
+tabla[c(1, 3), "nombre"]
+```
+
+---
+
+## Segundo intento: data.frame
+
+Si tenemos uno ya creado y queremos [**añadir una columna**]{.hl-yellow} es tan simple como usar la función `data.frame()` que ya hemos visto para concatenar la columna. Vamos añadir por ejemplo una nueva variable, el número de hermanos de cada individuo.
+
+```{r}
+# Añadimos una nueva columna con nº de hermanos/as
+hermanos <- c(0, 2, 3)
+tabla <- data.frame(tabla, "n_hermanos" = hermanos)
+tabla
+```
+
+---
+
+## Intento final: tibble
+
+Las tablas en formato `data.frame` tienen algunas [**limitaciones**]{.hl-red}
+
+La principal es que [**no permite la recursividad**]{.hl-red}: imagina que definimos una base de datos con estaturas y pesos, y queremos una tercera variable con el IMC
+
+```{r}
+#| error: true
+data.frame("estatura" = c(1.7, 1.8, 1.6), "peso" = c(80, 75, 70),
+           "IMC" = peso / (estatura^2))
+```
+
+. . .
+
+ 
+
+De ahora en adelante usaremos el formato `tibble` (un [**data.frame mejorado**]{.hl-yellow})
+
+```{r}
+library(tibble)
+tibble("estatura" = c(1.7, 1.8, 1.6), "peso" = c(80, 75, 70),
+       "IMC" = peso / (estatura^2))
+```
+
+---
+
+## Intento final: tibble
+
+```{r}
+tabla <- tibble("estatura" = c(1.7, 1.8, 1.6), "peso" = c(80, 75, 70),
+                "IMC" = peso / (estatura^2))
+tabla
+```
+
+Las tablas en formato `tibble` nos permitirá una [**gestión más ágil, eficiente y coherente**]{.hl-yellow} de los datos, con 4 ventajas principales:
+
+. . .
+
+-   [**Metainformación**]{.hl-yellow}: si te fijas en la cabecera, nos dice ya automáticamente el número de filas y columnas, y el tipo de cada variable
+
+. . .
+
+-   [**Recursividad**]{.hl-yellow}: permite definir las variables secuencialmente (como hemos visto)
+
+---
+
+## Intento final: tibble
+
+-   [**Consistencia**]{.hl-yellow}: si accedes a una columna que no existe avisa con un warning
+
+```{r}
+#| warning: true
+tabla$invent
+```
+
+. . .
+
+-   [**Por filas**]{.hl-yellow}: crear por filas (copiar y pegar de una tabla) con `tribble()`
+
+```{r}
+tribble(~colA, ~colB,
+        "a",   1,
+        "b",   2)
+```
+
+. . .
+
+::: callout-tip
+El paquete `{datapasta}` nos permite [**copiar y pegar**]{.hl-green} tablas de páginas web y documentos sencillos
+:::
+
+
+---
+
+## 💻 Tu turno (tibble) {#tu-turno-tibble}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+::: panel-tabset
+
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Carga del paquete `{datasets}` el conjunto de datos `airquality` (variables de la calidad del aire de Nueva York desde mayo hasta septiembre de 1973). ¿Es el conjunto de datos airquality de tipo tibble? En caso negativo, conviértelo a tibble (busca en la documentación del paquete en <https://tibble.tidyverse.org/index.html>).
+
+```{r}
+#| code-fold: true
+#| eval: false
+library(tibble)
+class(datasets::airquality)
+airquality_tb <- as_tibble(datasets::airquality)
+```
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 Una vez convertido a `tibble` obtén el nombre de las variables y las dimensiones del conjunto de datos. ¿Cuántas variables hay? ¿Cuántos días se han medido?
+
+```{r}
+#| code-fold: true
+#| eval: false
+names(airquality_tb)
+ncol(airquality_tb)
+nrow(airquality_tb)
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Filtra solo los datos del mes de agosto.
+
+```{r}
+#| code-fold: true
+#| eval: false
+airquality_tb[Month == 8, ]
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Selecciona aquellos datos que no sean ni de julio ni de agosto.
+
+```{r}
+#| code-fold: true
+#| eval: false
+airquality_tb[Month %in% c(7, 8), ]
+```
+
+### [**Ejercicio 5**]{.hl-yellow}
+
+📝 Modifica el siguiente código para quedarte solo con las variable de ozono y temperatura.
+
+```{r}
+#| code-fold: true
+#| eval: false
+airquality_tb[, c("Ozone", "Temp")]
+```
+
+### [**Ejercicio 6**]{.hl-yellow}
+
+📝 Selecciona los datos de temperatura y viento de agosto. Traduce a castellano el nombre de las columnas del conjunto filtrado.
+
+```{r}
+#| code-fold: true
+#| eval: false
+airquality_tb[Month == 8, c("Temp", "Wind")]
+names(airquality_tb) <- c("ozono", "rad_solar", "viento", "temp", "mes", "dia") 
+```
+:::
+
+---
+
+## Resumen hasta ahora
+
+-   Cada [**celda puede ser de un tipo diverso**]{.hl-yellow}: números, texto, fechas, valores lógicos, etc
+
+. . .
+
+-   Un [**vector es una concatenación de celdas**]{.hl-yellow} (las futuras columnas de nuestras tablas) --\> En `R` por defecto las operaciones se hacen [**elemento a elemento**]{.hl-yellow}
+
+. . .
+
+-   Una [**matriz**]{.hl-yellow} nos permite concatenar [**variables del MISMO tipo y MISMA longitud**]{.hl-yellow} --\> objeto bidimensional (dos índices)
+
+. . .
+
+-   Un [**data.frame**]{.hl-yellow} nos permite concatenar [**variables de DISTINTO tipo y MISMA longitud**]{.hl-yellow} --\> usaremos [**tibble**]{.hl-yellow} como una opción mejorada de base de datos
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-1}
+
+Del paquete `Biostatistics` usaremos el conunto de datos `pinniped`
+
+```{r}
+#| eval: false
+Biostatistics::pinniped
+```
+
+
+1. ¿Qué [**representan**]{.hl-yellow} los datos? ¿Qué [**tipo de dato**]{.hl-yellow} es? En caso de que no lo sea, convierte la base de datos a un `tibble` (renombra con `pinniped_tb`)
+
+. . .
+
+2. ¿Cuántos registros hay? ¿Y variables? ¿De qué tipo es cada una?
+
+. . .
+
+3. Incorpora una [**variable extra llamada phoca**]{.hl-yellow} que sea de tipo lógico y que nos diga si una especie es de la categoría `Phoca` o no.
+
+. . .
+
+4. ¿A qué sexo le [**pesa más el cerebro**]{.hl-yellow}: a las hembras o a los machos? ¿A quienes les [**pesa más el cuerpo**]{.hl-yellow}: a los monógamos o a los polígamos?
+
+. . .
+
+5. Incopora una nueva variable que represente la [**diferencia entre el peso del cerebro entre machos y hembras**]{.hl-yellow} (machos - hembras) para cada especie.
+
+
+
+# Clase 4: import/export, comunicar {clase-4}
+
+[**Importar/exportar datos en R. Comunicar resultados: rmd y Quarto**]{style="color:#444442;"}
+
+---
+
+## Comunicar: rmd y Quarto
+
+Una de las [**principales fortalezas**]{.hl-yellow} de `R` es la [**facilidad para generar informes, libros, webs, apuntes y hasta diapositivas**]{.hl-yellow} (este mismo material por ejemplo). Para ello [**instalaremos**]{.hl-purple} antes
+
+::: columns
+::: {.column width="40%"}
+-   el paquete `{rmarkdown}` (para generar archivos `.rmd`)
+
+```{r}
+#| eval: false
+install.packages("rmarkdown")
+```
+
+-   instalar [**Quarto**](https://quarto.org/docs/get-started/) (el «nuevo» `.rmd` ahora como `.qmd`)
+:::
+
+::: {.column width="60%"}
+![](img/quarto.png)
+:::
+:::
+
+---
+
+## Comunicar: rmd y Quarto
+
+Hasta ahora solo hemos programado en scripts (archivos `.R`) dentro de proyectos, pero en muchas ocasiones [**no trabajaremos solos**]{.hl-yellow} y necesitaremos [**comunicar los resultados**]{.hl-yellow} en diferentes formatos:
+
+-   apuntes (para nosotros mismos)
+-   diapositivas
+-   web
+-   informes
+
+. . .
+ 
+Para todo ello usaremos [**Quarto (nuevo rmarkdown)**]{.hl-yellow}
+
+
+---
+
+## Comunicar: rmd y Quarto
+
+Los archivos de extensión `.qmd` (o `.rmd`) nos permitirán fácilmente combinar:
+
+-   [**Markdown**]{.hl-yellow}: [**lenguaje tipado**]{.hl-purple} que nos permite crear contenido simple (tipo wordpress, con texto, **negritas**, _cursivas_, etc) con un diseño legible.
+
+. . .
+
+-   [**Matemáticas (latex)**]{.hl-yellow}: lenguaje para escribir notación matemática como $x^2$ o $\sqrt{y}$ o $\int_{a}^{b} f(x) dx$
+
+. . .
+
+-   [**Código y salidas**]{.hl-yellow}: podremos no solo mostrar el paso final sino el código que has ido realizando (no solo en `R`), con [**cajitas de código llamadas chunks**]{.hl-purple}.
+
+. . .
+
+-   Imágenes, [**gráficas**]{.hl-yellow}, tablas, estilos (css, js), etc.
+
+---
+
+## Comunicar: rmd y Quarto
+
+La principal ventaja de realizar este tipo de material en Quarto/Rmarkdown es que, al hacerlo desde `RStudio`, puedes generar un [**informe o una presentación sin salirte del entorno de programación**]{.hl-yellow} en el que estás trabajando
+
+De esta forma podrás analizar los datos, resumirlos y a la vez comunicarlos con la misma herramienta.
+
+. . .
+
+Recientemente el equipo de `RStudio` desarrolló [**Quarto**]{.hl-yellow}, una versión mejorada de Rmarkdown (archivos `.qmd`), con un formato un poco más estético y simple. Tienes toda la documentación y ejemplos en [**https://quarto.org/**](https://quarto.org/)
+
+---
+
+## Nuestro primer informe
+
+::: columns
+::: {.column width="55%"}
+![](img/quarto-create.png)
+:::
+
+::: {.column width="45%"}
+Vamos a crear el [**primer fichero rmarkdown con Quarto**]{.hl-yellow} con extensión `.qmd`. Para ello solo necesitaremos hacer click en
+
+`File << New File << Quarto Document`
+:::
+:::
+
+---
+
+## Nuestro primer informe
+
+:::: columns
+::: {.column width="45%"}
+![](img/quarto-format.png)
+:::
+
+::: {.column width="55%"}
+Tras hacerlo nos aparecerán varias [**opciones de formatos de salida**]{.hl-yellow}:
+
+-   archivo `.pdf`
+-   archivo `.html` ([**recomendable**]{.hl-yellow}): documento dinámico, permite la interacción con el usuario, como una «página web».
+-   archivo `.doc` (nada recomendable)
+:::
+::::
+
+. . .
+
+De momento dejaremos marcado el [**formato HTML que viene por defecto**]{.hl-yellow}, y escribiremos el [**título**]{.hl-yellow} de nuestro documento. Tras ello tendremos nuestro [**archivo .qmd**]{.hl-yellow} (ya no es un script .R como los que hemos abierto hasta ahora).
+
+---
+
+## Nuestro primer informe
+
+:::: columns
+::: {.column width="60%"}
+![](img/quarto-example.png)
+:::
+
+::: {.column width="40%"}
+
+Deberías tener algo similar a la captura de la imagen con [**dos modos de edición**]{.hl-yellow}: `Source` (con código, la opción recomendada hasta que lo domines) y `Visual` (más parecido a un blog)
+
+:::
+::::
+
+Para [**ejecutar TODO el documento**]{.hl-yellow} debes clickar `Render on Save` y darle a guardar.
+
+## Cabecera de un qmd
+
+![](img/quarto-prueba-html.png)
+
+Deberías haber obtenido una [**salida en html similar a esta**]{.hl-yellow} (y se te ha generado en tu ordenador un [**archivo html**]{.hl-yellow})
+
+---
+
+## Nuestro primer informe
+
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-example.png)
+
+:::
+
+::: {.column width="50%"}
+
+Un fichero `.qmd` se [**divide básicamente en tres partes**]{.hl-yellow}:
+
+* [**Cabecera**]{.hl-yellow}: la parte que tienes al inicio entre `---`.
+
+* [**Texto**]{.hl-yellow}: que podremos formatear y mejorar con negritas (escrito como **negritas**, con doble astérisco al inicio y final), cursivas (_cursivas_, con barra baja al inicio y final) o destacar nombres de funciones o variables de R. Puedes añadir ecuaciones como $x^2$ (he escrito `$x^2$`, entre dólares).
+
+* [**Código R**]{.hl-yellow}
+
+:::
+::::
+
+---
+
+## Cabecera de un qmd
+
+La [**cabecera están en formato YAML**]{.hl-yellow} y contiene los [**metadatos**]{.hl-yellow} del documento:
+
+:::: columns
+::: {.column width="30%"}
+![](img/quarto-cabecera.png)
+:::
+
+::: {.column width="70%"}
+
+* `title` y `subtitle`: el título/subtítulo del documento
+* `author`: autor del mismo
+* `date`: fecha
+* `format`: formato de salida (podremos personalizar)
+  * `theme`: si tienes algún archivo de estilos
+  * `toc`: si quieres índice o no
+  * `toc-location`: posición del índice
+  * `toc-title`: título del índice
+  * `toc-depth`: profundidad del índice
+* `editor`: si estás en modo visual o source.
+
+:::
+::::
+
+---
+
+## Texto de un qmd
+
+Respecto a la escritura solo hay una [**cosa importante**]{.hl-yellow}: salvo que indiquemos lo contrario, [**TODO lo que vamos a escribir es texto (normal)**]{.hl-yellow}. No código R.
+
+:::: columns
+::: {.column width="35%"}
+![](img/quarto-prueba-qmd2.png){width=350}
+![](img/quarto-prueba-html2.png){width=320}
+:::
+
+::: {.column width="65%"}
+Vamos a empezar escribiendo una sección al inicio (`# Intro` y detrás por ej. la frase
+
+> Este material ha sido diseñado por el profesor Javier Álvarez Liébana, docente en la Universidad Complutense de Madrid
+
+Además al `Running Code` le añadiremos una almohadilla `#`: las [**almohadillas FUERA DE CHUNKS**]{.hl-yellow} nos servirán para crear [**epígrafes (secciones)**]{.hl-yellow} en el documento
+
+
+:::
+::::
+
+
+---
+
+## Índice de un qmd
+
+:::: columns
+::: {.column width="40%"}
+![](img/quarto-indice-qmd-2.png){width=370}
+![](img/quarto-indice-html2.png){width=370}
+:::
+
+::: {.column width="60%"}
+Para que el [**índice capture dichas secciones**]{.hl-yellow} modificaremos la cabecera del archivo como se observa en la imagen (puedes cambiar la localización del índice y el título si quieres para probar).
+
+:::
+::::
+
+---
+
+## Texto en un qmd
+
+Vamos a [**personalizar un poco el texto**]{.hl-yellow} haciendo lo siguiente:
+
+
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-texto-mejorado-qmd.png){width=370}
+![](img/quarto-texto-mejorado-html.png){width=370}
+:::
+
+::: {.column width="50%"}
+* Vamos a añadir [**negrita al nombre**]{.hl-yellow} (poniendo ** al inicio y al final).
+
+* Vamos añadir [**cursiva**]{.hl-yellow} a la palabra material (poniendo _ al inicio y al final).
+
+* Vamos añadir un [**enlace**]{.hl-yellow} <https://www.ucm.es>, asociándolo al nombre de la Universidad. Para ello el título lo ponemos entre corchetes y justo detrás el enlace entre paréntesis `[«Universidad Complutense de Madrid»](https://www.ucm.es)`
+
+:::
+::::
+
+---
+
+## Código en un qmd
+
+Para [**añadir código R**]{.hl-yellow} debemos crear nuestras [**cajas de código llamadas chunks**]{.hl-yellow}: altos en el camino en nuestro texto markdown donde podremos incluir código de casi cualquier lenguaje (y sus salidas).
+
+&nbsp;
+
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-chunk-qmd.png){width=470}
+:::
+
+::: {.column width="50%"}
+
+Para incluir uno deberá de ir [**encabezado**]{.hl-yellow} de la siguiente forma tienes un atajo `Command + Option + I` (Mac) o `Ctrl + Shift + I` (Windows)
+:::
+
+::::
+
+---
+
+## Código en un qmd
+
+Dentro de dicha cajita (que tiene ahora otro color en el documento) [**escribiremos código R**]{.hl-yellow} como lo veníamos haciendo hasta ahora en los scripts.
+
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-chunk-1-qmd.png){width=410}
+![](img/quarto-chunk-1-html.png){width=410}
+:::
+
+::: {.column width="50%"}
+
+ Vamos por ejemplo a definir dos variables y su suma de la siguiente manera, escribiendo dicho código en nuestro `.qmd` (dentro de ese chunk)
+
+```{r}
+# Código R
+x <- 1
+y <- 2
+x + y
+```
+
+:::
+
+::::
+
+
+---
+
+## Etiquetando chunks
+
+
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-tag-chunks-qmd.png){width=400}
+![](img/quarto-tag-chunks-html.png){width=400}
+:::
+
+::: {.column width="50%"}
+Los chunks pueden tener un [**nombre o etiqueta**]{.hl-yellow}, de forma que podamos referenciarlos de nuevo para no repetir código.
+:::
+::::
+
+
+---
+
+## Ejecutando chunks
+
+:::: columns
+::: {.column width="40%"}
+![](img/quarto-inline-qmd.png){width=400}
+![](img/quarto-inline-html.png){width=380}
+:::
+
+::: {.column width="60%"}
+En cada chunk aparecen [**dos botones**]{.hl-yellow}:
+
+* botón de [**play**]{.hl-yellow}: activa la [**ejecución y salida de ese chunk particular**]{.hl-yellow} (lo puedes visualizar dentro de tu propio `RStudio`)
+
+* botón de [**rebobinar**]{.hl-yellow}: activa la [**ejecución y salida de todos los chunk hasta ese**]{.hl-yellow} (sin llegar a él)
+
+&nbsp;
+
+Además podemos [**incluir código R dentro de la línea de texto**]{.hl-yellow} (en lugar de mostrar el texto x ejecuta el código R mostrando la variable).
+:::
+::::
+
+
+
+---
+
+## Personalización de chunks
+
+Los [**chunks podemos personalizarlos**]{.hl-yellow} con opciones al inicio del chunk precedido de `#|`:
+
+* `#| echo: false`: [**ejecuta código**]{.hl-green} y se [**muestra resultado**]{.hl-green} pero [**no visualiza código**]{.hl-red} en la salida.
+
+* `#| include: false`: [**ejecuta código**]{.hl-green} pero [**no muestra resultado**]{.hl-red} y [**no visualiza código**]{.hl-red} en la salida.
+
+* `#| eval: false`: [**no ejecuta código**]{.hl-red}, [**no muestra resultado**]{.hl-red} pero [**sí visualiza código**]{.hl-green} en la salida.
+
+* `#| message: false`: [**ejecuta código**]{.hl-green} pero [**no muestra mensajes de salida**]{.hl-red}.
+
+* `#| warning: false`: [**ejecuta código**]{.hl-green} pero [**no muestra mensajes de warning**]{.hl-red}.
+
+* `#| error: true`: [**ejecuta código**]{.hl-green} y [**permite que haya errores**]{.hl-green} mostrando el mensaje de error en la salida.
+
+
+![](img/quarto-options-chunk.png){width=380}
+
+Estas opciones podemos aplicarlas chunk a chunk o fijar los parámetros de forma global con `knitr::opts_chunk$set()` al inicio del documento (dentro de un chunk).
+
+---
+
+## Organizando qmd
+
+Además de texto y código podemos introducir lo siguiente:
+
+* [**Ecuaciones**]{.hl-yellow}: puedes añadir además ecuaciones como $x^2$ (he escrito `$x^2$`, la ecuación entre dólares).
+
+* [**Listas**]{.hl-yellow}: puedes itemizar elementos poniendo `*`
+
+`* Paso 1: ...`
+
+`* Paso 2: ...`
+
+* [**Cross-references**]{.hl-yellow}: puedes etiquetar partes del documento (la etiqueta se construye con `{#nombre-seccion}`) y llamarlas luego con `[Sección](@nombre-seccion)`
+
+---
+
+## Gráficas/imágenes en qmd
+
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-fig-qmd.png){width=340}
+![](img/quarto-fig-html.png){width=390}
+:::
+
+::: {.column width="50%"}
+Por último, también podemos [**añadir pies de gráficas o imágenes**]{.hl-yellow} añadiendo `#| fig-cap: "..."`
+:::
+::::
+
+. . .
+
+:::: columns
+::: {.column width="65%"}
+Fíjate que el [**caption está en el margen**]{.hl-yellow} (por ejemplo). Puedes cambiarlo introduciendo [**ajustes en la cabecera**]{.hl-yellow} (todo lo relativo a figuras empieza por `fig-`, y puedes ver las opciones tabulando). Tienes más información en **<https://quarto.org/>**
+:::
+
+::: {.column width="35%"}
+![](img/quarto-cabecera-desplegable.png){width=400}
+:::
+::::
+
+---
+
+## Añadir estilos
+
+:::: columns
+::: {.column width="50%"}
+![](img/quarto-estilos-qmd.png){width=400}
+![](img/quarto-estilos-html.png){width=400}
+:::
+
+::: {.column width="50%"}
+Por último puedes añadir un [**tema personalizado**]{.hl-yellow} incluyendo un [**archivo de estilos**]{.hl-yellow} (archivo en formato `.scss` o `.css`). Te he dejado uno en <https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material>.
+
+::: callout-important
+## Importante
+
+El archivo de estilos debe estar en la misma carpeta que el archivo `.qmd`
+:::
+:::
+::::
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-3a}
+
+Elabora informes `.qmd` tal que
+
+
+* Crea un archivo por cada uno de los [**casos prácticos de los anteriores temas**]{.hl-yellow}, uno por tema
+
+. . .
+
+* En cada uno de ellos haz [**una sección por ejercicio**]{.hl-yellow}
+
+. . .
+
+* [**Detalla todos los pasos**]{.hl-yellow} que consideres mezclando texto, código y salidas
+
+. . .
+
+* Si aparecen medidas estadísticas como la media, [**prueba a meter fórmulas**]{.hl-yellow} con `$$` (busca información de cómo introducir ecuaciones en latex)
+
+. . .
+
+* Para avanzados: investiga las opciones del paquete `{DT}` (con la función `datatable()`) que nos permite [**introducir dentro de los `.qmd` los datos en formato de tabla dinámica**]{.hl-yellow}, permitiendo ordenar y filtrar.
+
 
