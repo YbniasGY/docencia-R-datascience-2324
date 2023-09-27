@@ -2371,7 +2371,7 @@ Biostatistics::pinniped
 
 
 
-# Clase 4: import/export, comunicar {clase-4}
+# Clase 4: import/export, comunicar {#clase-4}
 
 [**Importar/exportar datos en R. Comunicar resultados: rmd y Quarto**]{style="color:#444442;"}
 
@@ -2822,5 +2822,33 @@ Elabora informes `.qmd` tal que
 . . .
 
 * Para avanzados: investiga las opciones del paquete `{DT}` (con la función `datatable()`) que nos permite [**introducir dentro de los `.qmd` los datos en formato de tabla dinámica**]{.hl-yellow}, permitiendo ordenar y filtrar.
+
+
+
+# Clase 5: entrega I {#entrega-i}
+
+[**Primera entrega individual en clase**]{style="color:#444442;"}
+
+---
+
+## Entrega I (26/09/2023)
+
+Se actualizará al inicio de la clase correspondiente.
+
+::: callout-important
+
+## Importante
+
+Esta [**entrega ponderará un 5% en la nota final**]{.hl-green}
+
+Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
+
+Contarás con aproximadamente 90 minutos, pero [**deberás realizar la entrega**]{.hl-yellow}, como tarde, a las [**14:40**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
+
+Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
+
+Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
+
+:::
 
 
