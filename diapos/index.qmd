@@ -1619,7 +1619,7 @@ is.na(x)
 ---
 
 
-## 🐣 Caso práctico {#caso-práctico}
+## 🐣 Caso práctico {#caso-práctico-2}
 
 En el paquete `{datasets}` tenemos diversos conjuntos de datos y uno de ellos es `airquality`. Debajo te he extraído 3 variables de dicho dataset
 
@@ -1631,17 +1631,61 @@ day <- airquality$Day
 
 1. ¿Qué [**representan los datos**]{.hl-yellow}? ¿Cómo averiguarlo?
 
+```{r}
+#| code-fold: true
+#| eval: false
+? airquality
+```
+
+Haciendo uso de `? ...` podemos consultar en el panel de ayuda lo que significa el objeto.
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-2-2}
+
+2. ¿Cuántos [**registros tenemos de mayo**]{.hl-yellow}? ¿Y de abril? Construye una nueva variable `date` con la [**fecha**]{.hl-yellow} de cada registro (combinando año, mes y día)
+
+```{r}
+#| code-fold: true
+# Una forma para registros de mayo
+sum(month == 5)
+# Otra forma
+length(month[month == 5])
+
+# ídem en abril
+sum(month == 4)
+
+# variable date
+dates <- lubridate::as_date(glue("{1973}-{month}-{day}"))
+```
+
 . . .
 
-2. ¿Cuántos [**registros tenemos de mayo**]{.hl-yellow}? ¿Y de abril? Construye una nueva variable `date` con la [**fecha**]{.hl-yellow} de cada registro (combinando año, mes y día). Echa un vistazo a la chuleta de `{lubridate}`.
+3. Crea una nueva variable `temp_celsius` con la [**temperatura en ºC**]{.hl-yellow}
 
-. . .
+```{r}
+#| code-fold: true
+# Temperatura en celsius
+temp_celsius <- (temperature - 32) * (5/9)
+```
 
-3. Crea una nueva variable `temp_celsius` con la [**temperatura en ºC**]{.hl-yellow} (está en Fahrenheit)
+---
 
-. . .
+## 🐣 Caso práctico {#caso-práctico-2-3}
 
-4. Selecciona de `day` los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow}
+4. ¿Cuál fue la [**media de temperatura**]{.hl-yellow} del mes de agosto? Extrae los días en los que la [**temperatura superó los 30 grados**]{.hl-yellow} y calcula la cantidad de días en los que lo hizo.
+
+```{r}
+#| code-fold: true
+# media en agosto
+mean(temperature[month == 8], na.rm = TRUE)
+mean(temp_celsius[month == 8], na.rm = TRUE)
+
+# Extremos días > 30
+dates[temp_celsius > 30]
+length(dates[temp_celsius > 30]) # n días
+sum(temp_celsius > 30) # n días (otra forma)
+```
 
 ---
 
@@ -2345,7 +2389,8 @@ names(airquality_tb) <- c("ozono", "rad_solar", "viento", "temp", "mes", "dia")
 
 ---
 
-## 🐣 Caso práctico {#caso-práctico-1}
+
+## 🐣 Caso práctico {#caso-práctico-3a}
 
 Del paquete `Biostatistics` usaremos el conunto de datos `pinniped`
 
@@ -2357,21 +2402,71 @@ Biostatistics::pinniped
 
 1. ¿Qué [**representan**]{.hl-yellow} los datos? ¿Qué [**tipo de dato**]{.hl-yellow} es? En caso de que no lo sea, convierte la base de datos a un `tibble` (renombra con `pinniped_tb`)
 
+```{r}
+#| code-fold: true
+#| eval: false
+? Biostatistics::pinniped
+```
+
+```{r}
+#| code-fold: true
+class(Biostatistics::pinniped) # no es un tibble
+pinniped_tb <- as_tibble(Biostatistics::pinniped)
+```
+
 . . .
 
 2. ¿Cuántos registros hay? ¿Y variables? ¿De qué tipo es cada una?
 
-. . .
+
+```{r}
+#| code-fold: true
+nrow(pinniped_tb)
+ncol(pinniped_tb)
+```
+
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-3a-2}
+
 
 3. Incorpora una [**variable extra llamada phoca**]{.hl-yellow} que sea de tipo lógico y que nos diga si una especie es de la categoría `Phoca` o no.
+
+```{r}
+#| code-fold: true
+pinniped_tb$phoca <- pinniped_tb$Species == "Phoca"
+```
 
 . . .
 
 4. ¿A qué sexo le [**pesa más el cerebro**]{.hl-yellow}: a las hembras o a los machos? ¿A quienes les [**pesa más el cuerpo**]{.hl-yellow}: a los monógamos o a los polígamos?
 
-. . .
+```{r}
+#| code-fold: true
+# ¿a quién le pesa más el cerebro?
+mean(pinniped_tb$Male_brain_g, na.rm = TRUE) >
+  mean(pinniped_tb$Female_brain_g, na.rm = TRUE)
+
+# ¿a quién le pesa más el cerebro?
+mean(c(pinniped_tb$Male_mass_Kg[pinniped_tb$Mate_type == "mono"],
+       pinniped_tb$Female_mass_Kg[pinniped_tb$Mate_type == "mono"])) >
+  mean(c(pinniped_tb$Male_mass_Kg[pinniped_tb$Mate_type == "poly"],
+         pinniped_tb$Female_mass_Kg[pinniped_tb$Mate_type == "poly"]))
+```
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-3a-3}
+
 
 5. Incopora una nueva variable que represente la [**diferencia entre el peso del cerebro entre machos y hembras**]{.hl-yellow} (machos - hembras) para cada especie.
+
+```{r}
+#| code-fold: true
+pinniped_tb$dif_m_f <- pinniped_tb$Male_brain_g - pinniped_tb$Female_brain_g
+pinniped_tb
+```
 
 
 
@@ -3432,12 +3527,20 @@ who
 
 ---
 
-##
+## Un poco más de tidydata...
+
+Del paquete `{tidyr}` usaremos el dataset `world_bank_pop`, que almacena la población de cada país y cada año, según el Banco Mundial. [**Convierte a tidydata**]{.hl-yellow}
 
 
-tidyr::construction
+```{r}
+#| code-fold: true
+world_bank_pop |> 
+  pivot_longer(cols = "2000":"2017",
+               names_to = "year",
+               values_to = "pop",
+               values_drop_na = TRUE)
+```
 
-tidyr::world_bank_pop
 
 ---
 
