@@ -111,7 +111,9 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |     [3](#clase-3)      | S2     | 19 sep |                 Primeras bases de datos              | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-3) [💻](#tu-turno-matrices) [💻](#tu-turno-tibble)   |  [🐣](#caso-práctico-1)  |         |   
 |     [4](#clase-4)      | S2     | 19 sep |      Comunicar y elaborar informes/entregas              | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       |  [🐣](#caso-práctico-3a)  |         | 
 |   [5](#entrega-i)   | S3 | 26 sep | Entrega I |  |  [💻](#entrega-i)   |  |  🎯 5%  | 
-|     [6](#clase-6)      | S3     | 29 sep |      Tidydata: intro a tidyverse             | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |     [💻](#tu-turno-6)  |  [🐣](#caso-práctico-6)  |         | 
+|     [6](#clase-6)      | S3     | 29 sep |      Tidydata: intro a tidyverse             | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |     [💻](#tu-turno-6)  |  [🐣](#caso-práctico-6)  |         |
+|   [7](#clase-7-importar)   | S4     | 3 oct |       Importar y exportar archivos  | [📝]()  |                [💻](#tu-turno-7)             |        [🐣](#caso-práctico-7)          |         | 
+|   [8](#entrega-ii)   | S4 | 6 oct | Entrega II |  |  [💻](#entrega-ii)   |  |  🎯 15%  | 
 :::
 :::
 
@@ -2373,9 +2375,9 @@ Biostatistics::pinniped
 
 
 
-# Clase 4: import/export, comunicar {#clase-4}
+# Clase 4: comunicar {#clase-4}
 
-[**Importar/exportar datos en R. Comunicar resultados: rmd y Quarto**]{style="color:#444442;"}
+[**Comunicar resultados: rmd y Quarto**]{style="color:#444442;"}
 
 ---
 
@@ -3390,5 +3392,863 @@ who
 4. [**Convierte a tidydata**]{.hl-yellow} la base de datos realizando todas las opciones que consideres (consejo: usa papel y boli para bocetar como debería quedar la base de datos).
 
 
+
+
+# Clase 7: importar y exportar {#clase-7-importar}
+
+[**Repasando tidydata. Importar/exportar datos en R**]{style="color:#444442;"}
+
+---
+
+
+## 🐣 Caso práctico (anterior)
+
+En el paquete `{tidyr}` contamos con el dataset `who` (dataset de la Organización Mundial de la Salud)
+
+```{r}
+#| eval: false
+library(tidyr)
+who
+```
+
+
+1. ¿Qué [**significan los datos**]{.hl-yellow}? ¿Cuántas [**variables y observaciones**]{.hl-yellow} tenemos?
+
+. . .
+
+
+2. ¿Cuántos [**tipos de variables**]{.hl-yellow} tenemos?
+
+
+. . .
+
+
+3. ¿Todas las variables son necesarias? [**Elimina la información redundante**]{.hl-yellow}.
+
+. . .
+
+4. [**Convierte a tidydata**]{.hl-yellow} la base de datos realizando todas las opciones que consideres (consejo: usa papel y boli para bocetar como debería quedar la base de datos).
+
+
+---
+
+##
+
+
+tidyr::construction
+
+tidyr::world_bank_pop
+
+---
+
+
+## Importar/exportar datos
+
+Hasta ahora solo hemos usado datos cargados ya en paquetes pero muchas veces [**necesitaremos importar datos de manera externa**]{.hl-yellow}. Una de las principales [**fortalezas**]{.hl-yellow} de `R` es que podemos importar datos de manera muy sencilla en distintos formatos:
+
+
+* [**Formatos nativos de R**]{.hl-yellow}: formatos `.rda`, `.RData` y `.rds`
+
+. . .
+
+* [**Datos rectangulares (tabulados)**]{.hl-yellow}: formatos `.csv` y `.tsv`
+
+. . .
+
+* [**Datos sin tabular**]{.hl-yellow}: formato `.txt`
+
+. . .
+
+* [**Datos en excel**]{.hl-yellow}: formatos `.xls` y `.xlsx`
+
+. . .
+
+* [**Datos desde SAS/Stata/SPSS**]{.hl-yellow}: formatos `.sas7bdat`, `.sav` y `.dat`
+
+. . .
+
+* [**Datos desde API**]{.hl-yellow}: Google Drive, aemet, catastro, twitter, spotify, etc
+
+
+---
+
+## Formatos nativos de R
+
+Los [**ficheros más simples**]{.hl-yellow} para importar en `R` (y que suele ocupar menos espacio en disco) son sus propias [**extensiones nativas**]{.hl-yellow}: archivos con formatos `.RData`, `.rda` y `.rds`.
+
+. . .
+
+Para cargar los dos primeros simplemente necesitamos [**usar la función nativa**]{.hl-yellow} `load()` indicándole la ruta del archivo.
+
+* Archivo `.RData`: vamos a importar un dataset con las distintas características de los [**viajeros del Titanic**]{.hl-purple}, incluyendo quién sobrevivió y quién murió.
+
+
+```{r}
+#| eval: false
+load("./datos/titanic.RData")
+as_tibble(titanic)
+```
+
+```{r}
+#| echo: false
+library(tidyverse)
+load("./datos/titanic.RData")
+as_tibble(titanic) |> slice(1:5)
+```
+
+
+---
+
+## Formatos nativos de R
+
+
+* Archivo `.rda`: vamos a importar un dataset con [**datos de cáncer de pecho**]{.hl-purple} de [**Royston and Altman (2013)**](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/1471-2288-13-33), incluyendo 2982 pacientes y sus características
+
+
+```{r}
+#| eval: false
+load("./datos/rotterdam_breast_cancer.rda")
+as_tibble(rotterdam)
+```
+
+```{r}
+#| echo: false
+library(tidyverse)
+load("./datos/rotterdam_breast_cancer.rda")
+as_tibble(rotterdam) |> slice(1:7)
+```
+
+
+---
+
+## Formatos nativos de R
+
+* Archivo `.rds`: para este tipo debemos usar `readRDS()`, y necesitamos incorporar un [**argumento `file`**]{.hl-yellow} con la ruta. En este caso vamos a importar [**datos de cáncer de pulmón**]{.hl-purple} del North Central Cancer Treatment Group.
+
+```{r}
+#| eval: false
+lung_cancer <-
+  readRDS(file = "./datos/NCCTG_lung_cancer.rds") |> as_tibble()
+```
+
+```{r}
+#| echo: false
+lung_cancer <-
+  readRDS(survival::cancer, file = "./datos/NCCTG_lung_cancer.rds") |> 
+  as_tibble()
+lung_cancer |> slice(1:5)
+```
+
+::: callout-important
+
+## Importante
+
+Las [**rutas**]{.hl-yellow} deben ir siempre [**sin espacios, ni eñes, ni tildes**]{.hl-yellow}. Y fíjate que los archivos cargados con `load()` se cargan automáticamente en el environment (con el nombre guardado originalmente, sin necesidad de asignarlo a nada), pero las funciones `read()` solo se carga de manera local (sino se guarda, no existe a futuro)
+
+:::
+
+---
+
+## Datos rectangulares: readr
+
+El paquete `{readr}` dentro del entorno `{tidyverse}` contiene distintas funciones útiles para la [**carga de datos rectangulares (sin formatear)**]{.hl-yellow}.
+
+:::: columns
+::: {.column width="50%"}
+
+* `read_csv()`: archivos `.csv` cuyo [**separador sea la coma**]{.hl-purple}
+* `read_csv2()`: [**punto y coma**]{.hl-purple}
+* `read_tsv()`: [**tabulador**]{.hl-purple}.
+* `read_table()`: [**espacio**]{.hl-purple}.
+* `read_delim()`: función genérica para [**archivos delimitados por caracteres**]{.hl-purple}.
+
+
+:::
+
+::: {.column width="50%"}
+
+![](img/data-import-readr.png)
+:::
+::::
+
+Todos necesitan como **argumento la ruta del archivo** amén de **otros opcionales** (saltar o no cabecera, decimales, etc). Ver más en <https://readr.tidyverse.org/>
+
+---
+
+## Datos tabulados (.csv, .tsv)
+
+La principal ventaja de `{readr}` es que [**automatiza el formateo**]{.hl-yellow} para pasar de un archivo plano (sin formato) a un tibble (en filas y columnas, con formato).
+
+. . .
+
+* Archivo `.csv`: con `read_csv()` cargaremos archivos [**separados por coma**]{.hl-purple}, pasando como [**argumento la ruta**]{.hl-yellow} en `file = ...`. Vamos a importar el dataset `chickens.csv` (sobre pollos de dibujos animados, why not). Si te fijas en la salida nos proporciona el tipo de variables.
+
+```{r}
+library(readr)
+chickens <- read_csv(file = "./datos/chickens.csv")
+chickens
+```
+
+---
+
+## Datos tabulados (.csv, .tsv)
+
+
+El [**formato de las variables**]{.hl-yellow} normalmente lo hará `read_csv()` de forma [**automática**]{.hl-yellow}, y podemos consultarlo con `spec()`
+
+```{r}
+spec(chickens)
+```
+
+---
+
+## Datos tabulados (.csv, .tsv)
+
+Aunque lo haga normalmente bien de forma automática podemos [**especificar el formato explícitamente**]{.hl-yellow} en `col_types = list()` (en formato lista, con `col_xxx()` para cada tipo de variable, por ejemplo una la pondremos como cualitativa o factor). 
+
+
+```{r}
+chickens <-
+  read_csv(file = "./datos/chickens.csv",
+           col_types = list(col_character(), col_factor(), col_double(), col_character()))
+chickens
+```
+
+---
+
+
+## Datos tabulados (.csv, .tsv)
+
+Incluso podemos indicar que [**variables que queremos seleccionar**]{.hl-yellow} (sin ocupar memoria), indicándoselo en `col_select = ...`
+
+
+```{r}
+chickens <-
+  read_csv(file = "./datos/chickens.csv",
+           col_select = c(chicken, sex, eggs_laid))
+chickens
+```
+
+
+---
+
+
+## Datos sin tabular (.txt)
+
+
+Vamos a usar de nuevo `read_csv()` con el archivo `massey-rating.txt`.
+
+```{r}
+datos_txt <- read_csv(file = "./datos/massey-rating.txt")
+as_tibble(datos_txt)
+```
+
+. . .
+
+Si te fijas nos interpreta todo como una sola columna: [**no tiene comas el archivo y no sabe por donde separar**]{.hl-yellow}
+
+. . .
+
+
+¿Qué sucede cuando el [**separador no es el correcto**]{.hl-red}?
+
+---
+
+## Datos sin tabular (.txt)
+
+Para ello tenemos
+
+* `read_csv2()` cuando el [**separador sea el punto y coma**]{.hl-yellow}, `read_tsv()` cuando el [**sea un tabulador**]{.hl-yellow} y `read_table()` cuando el [**sea un espacio**]{.hl-yellow}
+
+* `read_delim()` en general
+
+```{r}
+datos_txt <- read_table(file = "./datos/massey-rating.txt")
+as_tibble(datos_txt)
+```
+
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+Otro de los paquetes fundamentales de importación será el paquete  `{readxl}` para [**importar datos desde una Excel**]{.hl-yellow}. Tres funciones serán claves:
+
+* `read_xls()` específica para `.xls`, `read_xlsx()` específica para `.xlsx`
+* `read_excel()`: para ambas
+
+. . .
+
+Vamos a importar `deaths.xlsx` con registros de fallecimientos de famosos
+
+```{r}
+#| eval: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx")
+deaths
+```
+
+```{r}
+#| echo: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx")
+deaths |> slice(1:8)
+```
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+
+```{r}
+#| eval: false
+deaths
+```
+
+```{r}
+#| echo: false
+deaths |> slice(1:8)
+```
+
+Algo por [**desgracia muy habitual**]{.hl-yellow} es que haya [**algún tipo de comentario o texto al inicio**]{.hl-red} del archivo, teniendo que [**saltarnos dichas filas**]{.hl-yellow}.
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+Podemos [**saltarnos dichas filas**]{.hl-yellow} directamente en la carga con `skip = ...` (indicando el número de filas que nos saltamos)
+
+```{r}
+#| eval: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx", skip = 4)
+deaths
+```
+
+```{r}
+#| echo: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx", skip = 4)
+deaths |> slice(1:5)
+```
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+Además con `col_names = ...` podemos renombrar ya las columnas en la importación (si [**proporcionamos nombres asume la 1ª línea ya como un dato**]{.hl-yellow})
+
+```{r}
+#| eval: false
+#| code-line-numbers: "3"
+deaths <-
+  read_xlsx(path = "./datos/deaths.xlsx",
+            skip = 5,
+            col_names = c("name", "profession", "age", "kids", "birth", "death"))
+deaths
+```
+
+```{r}
+#| echo: false
+library(readxl)
+deaths <- read_xlsx(path = "./datos/deaths.xlsx", skip = 5,
+                    col_names = c("name", "profession", "age", "kids", "birth", "death"))
+deaths |> slice(1:7)
+```
+        
+---
+
+## Datos en excel (.xls, .xlsx)
+
+
+En ocasiones las [**fechas de Excel están mal formateadas**]{.hl-red} (sorpresa): podemos hacer uso de `convertToDate()` del paquete `{openxlsx}` para convertirlo
+
+
+```{r}
+#| eval: false
+library(openxlsx)
+deaths$death <- convertToDate(deaths$death)
+deaths
+```
+   
+```{r}
+#| echo: false
+library(openxlsx)
+deaths$death <- convertToDate(deaths$death)
+deaths |> slice(1:7)
+```
+
+---
+
+## Datos en excel (.xls, .xlsx)
+
+También podemos [**cargar un Excel con varias hojas**]{.hl-yellow}: para [**indicarle la hoja**]{.hl-yellow} (bien por su nombre bien por su número) usaremos el argumento `sheet = ...`
+
+```{r}
+#| eval: false
+mtcars <- read_xlsx(path = "./datos/datasets.xlsx", sheet = "mtcars")
+mtcars
+```
+
+
+```{r}
+#| echo: false
+mtcars <- read_xlsx(path = "./datos/datasets.xlsx", sheet = "mtcars")
+mtcars |> slice(1:5)
+```
+
+
+. . .
+ 
+Incluso podemos indicar el [**rango de celdas**]{.hl-yellow} a cargar con `range = ...`
+
+```{r}
+iris <- read_xlsx(path = "./datos/datasets.xlsx", sheet = "iris", range = "C1:E4")
+iris
+```
+
+
+
+---
+
+## Desde SAS/STATA/SPSS
+
+El paquete `{haven}` dentro de la órbita tidyverse nos permitirá [**importar archivos de los 3 software de pago más importantes**]{.hl-yellow}: SAS, SPSS y Stata
+
+```{r}
+library(haven)
+
+# SAS
+iris_sas <- read_sas(data_file = "./datos/iris.sas7bdat")
+
+# SPSS
+iris_spss <- read_sav(file = "./datos/iris.sav")
+
+# Stata
+iris_stata <- read_dta(file = "./datos/iris.dta")
+```
+
+---
+
+## Exportar
+
+De la misma manera que podemos importar también podemos [**exportar**]{.hl-yellow}
+
+* exportado en `.RData` (opción recomendada para variables guardadas en `R`). Recuerda que esta extensión [**solo se podrá usar en `R`**]{.hl-yellow}. Para ello nos basta con usar `save(objeto, file = ruta)`
+
+```{r}
+tabla <- tibble("a" = 1:4, "b" = 1:4)
+save(tabla, file = "./datos/tabla_prueba.RData")
+rm(tabla) # eliminar
+load("./datos/tabla_prueba.RData")
+tabla
+```
+
+---
+
+
+## Exportar
+
+De la misma manera que podemos importar también podemos [**exportar**]{.hl-yellow}
+
+* exportado en `.RDS` (opción recomendada para variables guardadas en `R`). Recuerda que esta extensión [**solo se podrá usar en `R`**]{.hl-yellow}. Para ello nos basta con usar `saveRDS(objeto, file = ruta)`
+
+```{r}
+saveRDS(tabla, file = "tabla.RDS") 
+```
+
+---
+
+## Exportar
+
+De la misma manera que podemos importar también podemos [**exportar**]{.hl-yellow}
+
+* exportado en `.csv`. Para ello nos basta con usar `write_csv(objeto, file = ruta)`
+
+```{r}
+write_csv(tabla, file = "./datos/tabla_prueba.csv")
+read_csv(file = "./datos/tabla_prueba.csv")
+```
+
+---
+
+## Exportar
+
+De la misma manera que podemos importar también podemos [**exportar**]{.hl-yellow}
+
+* exportado en `.xlsx`. Para ello nos basta con usar `write.xlsx(objeto, file = ruta)` del paquete `{openxlsx}`
+
+```{r}
+library(openxlsx)
+write.xlsx(tabla, file = "./datos/tabla_prueba.xlsx")
+```
+
+---
+
+## Desde web
+
+Una de las principales ventajas de `R` es que podemos hacer uso de todas las funciones anteriores de [**importar pero directamente desde una web**]{.hl-yellow}, sin necesidad de realizar la descarga manual: en lugar de pasarle la ruta local le indicaremos el [**enlace**]{.hl-yellow}. Por ejemplo, vamos a descargar los datos de covid del ISCIII (<https://cnecovid.isciii.es/covid19/#documentaci%C3%B3n-y-datos>)
+
+
+```{r}
+#| eval: false
+covid_datos <-
+  read_csv(file = "https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv")
+covid_datos
+```
+
+```{r}
+#| echo: false
+covid_datos <-
+  read_csv(file = "https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_def_sexo_edad_provres.csv", n_max = 700)
+covid_datos
+```
+
+---
+
+## Desde google drive
+
+Otra opción disponible (sobre todo si trabajamos con otras personas que trabajan) es [**importar desde una hoja de cálculo Google Drive**]{.hl-yellow}, haciendo uso de `read_sheet()` del paquete `{googlesheets4}`
+
+La primera vez te pedirá un permiso de tidyverse para interactuar con vuestro drive
+
+```{r}
+#| eval: false
+library(googlesheets4)
+google_sheet <-
+  read_sheet("https://docs.google.com/spreadsheets/d/1n_UTbD93-oDJR2r-rsMNff5ro147NL_ZN_vYIA2eJ3Q/edit?usp=sharing")
+google_sheet
+```
+
+---
+
+## Desde API (owid)
+
+Una opción también muy interesante es la [**carga de datos desde una API**]{.hl-yellow}: un intermediario entre una app o proveedor datos y nuestro `R`. Por ejemplo, vamos a cargar la librería `{owidR}`, que nos permite la descarga de datos de la web <https://ourworldindata.org/>. La función `owid_covid()` nos carga sin darnos cuenta más de 300 000 registros con más de 50 variables de 238 países
+
+```{r}
+#| eval: false
+library(owidR)
+owid_covid()
+```
+
+```{r}
+#| echo: false
+#| eval: false
+library(owidR)
+owid_covid() |> slice(1:5)
+```
+
+---
+
+## Desde API (owid)
+
+Este paquete tiene la función `owid_search()` para buscar datasets por palabras clave, por ejemplo, `emissions`, dándonos un dataset con el título de la base de datos y su id para luego usarla.
+
+```{r}
+#| eval: false
+as_tibble(owid_search("emissions"))
+```
+
+```{r}
+#| echo: false
+#| eval: false
+as_tibble(owid_search("emissions")) |> slice(1:4)
+```
+
+. . .
+
+Vamos a pedirle por ejemplo las [**emisiones de la oecd**]{.hl-yellow}
+
+```{r}
+#| eval: false
+owid("emissions-of-air-pollutants-oecd")
+```
+
+```{r}
+#| echo: false
+#| eval: false
+owid("emissions-of-air-pollutants-oecd") |> slice(1:5)
+```
+
+---
+
+## Desde API (aemet)
+
+En muchas ocasiones para conectar con la API tendremos antes que [**registrarnos y obtener una clave**]{.hl-yellow}, es el caso del paquete `{climaemet}` para acceder a datos meteorológicos (<https://opendata.aemet.es/centrodedescargas/inicio>)
+
+
+Una vez que tenemos la clave de la API la registramos en nuestro RStudio para poder usarla a futuro
+
+
+```{r}
+library(climaemet)
+
+# Definir la clave
+apikey <- "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXZhbHYwOUB1Y20uZXMiLCJqdGkiOiI4YTU1ODUxMS01MTE3LTQ4MTYtYmM4OS1hYmVkNDhiODBkYzkiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTY2NjQ2OTcxNSwidXNlcklkIjoiOGE1NTg1MTEtNTExNy00ODE2LWJjODktYWJlZDQ4YjgwZGM5Iiwicm9sZSI6IiJ9.HEMR77lZy2ASjmOxJa8ppx2J8Za1IViurMX3p1reVBU"
+
+aemet_api_key(apikey, install = TRUE, overwrite = TRUE)
+```
+
+--- 
+
+## Desde API (aemet)
+
+
+Con dicho paquete podemos hacer una [**búsqueda de estaciones**]{.hl-yellow} para conocer tanto su código postal como su código identificador dentro de la red AEMET 
+
+```{r}
+stations <- aemet_stations()
+stations
+```
+
+---
+
+## Desde API (aemet)
+
+Por ejemplo, la estación del aeropuerto de El Prat, Barcelona, es el código `"0076"`
+
+```{r}
+aemet_last_obs("0076")
+```
+
+---
+
+## Desde API (catastro)
+
+También puedes conectar con la [**API del catrastro**]{.hl-yellow} y buscar por ejemplo por coordenadas
+
+```{r}
+#| eval: false
+library(CatastRo)
+catr_ovc_get_rccoor(lat = 38.61965, lon = -3.45624, srs = "4230")
+```
+
+---
+
+## Desde Spotify
+
+Incluso podemos hacer un uso más complejo de las API y bajarnos [**datos de sitios como Twitter o Spotify**]{.hl-yellow} (ver documentación en <https://www.rcharlie.com/spotifyr/>)
+
+```{r}
+library(spotifyr)
+Sys.setenv(SPOTIFY_CLIENT_ID = "79753b0500d34faaaef8673cc36bcf47")
+Sys.setenv(SPOTIFY_CLIENT_SECRET = 'ca2955d430064ce5ba6a158a02a19772')
+access_token <- get_spotify_access_token()
+```
+
+```{r}
+rosalia <- get_artist_audio_features("Rosalía")
+as_tibble(rosalia)
+```
+
+
+---
+
+
+## Desde chess.com
+
+Incluso puedes bajarte [**datos de ajedrez**]{.hl-yellow} de plataformas como <https://chess.com> (y analizarlas)
+
+```{r}
+# devtools::install_github("JaseZiv/chessR")
+library(chessR)
+library(chess)
+chess_data <- get_raw_chessdotcom(usernames = "DadosDeLaplace", year_month = c(202301:202303))
+tibble::as_tibble(chess_data)
+```
+
+---
+
+
+## 💻 Tu turno {#tu-turno-7}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+
+::: panel-tabset
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 El dataset `who` que hemos usado en ejercicios anteriores, expórtalo a un formato nativo de `R` en la carpeta `datos` del proyecto
+
+```{r}
+#| code-fold: true
+#| eval: false
+library(tidyr)
+save(who, file = "./datos/who.RData")
+```
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 Carga el dataset `who` pero desde la carpeta de datos (importa el archivo creado en el ejercicio anterior)
+
+```{r}
+#| code-fold: true
+#| eval: false
+load("./datos/who.RData")
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Repite lo mismo (exportar e importar) en 4 formatos: `.csv`, `.xlsx`, `.sav` (spss) y `.dta` (stata)
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+# csv
+library(readr)
+write_csv(who, file = "./datos/who.csv")
+who_data <- read_csv(file = "./datos/who.csv")
+
+# excel
+library(openxlsx)
+write.xlsx(who, file = "./datos/who.xlsx")
+who_data <- read_xlsx(path = "./datos/who.xlsx")
+
+# sas y stata
+library(haven)
+write_sav(who, path = "./datos/who.sav")
+who_data <- read_spss(path = "./datos/who.sav")
+
+write_dta(who, path = "./datos/who.dta")
+who_data <- read_dta(path = "./datos/who.dta")
+```
+
+### [**Ejercicio 4**]{.hl-yellow}
+
+📝 Repite la carga del `who.csv` pero solo selecciona ya en la carga las 4 primeras columnas
+
+```{r}
+#| code-fold: true
+#| eval: false
+who_select <-
+  read_csv(file = "./datos/who.csv",
+           col_select = c("country", "iso2", "iso3", "year"))
+```
+
+
+:::
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-7}
+
+
+En la carpeta de datos tienes el dataset `breast-cancer-wisconsin-data.csv`. Crea un archivo `.qmd` y personalízalo incluyendo lo siguiente:
+
+1. Importa el archivo csv a un `tibble`. ¿Es tidydata? ¿Cuántos pacientes y variables tenemos?
+
+. . .
+
+2. El dataset representa datos de cáncer de pecho (`id` identificador, `diagnosis` el diagnóstico maligno/benigno y el resto propiedades del tumor). Usando SOLO LO APRENDIDO, ¿qué % tenían un tumor maligno y qué % uno benigno?
+
+. . .
+
+3. ¿Cuál de los dos tipos de tumores tienen, de media, un radio más elevado? 
+
+. . .
+
+4. Busca la ayuda de la función `t.test()`. Dicha función nos permite contrastar si la media de dos distribuciones son o no iguales. ¿Podemos rechazar la hipótesis nula de que la media del radio sea la misma, bajo una significancia de $\alpha = 0.05$?
+
+
+
+# Clase 8: entrega II {#entrega-ii}
+
+[**Segunda entrega individual en clase**]{style="color:#444442;"}
+
+---
+
+## Entrega II (06/10/2023)
+
+Se actualizará al inicio de la clase correspondiente.
+
+::: callout-important
+
+## Importante
+
+Esta [**entrega ponderará un 15% en la nota final**]{.hl-green}
+
+Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
+
+Contarás con aproximadamente 110 minutos, pero [**deberás realizar la entrega**]{.hl-yellow}, como tarde, a las [**12:55**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
+
+Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
+
+Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
+
+:::
+
+
+# Clase 9: tidyverse (filas) {#clase-9-tidyverse-filas}
+
+[**Operaciones con filas**]{style="color:#444442;"}
+
+---
+
+## ...
+
+
+# Clase 10: tidyverse (columnas) {#clase-10-tidyverse-columnas}
+
+[**Operaciones con columnas**]{style="color:#444442;"}
+
+---
+
+## ...
+
+
+# Clase 11: tidyverse (crear/modificar variables) {#clase-11-tidyverse-mutate}
+
+[**Crear y/o modificar variables. Recodificar variables**]{style="color:#444442;"}
+
+---
+
+## ...
+
+
+# Clase 12: funciones {#clase-12-funciones}
+
+[**¿Qué es una función? ¿Cómo se definen? Variables locales vs globales. Uso con mutate.**]{style="color:#444442;"}
+
+---
+
+## ...
+
+
+# Clase 13: resúmenes y grupos {#clase-13-summary}
+
+[**Summarise y group_by(). Contar y resumir: estadísticas desagregadas por factores/grupos.**]{style="color:#444442;"}
+
+---
+
+## ...
+
+
+# Clase 14: entrega III {#entrega-iii}
+
+[**Segunda entrega individual en clase**]{style="color:#444442;"}
+
+---
+
+## Entrega III (27/10/2023)
+
+Se actualizará al inicio de la clase correspondiente.
+
+::: callout-important
+
+## Importante
+
+Esta [**entrega ponderará un 20% en la nota final**]{.hl-green}
+
+Podrás [**usar todo el material del curso e internet**]{.hl-yellow} salvo cualquier aplicación de mensajería o sistema de comunicación: en caso de tener alguna abierta a lo largo de la entrega, aunque no se esté usando, deberás [**abandonar la entrega y contará como un 0**]{.hl-red}.
+
+Contarás con aproximadamente 110 minutos, pero [**deberás realizar la entrega**]{.hl-yellow}, como tarde, a las [**12:55**]{.hl-yellow}. Será [**obligatorio subir tanto el `.qmd` como el `.html`**]{.hl-yellow}: una entrega que no haya podido ser renderizada (es decir, con errores graves) será [**penalizada contando solo un 65% de la nota obtenida**]{.hl-red} (si la entrega es perfecta, la nota máxima será un 6.5 sino se adjunta el `.html` generado).
+
+Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que [**irás justo de tiempo**]{.hl-yellow}, así que necesitas fluidez en los ejercicios.
+
+Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
+
+:::
 
 
