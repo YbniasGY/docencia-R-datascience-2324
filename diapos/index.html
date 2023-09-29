@@ -537,6 +537,30 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
+<tr class="odd">
+<td style="text-align: center;"><a href="#/entrega-i">5</a></td>
+<td style="text-align: center;">S3</td>
+<td style="text-align: center;">26 sep</td>
+<td style="text-align: center;">Entrega I</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="#/entrega-i">💻</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">🎯 5%</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><a href="#/clase-6">6</a></td>
+<td style="text-align: center;">S3</td>
+<td style="text-align: center;">29 sep</td>
+<td style="text-align: center;">Tidydata: intro a tidyverse</td>
+<td style="text-align: center;"><a href="https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts">📝</a></td>
+<td style="text-align: center;"><a href="#/tu-turno-6">💻</a></td>
+<td style="text-align: center;"><a href="#/caso-práctico-6">🐣</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1470,7 +1494,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-09-26"</code></pre>
+<pre><code>[1] "2023-09-29"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1480,7 +1504,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-09-26 12:02:22 CEST"</code></pre>
+<pre><code>[1] "2023-09-29 10:34:21 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -3264,8 +3288,647 @@ pesos       63   70   85   95</code></pre>
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="clase-6" class="title-slide slide level1 center">
+<h1>Clase 6: tidydata</h1>
+<p><span style="color:#444442;"><strong>Nuestra base de datos: tibble. Tidydata: un multiverso de datos limpios</strong></span></p>
+</section>
+<section id="previously-in-breaking-bad" class="slide level2">
+<h2>Previously, in Breaking Bad…</h2>
+<p>Nuestro <span class="hl-yellow"><strong>formato final de base de datos</strong></span> será el objeto de tipo <code>tibble</code>, un <code>data.frame</code> mejorado</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb295-2"><a href="#cb295-2"></a><span class="fu">tibble</span>(<span class="st">"estatura"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="fl">1.8</span>, <span class="fl">1.6</span>), <span class="st">"peso"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">70</span>), <span class="st">"IMC"</span> <span class="ot">=</span> peso <span class="sc">/</span> (estatura<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  estatura  peso   IMC
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1      1.7    80  27.7
+2      1.8    75  23.1
+3      1.6    70  27.3</code></pre>
+</div>
+</div>
+<ul>
+<li><span class="hl-yellow"><strong>Metainformación</strong></span>: en la cabecera nos dice ya automáticamente el número de filas y columnas, y el tipo de cada variable</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Recursividad</strong></span>: permite definir las variables secuencialmente (como hemos visto)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Consistencia</strong></span>: si accedes a una columna que no existe avisa con un warning</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Por filas</strong></span>: permite crear por filas con <code>tribble()</code></li>
+</ul>
+</div>
+</section>
+<section id="previously-in-breaking-bad-1" class="slide level2">
+<h2>Previously, in Breaking Bad…</h2>
+<p>Para definir un <code>tibble()</code> nosotro mismos tenemos dos opciones:</p>
+<ul>
+<li><span class="hl-yellow"><strong>Concatenando vectores</strong></span> que ya tengamos definidos, haciendo uso de la función <code>tibble()</code> del paquete <code>{tibble}</code> (ya incluido en <code>{tidyverse}</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb297"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb297-1"><a href="#cb297-1"></a>estatura <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="fl">1.8</span>, <span class="fl">1.6</span>)</span>
+<span id="cb297-2"><a href="#cb297-2"></a>peso <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">70</span>)</span>
+<span id="cb297-3"><a href="#cb297-3"></a>IMC <span class="ot">&lt;-</span>  peso <span class="sc">/</span> (estatura<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb297-4"><a href="#cb297-4"></a><span class="fu">tibble</span>(<span class="st">"estatura"</span> <span class="ot">=</span> estatura, <span class="st">"peso"</span> <span class="ot">=</span> peso,</span>
+<span id="cb297-5"><a href="#cb297-5"></a>       <span class="st">"IMC"</span> <span class="ot">=</span> IMC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  estatura  peso   IMC
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1      1.7    80  27.7
+2      1.8    75  23.1
+3      1.6    70  27.3</code></pre>
+</div>
+</div>
+</section>
+<section id="previously-in-breaking-bad-2" class="slide level2">
+<h2>Previously, in Breaking Bad…</h2>
+<ul>
+<li><span class="hl-yellow"><strong>Directamente en tibble</strong></span> proporcionando manualmente valores y nombres de variables</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb299"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb299-1"><a href="#cb299-1"></a><span class="fu">tibble</span>(<span class="st">"estatura"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="fl">1.8</span>, <span class="fl">1.6</span>),</span>
+<span id="cb299-2"><a href="#cb299-2"></a>       <span class="st">"peso"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">70</span>),</span>
+<span id="cb299-3"><a href="#cb299-3"></a>       <span class="st">"IMC"</span> <span class="ot">=</span> peso <span class="sc">/</span> (estatura<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  estatura  peso   IMC
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1      1.7    80  27.7
+2      1.8    75  23.1
+3      1.6    70  27.3</code></pre>
+</div>
+</div>
+</section>
+<section id="r-base-vs-tidyverse" class="slide level2">
+<h2>R base vs Tidyverse</h2>
+<p>Si conoces algún otro lenguaje de programación (o tienes gente cercana que programa) te extrañará que aún no hayamos hablado de conceptos habituales como</p>
+<ul>
+<li><p><span class="hl-yellow"><strong>Bucles for</strong></span>: repetir un código un número fijo de iteraciones.</p></li>
+<li><p><span class="hl-yellow"><strong>Bucles while</strong></span>: repetir un código hasta que se cumpla una condición</p></li>
+<li><p><span class="hl-yellow"><strong>Estructuras if-else</strong></span>: estructuras de control para decidir por donde camina el código en función del valor de las variables.</p></li>
+</ul>
+<div class="fragment">
+<p>Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la <span class="hl-red"><strong>mayoría de ocasiones vamos a poder evitarlas</strong></span> (en especial los bucles)</p>
+</div>
+</section>
+<section id="qué-es-tidyverse" class="slide level2">
+<h2>¿Qué es tidyverse?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/tidyverrse_universe.jpg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/flow_tidyverse.jpg"></p>
+</div>
+</div>
+<p><code>{tidyverse}</code> es un <span class="hl-yellow"><strong>«universo» de paquetes</strong></span> para garanatizar un flujo de trabajo (de inicio a fin) eficiente, coherente y lexicográficamente sencillo de entender, basado en la idea de que <span class="hl-purple"><strong>nuestros datos están limpios y ordenados (tidy)</strong></span></p>
+</section>
+<section id="qué-es-tidyverse-1" class="slide level2">
+<h2>¿Qué es tidyverse?</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="img/tidyverrse_universe.jpg"></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li><code>{tibble}</code>: optimizando data.frame</li>
+<li><code>{tidyr}</code>: limpieza de datos</li>
+<li><code>{readr}</code>: carga datos rectangulares (.csv)</li>
+<li><code>{dplyr}</code>: gramática para depurar</li>
+<li><code>{stringr}</code>: manejo de textos</li>
+<li><code>{ggplot2}</code>: visualización de datos</li>
+<li><code>{tidymodels}</code>: modelización/predicción</li>
+</ul>
+</div>
+</div>
+<p>También tenemos los paquetes <code>{purrr}</code> para el manejo de listas, <code>{forcast}</code> para cualitativas, <code>{lubridate}</code> para fechas, <code>{readxl}</code> para importar archivos .xls y .xlsx, <code>{rvest}</code> para web scraping y <code>{rmarkdown}</code> para comunicar resultados.</p>
+</section>
+<section id="qué-es-tidyverse-2" class="slide level2">
+<h2>¿Qué es tidyverse?</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="img/tidyverrse_universe.jpg"></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li><code>{tibble}</code>: <span class="hl-yellow"><strong>optimizando data.frame</strong></span></li>
+<li><code>{tidyr}</code>: <span class="hl-yellow"><strong>limpieza de datos</strong></span></li>
+<li><code>{readr}</code>: carga datos rectangulares (.csv)</li>
+<li><code>{dplyr}</code>: gramática para depurar</li>
+<li><code>{stringr}</code>: manejo de textos</li>
+<li><code>{ggplot2}</code>: visualización de datos</li>
+<li><code>{tidymodels}</code>: modelización/predicción</li>
+</ul>
+</div>
+</div>
+<p>También tenemos los paquetes <code>{purrr}</code> para el manejo de listas, <code>{forcast}</code> para cualitativas, <code>{lubridate}</code> para fechas, <code>{readxl}</code> para importar archivos .xls y .xlsx, <code>{rvest}</code> para web scraping y <code>{rmarkdown}</code> para comunicar resultados.</p>
+</section>
+<section id="filosofía-base-tidy-data" class="slide level2">
+<h2>Filosofía base: tidy data</h2>
+<blockquote>
+<p>Tidy datasets are all alike, but every messy dataset is messy in its own way (Hadley Wickham, Chief Scientist en RStudio)</p>
+</blockquote>
+<div style="font-size:120px; text-align: center; color:#F8DF58;">
+<p><b>TIDY</b><b><span style="color:#CAB0EE;">VERSE</span></b></p>
+</div>
+<p>El <span class="hl-purple"><strong>universo</strong></span> de paquetes <code>{tidyverse}</code> se basa en la idea introducido por <strong>Hadley Wickham</strong> (el Dios al que rezo) de <span class="hl-yellow"><strong>estandarizar</strong></span> el formato los datos para</p>
+<div>
+<ul>
+<li class="fragment"><span class="hl-green"><strong>sistematizar</strong></span> la depuración</li>
+<li class="fragment">hacer más <span class="hl-green"><strong>sencillo</strong></span> su manipulación.</li>
+<li class="fragment">código <span class="hl-green"><strong>legible</strong></span></li>
+</ul>
+</div>
+</section>
+<section id="reglas-del-tidy-data" class="slide level2">
+<h2>Reglas del tidy data</h2>
+<p>Lo primero por tanto será entender qué son los <span class="hl-yellow"><strong>conjuntos tidydata</strong></span> ya que todo <code>{tidyverse}</code> se basa en que los datos están estandarizados.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment fade-in">
+<ol type="1">
+<li>Cada <span class="hl-yellow"><strong>variable</strong></span> en una <span class="hl-purple"><strong>única columna</strong></span></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<ol start="2" type="1">
+<li>Cada <span class="hl-yellow"><strong>individuo</strong></span> en una <span class="hl-purple"><strong>fila diferente</strong></span></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<ol start="3" type="1">
+<li>Cada <span class="hl-yellow"><strong>celda</strong></span> con un <span class="hl-purple"><strong>único valor</strong></span></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<ol start="4" type="1">
+<li>Cada <span class="hl-yellow"><strong>dataset</strong></span> en un <span class="hl-purple"><strong>tibble</strong></span></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<ol start="5" type="1">
+<li>Si queremos cruzar <span class="hl-yellow"><strong>múltiples tablas</strong></span> debemos tener una <span class="hl-purple"><strong>columna común</strong></span></li>
+</ol>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/tidy_def.jpg" style="width:160.0%"></p>
+</div>
+</div>
+</section>
+<section id="tubería-pipe" class="slide level2">
+<h2>Tubería (pipe)</h2>
+<p>En <code>{tidyverse}</code> será clave el <span class="hl-yellow"><strong>operador pipe (tubería)</strong></span> definido como <code>|&gt;</code> (<span class="hl-purple"><strong>ctrl+shift+M</strong></span>): será una <span class="hl-yellow"><strong>tubería que recorre los datos</strong></span> y los transforma.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>En R base, si queremos aplicar tres funciones <code>first()</code>, <code>second()</code> y <code>third()</code> en orden, sería</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb301"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb301-1"><a href="#cb301-1"></a><span class="fu">third</span>(<span class="fu">second</span>(<span class="fu">first</span>(datos)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>En <code>{tidyverse}</code> podremos <span class="hl-yellow"><strong>leer de izquierda a derecha</strong></span> y separar los datos de las acciones</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb302"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb302-1"><a href="#cb302-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">first</span>() <span class="sc">|&gt;</span> <span class="fu">second</span>() <span class="sc">|&gt;</span> <span class="fu">third</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+</div>
+<div class="fragment">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Apunte importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Desde la versión 4.1.0 de <code>R</code> disponemos de <code>|&gt;</code>, un pipe <strong>nativo</strong> disponible <span class="hl-purple"><strong>fuera de tidyverse</strong></span>, sustituyendo al <span class="hl-red"><strong>antiguo pipe</strong></span> <code>%&gt;%</code> que dependía del paquete <code>{magrittr}</code> (bastante problemático).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tubería-pipe-1" class="slide level2">
+<h2>Tubería (pipe)</h2>
+<p>La principal ventaja es que el <span class="hl-yellow"><strong>código sea muy legible (casi literal)</strong></span> pudiendo hacer grandes operaciones con los datos con apenas código.</p>
+<p>&nbsp;</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb303"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb303-1"><a href="#cb303-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb303-2"><a href="#cb303-2"></a>  <span class="fu">limpio</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-3"><a href="#cb303-3"></a>  <span class="fu">filtro</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-4"><a href="#cb303-4"></a>  <span class="fu">selecciono</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-5"><a href="#cb303-5"></a>  <span class="fu">ordeno</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-6"><a href="#cb303-6"></a>  <span class="fu">modifico</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-7"><a href="#cb303-7"></a>  <span class="fu">renombro</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-8"><a href="#cb303-8"></a>  <span class="fu">agrupo</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-9"><a href="#cb303-9"></a>  <span class="fu">cuento</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-10"><a href="#cb303-10"></a>  <span class="fu">resumo</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb303-11"><a href="#cb303-11"></a>  <span class="fu">pinto</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<center>
+<img src="img/logo_pipe.png" width="360px">
+</center>
+</div>
+</div>
+</section>
+<section id="datos-sucios-messy-data" class="slide level2">
+<h2>Datos SUCIOS: messy data</h2>
+<p>¿Pero qué aspecto tienen los <span class="hl-yellow"><strong>datos no tidy</strong></span>? Vamos a cargar la tabla <code>table4a</code> del paquete <code>{tidyr}</code> (ya lo tenemos cargado del entorno tidyverse).</p>
+<p>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb304"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb304-1"><a href="#cb304-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb304-2"><a href="#cb304-2"></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><span class="hl-red"><strong>¿Qué puede estar fallando?</strong></span></p>
+</section>
+<section id="pivotar-pivot_longer" class="slide level2">
+<h2>Pivotar: pivot_longer()</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb306"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb306-1"><a href="#cb306-1"></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<p>❎ Cada <span class="hl-red"><strong>fila representa dos observaciones</strong></span> (1999 y 2000) → las columnas <code>1999</code> y <code>2000</code> en realidad deberían ser en sí <span class="hl-yellow"><strong>valores de una variable</strong></span> y no nombres de columnas.</p>
+</div>
+</div>
+<div class="fragment">
+<p>Incluiremos una <span class="hl-yellow"><strong>nueva columna</strong></span> que nos guarde el año y otra que guarde el valor de la variable de interés en cada uno de esos años. Y lo haremos con la función <code>pivot_longer()</code>: <span class="hl-yellow"><strong>pivotaremos la tabla</strong></span> a formato long:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb308"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb308-1"><a href="#cb308-1"></a>table4a <span class="sc">|&gt;</span> </span>
+<span id="cb308-2"><a href="#cb308-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"1999"</span>, <span class="st">"2000"</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+1 Afghanistan 1999     745
+2 Afghanistan 2000    2666
+3 Brazil      1999   37737
+4 Brazil      2000   80488
+5 China       1999  212258
+6 China       2000  213766</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="pivotar-pivot_longer-1" class="slide level2">
+<h2>Pivotar: pivot_longer()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb310"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb310-1"><a href="#cb310-1"></a>table4a <span class="sc">|&gt;</span> </span>
+<span id="cb310-2"><a href="#cb310-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"1999"</span>, <span class="st">"2000"</span>),</span>
+<span id="cb310-3"><a href="#cb310-3"></a>               <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
+<span id="cb310-4"><a href="#cb310-4"></a>               <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+1 Afghanistan 1999     745
+2 Afghanistan 2000    2666
+3 Brazil      1999   37737
+4 Brazil      2000   80488
+5 China       1999  212258
+6 China       2000  213766</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/table4a.jpg"></p>
+</div>
+</div>
+<p>&nbsp;</p>
+<ul>
+<li><code>cols</code>: <span class="hl-yellow"><strong>nombre de las variables a pivotar</strong></span></li>
+<li><code>names_to</code>: nombre de la nueva variable a la quemandamos la <span class="hl-yellow"><strong>cabecera</strong></span> de la tabla (los nombres).</li>
+<li><code>values_to</code>: nombre de la nueva variable a la que vamos a mandar los <span class="hl-yellow"><strong>datos</strong></span>.</li>
+</ul>
+</section>
+<section id="datos-sucios-messy-data-1" class="slide level2">
+<h2>Datos SUCIOS: messy data</h2>
+<p>Veamos otro ejemplo con la tabla <code>table2</code></p>
+<p>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb312"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb312-1"><a href="#cb312-1"></a>table2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><span class="hl-red"><strong>¿Qué puede estar fallando?</strong></span></p>
+</section>
+<section id="pivotar-pivot_wider" class="slide level2">
+<h2>Pivotar: pivot_wider()</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p>❎ Cada <span class="hl-red"><strong>observación está dividido en dos filas</strong></span> → los <span class="hl-yellow"><strong>registros con el mismo año deberían ser el mismo</strong></span></p>
+</div>
+</div>
+<div class="fragment">
+<p>Lo que haremos será lo opuesto: con <code>pivot_wider()</code> <span class="hl-yellow"><strong>ensancharemos la tabla</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb315"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb315-1"><a href="#cb315-1"></a>table2 <span class="sc">|&gt;</span>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> type, <span class="at">values_from =</span> count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="datos-sucios-messy-data-2" class="slide level2">
+<h2>Datos SUCIOS: messy data</h2>
+<p>Veamos otro ejemplo con la tabla <code>table3</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb317"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb317-1"><a href="#cb317-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div>
+<p><span class="hl-red"><strong>¿Qué puede estar fallando?</strong></span></p>
+</section>
+<section id="separar-separate" class="slide level2">
+<h2>Separar: separate()</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb319"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb319-1"><a href="#cb319-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p>❎ Cada <span class="hl-red"><strong>celda contiene varios valores</strong></span></p>
+</div>
+</div>
+<div class="fragment">
+<p>Lo que haremos será hacer uso de la función <code>separate()</code> para mandar <span class="hl-yellow"><strong>separar cada valor</strong></span> a una columna diferente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb321"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb321-1"><a href="#cb321-1"></a>table3 <span class="sc">|&gt;</span> <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"pop"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year cases  pop       
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
+1 Afghanistan  1999 745    19987071  
+2 Afghanistan  2000 2666   20595360  
+3 Brazil       1999 37737  172006362 
+4 Brazil       2000 80488  174504898 
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="separar-separate-1" class="slide level2">
+<h2>Separar: separate()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb323"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb323-1"><a href="#cb323-1"></a>table3 <span class="sc">|&gt;</span> <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"pop"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year cases  pop       
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
+1 Afghanistan  1999 745    19987071  
+2 Afghanistan  2000 2666   20595360  
+3 Brazil       1999 37737  172006362 
+4 Brazil       2000 80488  174504898 
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+<p>Fíjate que los datos, aunque los ha separado, <span class="hl-red"><strong>los ha mantenido como texto</strong></span> cuando en realidad deberían ser variables numéricas. Para ello podemos añadir el argumento opcional <code>convert = TRUE</code></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb325"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb325-1"><a href="#cb325-1"></a>table3 <span class="sc">|&gt;</span> <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"pop"</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases        pop
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="datos-sucios-messy-data-3" class="slide level2">
+<h2>Datos SUCIOS: messy data</h2>
+<p>Veamos el último ejemplo con la tabla <code>table5</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb327"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb327-1"><a href="#cb327-1"></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+<p><span class="hl-red"><strong>¿Qué puede estar fallando?</strong></span></p>
+</section>
+<section id="unir-unite" class="slide level2">
+<h2>Unir unite()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb329"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb329-1"><a href="#cb329-1"></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>❎ Tenemos <span class="hl-red"><strong>mismos valores divididos en dos columnas</strong></span></p>
+</div>
+</div>
+<div class="fragment">
+<p>Usaremos <code>unite()</code> para <span class="hl-yellow"><strong>unir los valores</strong></span> de siglo y año en una misma columna</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb331"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb331-1"><a href="#cb331-1"></a>table5 <span class="sc">|&gt;</span> <span class="fu">unite</span>(<span class="at">col =</span> year_completo, century, year, <span class="at">sep =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year_completo rate             
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;            
+1 Afghanistan 1999          745/19987071     
+2 Afghanistan 2000          2666/20595360    
+3 Brazil      1999          37737/172006362  
+4 Brazil      2000          80488/174504898  
+5 China       1999          212258/1272915272
+6 China       2000          213766/1280428583</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tu-turno-6" class="slide level2">
+<h2>💻 Tu turno</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-7-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-7-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<p>📝 Echa un vistazo a la tabla <code>table4b</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb333"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb333-1"><a href="#cb333-1"></a>table4b <span class="sc">|&gt;</span></span>
+<span id="cb333-2"><a href="#cb333-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">"1999"</span><span class="sc">:</span><span class="st">"2000"</span>, <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
+<span id="cb333-3"><a href="#cb333-3"></a>               <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-2">
+<p>📝 Echa un vistazo a la tabla <code>relig_income</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb334"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb334-1"><a href="#cb334-1"></a>relig_income <span class="sc">|&gt;</span></span>
+<span id="cb334-2"><a href="#cb334-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">"&lt;$10k"</span><span class="sc">:</span><span class="st">"Don't know/refused"</span>,</span>
+<span id="cb334-3"><a href="#cb334-3"></a>               <span class="at">names_to =</span> <span class="st">"income"</span>,</span>
+<span id="cb334-4"><a href="#cb334-4"></a>               <span class="at">values_to =</span> <span class="st">"people"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-3">
+<p>📝 Echa un vistazo a la tabla <code>billboard</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb335"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb335-1"><a href="#cb335-1"></a>billboard <span class="sc">|&gt;</span></span>
+<span id="cb335-2"><a href="#cb335-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">"wk1"</span><span class="sc">:</span><span class="st">"wk76"</span>,</span>
+<span id="cb335-3"><a href="#cb335-3"></a>               <span class="at">names_to =</span> <span class="st">"week"</span>,</span>
+<span id="cb335-4"><a href="#cb335-4"></a>               <span class="at">names_prefix =</span> <span class="st">"wk"</span>,</span>
+<span id="cb335-5"><a href="#cb335-5"></a>               <span class="at">values_to =</span> <span class="st">"position"</span>,</span>
+<span id="cb335-6"><a href="#cb335-6"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="caso-práctico-6" class="slide level2">
+<h2>🐣 Caso práctico</h2>
+<p>En el paquete <code>{tidyr}</code> contamos con el dataset <code>who</code> (dataset de la Organización Mundial de la Salud)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb336"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb336-1"><a href="#cb336-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb336-2"><a href="#cb336-2"></a>who</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>¿Qué <span class="hl-yellow"><strong>significan los datos</strong></span>? ¿Cuántas <span class="hl-yellow"><strong>variables y observaciones</strong></span> tenemos?</li>
+</ol>
+<div class="fragment">
+<ol start="2" type="1">
+<li>¿Cuántos <span class="hl-yellow"><strong>tipos de variables</strong></span> tenemos?</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>¿Todas las variables son necesarias? <span class="hl-yellow"><strong>Elimina la información redundante</strong></span>.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li><span class="hl-yellow"><strong>Convierte a tidydata</strong></span> la base de datos realizando todas las opciones que consideres (consejo: usa papel y boli para bocetar como debería quedar la base de datos).</li>
+</ol>
 <div class="footer footer-default">
 <p><a href="..."><strong>Javier Álvarez Liébana</strong></a> • Grado en Ciencia de Datos Aplicada (UCM) • curso 2023-2024</p>
+</div>
 </div>
 </section></section>
     </div>

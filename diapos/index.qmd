@@ -109,7 +109,9 @@ Actualmente, [**investigador y docente en la Facultad de Estadística de la UCM*
 |     [1](#clase-1-primeros-pasos)      | S1     | 12 sep |                  Primeros pasos en R                   | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |                 [💻](#tu-turno)                 |                        |         | 
 |     [2](#clase-2-primeros-datos)      | S1     | 15 sep |                 Tipos básicos de datos y vectores                | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-1) [💻](#tu-turno-2)       |  [🐣](#caso-práctico)  |         |   
 |     [3](#clase-3)      | S2     | 19 sep |                 Primeras bases de datos              | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       [💻](#tu-turno-3) [💻](#tu-turno-matrices) [💻](#tu-turno-tibble)   |  [🐣](#caso-práctico-1)  |         |   
-|     [4](#clase-4)      | S2     | 19 sep |      Comunicar y elaborar informes/entregas              | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       |  [🐣](#caso-práctico-3a)  |         |  
+|     [4](#clase-4)      | S2     | 19 sep |      Comunicar y elaborar informes/entregas              | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |       |  [🐣](#caso-práctico-3a)  |         | 
+|   [5](#entrega-i)   | S3 | 26 sep | Entrega I |  |  [💻](#entrega-i)   |  |  🎯 5%  | 
+|     [6](#clase-6)      | S3     | 29 sep |      Tidydata: intro a tidyverse             | [📝](https://github.com/dadosdelaplace/docencia-R-datascience-2324/tree/main/material/scripts)  |     [💻](#tu-turno-6)  |  [🐣](#caso-práctico-6)  |         | 
 :::
 :::
 
@@ -2850,5 +2852,543 @@ Te recomiendo practicar bastante y preguntar dudas en clase y/o tutoría ya que 
 Si usas un [**pc de la biblioteca**]{.hl-yellow} asegúrate de tomarlo con suficiente antelación para [**instalar todas las librerías necesarias antes de empezar**]{.hl-yellow} para no perder tiempo.
 
 :::
+
+
+# Clase 6: tidydata {#clase-6}
+
+[**Nuestra base de datos: tibble. Tidydata: un multiverso de datos limpios**]{style="color:#444442;"}
+
+---
+
+## Previously, in Breaking Bad...
+
+Nuestro [**formato final de base de datos**]{.hl-yellow} será el objeto de tipo `tibble`, un `data.frame` mejorado
+
+```{r}
+library(tibble)
+tibble("estatura" = c(1.7, 1.8, 1.6), "peso" = c(80, 75, 70), "IMC" = peso / (estatura^2))
+```
+
+-   [**Metainformación**]{.hl-yellow}: en la cabecera nos dice ya automáticamente el número de filas y columnas, y el tipo de cada variable
+
+. . .
+
+-   [**Recursividad**]{.hl-yellow}: permite definir las variables secuencialmente (como hemos visto)
+
+. . .
+
+-   [**Consistencia**]{.hl-yellow}: si accedes a una columna que no existe avisa con un warning
+
+. . .
+
+-   [**Por filas**]{.hl-yellow}: permite crear por filas con `tribble()`
+
+---
+
+## Previously, in Breaking Bad...
+
+Para definir un `tibble()` nosotro mismos tenemos dos opciones:
+
+* [**Concatenando vectores**]{.hl-yellow} que ya tengamos definidos, haciendo uso de la función `tibble()` del paquete `{tibble}` (ya incluido en `{tidyverse}`)
+
+```{r}
+estatura <- c(1.7, 1.8, 1.6)
+peso <- c(80, 75, 70)
+IMC <-  peso / (estatura^2)
+tibble("estatura" = estatura, "peso" = peso,
+       "IMC" = IMC)
+```
+
+---
+
+## Previously, in Breaking Bad...
+
+* [**Directamente en tibble**]{.hl-yellow} proporcionando manualmente valores y nombres de variables
+
+```{r}
+tibble("estatura" = c(1.7, 1.8, 1.6),
+       "peso" = c(80, 75, 70),
+       "IMC" = peso / (estatura^2))
+```
+
+---
+
+
+## R base vs Tidyverse
+
+Si conoces algún otro lenguaje de programación (o tienes gente cercana que programa) te extrañará que aún no hayamos hablado de conceptos habituales como
+
+-   [**Bucles for**]{.hl-yellow}: repetir un código un número fijo de iteraciones.
+
+-   [**Bucles while**]{.hl-yellow}: repetir un código hasta que se cumpla una condición
+
+-   [**Estructuras if-else**]{.hl-yellow}: estructuras de control para decidir por donde camina el código en función del valor de las variables.
+
+. . .
+
+Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la [**mayoría de ocasiones vamos a poder evitarlas**]{.hl-red} (en especial los bucles)
+
+---
+
+## ¿Qué es tidyverse?
+
+::: columns
+::: {.column width="50%"}
+![](img/tidyverrse_universe.jpg)
+:::
+
+::: {.column width="50%"}
+![](img/flow_tidyverse.jpg)
+:::
+:::
+
+`{tidyverse}` es un [**«universo» de paquetes**]{.hl-yellow} para garanatizar un flujo de trabajo (de inicio a fin) eficiente, coherente y lexicográficamente sencillo de entender, basado en la idea de que [**nuestros datos están limpios y ordenados (tidy)**]{.hl-purple}
+
+---
+
+## ¿Qué es tidyverse?
+
+::: columns
+::: {.column width="45%"}
+![](img/tidyverrse_universe.jpg)
+:::
+
+::: {.column width="55%"}
+-   `{tibble}`: optimizando data.frame
+-   `{tidyr}`: limpieza de datos
+-   `{readr}`: carga datos rectangulares (.csv)
+-   `{dplyr}`: gramática para depurar
+-   `{stringr}`: manejo de textos
+-   `{ggplot2}`: visualización de datos
+-   `{tidymodels}`: modelización/predicción
+:::
+:::
+
+También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` para cualitativas, `{lubridate}` para fechas, `{readxl}` para importar archivos .xls y .xlsx, `{rvest}` para web scraping y `{rmarkdown}` para comunicar resultados.
+
+---
+
+## ¿Qué es tidyverse?
+
+::: columns
+::: {.column width="45%"}
+![](img/tidyverrse_universe.jpg)
+:::
+
+::: {.column width="55%"}
+-   `{tibble}`: [**optimizando data.frame**]{.hl-yellow}
+-   `{tidyr}`: [**limpieza de datos**]{.hl-yellow}
+-   `{readr}`: carga datos rectangulares (.csv)
+-   `{dplyr}`: gramática para depurar
+-   `{stringr}`: manejo de textos
+-   `{ggplot2}`: visualización de datos
+-   `{tidymodels}`: modelización/predicción
+:::
+:::
+
+También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` para cualitativas, `{lubridate}` para fechas, `{readxl}` para importar archivos .xls y .xlsx, `{rvest}` para web scraping y `{rmarkdown}` para comunicar resultados.
+
+---
+
+## Filosofía base: tidy data
+
+> Tidy datasets are all alike, but every messy dataset is messy in its own way (Hadley Wickham, Chief Scientist en RStudio)
+
+::: {style="font-size:120px; text-align: center; color:#F8DF58;"}
+<b>TIDY</b><b>[VERSE</b>]{style="color:#CAB0EE;"}
+:::
+
+El [**universo**]{.hl-purple} de paquetes `{tidyverse}` se basa en la idea introducido por **Hadley Wickham** (el Dios al que rezo) de [**estandarizar**]{.hl-yellow} el formato los datos para
+
+::: incremental
+-   [**sistematizar**]{.hl-green} la depuración
+-   hacer más [**sencillo**]{.hl-green} su manipulación.
+-   código [**legible**]{.hl-green}
+:::
+
+---
+
+## Reglas del tidy data
+
+Lo primero por tanto será entender qué son los [**conjuntos tidydata**]{.hl-yellow} ya que todo `{tidyverse}` se basa en que los datos están estandarizados.
+
+::: columns
+::: {.column width="50%"}
+::: {.fragment .fade-in}
+1.  Cada [**variable**]{.hl-yellow} en una [**única columna**]{.hl-purple}
+:::
+
+::: {.fragment .fade-in}
+2.  Cada [**individuo**]{.hl-yellow} en una [**fila diferente**]{.hl-purple}
+:::
+
+::: {.fragment .fade-in}
+3.  Cada [**celda**]{.hl-yellow} con un [**único valor**]{.hl-purple}
+:::
+
+::: {.fragment .fade-in}
+4.  Cada [**dataset**]{.hl-yellow} en un [**tibble**]{.hl-purple}
+:::
+
+::: {.fragment .fade-in}
+5.  Si queremos cruzar [**múltiples tablas**]{.hl-yellow} debemos tener una [**columna común**]{.hl-purple}
+:::
+:::
+
+::: {.column width="50%"}
+![](img/tidy_def.jpg){width="160%"}
+:::
+:::
+
+---
+
+## Tubería (pipe)
+
+En `{tidyverse}` será clave el [**operador pipe (tubería)**]{.hl-yellow} definido como `|>` ([**ctrl+shift+M**]{.hl-purple}): será una [**tubería que recorre los datos**]{.hl-yellow} y los transforma.
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+En R base, si queremos aplicar tres funciones `first()`, `second()` y `third()` en orden, sería
+
+```{r}
+#| eval: false
+third(second(first(datos)))
+```
+:::
+
+::: {.column width="50%"}
+En `{tidyverse}` podremos [**leer de izquierda a derecha**]{.hl-yellow} y separar los datos de las acciones
+
+```{r}
+#| eval: false
+datos |> first() |> second() |> third()
+```
+:::
+:::
+
+ 
+
+. . .
+
+::: callout-caution
+## Apunte importante
+
+Desde la versión 4.1.0 de `R` disponemos de `|>`, un pipe **nativo** disponible [**fuera de tidyverse**]{.hl-purple}, sustituyendo al [**antiguo pipe**]{.hl-red} `%>%` que dependía del paquete `{magrittr}` (bastante problemático).
+:::
+
+---
+
+## Tubería (pipe)
+
+La principal ventaja es que el [**código sea muy legible (casi literal)**]{.hl-yellow} pudiendo hacer grandes operaciones con los datos con apenas código.
+
+ 
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+datos |>
+  limpio(...) |>
+  filtro(...) |>
+  selecciono(...) |>
+  ordeno(...) |>
+  modifico(...) |>
+  renombro(...) |>
+  agrupo(...) |>
+  cuento(...) |>
+  resumo(...) |>
+  pinto(...)
+```
+:::
+
+::: {.column width="50%"}
+<center><img src="img/logo_pipe.png" width="360px"/></center>
+:::
+:::
+
+---
+
+## Datos SUCIOS: messy data
+
+¿Pero qué aspecto tienen los [**datos no tidy**]{.hl-yellow}? Vamos a cargar la tabla `table4a` del paquete `{tidyr}` (ya lo tenemos cargado del entorno tidyverse).
+
+ 
+
+```{r}
+library(tidyr)
+table4a
+```
+
+ 
+
+[**¿Qué puede estar fallando?**]{.hl-red}
+
+---
+
+## Pivotar: pivot_longer()
+
+::: columns
+::: {.column width="40%"}
+```{r}
+table4a
+```
+:::
+
+::: {.column width="60%"}
+❎ Cada [**fila representa dos observaciones**]{.hl-red} (1999 y 2000) → las columnas `1999` y `2000` en realidad deberían ser en sí [**valores de una variable**]{.hl-yellow} y no nombres de columnas.
+:::
+:::
+
+. . .
+
+Incluiremos una [**nueva columna**]{.hl-yellow} que nos guarde el año y otra que guarde el valor de la variable de interés en cada uno de esos años. Y lo haremos con la función `pivot_longer()`: [**pivotaremos la tabla**]{.hl-yellow} a formato long:
+
+```{r}
+table4a |> 
+  pivot_longer(cols = c("1999", "2000"), names_to = "year", values_to = "cases")
+```
+
+---
+
+## Pivotar: pivot_longer()
+
+::: columns
+::: {.column width="50%"}
+```{r}
+table4a |> 
+  pivot_longer(cols = c("1999", "2000"),
+               names_to = "year",
+               values_to = "cases")
+```
+:::
+
+::: {.column width="50%"}
+![](img/table4a.jpg)
+:::
+:::
+
+ 
+
+-   `cols`: [**nombre de las variables a pivotar**]{.hl-yellow}
+-   `names_to`: nombre de la nueva variable a la quemandamos la [**cabecera**]{.hl-yellow} de la tabla (los nombres).
+-   `values_to`: nombre de la nueva variable a la que vamos a mandar los [**datos**]{.hl-yellow}.
+
+---
+
+## Datos SUCIOS: messy data
+
+Veamos otro ejemplo con la tabla `table2`
+
+ 
+
+```{r}
+table2
+```
+
+ 
+
+[**¿Qué puede estar fallando?**]{.hl-red}
+
+---
+
+## Pivotar: pivot_wider()
+
+::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: false
+table2
+```
+:::
+
+::: {.column width="40%"}
+❎ Cada [**observación está dividido en dos filas**]{.hl-red} → los [**registros con el mismo año deberían ser el mismo**]{.hl-yellow}
+:::
+:::
+
+. . .
+
+Lo que haremos será lo opuesto: con `pivot_wider()` [**ensancharemos la tabla**]{.hl-yellow}
+
+```{r}
+table2 |>  pivot_wider(names_from = type, values_from = count)
+```
+
+---
+
+## Datos SUCIOS: messy data
+
+Veamos otro ejemplo con la tabla `table3`
+
+
+```{r}
+table3
+```
+
+
+[**¿Qué puede estar fallando?**]{.hl-red}
+
+---
+
+## Separar: separate()
+
+::: columns
+::: {.column width="60%"}
+```{r}
+table3
+```
+:::
+
+::: {.column width="40%"}
+❎ Cada [**celda contiene varios valores**]{.hl-red}
+:::
+:::
+
+. . .
+
+Lo que haremos será hacer uso de la función `separate()` para mandar [**separar cada valor**]{.hl-yellow} a una columna diferente.
+
+```{r}
+table3 |> separate(rate, into = c("cases", "pop"))
+```
+
+---
+
+## Separar: separate()
+
+```{r}
+table3 |> separate(rate, into = c("cases", "pop"))
+```
+
+Fíjate que los datos, aunque los ha separado, [**los ha mantenido como texto**]{.hl-red} cuando en realidad deberían ser variables numéricas. Para ello podemos añadir el argumento opcional `convert = TRUE`
+
+. . .
+
+```{r}
+table3 |> separate(rate, into = c("cases", "pop"), convert = TRUE)
+```
+
+---
+
+## Datos SUCIOS: messy data
+
+Veamos el último ejemplo con la tabla `table5`
+
+
+```{r}
+table5
+```
+
+
+[**¿Qué puede estar fallando?**]{.hl-red}
+
+---
+
+## Unir unite()
+
+::: columns
+::: {.column width="50%"}
+```{r}
+table5
+```
+:::
+
+::: {.column width="50%"}
+❎ Tenemos [**mismos valores divididos en dos columnas**]{.hl-red}
+:::
+:::
+
+. . .
+
+Usaremos `unite()` para [**unir los valores**]{.hl-yellow} de siglo y año en una misma columna
+
+```{r}
+table5 |> unite(col = year_completo, century, year, sep = "")
+```
+
+---
+
+## 💻 Tu turno {#tu-turno-6}
+
+[**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
+
+::: panel-tabset
+
+### [**Ejercicio 1**]{.hl-yellow}
+
+📝 Echa un vistazo a la tabla `table4b` del paquete `{tidyr}`. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?
+
+```{r}
+#| code-fold: true
+#| eval: false
+table4b |>
+  pivot_longer(cols = "1999":"2000", names_to = "year",
+               values_to = "cases")
+```
+
+### [**Ejercicio 2**]{.hl-yellow}
+
+📝 Echa un vistazo a la tabla `relig_income` del paquete `{tidyr}`. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?
+
+```{r}
+#| code-fold: true
+#| eval: false
+relig_income |>
+  pivot_longer(cols = "<$10k":"Don't know/refused",
+               names_to = "income",
+               values_to = "people")
+```
+
+### [**Ejercicio 3**]{.hl-yellow}
+
+📝 Echa un vistazo a la tabla `billboard` del paquete `{tidyr}`. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?
+
+```{r}
+#| code-fold: true
+#| eval: false
+billboard |>
+  pivot_longer(cols = "wk1":"wk76",
+               names_to = "week",
+               names_prefix = "wk",
+               values_to = "position",
+               values_drop_na = TRUE)
+```
+
+:::
+
+---
+
+## 🐣 Caso práctico {#caso-práctico-6}
+
+En el paquete `{tidyr}` contamos con el dataset `who` (dataset de la Organización Mundial de la Salud)
+
+```{r}
+#| eval: false
+library(tidyr)
+who
+```
+
+
+1. ¿Qué [**significan los datos**]{.hl-yellow}? ¿Cuántas [**variables y observaciones**]{.hl-yellow} tenemos?
+
+. . .
+
+
+2. ¿Cuántos [**tipos de variables**]{.hl-yellow} tenemos?
+
+
+. . .
+
+
+3. ¿Todas las variables son necesarias? [**Elimina la información redundante**]{.hl-yellow}.
+
+. . .
+
+4. [**Convierte a tidydata**]{.hl-yellow} la base de datos realizando todas las opciones que consideres (consejo: usa papel y boli para bocetar como debería quedar la base de datos).
+
+
 
 
