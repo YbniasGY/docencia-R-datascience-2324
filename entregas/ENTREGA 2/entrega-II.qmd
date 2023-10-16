@@ -1,0 +1,133 @@
+---
+title: "Entrega II"
+author: "C. Tangana - DNI: 00000000-X"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+rm(list = ls()) # Borramos variables de environment
+
+# descomentar si es la primera vez (y requieren instalación)
+# install.packages("glue")
+# install.packages("tidyverse")
+# install.packages("gapminder")
+# install.packages("readxl")
+library(glue)
+library(tidyverse)
+library(gapminder)
+library(readxl)
+```
+
+## Caso práctico I: análisis de gapminder
+
+El archivo de datos a usar lo cargaremos del paquete`{gapminder}`
+
+```{r}
+gapminder
+```
+
+En él tenemos diferentes **variables de económicas de distintos países en distintos años**.
+
+### Ejercicio 1:
+
+> Determina la dimensión de nuestros datos. ¿Cuántos registros tenemos? ¿Cuántas variables tenemos? 
+
+```{r}
+#| eval: false
+
+```
+
+[Escribe en el chunk el código que consideres para responder la pregunta y aquí debajo como texto normal lo que consideres para responder, borrando esta frase]
+
+### Ejercicio 2:
+
+> ¿Cuántos países diferentes tenemos?
+
+```{r}
+#| eval: false
+
+```
+
+[Escribe en el chunk el código que consideres para responder la pregunta y aquí debajo como texto normal lo que consideres para responder, borrando esta frase]
+
+### Ejercicio 3:
+
+> Completa el código inferior y añade una nueva variable de texto llamada `id` que, para cada registro, una `pais-continente-año` (por ejemplo, "Afghanistan-Asia-1952").
+
+```{r}
+#| eval: false
+library(glue)
+gapminder$id <- ...
+```
+
+[Escribe en el chunk el código que consideres para responder la pregunta y aquí debajo como texto normal lo que consideres para responder, borrando esta frase]
+
+### Ejercicio 4:
+
+> Determina el número de países que en 2002 tenían más de 40 millones de habitantes.
+
+```{r}
+#| eval: false
+gapminder[...] |> nrow()
+```
+
+[Escribe en el chunk el código que consideres para responder la pregunta y aquí debajo como texto normal lo que consideres para responder, borrando esta frase]
+
+## Caso práctico II: análisis de datos covid
+
+### Ejercicio 1
+
+> Acude a la web <https://cnecovid.isciii.es/covid19/#documentaci%C3%B3n-y-datos> e importa el fichero `casos_hosp_uci_def_sexo_edad_provres.csv` a un tibble DIRECTAMENTE DESDE LA WEB. Tienes la documentación de los datos en <https://cnecovid.isciii.es/covid19/resources/metadata_casos_hosp_uci_def_sexo_edad_provres.pdf>
+
+```{r}
+#| eval: false
+covid_bruto <- read_csv(...)
+```
+
+[Escribe en el chunk el código que consideres para responder la pregunta y aquí debajo como texto normal lo que consideres para responder, borrando esta frase]
+
+### Ejercicio 2
+
+> ¿Cuántas filas hay en la base de datos correspondientes a la Comunidad de Madrid? (mira la documentación del pdf indicado arriba). ¿Cuántos casos hubo notificados  en dicha comunidad? (cuidado: podemos tener filas - días - con más de 1 de caso o incluso con ninguno)
+
+```{r}
+#| eval: false
+
+```
+
+[Escribe en el chunk el código que consideres para responder la pregunta y aquí debajo como texto normal lo que consideres para responder, borrando esta frase]
+
+### Ejercicio 3
+
+> Importa el archivo `messy_covid_data.xlsx` y conviértelo a tidy data
+
+```{r}
+#| eval: false
+library(readxl)
+messy_covid <- ...
+
+messy_covid |>
+  ...
+```
+
+[Escribe en el chunk el código que consideres para responder la pregunta y aquí debajo como texto normal lo que consideres para responder, borrando esta frase]
