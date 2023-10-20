@@ -7271,9 +7271,17 @@ Define una función llamada `conversor_temperatura` que, dada una temperatura en
 
 ## Concurso
 
-Instrucciones are coming...
 
-(habrá en juego algún premio y además 0.5 puntos extras de la nota final del curso)
+[**INSTRUCCIONES**]{.hl-yellow}
+
+* Los equipos (entre [**3 y 6 personas**]{.hl-purple}) deberán competir resolviendo una serie de ejercicios. El primer equipo que lo resuelva correctamente se llevará [**0.95 puntos**]{.hl-purple}, el segundo [**0.7 puntos**]{.hl-purple}, el tercero [**0.5 puntos**]{.hl-purple} y el cuarto [**0.4 puntos**]{.hl-purple}.
+
+* Para que un ítem esté resuelto correctamente se deberá aportar una [**solución correcta al mismo**]{.hl-purple} y, además, un [**miembro del equipo me lo tendrá que explicar**]{.hl-purple} (elegido por mí). Dicho portavoz rotatorio podrá ser sometido a otras preguntas para confirmar que lo ha entendido.
+
+
+* Cada ítem tendrá un [**tiempo máx entre 6 y 12 min**]{.hl-purple}. Si transcurre dicho tiempo, o bien ya hay 4 equipos que lo han resuelto, se pasará al siguiente.
+
+* Los 3 equipos que acumulen más puntos [**recibirán puntos extra para la nota final del curso**]{.hl-purple}: 0.2 para los terceros, 0.4 los segundos y 0.6 los primeros. Además los [**2 primeros equipos**]{.hl-purple} recibirán otro premio extra.
 
 
 # Clase 15: entrega III {#entrega-iii}
