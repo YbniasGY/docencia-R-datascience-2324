@@ -1,0 +1,124 @@
+---
+title: "Concurso"
+author: "C. Tangana - DNI: 00000000-X"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+
+## Datos
+
+Vamos a cargar el **archivo de datos electorales** del Ministerio del Interior, recopilando datos de citas electorales al Congreso de los Diputados de España desde 2008 hasta la actualidad
+
+La carga la haremos con `read_csv()` y dado que tenemos 1 y 0 en muchas variables, para que no las interpreta como lógicas, le especifico el tipo de dato de cada columna (c: character, d: double). Fíjate que lo que hacemos es crear un vector de tipo `col_types = "cdcdc")` (con `str_c(..., collapse = "")` colapsamos los valores de un vector.
+
+```{r}
+# NO TOQUES NADA
+datos_brutos <-
+  read_csv(file = "./datos/datos_elecciones_brutos.csv",
+           col_types =
+             str_c(c("c", "d", "c", "d", "c", "c", "c",
+                     "d", "d", "d", "d", "d",
+                     "d", "d", "d", rep("d", 471 - 15)),
+                   collapse = ""))
+```
+
+
+Las variables son las siguientes:
+
+* `tipo_eleccion`: tipo de elección (02 si es elección al congreso)
+* `anno`, `mes`: año y mes de las elecciones
+* `vuelta`: vuelta electoral (1 si es primera vuelta)
+* `codigo_ccaa, codigo_provincia, codigo_municipio, codigo_distrito_electoral`: código de la ccaa, provincia, municipio y distrito electoral.
+* `numero_mesas`: número de mesas electorales
+* `censo`: censo electoral
+* `participacion_1, participacion_2`: participación en el primer avance (14:00) y segundo avance (18:00) antes del cierre de urnas (20:00)
+* `votos_blancos`: votos en blanco
+* `votos_candidaturas`: votos a papeletas de partidos
+* `votos_nulos`: votos nulos
+
+
+El objetivo de la entrega es realizar un análisis de los dato electorales, llevando a cabo la depuración, resúmenes y gráficos que consideres.
+
+## Ítems obligatorios
+
+Amén de lo que te parezca oportuno ejecutar, serán obligatorios los siguientes ítems:
+
+* Fíjate que a partir de las columnas mencionadas anteriormente, hay muchísimas columnas una por partido, con el número de votos del mismo. En esas columnas, salvo en una de ellas, el resto de la fila son 0. Lo primero que deberías hacer es tener los datos en **formato tidy adecuado sin NA**
+
+* Reminder: información = varianza, así que **columnas con valores constantes no nos van a aportar nada**.
+
+* La **variable fecha** debería existir y no existe: solo tenemos año y mes de las elecciones (que en realidad no nos aportan una vez tuviésemos la fecha de las elecciones).
+
+* Tenemos muchísimos partidos que se presentan a las elecciones. Solo nos intereserán los siguientes partidos (las funciones `str_...` aquí serán claves:
+  - PARTIDO SOCIALISTA OBRERO ESPAÑOL (cuidado: tiene/tuvo federaciones - sucursales - con algún otro nombre)
+  - PARTIDO POPULAR
+  - CIUDADANOS (cuidado: tiene/tuvo federaciones - sucursales - con algún otro nombre)
+  - PARTIDO NACIONALISTA VASCO
+  - BLOQUE NACIONALISTA GALEGO
+  - COMPROMÍS
+  - CONVERGÈNCIA I UNIÓ
+  - UNIDAS PODEMOS - IU (cuidado que aquí han tenido nombres variados - IU, los verdes, podem, ezker batua, ...- y no siempre han ido juntos, pero aquí los analizaremos juntos
+  - ESQUERRA REPUBLICANA DE CATALUNYA
+  - EH - BILDU (son una coalición de partidos formados por Sortu, Eusko Alkartasuna, Aralar, Alternatiba)
+  - Más País
+  - Vox
+  
+* Todo lo que no sea alguno de los anteriores partidos deberá ser imputado como "OTROS". Recuerda sumar los votos tras la recodificación anterior (los votos de PSC y del PSOE deberían juntos bajo el nombre de PARTIDO SOCIALISTA OBRERO ESPAÑOL, por ejemplo).
+
+* Para las visualizaciones y ser más operativos, será conveniente que además crees una variable `siglas` con las siglas de cada partido.
+
+* Deberás incorporar como variable el porcentaje de votos de cada partido (en cada cita electoral, en cada municipio). El porcentaje se calcula como votos del partido entre votos válidos (votos válidos = votos a partidos + blancos)
+
+* Deberás incorporar como variable el porcentaje de participación (en cada cita electoral, en cada municipio), calculado como votos emitidos entre censo. Votos emitidos se calculada como votos a partidos + blancos + nulos
+
+* Deberás usar el archivo adjuntado para **incorporar el nombre de los municipios**.
+
+## Posibles cosas a analizar:
+
+Todas ellas se pueden analizar a 3 niveles: provincia, autonómico o nacional. No digo que hagas todos ellos en todas ellas, pero que lo tengas en cuenta. También será importante a veces quedarte solo con municipios con cierta base de censo (un municipio de 50 habitantes...nos dice poco).
+
+Posibles opciones:
+
+* ¿Cómo se reparte el voto de partidos de ámbito nacional (PSOE, PP, VOX, CS, MP, UP - IU) frente a los partidos de corte autonómico o nacionalista?
+
+* Candidatos en cada elección
+
+* ¿Cuál el partido ganador en los municipios de más de 100 000 habitantes de censo? ¿Qué partido fue el segundo cuando el primero fue el PSOE? ¿Y cuándo el primero fue el PP?
+
+* ¿En qué municipios, provincias o autonomías la diferencia entre el ganador y el segundo es más elevada?
+
+* ¿Cuáles son los municipios con mayor porcentaje de votos nulos de España?
+
+* ¿Cuáles son los municipios donde Vox obtiene un porcentaje más alto?
+
+* ¿En qué sitios hay mayor participación? ¿Quién ganó en los sitios con mayor participación y donde menos?
+
+* ¿Cómo visualizar los votos totales de cada partido a nivel en cada elección? ¿Cómo visulizar su evolución en el tiempo¿?
+
+* ¿Cómo se repartió el voto en las 10 ciudades más pobladas de España?
+
+* ¿Influye lo rural? ¿Cómo se reparte el voto de cada partido en función del censo? ¿Dónde es fuerte cada partido: en las zonas más o menos pobladas? ¿Es cierto el mantra de que en Vox gana en las zonas con menos población? ¿El patrón nacional se repite en todas las ccaa?
+
+* ¿A quién le beneficia la baja participación?
+
+* Gráficos que quizás pueden serte útiles: geom_point(), geom_line(), geom_density(), paquete ggridge, geom_step, paquete ggbump
+
+Ideas de gráficos en general: <https://r-graph-gallery.com/>
+
+Ideas de análisis electoral con R para gráficas: <https://github.com/dadosdelaplace/cartas-de-laplace/tree/main/Carta-3-elecciones-alemania>
+
+## Calificación
+
+**No se valorará más al que más cosas haga**. Más no siempre es mejor. Se valorará la **originalidad** (respecto al resto de trabajos, por ejemplo en lo analizado o en el tema o ...) de lo planteado, tanto en manejo de tablas como en visualización, el **cariño** puesto en la entrega (el cariño en la vida es importante) y la **pertinencia** de lo realizado. Una vez que tengáis los ítems obligatorios con tu base de datos más o menos completada, **piensa antes** de ponerte a picar código: ¿qué puede ser interesante? ¿Qué necesito para poder obtener un resumen numérico tanto visual?
+
+**Repito: no por hacer muchos mutate y muchos gráficos la nota va a ser más alta**. Cosas que aporten. El ejemplo es una excusa, pero el fin real es demostrarme un dominio de las herramientas vistas a lo largo del curso. Y eso pasa no solo por la cantidad de ellas utilizadas sino por la calidad al ejecutarlas.
+
+Los ítems obligatorios son para asegurarme un mínimo de que tienes los datos bien preparados, pero **lo demás es libre para que disfrutes y aproveches para crecerte** (encima en equipo).
+
+

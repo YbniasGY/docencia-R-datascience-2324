@@ -1,0 +1,184 @@
+---
+title: "Entrega III"
+author: "C. Tangana - DNI: 00000000-X"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+rm(list = ls()) # Borramos variables de environment
+library(glue)
+library(tidyverse)
+library(readxl)
+```
+
+## Caso práctico: elecciones
+
+### Ejercicio 1
+
+> Carga el **archivo de datos electorales** del Ministerio del Interior, que recopila datos de citas electorales al Congreso de los Diputados de España desde 2008 hasta la actualidad. Tras la carga, convierte las variables que creas que es necesaria la conversión.
+
+
+Las variables son las siguientes:
+
+-   `tipo_eleccion`: tipo de elección (02 si es elección al congreso)
+-   `anno`, `mes`: año y mes de las elecciones
+-   `vuelta`: vuelta electoral (1 si es primera vuelta)
+-   `codigo_ccaa, codigo_provincia, codigo_municipio, codigo_distrito_electoral`: código de la ccaa, provincia, municipio y distrito electoral.
+-   `numero_mesas`: número de mesas electorales
+-   `censo`: censo electoral
+-   `participacion_1, participacion_2`: participación en el primer avance (14:00) y segundo avance (18:00) antes del cierre de urnas (20:00)
+-   `votos_blancos`: votos en blanco
+-   `votos_candidaturas`: votos a papeletas de partidos
+-   `votos_nulos`: votos nulos
+- una variable por partido
+
+
+```{r}
+#| eval: false
+```
+
+
+
+### Ejercicio 2
+
+> Convierte el archivo a tidydata de manera adecuada, sin NA ni información redundante que no aporte.
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 3
+
+> Construye una variable fecha suponiendo que fuesen el día de cada mes. ¿Cuáles eran los 30 municipios de España con más censo en las últimas elecciones guardadas en el archivo? Obtén los nombres del segundo archivo `cod_mun.csv` (con código, no de manera manual)
+
+```{r}
+#| eval: false
+datos_tidy <-
+  datos_tidy |> 
+  mutate(fecha = ..., id_mun = ...))
+
+id_mun_filter <- 
+  datos_tidy |>
+  ...
+  pull(id_mun)
+  
+...
+```
+
+### Ejercicio 4
+
+>  Crea una variable de siglas de manera que agrupe (a lo mejor con detectar palabras clave sirve...)
+
+- PSOE: los que contengan "PARTIDO SOCIALISTA OBRERO", "PARTIT DELS SOCIALISTES DE CATALUNYA", "PARTIT DELS SOCIALISTES DE CATALUNYA (PSC-PSOE), "PARTIDO DOS SOCIALISTAS DE GALICIA"
+
+- PP: los que contengan "PARTIDO POPULAR"
+
+- CS: los que contengan "CIUDADANOS", "CIUTADANS"
+
+- UP: los que contengan "PODEMOS", "UNIDAS PODEMOS", "UNIDOS PODEMOS", "EN COMÚ PODEM"
+
+- VOX: "VOX"
+
+- BNG: "BLOQUE NACIONALISTA GALEGO"
+
+- ERC: los que contengan "ESQUERRA REPUBLICANA DE CATALUNYA"
+
+- PNV: los que contengan "PARTIDO NACIONALISTA VASCO"
+
+- EHBILDU: los que contengan "EUSKAL HERRIA BILDU"
+
+Todo lo que no sea alguno de los anteriores partidos deberá ser imputado como "OTROS"
+
+```{r}
+#| eval: false
+datos_tidy <-
+  datos_tidy |> 
+  mutate(siglas = case_when(str_...(...) ~ ...,
+                            ...))
+```
+
+### Ejercicio 5
+
+> Tras crear la variable de siglas, suma los votos por siglas tras la recodificación anterior (ejemplo, los votos de PSOE deberían ir juntos).
+
+```{r}
+#| eval: false
+
+```
+
+### Ejercicio 6
+
+> Usando la agrupación por siglas anterior, ¿cuáles fueron los 5 partidos con más votos totales en cada una de las elecciones? Tras obtenerlo exporta el resultado a un archivo `mas_votados.csv`
+
+```{r}
+#| eval: false
+datos_tidy |> 
+  summarise(...) |> 
+  ...
+
+write_...
+```
+
+### Ejercicio 7
+
+> Crea una función propia que, dados dos vectores `partidos` y `votos`, proporcione como output las siglas del partido más votado.
+
+```{r}
+#| eval: false
+mas_votado <- function(..., ...) {
+  
+  ...
+  
+  return(...)
+}
+```
+
+### Ejercicio 8
+
+> Modifica la función anterior de manera que, dados dos vectores `partidos` y `votos`, nos proporcione como output las siglas del partido que ocupó la posición `n`, calculando por defecto el más votado.
+
+```{r}
+#| eval: false
+n_votado <- function(..., ..., ...) {
+  
+  ...
+  
+  return(...)
+}
+```
+
+### Ejercicio 9
+
+> Aplica la función anterior a la tabla y crea dos columnas nuevas: `ganador` y `segundo`. Tras ello, y tomando solo los datos de las últimas elecciones, ¿quién fue más veces el segundo partido cuando ganó el PP? ¿Y cuándo ganó el PSOE? ¿Y cuándo ganó UP? ¿Y cuándo ganó VOX? Comenta las diferencias
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 10
+
+> Tomando solo los datos de las últimas elecciones, ¿qué partido gano en cada comuniad autónoma y cuál quedó segundo? ¿Y para cada provincia?
+
+```{r}
+#| eval: false
+```

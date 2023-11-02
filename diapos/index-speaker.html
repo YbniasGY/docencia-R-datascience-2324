@@ -5,10 +5,9 @@
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.294">
+  <meta name="generator" content="quarto-1.2.335">
 
   <meta name="author" content="Grado en Ciencia de Datos Aplicada • curso 2023-2024">
   <title>SOFTWARE II</title>
@@ -26,10 +25,9 @@
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
       width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -140,44 +138,44 @@
     font-weight: 400;
   }
 
-  .callout.callout-titled.callout-style-simple .callout-body {
+  .callout.callout-captioned.callout-style-simple .callout-body {
     margin-top: 0.2em;
   }
 
-  .callout:not(.callout-titled) .callout-body {
+  .callout:not(.callout-captioned) .callout-body {
       display: flex;
   }
 
-  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
     padding-left: 1.6em;
   }
 
-  .callout.callout-titled .callout-header {
+  .callout.callout-captioned .callout-header {
     padding-top: 0.2em;
     margin-bottom: -0.2em;
   }
 
-  .callout.callout-titled .callout-title  p {
+  .callout.callout-captioned .callout-caption  p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
     
-  .callout.callout-titled.callout-style-simple .callout-content  p {
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
     margin-top: 0;
   }
 
-  .callout.callout-titled.callout-style-default .callout-content  p {
+  .callout.callout-captioned.callout-style-default .callout-content  p {
     margin-top: 0.7em;
   }
 
-  .callout.callout-style-simple div.callout-title {
+  .callout.callout-style-simple div.callout-caption {
     border-bottom: none;
     font-size: .9rem;
     font-weight: 600;
     opacity: 75%;
   }
 
-  .callout.callout-style-default  div.callout-title {
+  .callout.callout-style-default  div.callout-caption {
     border-bottom: none;
     font-weight: 600;
     opacity: 85%;
@@ -209,7 +207,7 @@
     background-size: 0.9rem 0.9rem;
   }
 
-  .callout-title {
+  .callout-caption {
     display: flex
   }
     
@@ -222,16 +220,16 @@
     display: none !important;
   }
 
-  .callout.callout-titled .callout-body > .callout-content > :last-child {
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
     margin-bottom: 0.5rem;
   }
 
-  .callout.callout-titled .callout-icon::before {
+  .callout.callout-captioned .callout-icon::before {
     margin-top: .5rem;
     padding-right: .5rem;
   }
 
-  .callout:not(.callout-titled) .callout-icon::before {
+  .callout:not(.callout-captioned) .callout-icon::before {
     margin-top: 1rem;
     padding-right: .5rem;
   }
@@ -246,7 +244,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
   }
 
-  div.callout-note.callout-style-default .callout-title {
+  div.callout-note.callout-style-default .callout-caption {
     background-color: #dae6fb
   }
 
@@ -258,7 +256,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
   }
 
-  div.callout-important.callout-style-default .callout-title {
+  div.callout-important.callout-style-default .callout-caption {
     background-color: #f7dddc
   }
 
@@ -270,7 +268,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-warning.callout-style-default .callout-title {
+  div.callout-warning.callout-style-default .callout-caption {
     background-color: #fcefdc
   }
 
@@ -282,7 +280,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-tip.callout-style-default .callout-title {
+  div.callout-tip.callout-style-default .callout-caption {
     background-color: #ccf1e3
   }
 
@@ -294,7 +292,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
   }
 
-  div.callout-caution.callout-style-default .callout-title {
+  div.callout-caution.callout-style-default .callout-caption {
     background-color: #ffe5d0
   }
 
@@ -414,7 +412,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <p><span class="hl-green"><strong>Correo</strong></span>: <strong><a href="mailto:javalv09@ucm.es" class="email">javalv09@ucm.es</a></strong>. <span class="hl-green"><strong>Despacho</strong></span>: 722 (3ª planta). <span class="hl-green"><strong>Tutorías</strong></span>: lunes (14:30-16:00), martes (12:00-13:00) y viernes (13:00-14:00).</p>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p><img data-src="img/me.jpeg" class="quarto-discovered-preview-image"></p>
+<p><img data-src="img/me.jpeg"></p>
 </div><div class="column" style="width:70%;">
 <div>
 <ul>
@@ -697,13 +695,13 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </ul>
 </div>
 <div class="fragment">
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Cuidado</strong></p>
+<p><strong>Advertencia</strong></p>
 </div>
 <div class="callout-content">
 <p>Siempre que tengas que descargar algo de CRAN (ya sea el propio R o un paquete), <span class="hl-orange"><strong>asegúrate de tener conexión a internet</strong></span>.</p>
@@ -745,9 +743,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <span id="cb2-2"><a href="#cb2-2"></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -908,7 +906,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="st">"a"</span> <span class="sc">+</span> <span class="dv">1</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in "a" + 1: argumento no-numérico para operador binario</code></pre>
+<pre><code>Error in "a" + 1: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 </div>
@@ -920,7 +918,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Ejecuta la orden pero el resultado es NaN, **Not A Number**, un valor que no existe</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning in sqrt(-1): Se han producido NaNs</code></pre>
+<pre><code>Warning in sqrt(-1): NaNs produced</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NaN</code></pre>
@@ -937,9 +935,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <p>Un <span class="hl-yellow"><strong>script</strong></span> será el documento en el que programamos, nuestro archivo <code>.doc</code> (aquí con extensión <code>.R</code>) donde escribiremos las órdenes. Para <strong>abrir nuestro primero script</strong>, haz click en el menú en <code>File &lt; New File &lt; R Script</code>.</p>
 </div>
 </div>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1046,9 +1044,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 </div>
 </div>
-<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1231,14 +1229,14 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>nombre <span class="sc">+</span> <span class="dv">1</span> <span class="co"># error al sumar número a texto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in nombre + 1: argumento no-numérico para operador binario</code></pre>
+<pre><code>Error in nombre + 1: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1305,9 +1303,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1326,6 +1324,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">install.packages</span>(<span class="st">"glue"</span>) <span class="co"># solo la primra vez</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a><span class="fu">library</span>(glue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
 </div>
 <div class="fragment">
 <p>Con la función <code>glue()</code> de dicho paquete podemos usar <span class="hl-yellow"><strong>variables dentro de cadenas de texto</strong></span>. Por ejemplo, «la edad es de … años», donde la edad está guardada en una variable.</p>
@@ -1387,9 +1388,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1404,7 +1405,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="st">"TRUE"</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in "TRUE" + 1: argumento no-numérico para operador binario</code></pre>
+<pre><code>Error in "TRUE" + 1: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 </div>
@@ -1437,9 +1438,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1494,7 +1495,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a>fecha_char <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in fecha_char + 1: argumento no-numérico para operador binario</code></pre>
+<pre><code>Error in fecha_char + 1: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 <p>Las fechas <span class="hl-red"><strong>NO pueden ser texto</strong></span>: debemos convertir la cadena de texto a fecha.</p>
@@ -1522,7 +1523,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># ¡no es una fecha, es un texto!</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a>fecha_char <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in fecha_char + 1: argumento no-numérico para operador binario</code></pre>
+<pre><code>Error in fecha_char + 1: non-numeric argument to binary operator</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="fu">class</span>(fecha_char)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1554,7 +1555,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-10-20"</code></pre>
+<pre><code>[1] "2023-11-02"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1564,7 +1565,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-10-20 15:16:47 CEST"</code></pre>
+<pre><code>[1] "2023-11-02 18:38:44 CET"</code></pre>
 </div>
 </div>
 </div>
@@ -1580,7 +1581,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="fu">month</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10</code></pre>
+<pre><code>[1] 11</code></pre>
 </div>
 </div>
 </div>
@@ -1588,9 +1589,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <section id="resúmenes-de-paquetes" class="slide level2">
 <h2>Resúmenes de paquetes</h2>
 
-<img data-src="img/lubridate.png" class="r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<img data-src="img/lubridate.png" class="r-stretch"><div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1685,13 +1686,13 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout callout-tip callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Consejo</strong></p>
+<p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
 <p>Un número individual <code>x &lt;- 1</code> (o bien <code>x &lt;- c(1)</code>) es en realidad un <strong>vector de longitud uno</strong> –&gt; todo lo que sepamos <span class="hl-green"><strong>hacer con un número podemos hacerlo con un vector de ellos</strong></span>.</p>
@@ -1752,7 +1753,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a><span class="st">"a"</span><span class="sc">:</span><span class="st">"z"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in "a":"z": Argumento NA/NaN</code></pre>
+<pre><code>Error in "a":"z": NA/NaN argument</code></pre>
 </div>
 </div>
 </div>
@@ -1881,9 +1882,9 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <pre><code>[1]  2  6 10 14</code></pre>
 </div>
 </div>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2004,13 +2005,13 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout callout-tip callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Consejo</strong></p>
+<p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
 <p>Para acceder al último, sin preocuparnos de cuál es, podemos pasarle como índice la propia longitud <code>x[length(x)]</code></p>
@@ -2725,7 +2726,7 @@ pesos       63   70   85   95</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb271"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb271-1"><a href="#cb271-1"></a>matriz <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in matriz + 1: argumento no-numérico para operador binario</code></pre>
+<pre><code>Error in matriz + 1: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 </div>
@@ -2855,7 +2856,7 @@ pesos       63   70   85   95</code></pre>
 <div class="sourceCode cell-code" id="cb293"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb293-1"><a href="#cb293-1"></a><span class="fu">data.frame</span>(<span class="st">"estatura"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="fl">1.8</span>, <span class="fl">1.6</span>), <span class="st">"peso"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">70</span>),</span>
 <span id="cb293-2"><a href="#cb293-2"></a>           <span class="st">"IMC"</span> <span class="ot">=</span> peso <span class="sc">/</span> (estatura<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in data.frame(estatura = c(1.7, 1.8, 1.6), peso = c(80, 75, 70), : objeto 'peso' no encontrado</code></pre>
+<pre><code>Error in data.frame(estatura = c(1.7, 1.8, 1.6), peso = c(80, 75, 70), : object 'peso' not found</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -2935,13 +2936,13 @@ pesos       63   70   85   95</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout callout-tip callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Consejo</strong></p>
+<p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
 <p>El paquete <code>{datapasta}</code> nos permite <span class="hl-green"><strong>copiar y pegar</strong></span> tablas de páginas web y documentos sencillos</p>
@@ -3460,9 +3461,9 @@ pesos       63   70   85   95</code></pre>
 <p><img data-src="img/quarto-estilos-qmd.png" width="400"> <img data-src="img/quarto-estilos-html.png" width="400"></p>
 </div><div class="column" style="width:50%;">
 <p>Por último puedes añadir un <span class="hl-yellow"><strong>tema personalizado</strong></span> incluyendo un <span class="hl-yellow"><strong>archivo de estilos</strong></span> (archivo en formato <code>.scss</code> o <code>.css</code>). Te he dejado uno en <a href="https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material" class="uri">https://github.com/dadosdelaplace/docencia-R-master-bio-2324/tree/main/material</a>.</p>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3511,9 +3512,9 @@ pesos       63   70   85   95</code></pre>
 <section id="entrega-i-26092023" class="slide level2">
 <h2>Entrega I (26/09/2023)</h2>
 <p>Se actualizará al inicio de la clase correspondiente.</p>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3742,9 +3743,9 @@ pesos       63   70   85   95</code></pre>
 <p>&nbsp;</p>
 </div>
 <div class="fragment">
-<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout callout-caution callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4334,9 +4335,9 @@ pesos       63   70   85   95</code></pre>
 5     1   883      2    60     1       0      100        90       NA       0</code></pre>
 </div>
 </div>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4783,6 +4784,9 @@ pesos       63   70   85   95</code></pre>
 <div class="sourceCode cell-code" id="cb416"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb416-1"><a href="#cb416-1"></a><span class="fu">library</span>(owidR)</span>
 <span id="cb416-2"><a href="#cb416-2"></a><span class="fu">owid_covid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+
+</div>
 </section>
 <section id="desde-api-owid-1" class="slide level2">
 <h2>Desde API (owid)</h2>
@@ -4790,10 +4794,16 @@ pesos       63   70   85   95</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb417"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb417-1"><a href="#cb417-1"></a><span class="fu">as_tibble</span>(<span class="fu">owid_search</span>(<span class="st">"emissions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+
+</div>
 <div class="fragment">
 <p>Vamos a pedirle por ejemplo las <span class="hl-yellow"><strong>emisiones de la oecd</strong></span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb418"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb418-1"><a href="#cb418-1"></a><span class="fu">owid</span>(<span class="st">"emissions-of-air-pollutants-oecd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
 </div>
 </div>
 </section>
@@ -4840,20 +4850,20 @@ pesos       63   70   85   95</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb422"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb422-1"><a href="#cb422-1"></a><span class="fu">aemet_last_obs</span>(<span class="st">"0076"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 23 × 23
+<pre><code># A tibble: 24 × 23
    idema   lon fint                 prec   alt  vmax    vv    dv   lat  dmax
    &lt;chr&gt; &lt;dbl&gt; &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 0076   2.07 2023-10-19 14:00:00   0       4  11.8   7.7   250  41.3   260
- 2 0076   2.07 2023-10-19 15:00:00   0       4  12.9   8.5   250  41.3   240
- 3 0076   2.07 2023-10-19 16:00:00   0       4  13.9   6.6   250  41.3   260
- 4 0076   2.07 2023-10-19 17:00:00   0       4  10.3   7.6   220  41.3   220
- 5 0076   2.07 2023-10-19 18:00:00   0       4  16    11.4   220  41.3   210
- 6 0076   2.07 2023-10-19 19:00:00   0.3     4  16.5   8.7   220  41.3   210
- 7 0076   2.07 2023-10-19 20:00:00   0.3     4  14.4   8.1   230  41.3   220
- 8 0076   2.07 2023-10-19 21:00:00   0.3     4  16.5  10.9   240  41.3   220
- 9 0076   2.07 2023-10-19 22:00:00   0.2     4  17     7.3   310  41.3   230
-10 0076   2.07 2023-10-19 23:00:00   0.3     4  10.8   4.9   270  41.3   300
-# ℹ 13 more rows
+ 1 0076   2.07 2023-11-01 18:00:00     0     4   6.7   3.9   260  41.3   250
+ 2 0076   2.07 2023-11-01 19:00:00     0     4   5.1   3.9   220  41.3   220
+ 3 0076   2.07 2023-11-01 20:00:00     0     4   5.1   2.5   230  41.3   220
+ 4 0076   2.07 2023-11-01 21:00:00     0     4   3.6   3     230  41.3   220
+ 5 0076   2.07 2023-11-01 22:00:00     0     4   4.1   2.9   260  41.3   270
+ 6 0076   2.07 2023-11-01 23:00:00     0     4   5.7   3.7   250  41.3   260
+ 7 0076   2.07 2023-11-02 00:00:00     0     4   7.7   5.9   240  41.3   240
+ 8 0076   2.07 2023-11-02 01:00:00     0     4   9.8   5.4   250  41.3   240
+ 9 0076   2.07 2023-11-02 02:00:00     0     4   9.3   5.8   250  41.3   240
+10 0076   2.07 2023-11-02 03:00:00     0     4   8.8   3.2   220  41.3   280
+# ℹ 14 more rows
 # ℹ 13 more variables: ubi &lt;chr&gt;, pres &lt;dbl&gt;, hr &lt;dbl&gt;, stdvv &lt;dbl&gt;, ts &lt;dbl&gt;,
 #   pres_nmar &lt;dbl&gt;, tamin &lt;dbl&gt;, ta &lt;dbl&gt;, tamax &lt;dbl&gt;, tpr &lt;dbl&gt;, vis &lt;dbl&gt;,
 #   stddv &lt;dbl&gt;, inso &lt;dbl&gt;</code></pre>
@@ -5030,9 +5040,9 @@ pesos       63   70   85   95</code></pre>
 <section id="entrega-ii-06102023" class="slide level2">
 <h2>Entrega II (06/10/2023)</h2>
 <p>Se actualizará al inicio de la clase correspondiente.</p>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5175,9 +5185,9 @@ pesos       63   70   85   95</code></pre>
 <p>Dichas <span class="hl-yellow"><strong>condiciones lógicas</strong></span> las podemos <span class="hl-yellow"><strong>combinar</strong></span> de diferentes maneras (y, o, o excluyente)</p>
 
 <img data-src="img/tablas_verdad.png" class="r-stretch"><div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout callout-tip callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5784,16 +5794,16 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Ki-Adi-M…    198    82 white      pale       yellow            92 male  mascu…
-2 Plo Koon     188    80 none       orange     black             22 male  mascu…
+1 Palpatine    170    75 grey       pale       yellow          82   male  mascu…
+2 Anakin S…    188    84 blond      fair       blue            41.9 male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -5830,10 +5840,10 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Ki-Adi-M…    198  82   white      pale       yellow            92 male  mascu…
-2 Yarael P…    264  NA   none       white      yellow            NA male  mascu…
-3 Luminara…    170  56.2 black      yellow     blue              58 fema… femin…
-4 Biggs Da…    183  84   black      light      brown             24 male  mascu…
+1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+2 Poe Dame…     NA    NA brown      light      brown             NA male  mascu…
+3 Wilhuff …    180    NA auburn, g… fair       blue              64 male  mascu…
+4 Sebulba      112    40 none       grey, red  orange            NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5876,8 +5886,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
-2 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5897,7 +5907,7 @@ pesos       63   70   85   95</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb511"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb511-1"><a href="#cb511-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 5 3 3 3 3 3 4 6 1 2</code></pre>
+<pre><code> [1] 2 2 2 1 2 3 3 5 6 5</code></pre>
 </div>
 </div>
 </div>
@@ -5909,8 +5919,8 @@ pesos       63   70   85   95</code></pre>
 <div class="sourceCode cell-code" id="cb513"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb513-1"><a href="#cb513-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb513-2"><a href="#cb513-2"></a>       <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 2 3 3 5 6 1 4 2 1 1 1 1 1 6 1 4 1 4 1 2 1 1 1 1 2 2 2 3 1 6 3 1 4 5 4 1 1
-[39] 1 3 2 4 5 1 1 1 1 6 1 5</code></pre>
+<pre><code> [1] 1 1 2 3 3 2 1 2 1 1 1 1 2 2 1 1 4 1 2 6 2 2 2 2 1 2 3 1 6 4 1 1 1 5 3 1 1 4
+[39] 2 4 1 4 1 4 1 1 3 1 2 1</code></pre>
 </div>
 </div>
 </section>
@@ -6859,9 +6869,9 @@ pesos       63   70   85   95</code></pre>
 </div>
 </div>
 </div>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -7290,9 +7300,9 @@ pesos       63   70   85   95</code></pre>
 </div>
 </div>
 </div>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -7375,9 +7385,9 @@ pesos       63   70   85   95</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -7699,9 +7709,9 @@ dplyr 1.1.0.
 <span id="cb676-7"><a href="#cb676-7"></a>  <span class="fu">return</span>(var_salida)</span>
 <span id="cb676-8"><a href="#cb676-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -7929,9 +7939,9 @@ $lugar_nacimiento
 <h2>Salida múltiple</h2>
 <p>Antes nos daba igual el orden de los argumentos pero ahora el <span class="hl-yellow"><strong>orden de los argumentos de entrada importa</strong></span>, ya que en la salida incluimos <code>lado_1</code> y <code>lado_2</code>.</p>
 <div class="fragment">
-<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -8168,18 +8178,115 @@ $lado_2
 <li><p>Cada ítem tendrá un <span class="hl-purple"><strong>tiempo máx entre 6 y 12 min</strong></span>. Si transcurre dicho tiempo, o bien ya hay 4 equipos que lo han resuelto, se pasará al siguiente.</p></li>
 <li><p>Los 3 equipos que acumulen más puntos <span class="hl-purple"><strong>recibirán puntos extra para la nota final del curso</strong></span>: 0.2 para los terceros, 0.4 los segundos y 0.6 los primeros. Además los <span class="hl-purple"><strong>2 primeros equipos</strong></span> recibirán otro premio extra.</p></li>
 </ul>
+</section>
+<section id="concurso-1" class="slide level2">
+<h2>Concurso</h2>
+<p><span class="hl-yellow"><strong>IMPORTANTE</strong></span></p>
+<p>Si la respuesta es incorrecta (o el portavoz no cumple) se restará 0.25 puntos en el primer intento, 0.15 puntos para el resto de intentos.</p>
+</section>
+<section id="ejercicio-1-15" class="slide level2">
+<h2>Ejercicio 1</h2>
+<p>Crea una proyecto que tenga el archivo de datos <a href="https://drive.google.com/file/d/1pyW18ffjOBG3DznyrafEQUeukgPfEP7B/view?usp=sharing" class="uri">https://drive.google.com/file/d/1pyW18ffjOBG3DznyrafEQUeukgPfEP7B/view?usp=sharing</a> y un archivo .qmd donde vayas a realizar los ejercicios. Como primer ejercicio debes carga los datos (con los tipos correctos, echa un vistazo al mensaje que muestra tras cargarlos).</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 8 minutos</strong></span></p>
+</section>
+<section id="ejercicio-2-15" class="slide level2">
+<h2>Ejercicio 2</h2>
+<p>Convierte a tidy data de manera apropiada</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 6 minutos</strong></span></p>
+</section>
+<section id="ejercicio-3-14" class="slide level2">
+<h2>Ejercicio 3</h2>
+<p>En estadística <strong>información = varianza</strong>, así que las <strong>columnas con valores constantes no nos van a aportar nada</strong>. Comprueba cuales son y elimínalas</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 7 minutos</strong></span></p>
+</section>
+<section id="ejercicio-4-13" class="slide level2">
+<h2>Ejercicio 4</h2>
+<p>Suponiendo que cada elección haya sido realizada el día 1 de cada mes, incluye una nueva columna llamada <code>fecha</code> (como primera columna) y elimina mes y año</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 8 minutos</strong></span></p>
+</section>
+<section id="ejercicio-5-11" class="slide level2">
+<h2>Ejercicio 5</h2>
+<p>Incluye una nueva columna al inicio que sea un código único por cada municipio, y úsalo para eliminar duplicados para cada municipio, elección y partido</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 8 minutos</strong></span></p>
+</section>
+<section id="ejercicio-6-6" class="slide level2">
+<h2>Ejercicio 6</h2>
+<p>Tenemos muchísimos partidos que se presentan a las elecciones. Solo nos intereserán los partidos :</p>
+<ul>
+<li><p>PSOE (opciones: PARTIDO SOCIALISTA OBRERO ESPAÑOL, PARTIT DELS SOCIALISTES DE CATALUNYA)</p></li>
+<li><p>PP (opciones: PARTIDO POPULAR, PARTIDO POPULAR/PARTIT POPULAR, PARTIT POPULAR/PARTIDO POPULAR)</p></li>
+<li><p>UP (opciones: UNIDAS PODEMOS, UNIDOS PODEMOS, PODEMOS, EN COMÚ PODEM-GUANYEM EL CANVI)</p></li>
+<li><p>VOX</p></li>
+</ul>
+<p>Todo lo que no sea alguno de los anteriores partidos deberá ser codificado como <code>"OTROS"</code>. Tras la recodificación, recuerda sumar los votos (por ejemplo, votos al PSC y PSOE deberían estar sumados juntos bajo las siglas del PSOE). Consejo: crea una variable de siglas.</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 14 minutos</strong></span></p>
+</section>
+<section id="ejercicio-7-2" class="slide level2">
+<h2>Ejercicio 7</h2>
+<p>Incopora como nueva variable el porcentaje de votos de cada partido (en cada cita electoral, en cada municipio). El porcentaje se calcula como votos del partido entre votos válidos (votos válidos = votos a partidos + blancos)</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 10 minutos</strong></span></p>
+</section>
+<section id="ejercicio-8" class="slide level2">
+<h2>Ejercicio 8</h2>
+<p>Incorpora como nueva variable el porcentaje de participación (en cada cita electoral, en cada municipio), calculado como votos emitidos entre censo. Votos emitidos es calculada como votos a partidos + blancos + nulos</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 10 minutos</strong></span></p>
+</section>
+<section id="ejercicio-9" class="slide level2">
+<h2>Ejercicio 9</h2>
+<p>Filtra solo las últimas elecciones. Tras ello responde a la pregunta, ¿cuántos municipios hay de más de 50 000 habitantes de censo? Del filtro anterior, filtra los municipios de más de 5000 habitantes de censo y guarda el nuevo dataset.</p>
+<p>A partir de aquí solo usaremos los datos de las últimas elecciones.</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 10 minutos</strong></span></p>
+</section>
+<section id="ejercicio-10" class="slide level2">
+<h2>Ejercicio 10</h2>
+<p>Selecciona los dos partidos ganadores en cada municipio</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 7 minutos</strong></span></p>
+</section>
+<section id="ejercicio-11" class="slide level2">
+<h2>Ejercicio 11</h2>
+<p>Obtén el municipio más poblado (con más censo) de cada provincia</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 7 minutos</strong></span></p>
+</section>
+<section id="ejercicio-12" class="slide level2">
+<h2>Ejercicio 12</h2>
+<p>Calcula el total de votos de cada partido por provincia. Haz lo mismo por comunidad autonónoma. Haz lo mismo para el total de España</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 9 minutos</strong></span></p>
+</section>
+<section id="ejercicio-13" class="slide level2">
+<h2>Ejercicio 13</h2>
+<p>¿Quién ganó en las 10 ciudades más pobladas de España?</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 7 minutos</strong></span></p>
+</section>
+<section id="ejercicio-14" class="slide level2">
+<h2>Ejercicio 14</h2>
+<p>¿Influye lo rural? ¿Es cierto el mantra de que Vox gana en las zonas con menos población? Piensa alguna manera de buscar la relación entre ambas cosas.</p>
+<p>&nbsp;</p>
+<p><span class="hl-yellow"><strong>Tiempo máximo: 15 minutos</strong></span></p>
 </section></section>
 <section>
 <section id="entrega-iii" class="title-slide slide level1 center">
 <h1>Clase 15: entrega III</h1>
-<p><span style="color:#444442;"><strong>Segunda entrega individual en clase</strong></span></p>
+<p><span style="color:#444442;"><strong>Tercera entrega individual en clase</strong></span></p>
 </section>
 <section id="entrega-iii-31102023" class="slide level2">
 <h2>Entrega III (31/10/2023)</h2>
 <p>Se actualizará al inicio de la clase correspondiente.</p>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-captioned callout-style-default">
 <div class="callout-body">
-<div class="callout-title">
+<div class="callout-caption">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -8194,10 +8301,911 @@ $lado_2
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="clase-16" class="title-slide slide level1 center">
+<h1>Clase 16: resolución entrega III. Inicio dataviz</h1>
+<p><span style="color:#444442;"><strong>Resolución de la tercera entrega. Inicio a dataviz </strong></span></p>
+</section>
+<section id="ejercicio-1-16" class="slide level2">
+<h2>Ejercicio 1</h2>
+<blockquote>
+<p>Carga el <strong>archivo de datos electorales</strong> del Ministerio del Interior, que recopila datos de citas electorales al Congreso de los Diputados de España desde 2008 hasta la actualidad. Tras la carga, convierte las variables que creas que es necesaria la conversión.</p>
+</blockquote>
+<div class="fragment">
+<p>Cargamos y convertimos las lógicas a números.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb729"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb729-1"><a href="#cb729-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb729-2"><a href="#cb729-2"></a>datos_brutos <span class="ot">&lt;-</span></span>
+<span id="cb729-3"><a href="#cb729-3"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"../entregas/ENTREGA 3/datos_elecciones_brutos.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb729-4"><a href="#cb729-4"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.logical), as.numeric))</span>
+<span id="cb729-5"><a href="#cb729-5"></a>datos_brutos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 48,737 × 471
+   tipo_eleccion  anno mes   vuelta codigo_ccaa codigo_provincia
+   &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;           
+ 1 02             2008 03         1 14          01              
+ 2 02             2008 03         1 14          01              
+ 3 02             2008 03         1 14          01              
+ 4 02             2008 03         1 14          01              
+ 5 02             2008 03         1 14          01              
+ 6 02             2008 03         1 14          01              
+ 7 02             2008 03         1 14          01              
+ 8 02             2008 03         1 14          01              
+ 9 02             2008 03         1 14          01              
+10 02             2008 03         1 14          01              
+# ℹ 48,727 more rows
+# ℹ 465 more variables: codigo_municipio &lt;chr&gt;,
+#   codigo_distrito_electoral &lt;dbl&gt;, numero_mesas &lt;dbl&gt;, censo &lt;dbl&gt;,
+#   participacion_1 &lt;dbl&gt;, participacion_2 &lt;dbl&gt;, votos_blancos &lt;dbl&gt;,
+#   votos_nulos &lt;dbl&gt;, votos_candidaturas &lt;dbl&gt;, `BERDEAK-LOS VERDES` &lt;dbl&gt;,
+#   ARALAR &lt;dbl&gt;, `PARTIDO OBRERO SOCIALISTA INTERNACIONALISTA` &lt;dbl&gt;,
+#   `ALTERNATIVA MOTOR Y DEPORTES` &lt;dbl&gt;, `PARTIDO HUMANISTA` &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-2-16" class="slide level2">
+<h2>Ejercicio 2</h2>
+<blockquote>
+<p>Convierte el archivo a tidydata de manera adecuada, sin NA ni información redundante que no aporte.</p>
+</blockquote>
+<div class="fragment">
+<p>Pivotamos a lo largo todas las columnas de partidos, eliminando los NA, y eliminamos variables sin variabilidad</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb731"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb731-1"><a href="#cb731-1"></a>datos_tidy <span class="ot">&lt;-</span></span>
+<span id="cb731-2"><a href="#cb731-2"></a>  datos_brutos <span class="sc">|&gt;</span> </span>
+<span id="cb731-3"><a href="#cb731-3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>(<span class="st">"tipo_eleccion"</span><span class="sc">:</span><span class="st">"votos_candidaturas"</span>),</span>
+<span id="cb731-4"><a href="#cb731-4"></a>               <span class="at">names_to =</span> <span class="st">"partidos"</span>, <span class="at">values_to =</span> <span class="st">"votos"</span>, <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb731-5"><a href="#cb731-5"></a>datos_tidy <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), n_distinct))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 17
+  tipo_eleccion  anno   mes vuelta codigo_ccaa codigo_provincia codigo_municipio
+          &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;       &lt;int&gt;            &lt;int&gt;            &lt;int&gt;
+1             1     5     5      1          19               52              473
+# ℹ 10 more variables: codigo_distrito_electoral &lt;int&gt;, numero_mesas &lt;int&gt;,
+#   censo &lt;int&gt;, participacion_1 &lt;int&gt;, participacion_2 &lt;int&gt;,
+#   votos_blancos &lt;int&gt;, votos_nulos &lt;int&gt;, votos_candidaturas &lt;int&gt;,
+#   partidos &lt;int&gt;, votos &lt;int&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb733"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb733-1"><a href="#cb733-1"></a>datos_tidy <span class="ot">&lt;-</span></span>
+<span id="cb733-2"><a href="#cb733-2"></a>  datos_tidy <span class="sc">|&gt;</span></span>
+<span id="cb733-3"><a href="#cb733-3"></a>  <span class="fu">select</span>(<span class="sc">-</span>tipo_eleccion, <span class="sc">-</span>vuelta, <span class="sc">-</span>codigo_distrito_electoral)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="ejercicio-3-15" class="slide level2">
+<h2>Ejercicio 3</h2>
+<blockquote>
+<p>Construye una variable fecha suponiendo que fuesen el día de cada mes. ¿Cuáles eran los 30 municipios de España con más censo en las últimas elecciones guardadas en el archivo? Obtén los nombres del segundo archivo <code>cod_mun.csv</code> (con código, no de manera manual)</p>
+</blockquote>
+<div class="fragment">
+<p>Creamos la variable fecha y un código único de cada municipio (que debe incluir la ccaa y la provincia ya que hay un municipio 1 en cada provincia)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb734"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb734-1"><a href="#cb734-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb734-2"><a href="#cb734-2"></a><span class="fu">library</span>(glue)</span>
+<span id="cb734-3"><a href="#cb734-3"></a>datos_tidy <span class="ot">&lt;-</span></span>
+<span id="cb734-4"><a href="#cb734-4"></a>  datos_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb734-5"><a href="#cb734-5"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">ymd</span>(<span class="fu">glue</span>(<span class="st">"{anno}{mes}01"</span>)),</span>
+<span id="cb734-6"><a href="#cb734-6"></a>         <span class="at">id_mun =</span> <span class="fu">glue</span>(<span class="st">"{codigo_ccaa}-{codigo_provincia}-{codigo_municipio}"</span>))</span>
+<span id="cb734-7"><a href="#cb734-7"></a>datos_tidy </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 396,735 × 16
+    anno mes   codigo_ccaa codigo_provincia codigo_municipio numero_mesas censo
+   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt;
+ 1  2008 03    14          01               001                         2  1838
+ 2  2008 03    14          01               001                         2  1838
+ 3  2008 03    14          01               001                         2  1838
+ 4  2008 03    14          01               001                         2  1838
+ 5  2008 03    14          01               001                         2  1838
+ 6  2008 03    14          01               001                         2  1838
+ 7  2008 03    14          01               001                         2  1838
+ 8  2008 03    14          01               001                         2  1838
+ 9  2008 03    14          01               001                         2  1838
+10  2008 03    14          01               001                         2  1838
+# ℹ 396,725 more rows
+# ℹ 9 more variables: participacion_1 &lt;dbl&gt;, participacion_2 &lt;dbl&gt;,
+#   votos_blancos &lt;dbl&gt;, votos_nulos &lt;dbl&gt;, votos_candidaturas &lt;dbl&gt;,
+#   partidos &lt;chr&gt;, votos &lt;dbl&gt;, fecha &lt;date&gt;, id_mun &lt;glue&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-3-16" class="slide level2">
+<h2>Ejercicio 3</h2>
+<blockquote>
+<p>Construye una variable fecha suponiendo que fuesen el día de cada mes. ¿Cuáles eran los 30 municipios de España con más censo en las últimas elecciones guardadas en el archivo? Obtén los nombres del segundo archivo <code>cod_mun.csv</code> (con código, no de manera manual)</p>
+</blockquote>
+<div class="fragment">
+<p>Hago lo que me dicen para obtener los 30 códigos en un vector</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb736"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb736-1"><a href="#cb736-1"></a>id_mun_filter <span class="ot">&lt;-</span> </span>
+<span id="cb736-2"><a href="#cb736-2"></a>  datos_tidy <span class="sc">|&gt;</span></span>
+<span id="cb736-3"><a href="#cb736-3"></a>  <span class="fu">slice_max</span>(fecha, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb736-4"><a href="#cb736-4"></a>  <span class="fu">distinct</span>(id_mun, fecha, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb736-5"><a href="#cb736-5"></a>  <span class="fu">slice_max</span>(censo, <span class="at">n =</span> <span class="dv">30</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb736-6"><a href="#cb736-6"></a>  <span class="fu">pull</span>(id_mun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="ejercicio-3-17" class="slide level2">
+<h2>Ejercicio 3</h2>
+<blockquote>
+<p>Construye una variable fecha suponiendo que fuesen el día de cada mes. ¿Cuáles eran los 30 municipios de España con más censo en las últimas elecciones guardadas en el archivo? Obtén los nombres del segundo archivo <code>cod_mun.csv</code> (con código, no de manera manual)</p>
+</blockquote>
+<div class="fragment">
+<p>Uso ese vector para filtrar en <code>cod_mun.csv</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb737"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb737-1"><a href="#cb737-1"></a>cod_mun_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"../entregas/ENTREGA 3/cod_mun.csv"</span>)</span>
+<span id="cb737-2"><a href="#cb737-2"></a>cod_mun_data <span class="sc">|&gt;</span></span>
+<span id="cb737-3"><a href="#cb737-3"></a>  <span class="fu">filter</span>(cod_mun <span class="sc">%in%</span> id_mun_filter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 30 × 2
+   cod_mun   municipio                  
+   &lt;chr&gt;     &lt;chr&gt;                      
+ 1 14-01-059 Vitoria-Gasteiz            
+ 2 17-03-014 Alicante/Alacant           
+ 3 17-03-065 Elche/Elx                  
+ 4 04-07-040 Palma                      
+ 5 09-08-015 Badalona                   
+ 6 09-08-019 Barcelona                  
+ 7 09-08-101 Hospitalet de Llobregat, L'
+ 8 09-08-187 Sabadell                   
+ 9 09-08-279 Terrassa                   
+10 01-11-020 Jerez de la Frontera       
+# ℹ 20 more rows</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-4-14" class="slide level2">
+<h2>Ejercicio 4</h2>
+<blockquote>
+<p>Crea una variable de siglas de manera que agrupe (a lo mejor con detectar palabras clave sirve…)</p>
+</blockquote>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb739"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb739-1"><a href="#cb739-1"></a>datos_tidy <span class="ot">&lt;-</span></span>
+<span id="cb739-2"><a href="#cb739-2"></a>  datos_tidy <span class="sc">|&gt;</span></span>
+<span id="cb739-3"><a href="#cb739-3"></a>  <span class="fu">mutate</span>(<span class="at">siglas =</span></span>
+<span id="cb739-4"><a href="#cb739-4"></a>           <span class="fu">case_when</span>(<span class="fu">str_detect</span>(partidos, <span class="st">"PARTIDO SOCIALISTA OBRERO|PARTIT DELS SOCIALISTES DE CATALUNYA|PARTIDO DOS SOCIALISTAS DE GALICIA"</span>) <span class="sc">~</span> <span class="st">"PSOE"</span>,</span>
+<span id="cb739-5"><a href="#cb739-5"></a>                     <span class="fu">str_detect</span>(partidos, <span class="st">"PARTIDO POPULAR"</span>) <span class="sc">~</span> <span class="st">"PP"</span>,</span>
+<span id="cb739-6"><a href="#cb739-6"></a>                     <span class="fu">str_detect</span>(partidos, <span class="st">"CIUDADANOS|CIUTADANS"</span>) <span class="sc">~</span> <span class="st">"CS"</span>,</span>
+<span id="cb739-7"><a href="#cb739-7"></a>                      <span class="fu">str_detect</span>(partidos, <span class="st">"PODEMOS|UNIDAS PODEMOS|UNIDOS PODEMOS|EN COMÚ PODEM"</span>) <span class="sc">~</span> <span class="st">"UP"</span>,</span>
+<span id="cb739-8"><a href="#cb739-8"></a>                     <span class="fu">str_detect</span>(partidos, <span class="st">"BLOQUE NACIONALISTA GALEGO"</span>) <span class="sc">~</span> <span class="st">"BNG"</span>,</span>
+<span id="cb739-9"><a href="#cb739-9"></a>                     <span class="fu">str_detect</span>(partidos, <span class="st">"VOX"</span>) <span class="sc">~</span> <span class="st">"VOX"</span>,</span>
+<span id="cb739-10"><a href="#cb739-10"></a>                     <span class="fu">str_detect</span>(partidos, <span class="st">"ESQUERRA REPUBLICANA DE CATALUNYA"</span>) <span class="sc">~</span> <span class="st">"ERC"</span>,</span>
+<span id="cb739-11"><a href="#cb739-11"></a>                     <span class="fu">str_detect</span>(partidos, <span class="st">"PARTIDO NACIONALISTA VASCO"</span>) <span class="sc">~</span> <span class="st">"PNV"</span>,</span>
+<span id="cb739-12"><a href="#cb739-12"></a>                     <span class="fu">str_detect</span>(partidos, <span class="st">"EUSKAL HERRIA BILDU"</span>) <span class="sc">~</span> <span class="st">"EH-BILDU"</span>,</span>
+<span id="cb739-13"><a href="#cb739-13"></a>                     <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"OTROS"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="ejercicio-5-12" class="slide level2">
+<h2>Ejercicio 5</h2>
+<blockquote>
+<p>Tras crear la variable de siglas, suma los votos por siglas tras la recodificación anterior (ejemplo, los votos de PSOE deberían ir juntos).</p>
+</blockquote>
+<div class="fragment">
+<p>Podríamos hacer un summarise pero mantener el resto de columnas hacemos un mutate con la suma, agrupando por fecha, municipio y siglas, y luego eliminamos duplicaods por dichas variables (ya que todo lo que es PSOE saldrá repetido)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb740"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb740-1"><a href="#cb740-1"></a>datos_tidy <span class="ot">&lt;-</span></span>
+<span id="cb740-2"><a href="#cb740-2"></a>  datos_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb740-3"><a href="#cb740-3"></a>  <span class="fu">mutate</span>(<span class="at">votos =</span> <span class="fu">sum</span>(votos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, id_mun, siglas)) <span class="sc">|&gt;</span> </span>
+<span id="cb740-4"><a href="#cb740-4"></a>  <span class="fu">distinct</span>(fecha, id_mun, siglas, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb740-5"><a href="#cb740-5"></a>datos_tidy </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 233,601 × 17
+    anno mes   codigo_ccaa codigo_provincia codigo_municipio numero_mesas censo
+   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt;
+ 1  2008 03    14          01               001                         2  1838
+ 2  2008 03    14          01               001                         2  1838
+ 3  2008 03    14          01               001                         2  1838
+ 4  2008 03    14          01               001                         2  1838
+ 5  2008 03    14          01               002                        14  8164
+ 6  2008 03    14          01               002                        14  8164
+ 7  2008 03    14          01               002                        14  8164
+ 8  2008 03    14          01               003                         2  1238
+ 9  2008 03    14          01               003                         2  1238
+10  2008 03    14          01               003                         2  1238
+# ℹ 233,591 more rows
+# ℹ 10 more variables: participacion_1 &lt;dbl&gt;, participacion_2 &lt;dbl&gt;,
+#   votos_blancos &lt;dbl&gt;, votos_nulos &lt;dbl&gt;, votos_candidaturas &lt;dbl&gt;,
+#   partidos &lt;chr&gt;, votos &lt;dbl&gt;, fecha &lt;date&gt;, id_mun &lt;glue&gt;, siglas &lt;chr&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-6-7" class="slide level2">
+<h2>Ejercicio 6</h2>
+<blockquote>
+<p>Usando la agrupación por siglas anterior, ¿cuáles fueron los 5 partidos con más votos totales en cada una de las elecciones? Tras obtenerlo exporta el resultado a un archivo <code>mas_votados.csv</code></p>
+</blockquote>
+<div class="fragment">
+<p>Primero calculamos los votos totales por partido (siglas) y fecha, sin importar municipio, luego extraemos para cada fecha los 5 con más votos</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb742"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb742-1"><a href="#cb742-1"></a>resumen <span class="ot">&lt;-</span></span>
+<span id="cb742-2"><a href="#cb742-2"></a>  datos_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb742-3"><a href="#cb742-3"></a>  <span class="fu">summarise</span>(<span class="at">votos_totales =</span> <span class="fu">sum</span>(votos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, siglas)) <span class="sc">|&gt;</span> </span>
+<span id="cb742-4"><a href="#cb742-4"></a>  <span class="fu">slice_max</span>(votos_totales, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">by =</span> fecha)</span>
+<span id="cb742-5"><a href="#cb742-5"></a><span class="fu">write_csv</span>(resumen, <span class="at">file =</span> <span class="st">"../entregas/ENTREGA 3/resumen.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="ejercicio-7-3" class="slide level2">
+<h2>Ejercicio 7</h2>
+<blockquote>
+<p>Crea una función propia que, dados dos vectores <code>partidos</code> y <code>votos</code>, proporcione como output las siglas del partido más votado.</p>
+</blockquote>
+<div class="fragment">
+<p>La forma más sencilla para el siguiente ejercicio es definir un tibble y hacer slice_max, sacando solo la variable de las siglas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb743"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb743-1"><a href="#cb743-1"></a>mas_votado <span class="ot">&lt;-</span> <span class="cf">function</span>(partidos, votos) {</span>
+<span id="cb743-2"><a href="#cb743-2"></a>  </span>
+<span id="cb743-3"><a href="#cb743-3"></a>  datos <span class="ot">&lt;-</span> <span class="fu">tibble</span>(partidos, votos) </span>
+<span id="cb743-4"><a href="#cb743-4"></a>  siglas <span class="ot">&lt;-</span></span>
+<span id="cb743-5"><a href="#cb743-5"></a>    datos <span class="sc">|&gt;</span></span>
+<span id="cb743-6"><a href="#cb743-6"></a>    <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">1</span>, votos, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb743-7"><a href="#cb743-7"></a>    <span class="fu">pull</span>(partidos)</span>
+<span id="cb743-8"><a href="#cb743-8"></a>  </span>
+<span id="cb743-9"><a href="#cb743-9"></a>  <span class="fu">return</span>(siglas)</span>
+<span id="cb743-10"><a href="#cb743-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="ejercicio-8-1" class="slide level2">
+<h2>Ejercicio 8</h2>
+<blockquote>
+<p>Modifica la función anterior de manera que, dados dos vectores <code>partidos</code> y <code>votos</code>, nos proporcione como output las siglas del partido que ocupó la posición <code>n</code>, calculando por defecto el más votado.</p>
+</blockquote>
+<div class="fragment">
+<p>Le pedimos los n primeros y de esos el más pequeño (es decir, posición n-ésima)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb744"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb744-1"><a href="#cb744-1"></a>n_votado <span class="ot">&lt;-</span> <span class="cf">function</span>(partidos, votos, <span class="at">n =</span> <span class="dv">1</span>) {</span>
+<span id="cb744-2"><a href="#cb744-2"></a>  </span>
+<span id="cb744-3"><a href="#cb744-3"></a>  datos <span class="ot">&lt;-</span> <span class="fu">tibble</span>(partidos, votos) </span>
+<span id="cb744-4"><a href="#cb744-4"></a>  siglas <span class="ot">&lt;-</span></span>
+<span id="cb744-5"><a href="#cb744-5"></a>    datos <span class="sc">|&gt;</span></span>
+<span id="cb744-6"><a href="#cb744-6"></a>    <span class="fu">slice_max</span>(<span class="at">n =</span> n, votos, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb744-7"><a href="#cb744-7"></a>    <span class="fu">slice_min</span>(<span class="at">n =</span> <span class="dv">1</span>, votos, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb744-8"><a href="#cb744-8"></a>    <span class="fu">pull</span>(partidos)</span>
+<span id="cb744-9"><a href="#cb744-9"></a>  </span>
+<span id="cb744-10"><a href="#cb744-10"></a>  <span class="fu">return</span>(siglas)</span>
+<span id="cb744-11"><a href="#cb744-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="ejercicio-9-1" class="slide level2">
+<h2>Ejercicio 9</h2>
+<blockquote>
+<p>Aplica la función anterior a la tabla y crea dos columnas nuevas: <code>ganador</code> y <code>segundo</code>. Tras ello, y tomando solo los datos de las últimas elecciones, ¿quién fue más veces el segundo partido cuando ganó el PP? ¿Y cuándo ganó el PSOE? ¿Y cuándo ganó UP? ¿Y cuándo ganó VOX? Comenta las diferencias</p>
+</blockquote>
+<div class="fragment">
+<p>Filtramos y aplicamos la función por fecha y municipio.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb745"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb745-1"><a href="#cb745-1"></a>datos_tidy <span class="ot">&lt;-</span></span>
+<span id="cb745-2"><a href="#cb745-2"></a>  datos_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb745-3"><a href="#cb745-3"></a>  <span class="fu">filter</span>(fecha <span class="sc">==</span> <span class="fu">max</span>(fecha)) <span class="sc">|&gt;</span> </span>
+<span id="cb745-4"><a href="#cb745-4"></a>  <span class="fu">mutate</span>(<span class="at">ganador =</span> <span class="fu">n_votado</span>(siglas, votos),</span>
+<span id="cb745-5"><a href="#cb745-5"></a>         <span class="at">segundo =</span> <span class="fu">n_votado</span>(siglas, votos, <span class="at">n =</span> <span class="dv">2</span>),</span>
+<span id="cb745-6"><a href="#cb745-6"></a>         <span class="at">.by =</span> <span class="fu">c</span>(fecha, id_mun))</span>
+<span id="cb745-7"><a href="#cb745-7"></a></span>
+<span id="cb745-8"><a href="#cb745-8"></a>datos_tidy <span class="sc">|&gt;</span></span>
+<span id="cb745-9"><a href="#cb745-9"></a>  <span class="fu">filter</span>(ganador <span class="sc">==</span> <span class="st">"PP"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb745-10"><a href="#cb745-10"></a>  <span class="fu">count</span>(segundo, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 2
+  segundo     n
+  &lt;chr&gt;   &lt;int&gt;
+1 PSOE    11838
+2 VOX      3006
+3 PP        491
+4 OTROS     425
+5 UP        182
+6 CS        129
+7 PNV        21
+8 BNG         7
+9 ERC         7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb747"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb747-1"><a href="#cb747-1"></a>datos_tidy <span class="sc">|&gt;</span></span>
+<span id="cb747-2"><a href="#cb747-2"></a>  <span class="fu">filter</span>(ganador <span class="sc">==</span> <span class="st">"PSOE"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb747-3"><a href="#cb747-3"></a>  <span class="fu">count</span>(segundo, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 2
+  segundo      n
+  &lt;chr&gt;    &lt;int&gt;
+1 PP       14650
+2 VOX       3206
+3 UP        1448
+4 OTROS      638
+5 ERC        252
+6 PSOE        67
+7 CS          45
+8 EH-BILDU    14</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-10-1" class="slide level2">
+<h2>Ejercicio 10</h2>
+<blockquote>
+<p>Tomando solo los datos de las últimas elecciones, ¿qué partido gano en cada comuniad autónoma y cuál quedó segundo? ¿Y para cada provincia?</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb749"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb749-1"><a href="#cb749-1"></a>datos_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb749-2"><a href="#cb749-2"></a>  <span class="fu">filter</span>(fecha <span class="sc">==</span> <span class="fu">max</span>(fecha)) <span class="sc">|&gt;</span> </span>
+<span id="cb749-3"><a href="#cb749-3"></a>  <span class="fu">summarise</span>(<span class="at">votos_ccaa =</span> <span class="fu">sum</span>(votos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, codigo_ccaa, siglas)) <span class="sc">|&gt;</span> </span>
+<span id="cb749-4"><a href="#cb749-4"></a>  <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">2</span>, votos_ccaa, <span class="at">by =</span> codigo_ccaa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 38 × 4
+   fecha      codigo_ccaa siglas votos_ccaa
+   &lt;date&gt;     &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;
+ 1 2019-11-01 14          PNV        377502
+ 2 2019-11-01 14          OTROS      236815
+ 3 2019-11-01 07          PSOE       358908
+ 4 2019-11-01 07          PP         291692
+ 5 2019-11-01 17          PSOE       697276
+ 6 2019-11-01 17          PP         583108
+ 7 2019-11-01 01          PSOE      1419539
+ 8 2019-11-01 01          PP         874456
+ 9 2019-11-01 08          PP         436620
+10 2019-11-01 08          PSOE       430588
+# ℹ 28 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb751"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb751-1"><a href="#cb751-1"></a>datos_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb751-2"><a href="#cb751-2"></a>  <span class="fu">filter</span>(fecha <span class="sc">==</span> <span class="fu">max</span>(fecha)) <span class="sc">|&gt;</span> </span>
+<span id="cb751-3"><a href="#cb751-3"></a>  <span class="fu">summarise</span>(<span class="at">votos_prov =</span> <span class="fu">sum</span>(votos), <span class="at">.by =</span> <span class="fu">c</span>(fecha, codigo_provincia, siglas)) <span class="sc">|&gt;</span> </span>
+<span id="cb751-4"><a href="#cb751-4"></a>  <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">2</span>, votos_prov, <span class="at">by =</span> codigo_provincia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 104 × 4
+   fecha      codigo_provincia siglas votos_prov
+   &lt;date&gt;     &lt;chr&gt;            &lt;chr&gt;       &lt;dbl&gt;
+ 1 2019-11-01 01               PNV         40129
+ 2 2019-11-01 01               OTROS       39206
+ 3 2019-11-01 02               PSOE        69589
+ 4 2019-11-01 02               PP          58720
+ 5 2019-11-01 03               PSOE       239256
+ 6 2019-11-01 03               PP         206844
+ 7 2019-11-01 04               PSOE        88531
+ 8 2019-11-01 04               VOX         80492
+ 9 2019-11-01 05               PP          32385
+10 2019-11-01 05               PSOE        24267
+# ℹ 94 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="dataviz-historia" class="slide level2">
+<h2>Dataviz: historia</h2>
+<p>La aparición de gráficos estadísticos es <span class="hl-yellow"><strong>relativamente reciente en la ciencia</strong></span> ya que hasta la Edad Media la única visualización estaba en los <span class="hl-yellow"><strong>mapas</strong></span>. <sup>1</sup> Las propias palabras <em>chart</em> y <em>cartography</em> derivan del mismo origen latino, <em>charta</em>, aunque el primer uso de coordenadas viene de los egipcios. <sup>2</sup> <sup>3</sup></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>No es hasta la Edad Media, cuando la <span class="hl-yellow"><strong>navegación y la astronomía</strong></span> empezaban a tomar relevancia, cuando aparece la primera gráfica (no propiamente estadística), del <strong>movimiento cíclico de los planetas</strong> (siglos X y XI)</p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="img/dataviz_historico_1.png" width="370"></p>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><a href="http://academica-e.unavarra.es/bitstream/handle/2454/15785/Gram%C3%A1tica.pdf">«Gramática de las gráficas: pistas para mejorar las representaciones de datos» de Joaquín Sevilla</a></p></li><li id="fn2"><p><a href="https://www.cs.uic.edu/~wilkinson/Publications/iesbs.pdf">«Presentation Graphics» de Leland Wilkinson. International Encyclopedia of the Social &amp; Behavioral Sciences</a></p></li><li id="fn3"><p><a href="https://www.jstor.org/stable/2683467">«Quantitative Graphics in Statistics: A Brief History» de James R. Beniger y Dorothy L. Robyn. The American Statistician (1978)</a>]</p></li></ol></aside></section>
+<section id="navegación-y-astronomía" class="slide level2">
+<h2>Navegación y astronomía</h2>
+<p>Con una motivación similar, en torno a 1360 el matemático <strong>Nicole Oresme</strong> diseñó el <span class="hl-yellow"><strong>primer gráfico de barras</strong></span> (pero no estadístico), con la idea de visualizar a la vez dos <strong>magnitudes físicas teóricas</strong>. <sup>1</sup></p>
+<p><img data-src="img/dataviz_historico_2.jpeg" width="300"></p>
+<aside><ol class="aside-footnotes"><li id="fn4"><p><a href="https://www.researchgate.net/publication/227369016_The_First_Known_Statistical_Graph_Michael_Florent_van_Langren_and_the_Secret_of_Longitude">«The First (Known) Statistical Graph: Michael Florent van Langren and the ‘Secret’ of Longitude» de M. Friendly y P. M. Valero-Mora. The American Statistician (2010)</a></p></li></ol></aside></section>
+<section id="primer-gráfico-estadístico" class="slide level2">
+<h2>Primer gráfico estadístico</h2>
+<p>La mayoría de expertos, como Tufte <sup>1</sup> <sup>2</sup>, consideran este gráfico casi longitudinal como la <span class="hl-yellow"><strong>primera visualización de datos</strong></span> de la historia, hecha por <strong>Van Langren</strong> en 1644, representando la <span class="hl-yellow"><strong>distancia entre Toledo y Roma</strong></span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="./img/longitud_dataviz.jpg" width="546"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="./img/dataviz_historico_3.jpeg" width="557"></p>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn5"><p><a href="https://archive.org/details/visualexplanatio00tuft">«Visual explanations: images and quantities, evidence and narrative» de E. Tufte</a></p></li><li id="fn6"><p><a href="https://www.wired.com/2003/09/ppt2/">«PowerPoint is evil» de E. Tufte</a></p></li></ol></aside></section>
+<section id="qué-es-una-dataviz" class="slide level2">
+<h2>¿Qué es una dataviz?</h2>
+<p>¿Es una gráfica estadística? ¿Por qué sí o por qué no?</p>
+
+<img data-src="img/cuadro_dataviz.jpg" class="r-stretch"><div class="fragment">
+<p>No hay <span class="hl-red"><strong>ninguna INFORMACIÓN</strong></span> representada</p>
+</div>
+</section>
+<section id="qué-es-una-dataviz-1" class="slide level2">
+<h2>¿Qué es una dataviz?</h2>
+<p>¿Es una gráfica estadística? ¿Por qué sí o por qué no?</p>
+
+<img data-src="img/horoscopo_dataviz.jpg" class="r-stretch"><div class="fragment">
+<p>No hay <span class="hl-red"><strong>ningún PROCESO DE MEDIDA</strong></span> representado, no cuantifica nada (real).</p>
+</div>
+</section>
+<section id="qué-es-una-dataviz-2" class="slide level2">
+<h2>¿Qué es una dataviz?</h2>
+<p>¿Es una gráfica estadística? ¿Por qué sí o por qué no?</p>
+
+<img data-src="img/celsius_dataviz.jpg" class="r-stretch"><div class="fragment">
+<p>No hay <span class="hl-red"><strong>ningún DATO</strong></span> representado en él, es una magnitud física teórica, no un dato (medido empíricamente o simulado).</p>
+</div>
+</section>
+<section id="qué-es-una-dataviz-3" class="slide level2">
+<h2>¿Qué es una dataviz?</h2>
+<p>Esas mismas preguntas se hizo <strong>Joaquín Sevilla</strong> <sup>1</sup>, proporcionando <span class="hl-yellow"><strong>3 requisitos</strong></span>:</p>
+<div class="fragment">
+<ol type="1">
+<li>Que se base en el esquema de composición de <span class="hl-yellow"><strong>eje métrico</strong></span> (proceso de medida): debe <span class="hl-yellow"><strong>medir algo</strong></span>.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Debe incluir <span class="hl-yellow"><strong>información estadística (datos)</strong></span></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>La <span class="hl-yellow"><strong>relación de representatividad</strong></span> debe ser <span class="hl-purple"><strong>reversible</strong></span>: los datos deberían poder «recuperarse» a partir de la gráfica .</li>
+</ol>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn7"><p><a href="http://academica-e.unavarra.es/bitstream/handle/2454/15785/Gram%C3%A1tica.pdf">«Gramática de las gráficas: pistas para mejorar las representaciones de datos» de Joaquín Sevilla</a></p></li></ol></aside></section>
+<section id="abolición-de-tartas" class="slide level2">
+<h2>Abolición de tartas</h2>
+<p>Hay muchas formas de hacer una gráfica estadística, y no suele pasar por un <span class="hl-yellow"><strong>gráfico de tartas</strong></span> ya que tienen un grave <span class="hl-red"><strong>problema de reversibilidad</strong></span>:</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Si hay <strong>muchas variables</strong>: salvo que tengas transportador de ángulos…</p></li>
+<li><p>Si hay <strong>pocas variables</strong>: ¿aporta algo distinto (y/o mejor) que una tabla?</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/sectores_muchas_categorías.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="abolición-de-tartas-1" class="slide level2">
+<h2>Abolición de tartas</h2>
+<p>El principal problema de un diagrama de sectores es que la posible información está <span class="hl-yellow"><strong>contenida en los ángulos</strong></span>, pero nuestra interpretación la realizamos a través de la <span class="hl-yellow"><strong>comparación de áreas</strong></span> (nuestros ojos no miden bien ángulos), las cuales dependen no solo del ángulo sino del radio.</p>
+<p>&nbsp;</p>
+<p>Algo similar sucede con los mal llamados <span class="hl-yellow"><strong>gráficos tridimensionales</strong></span> (son bidimensionales con perspectiva en realidad): los valores más cercanos aparecen sobredimensionados, siendo prácticamente imposible la reversibilidad por la <span class="hl-yellow"><strong>distorsión</strong></span>.</p>
+</section>
+<section id="vizfails" class="slide level2">
+<h2>Vizfails</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img data-src="img/persona_dataviz.jpg"></p>
+</div><div class="column" style="width:45%;">
+<ul>
+<li><p>La figura elegida (persona caminando) sin relación con lo visualizado: <span class="hl-red"><strong>mala metáfora</strong></span>.</p></li>
+<li><p>Los <span class="hl-red"><strong>sectores señalados sin relación con el ítem</strong></span> a representar, lo que dificulta su interpretación.</p></li>
+<li><p>Los <span class="hl-red"><strong>colores sin codificar</strong></span>: no dan información de ningún tipo.</p></li>
+<li><p>Las <span class="hl-red"><strong>formas irregulares impiden la comparación</strong></span> de las áreas (amén de que la suma total supera el 100%).</p></li>
+<li><p><strong>Sin fuente</strong></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="vizfails-1" class="slide level2">
+<h2>Vizfails</h2>
+
+<img data-src="img/viz_fail_covid.jpg" class="r-stretch"></section>
+<section id="vizfails-2" class="slide level2">
+<h2>Vizfails</h2>
+
+<img data-src="img/viz_fail_uk.jpg" class="r-stretch"></section>
+<section id="la-importancia-del-contexto" class="slide level2">
+<h2>La importancia del CONTEXTO</h2>
+<p>Una <strong>buena idea</strong> puede estar mal ejecutada: la forma de llevarla a cabo es importante</p>
+
+<img data-src="img/semaforos.jpg" class="r-stretch"></section>
+<section id="dataviz-historia-1" class="slide level2">
+<h2>Dataviz: historia</h2>
+<p>En el siglo XVII hubo un boom de la estadística al empezar a aplicarse en <span class="hl-yellow"><strong>demografía</strong></span>. Uno de los autores más importantes fue <span class="hl-purple"><strong>J. Graunt</strong></span>, autor de «Natural and Political Observations Made upon the Bills of Mortality» (1662), estimando la población de Londres con las <span class="hl-yellow"><strong>primeras tablas de natalidad y mortalidad</strong></span>.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Son precisamente las tablas de Graunt las que usó <span class="hl-yellow"><strong>Christiaan Huygens</strong></span> para generar la <span class="hl-yellow"><strong>primera gráfica de densidad</strong></span> de una distribución continua (esperanza de vida vs edad).</p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/primera_densidad.jpg" style="width:100.0%"></p>
+<p></p><figcaption>Primera función de densidad, extraída de https://omeka.lehigh.edu/exhibits/show/data_visualization/vital_statistics/huygen</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gráficos-de-playfair" class="slide level2">
+<h2>Gráficos de Playfair</h2>
+<p>La figura que cambió el dataviz fue, sin lugar a dudas, el economista y político <span class="hl-yellow"><strong>William Playfair (1759-1823)</strong></span>, publicando en 1786 el <strong>«Atlas político y comercial»</strong> <sup>1</sup> <sup>2</sup> con 44 gráficas (43 series temporales y el diagrama de barras más famoso de la historia).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_1.jpg" style="width:70.0%"></p>
+<p></p><figcaption>Extraídas de Funkhouser y Walker (1935)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_2.jpg" style="width:25.0%"></p>
+<p></p><figcaption>Extraídas de Funkhouser y Walker (1935)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn8"><p><a href="https://www.jstor.org/stable/45366440">«Playfair and his charts» de H. Gray Funkhouser and Helen M. Walker (1935)</a></p></li><li id="fn9"><p><a href="http://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=ha009726110">«A Letter on Our Agricultural Distresses, Their Causes and Remedies» de W. Playfair (1821)</a></p></li></ol></aside></section>
+<section id="gráficos-de-playfair-1" class="slide level2">
+<h2>Gráficos de Playfair</h2>
+<p>Playfair no solo fue el primero en usar el dataviz para entender (y no solo describir): fue el primero en usar <span class="hl-yellow"><strong>conceptos modernos</strong></span> como <em>grid</em>, tema o color</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_3.jpg" style="width:90.0%"></p>
+<p></p><figcaption>Extraída de https://friendly.github.io/HistDataVis</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_4.png" style="width:90.0%"></p>
+<p></p><figcaption>Extraída de la wikipedia.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gráficos-de-playfair-2" class="slide level2">
+<h2>Gráficos de Playfair</h2>
+<p>Playfair es además el autor del <span class="hl-yellow"><strong>gráfico de barras más famoso</strong></span> (no fue el primero pero sí quien lo hizo <em>mainstream</em>).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_5.jpg" style="width:90.0%"></p>
+<p></p><figcaption>Gráficas de Playfair de importaciones (barras grises) y exportaciones (negras) de Escocia en 1781, extraídas de la wikipedia.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_6.jpg" style="width:90.0%"></p>
+<p></p><figcaption>Primer diagrama de barras (P. Buache y G. de L’Isle), visualizando los niveles del Sena (1732 - 1766), extraída de https://friendly.github.io/HistDataVis</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gráficos-de-playfair-3" class="slide level2">
+<h2>Gráficos de Playfair</h2>
+<p>Playfair además fue el primero en <span class="hl-yellow"><strong>combinar gráficos en la misma visualización</strong></span> <sup>1</sup> <sup>2</sup></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_7.jpg" style="width:85.0%"></p>
+<p></p><figcaption>Visualiza 3 series temporales: precios (barras) del trigo, salarios (línea) y time-line con reinados, extraída de https://friendly.github.io/HistDataVis.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/playfair_8.png" style="width:85.0%"></p>
+<p></p><figcaption>Time-line histórico, extraída de https://friendly.github.io/HistDataVis.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn10"><p><a href="http://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=ha009726110">«A Letter on Our Agricultural Distresses, Their Causes and Remedies» de W. Playfair (1821)</a></p></li><li id="fn11"><p><a href="https://www.amazon.com/Permanent-Powerful-Nations-Prosperity-Prolonged/dp/140691830X">«An Inquiry Into the Permanent Causes of the Decline and Fall of Powerful and Wealthy Nations» de William Playfair (1821)</a></p></li></ol></aside></section>
+<section id="mapas-de-minard" class="slide level2">
+<h2>Mapas de Minard</h2>
+<p>Otro pionero en <span class="hl-yellow"><strong>combinar visualizaciones</strong></span> fue Minard, autor del famoso «Carte figurative des pertes successives en hommes de l’Armée Française dans la campagne de Russie 1812-1813», según Tufte <span class="hl-yellow"><strong>«el mejor gráfico estadístico jamás dibujado»</strong></span>, publicado en 1869 sobre la desastrosa campaña rusa de Napoleón en 1812 (3 variables en un gráfico bidimensional)</p>
+
+<img data-src="./img/minard_2.png" style="width:60.0%" class="r-stretch quarto-figure-center"><p class="caption">Extraída de https://friendly.github.io/HistDataVis.</p></section>
+<section id="primer-scatter-plot" class="slide level2">
+<h2>Primer scatter plot</h2>
+<p>Según J. Sevilla, se considera al astrónomo británico <strong>John Frederick William Herschel</strong> el autor del <span class="hl-yellow"><strong>primer diagrama de dispersión o scatterplot</strong></span> en 1833, visualizando el movimiento de la estrella doble Virginis (tiempo en el eje horizontal, posición angular en el eje vertical)</p>
+
+<img data-src="./img/herschel.jpg" style="width:35.0%" class="r-stretch quarto-figure-center"><p class="caption">Extraído de https://friendly.github.io/HistDataVis.</p></section>
+<section id="primera-pirámide-poblacional" class="slide level2">
+<h2>Primera pirámide poblacional</h2>
+<p>La <span class="hl-yellow"><strong>primera pirámide de población</strong></span> (doble histograma de población), fue publicada por <strong>Francis Amasa Walker</strong>, superintendente del censo de EE.UU., en 1874.</p>
+
+<img data-src="./img/walker_piramide.jpg" style="width:45.0%" class="r-stretch quarto-figure-center"><p class="caption">Extraída de https://www.depauw.edu/learn/dew/wpaper/workingpapers/DePauw2016-02-Barreto-DemographyEconomics.pdf</p></section>
+<section id="florence-nigthingale" class="slide level2">
+<h2>Florence Nigthingale</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ul>
+<li><p>El 21 de octubre de 1854 <span class="hl-yellow"><strong>Florence Nigthingale</strong></span> fue enviada para mejorar las <strong>condiciones sanitarias</strong> de los soldados británicos en la guerra de Crimea.</p></li>
+<li><p>A su regreso demostró que los <span class="hl-yellow"><strong>soldados fallecían por las condiciones sanitarias</strong></span>. Nigthingale es la creadora del famoso <span class="hl-yellow"><strong>diagrama de rosa</strong></span>, visualizando tres variables a la vez y su estacionalidad.</p></li>
+<li><p>El 8 de febrero de 1955, The Times la describió como la <strong>«ángel guardián» de los hospitales</strong>, y acabó siendo conocida como <span class="hl-yellow"><strong>«The Lady with the Lamp»</strong></span> tras un poema de H. W. Longfellow (1857).</p></li>
+<li><p>Años después se convirtió en la <span class="hl-yellow"><strong>primera mujer en la Royal Statistical Society</strong></span>.</p></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/the_lady_with_the_lamp.png" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="diagrama-de-rosa" class="slide level2">
+<h2>Diagrama de rosa</h2>
+<p>Florence Nigthingale es la creadora del famoso <span class="hl-yellow"><strong>diagrama de rosa</strong></span>, permitiendo pintar <span class="hl-yellow"><strong>tres variables a la vez y su estacionalidad</strong></span>: <strong>tiempo</strong> (cada <strong>gajo</strong> es un mes), <strong>nº de muertes</strong> (<strong>área</strong> del gajo) y <strong>causa</strong> de la muerte (<strong>color</strong> del gajo: azules enfermedades infecciosas, rojas por heridas, negras otras causas).</p>
+
+<img data-src="./img/rosa_nightingale.jpg" style="width:75.0%" class="r-stretch quarto-figure-center"></section>
+<section id="recursos-de-dataviz" class="slide level2">
+<h2>Recursos de dataviz</h2>
+<p>📚 <a href="https://www.amazon.es/Functional-Art-Voices-That-Matter/dp/0321834739">«The Functional Art: an introduction to information graphics and visualization» de Alberto Cairo</a></p>
+<p>📚 <a href="https://academica-e.unavarra.es/bitstream/handle/2454/15785/Gram%C3%A1tica.pdf">«Gramática de las gráficas: pistas para mejorar las representaciones de datos» de Joaquín Sevilla</a></p>
+<p>📚 <a href="https://www.researchgate.net/publication/226400313_A_Brief_History_of_Data_Visualization">«A Brief History of Visualization» de Friendly et al.&nbsp;(2008)</a></p>
+<p>📚 <a href="https://www.jstor.org/stable/2683467">«Quantitative Graphics in Statistics: A Brief History» de James R. Beniger y Dorothy L. Robyn. The American Statistician (1978)</a>]</p>
+<p>📚 <a href="https://www.cs.uic.edu/~wilkinson/Publications/iesbs.pdf">«Presentation Graphics» de Leland Wilkinson. International Encyclopedia of the Social &amp; Behavioral Sciences</a></p>
+<p>📚 <a href="https://www.amazon.es/Grammar-Graphics-Statistics-Computing/dp/0387245448">«The Grammar of Graphics» de Leland Wilkinson</a></p>
+<p>📚 <a href="https://www.amazon.es/gp/product/1616896337/ref=sw_img_1?smid=A1AT7YVPFBWXBL&amp;psc=1">«The Minard System: The Graphical Works of Charles-Joseph Minard» de Sandra Rendgen</a></p>
+<p>📚 <a href="https://www.amazon.es/Visual-Display-Quantitative-Information/dp/0961392142">«The Visual Display of Quantitative Information» de E. W. Tufte</a></p>
+</section>
+<section id="dataviz-en-r-ggplot2" class="slide level2">
+<h2>Dataviz en R: ggplot2</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>El paquete <code>{ggplot2}</code> se basa en la idea de Wilkinson en <span class="hl-yellow"><strong>«Grammar of graphics»</strong></span>: dotar a los gráficos de una gramática propia. Una de las principales fortalezas de <code>R</code> es la <span class="hl-yellow"><strong>visualización</strong></span> con <code>{ggplot2}</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb753"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb753-1"><a href="#cb753-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La <span class="hl-yellow"><strong>visualización de datos</strong></span> debería ser una parte fundamental de todo análisis de datos. No es solo una cuestión estética.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/telling_dataviz.jpg" width="400"></p>
+</div>
+</div>
+</section>
+<section id="dataviz-en-r-ggplot2-1" class="slide level2">
+<h2>Dataviz en R: ggplot2</h2>
+<p>La filosofía detrás de <code>{ggplot2}</code> es entender los <span class="hl-yellow"><strong>gráficos como parte del flujo</strong></span> de trabajo, dotándoles de una <span class="hl-yellow"><strong>gramática</strong></span>. El objetivo es empezar con un lienzo en blanco e ir <span class="hl-yellow"><strong>añadiendo capas a tu gráfico</strong></span>. La ventaja de <code>{ggplot2}</code> es poder <span class="hl-purple"><strong>mapear atributos estéticos</strong></span> (color, forma, tamaño) de objetos geométricos (puntos, barras, líneas) en función de los datos.</p>
+<p>&nbsp;</p>
+<p>La <strong>documentación</strong> del paquete puedes consultarla en <a href="https://ggplot2-book.org/introduction.html" class="uri">https://ggplot2-book.org/introduction.html</a></p>
+
+<img data-src="img/grammar_ggplot2.jpg" class="r-stretch"></section>
+<section id="dataviz-en-r-ggplot2-2" class="slide level2">
+<h2>Dataviz en R: ggplot2</h2>
+
+<img data-src="img/tarta_ggplot2.png" class="r-stretch"></section>
+<section id="dataviz-en-r-ggplot2-3" class="slide level2">
+<h2>Dataviz en R: ggplot2</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="img/tarta_recortada_ggplot2.jpg"></p>
+</div><div class="column" style="width:60%;">
+<p>Un gráfico se podrá componer de <span class="hl-yellow"><strong>capas</strong></span></p>
+<ul>
+<li><span class="hl-purple"><strong>Datos (data)</strong></span></li>
+<li><span class="hl-purple"><strong>Mapeado (aesthetics)</strong></span> de elementos estéticos: ejes, color, forma, etc (en función de los datos)</li>
+<li><span class="hl-purple"><strong>Geometría (geom)</strong></span>: puntos, líneas, barras, polígonos, etc.</li>
+<li><span class="hl-purple"><strong>Componer gráficas (facet)</strong></span></li>
+<li><span class="hl-purple"><strong>Transformaciones (stat)</strong></span>: ordenar, resumir, etc.</li>
+<li><span class="hl-purple"><strong>Coordenadas (coord)</strong></span>: coordenadas cartesianas, polares, grids, etc.</li>
+<li><span class="hl-purple"><strong>Temas (theme)</strong></span>: fuente, tamaño de letra, subtítulos, captions, leyenda, ejes, etc.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="primer-intento-scatter-plot" class="slide level2">
+<h2>Primer intento: scatter plot</h2>
+<p>Veamos un <strong>primer intento</strong> para entender la filosofía ggplot. Imagina que queremos dibujar un <span class="hl-yellow"><strong>scatter plot</strong></span> (diagrama de dispersión de puntos). Para ello vamos a usar el conjunto de datos <code>gapminder</code>, del paquete homónimo: un fichero con <strong>datos de esperanzas de vida, poblaciones y renta per cápita</strong> de distintos países en distintos momentos temporales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb754"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb754-1"><a href="#cb754-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb754-2"><a href="#cb754-2"></a>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="primer-intento-scatter-plot-1" class="slide level2">
+<h2>Primer intento: scatter plot</h2>
+<p>El fichero consta de 1704 registros y 6 variables: <code>country</code>, <code>continent</code>, <code>year</code>, <code>lifeExp</code> (esperanza de vida), <code>pop</code> (población) y <code>gdpPercap</code> (renta per cápita).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb756"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb756-1"><a href="#cb756-1"></a><span class="fu">glimpse</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,704
+Columns: 6
+$ country   &lt;fct&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", …
+$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …
+$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …
+$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…
+$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…
+$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …</code></pre>
+</div>
+</div>
+<p>Para empezar con algo sencillo <span class="hl-yellow"><strong>filtraremos solo los datos de 1997</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb758"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb758-1"><a href="#cb758-1"></a>gapminder_1997 <span class="ot">&lt;-</span></span>
+<span id="cb758-2"><a href="#cb758-2"></a>  gapminder <span class="sc">|&gt;</span></span>
+<span id="cb758-3"><a href="#cb758-3"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1997</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb758-4"><a href="#cb758-4"></a>  <span class="fu">drop_na</span>(gdpPercap, lifeExp, pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ingredientes-x-y" class="slide level2">
+<h2>Ingredientes: (x, y)</h2>
+<p>¿Qué <span class="hl-yellow"><strong>elementos necesitamos</strong></span> para realizar un diagrama de puntos? Para <span class="hl-pùrple"><strong>iniciar el lienzo</strong></span> necesitamos una base de datos y dos variables a representar.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><p><span class="hl-yellow"><strong>Datos (data)</strong></span>: conjunto <code>gapminder_1997</code>.</p></li>
+<li><p><span class="hl-yellow"><strong>Mapeado</strong></span>: indicar dentro de <code>aes()</code> (aesthetics) las variables en cada coordenada. Todo <span class="hl-purple"><strong>dentro de aes() será mapeado de los datos</strong></span></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb759"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb759-1"><a href="#cb759-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_1997,</span>
+<span id="cb759-2"><a href="#cb759-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-507-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="primera-geometría-geom_point" class="slide level2">
+<h2>Primera geometría: geom_point()</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><span class="hl-yellow"><strong>Geometría (geom)</strong></span>: optaremos por <strong>puntos</strong> usando <code>geom_point()</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb760"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb760-1"><a href="#cb760-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb760-2"><a href="#cb760-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> pop)) <span class="sc">+</span></span>
+<span id="cb760-3"><a href="#cb760-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-509-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rol-de-os-ejes-x-y" class="slide level2">
+<h2>Rol de os ejes: (x, y)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Vamos a profundizar en ese mapeado: ¿cómo <span class="hl-yellow"><strong>cambiar el rol</strong></span> de los ejes (población en el eje X y renta per cápita en el eje Y)?</p>
+<ul>
+<li><strong>Eje X</strong>: población (variable <code>pop</code>)</li>
+<li><strong>Eje Y</strong>: renta per cápita (variable <code>gdpPercap</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb761"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb761-1"><a href="#cb761-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb761-2"><a href="#cb761-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> pop)) <span class="sc">+</span></span>
+<span id="cb761-3"><a href="#cb761-3"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-511-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rol-de-os-ejes-x-y-1" class="slide level2">
+<h2>Rol de os ejes: (x, y)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>¿Y un scatter plot con <strong>esperanza de vida</strong> en eje X frente a <strong>renta per cápita</strong>?</p>
+<ul>
+<li><strong>Eje X</strong>: esperanza de vida (variable <code>lifeExp</code>)</li>
+<li><strong>Eje Y</strong>: renta per cápita (variable <code>gdpPercap</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb762"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb762-1"><a href="#cb762-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb762-2"><a href="#cb762-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb762-3"><a href="#cb762-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-513-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<p>Dentro de <code>geom_point()</code> tenemos varios argumentos a usar:</p>
+<ul>
+<li><p><code>na.rm = ...</code>: si queremos que nos quite ausentes.</p></li>
+<li><p><code>color = ...</code>: color (si tiene dimensión, color del contorno)</p></li>
+<li><p><code>fill = ...</code>: color del relleno.</p></li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Empezaremos por un <span class="hl-yellow"><strong>color fijo</strong></span>, por ejemplo <code>"red"</code> (existen otros como <code>"blue"</code>, <code>"black"</code>, <code>"yellow"</code>, etc)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb763"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb763-1"><a href="#cb763-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb763-2"><a href="#cb763-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb763-3"><a href="#cb763-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-515-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
 <div class="footer footer-default">
 <p><a href="..."><strong>Javier Álvarez Liébana</strong></a> • Grado en Ciencia de Datos Aplicada (UCM) • curso 2023-2024</p>
 </div>
+</div>
 </section></section>
+
     </div>
   </div>
 
@@ -8232,7 +9240,7 @@ $lado_2
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"normal"},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"normal"},
 'chalkboard': {"buttons":true},
 'multiplex': {"secret":"1686123117478505345","id":"1b0ff0461e955904","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
@@ -8476,23 +9484,9 @@ $lado_2
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
       });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
-          }
-        }
-        return false;
-      }
       const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
+        target: function(trigger) {
+          return trigger.previousElementSibling;
         }
       });
       clipboard.on('success', function(e) {
@@ -8540,7 +9534,7 @@ $lado_2
           },
           interactive: true,
           interactiveBorder: 10,
-          theme: 'light-border',
+          theme: 'quarto-reveal',
           placement: 'bottom-start'
         };
           config['offset'] = [0,0];
