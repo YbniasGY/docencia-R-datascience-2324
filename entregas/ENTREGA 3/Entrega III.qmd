@@ -37,7 +37,6 @@ library(readxl)
 
 > Carga el **archivo de datos electorales** del Ministerio del Interior, que recopila datos de citas electorales al Congreso de los Diputados de España desde 2008 hasta la actualidad. Tras la carga, convierte las variables que creas que es necesaria la conversión.
 
-
 Las variables son las siguientes:
 
 -   `tipo_eleccion`: tipo de elección (02 si es elección al congreso)
@@ -50,14 +49,11 @@ Las variables son las siguientes:
 -   `votos_blancos`: votos en blanco
 -   `votos_candidaturas`: votos a papeletas de partidos
 -   `votos_nulos`: votos nulos
-- una variable por partido
-
+-   una variable por partido
 
 ```{r}
 #| eval: false
 ```
-
-
 
 ### Ejercicio 2
 
@@ -87,25 +83,25 @@ id_mun_filter <-
 
 ### Ejercicio 4
 
->  Crea una variable de siglas de manera que agrupe (a lo mejor con detectar palabras clave sirve...)
+> Crea una variable de siglas de manera que agrupe (a lo mejor con detectar palabras clave sirve...)
 
-- PSOE: los que contengan "PARTIDO SOCIALISTA OBRERO", "PARTIT DELS SOCIALISTES DE CATALUNYA", "PARTIT DELS SOCIALISTES DE CATALUNYA (PSC-PSOE), "PARTIDO DOS SOCIALISTAS DE GALICIA"
+-   PSOE: los que contengan "PARTIDO SOCIALISTA OBRERO", "PARTIT DELS SOCIALISTES DE CATALUNYA", "PARTIT DELS SOCIALISTES DE CATALUNYA (PSC-PSOE),"PARTIDO DOS SOCIALISTAS DE GALICIA"
 
-- PP: los que contengan "PARTIDO POPULAR"
+-   PP: los que contengan "PARTIDO POPULAR"
 
-- CS: los que contengan "CIUDADANOS", "CIUTADANS"
+-   CS: los que contengan "CIUDADANOS", "CIUTADANS"
 
-- UP: los que contengan "PODEMOS", "UNIDAS PODEMOS", "UNIDOS PODEMOS", "EN COMÚ PODEM"
+-   UP: los que contengan "PODEMOS", "UNIDAS PODEMOS", "UNIDOS PODEMOS", "EN COMÚ PODEM"
 
-- VOX: "VOX"
+-   VOX: "VOX"
 
-- BNG: "BLOQUE NACIONALISTA GALEGO"
+-   BNG: "BLOQUE NACIONALISTA GALEGO"
 
-- ERC: los que contengan "ESQUERRA REPUBLICANA DE CATALUNYA"
+-   ERC: los que contengan "ESQUERRA REPUBLICANA DE CATALUNYA"
 
-- PNV: los que contengan "PARTIDO NACIONALISTA VASCO"
+-   PNV: los que contengan "PARTIDO NACIONALISTA VASCO"
 
-- EHBILDU: los que contengan "EUSKAL HERRIA BILDU"
+-   EHBILDU: los que contengan "EUSKAL HERRIA BILDU"
 
 Todo lo que no sea alguno de los anteriores partidos deberá ser imputado como "OTROS"
 

@@ -1555,7 +1555,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-11-02"</code></pre>
+<pre><code>[1] "2023-11-17"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1565,7 +1565,7 @@ Grado en Ciencia de Datos Aplicada • curso 2023-2024
 <div class="cell">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-11-02 18:38:44 CET"</code></pre>
+<pre><code>[1] "2023-11-17 10:21:37 CET"</code></pre>
 </div>
 </div>
 </div>
@@ -4850,20 +4850,20 @@ pesos       63   70   85   95</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb422"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb422-1"><a href="#cb422-1"></a><span class="fu">aemet_last_obs</span>(<span class="st">"0076"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 23
+<pre><code># A tibble: 23 × 23
    idema   lon fint                 prec   alt  vmax    vv    dv   lat  dmax
    &lt;chr&gt; &lt;dbl&gt; &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 0076   2.07 2023-11-01 18:00:00     0     4   6.7   3.9   260  41.3   250
- 2 0076   2.07 2023-11-01 19:00:00     0     4   5.1   3.9   220  41.3   220
- 3 0076   2.07 2023-11-01 20:00:00     0     4   5.1   2.5   230  41.3   220
- 4 0076   2.07 2023-11-01 21:00:00     0     4   3.6   3     230  41.3   220
- 5 0076   2.07 2023-11-01 22:00:00     0     4   4.1   2.9   260  41.3   270
- 6 0076   2.07 2023-11-01 23:00:00     0     4   5.7   3.7   250  41.3   260
- 7 0076   2.07 2023-11-02 00:00:00     0     4   7.7   5.9   240  41.3   240
- 8 0076   2.07 2023-11-02 01:00:00     0     4   9.8   5.4   250  41.3   240
- 9 0076   2.07 2023-11-02 02:00:00     0     4   9.3   5.8   250  41.3   240
-10 0076   2.07 2023-11-02 03:00:00     0     4   8.8   3.2   220  41.3   280
-# ℹ 14 more rows
+ 1 0076   2.07 2023-11-16 10:00:00     0     4  10.8   6.8   220  41.3   250
+ 2 0076   2.07 2023-11-16 11:00:00     0     4  10.3   7.5   230  41.3   230
+ 3 0076   2.07 2023-11-16 12:00:00     0     4  12.4   9     250  41.3   240
+ 4 0076   2.07 2023-11-16 13:00:00     0     4  12.4   7.9   240  41.3   250
+ 5 0076   2.07 2023-11-16 14:00:00     0     4  10.3   6.8   240  41.3   250
+ 6 0076   2.07 2023-11-16 15:00:00     0     4   9.8   6.5   240  41.3   250
+ 7 0076   2.07 2023-11-16 16:00:00     0     4   9.8   5.9   240  41.3   240
+ 8 0076   2.07 2023-11-16 17:00:00     0     4   7.7   4.1   250  41.3   260
+ 9 0076   2.07 2023-11-16 18:00:00     0     4   5.1   3.4   230  41.3   220
+10 0076   2.07 2023-11-16 19:00:00     0     4   4.1   1.2   220  41.3   220
+# ℹ 13 more rows
 # ℹ 13 more variables: ubi &lt;chr&gt;, pres &lt;dbl&gt;, hr &lt;dbl&gt;, stdvv &lt;dbl&gt;, ts &lt;dbl&gt;,
 #   pres_nmar &lt;dbl&gt;, tamin &lt;dbl&gt;, ta &lt;dbl&gt;, tamax &lt;dbl&gt;, tpr &lt;dbl&gt;, vis &lt;dbl&gt;,
 #   stddv &lt;dbl&gt;, inso &lt;dbl&gt;</code></pre>
@@ -5794,8 +5794,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Palpatine    170    75 grey       pale       yellow          82   male  mascu…
-2 Anakin S…    188    84 blond      fair       blue            41.9 male  mascu…
+1 Adi Gall…    184    50 none       dark       blue              NA fema… femin…
+2 Wedge An…    170    77 brown      fair       hazel             21 male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5840,10 +5840,10 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 4 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
-2 Poe Dame…     NA    NA brown      light      brown             NA male  mascu…
-3 Wilhuff …    180    NA auburn, g… fair       blue              64 male  mascu…
-4 Sebulba      112    40 none       grey, red  orange            NA male  mascu…
+1 Roos Tar…    224    82 none       grey       orange            NA male  mascu…
+2 Owen Lars    178   120 brown, gr… light      blue              52 male  mascu…
+3 Han Solo     180    80 brown      fair       brown             29 male  mascu…
+4 Palpatine    170    75 grey       pale       yellow            82 male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5872,8 +5872,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
-2 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5886,8 +5886,8 @@ pesos       63   70   85   95</code></pre>
 <pre><code># A tibble: 2 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
-2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+1 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+2 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -5907,7 +5907,7 @@ pesos       63   70   85   95</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb511"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb511-1"><a href="#cb511-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 2 2 2 1 2 3 3 5 6 5</code></pre>
+<pre><code> [1] 1 2 4 4 6 4 3 4 4 2</code></pre>
 </div>
 </div>
 </div>
@@ -5919,8 +5919,8 @@ pesos       63   70   85   95</code></pre>
 <div class="sourceCode cell-code" id="cb513"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb513-1"><a href="#cb513-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb513-2"><a href="#cb513-2"></a>       <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 1 2 3 3 2 1 2 1 1 1 1 2 2 1 1 4 1 2 6 2 2 2 2 1 2 3 1 6 4 1 1 1 5 3 1 1 4
-[39] 2 4 1 4 1 4 1 1 3 1 2 1</code></pre>
+<pre><code> [1] 2 1 1 2 6 1 2 1 1 2 1 3 1 5 2 2 3 1 1 1 1 5 5 1 2 2 1 2 2 6 6 3 1 3 1 1 1 2
+[39] 2 2 3 2 1 3 1 6 1 1 4 1</code></pre>
 </div>
 </div>
 </section>
@@ -9129,8 +9129,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 </div>
 </section>
-<section id="rol-de-os-ejes-x-y" class="slide level2">
-<h2>Rol de os ejes: (x, y)</h2>
+<section id="rol-de-los-ejes-x-y" class="slide level2">
+<h2>Rol de los ejes: (x, y)</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p>Vamos a profundizar en ese mapeado: ¿cómo <span class="hl-yellow"><strong>cambiar el rol</strong></span> de los ejes (población en el eje X y renta per cápita en el eje Y)?</p>
@@ -9152,8 +9152,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 </div>
 </section>
-<section id="rol-de-os-ejes-x-y-1" class="slide level2">
-<h2>Rol de os ejes: (x, y)</h2>
+<section id="rol-de-los-ejes-x-y-1" class="slide level2">
+<h2>Rol de los ejes: (x, y)</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p>¿Y un scatter plot con <strong>esperanza de vida</strong> en eje X frente a <strong>renta per cápita</strong>?</p>
@@ -9200,9 +9200,1373 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 </div>
 </div>
+</div>
+</section></section>
+<section>
+<section id="entrega-iii-bis" class="title-slide slide level1 center">
+<h1>Clase 17: entrega III bis</h1>
+<p><span style="color:#444442;"><strong>Tercera entrega individual en clase</strong></span></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ggplot1" class="title-slide slide level1 center">
+<h1>Clase 18: introducción a ggplot</h1>
+<p><span style="color:#444442;"><strong>Dataviz con ggplot</strong></span></p>
+</section>
+<section id="color-size-shape-fijos-1" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>size = ...</code>: tamaño de la geometría (en este caso el <span class="hl-yellow"><strong>tamaño de los puntos</strong></span>), cuanto mayor sea el número, mayor será el tamaño de la geometría.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb764"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb764-1"><a href="#cb764-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb764-2"><a href="#cb764-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb764-3"><a href="#cb764-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">7</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-517-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-2" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>alpha = ...</code>: grado de opacidad del color (1 totalmente opaco, 0 totalmente transparente)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb765"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb765-1"><a href="#cb765-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb765-2"><a href="#cb765-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb765-3"><a href="#cb765-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb765-4"><a href="#cb765-4"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-519-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-3" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>shape = ...</code>: forma de la geometría, en este caso del «punto» (ver todas las opciones en <code>vignette("ggplot2-specs")</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb766"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb766-1"><a href="#cb766-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb766-2"><a href="#cb766-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb766-3"><a href="#cb766-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb766-4"><a href="#cb766-4"></a>             <span class="at">fill =</span> <span class="st">"black"</span>,</span>
+<span id="cb766-5"><a href="#cb766-5"></a>             <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb766-6"><a href="#cb766-6"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>,</span>
+<span id="cb766-7"><a href="#cb766-7"></a>             <span class="at">shape =</span> <span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-521-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-4" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>stroke = ...</code>: tamaño del contorno</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb767"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb767-1"><a href="#cb767-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb767-2"><a href="#cb767-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb767-3"><a href="#cb767-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb767-4"><a href="#cb767-4"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">stroke =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-523-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="color-size-shape-fijos-5" class="slide level2">
+<h2>Color, size, shape: fijos</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Los colores también podemos asignárselos por su <strong>código hexadecimal</strong>, consultando en <a href="https://htmlcolorcodes.com/es/" class="uri">https://htmlcolorcodes.com/es/</a>, eligiendo el color que queramos. El código hexadecimal siempre comenzará con <code>#</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb768"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb768-1"><a href="#cb768-1"></a><span class="co"># Color en hexadecimal</span></span>
+<span id="cb768-2"><a href="#cb768-2"></a><span class="co"># https://htmlcolorcodes.com/es/</span></span>
+<span id="cb768-3"><a href="#cb768-3"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb768-4"><a href="#cb768-4"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb768-5"><a href="#cb768-5"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#A02B85"</span>,</span>
+<span id="cb768-6"><a href="#cb768-6"></a>             <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">7</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-525-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mapeado-estético-aes" class="slide level2">
+<h2>Mapeado estético: aes()</h2>
+<p>Hasta ahora los <strong>atributos estéticos</strong> se los hemos pasado fijos y <span class="hl-yellow"><strong>constantes</strong></span>. Pero la verdadera potencia y versatilidad de <code>ggplot</code> es que podemos <span class="hl-yellow"><strong>mapear los atributos estéticos en función de los datos</strong></span> en <code>aes()</code> para que dependan de variables de los datos.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Por ejemplo, vamos a asignar un <span class="hl-yellow"><strong>color a cada dato en función de su continente</strong></span> con <code>aes(color = continent)</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb769"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb769-1"><a href="#cb769-1"></a><span class="co"># Tamaño fijo</span></span>
+<span id="cb769-2"><a href="#cb769-2"></a><span class="co"># Color por continentes</span></span>
+<span id="cb769-3"><a href="#cb769-3"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb769-4"><a href="#cb769-4"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp,</span>
+<span id="cb769-5"><a href="#cb769-5"></a>           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb769-6"><a href="#cb769-6"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-527-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mapeado-estético-aes-1" class="slide level2">
+<h2>Mapeado estético: aes()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Podemos combinarlo con lo que hemos hecho anteriormente:</p>
+<ul>
+<li><p><span class="hl-yellow"><strong>color</strong></span> en función del <span class="hl-purple"><strong>continente</strong></span>.</p></li>
+<li><p><span class="hl-yellow"><strong>tamaño</strong></span> en función de la <span class="hl-purple"><strong>población</strong></span>.</p></li>
+<li><p><span class="hl-yellow"><strong>transparencia</strong></span> la fijamos <span class="hl-purple"><strong>constante</strong></span> del 50%.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb770"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb770-1"><a href="#cb770-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb770-2"><a href="#cb770-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp,</span>
+<span id="cb770-3"><a href="#cb770-3"></a>           <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb770-4"><a href="#cb770-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A este scatter plot particular se le conoce <strong>BUBBLE CHART</strong></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-529-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualización-multivariante" class="slide level2">
+<h2>Visualización multivariante</h2>
+<p>Reflexionemos sobre el gráfico anterior:</p>
+<ul>
+<li><strong>color</strong> en función del <strong>continente</strong>.</li>
+<li><strong>tamaño</strong> en función de la <strong>población</strong></li>
+<li><strong>transparencia</strong> fija del 50%</li>
+</ul>
+<p>&nbsp;</p>
+<p>Usando los datos hemos conseguido dibujar en un <span class="hl-yellow"><strong>gráfico bidimensional 4 variables</strong></span>: <code>lifeExp</code> y <code>gdpPercap</code> en los ejes , <code>continent</code> como color y <code>pop</code> como tamaño de la geometría, con muy pocas líneas de código.</p>
+</section>
+<section id="etiquetas-sencillas-labs" class="slide level2">
+<h2>Etiquetas sencillas: labs()</h2>
+<p>Podemos <span class="hl-yellow"><strong>personalizar de manera sencilla</strong></span> haciendo uso de la capa <code>labs()</code>:</p>
+<div class="columns">
+<div class="column" style="width:43%;">
+<ul>
+<li><code>title, subtitle</code>: título/subtítulo</li>
+<li><code>caption</code>: pie de gráfica</li>
+<li><code>x, y</code>: nombres de los ejes</li>
+<li><code>size, color, fill, ...</code>: nombre en la leyenda de las variables que codifiquen los distintos atributos</li>
+</ul>
+</div><div class="column" style="width:57%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-530-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb771"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb771-1"><a href="#cb771-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb771-2"><a href="#cb771-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb771-3"><a href="#cb771-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb771-4"><a href="#cb771-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>,</span>
+<span id="cb771-5"><a href="#cb771-5"></a>       <span class="at">title =</span> <span class="st">"Primer ggplot"</span>, <span class="at">subtitle =</span> <span class="st">"Datos de gapminder"</span>,</span>
+<span id="cb771-6"><a href="#cb771-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>, <span class="at">size =</span> <span class="st">"población"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="eliminar-de-la-leyenda" class="slide level2">
+<h2>Eliminar de la leyenda</h2>
+<p>Podemos eliminar variables de la leyenda con <code>guides(atributo = "none")</code></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb772"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb772-1"><a href="#cb772-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb772-2"><a href="#cb772-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, </span>
+<span id="cb772-3"><a href="#cb772-3"></a>           <span class="at">x =</span> lifeExp,</span>
+<span id="cb772-4"><a href="#cb772-4"></a>           <span class="at">color =</span> continent, </span>
+<span id="cb772-5"><a href="#cb772-5"></a>           <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb772-6"><a href="#cb772-6"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb772-7"><a href="#cb772-7"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb772-8"><a href="#cb772-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>,</span>
+<span id="cb772-9"><a href="#cb772-9"></a>       <span class="at">y =</span> <span class="st">"Renta per cápita"</span>,</span>
+<span id="cb772-10"><a href="#cb772-10"></a>       <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb772-11"><a href="#cb772-11"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>,</span>
+<span id="cb772-12"><a href="#cb772-12"></a>       <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-533-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="escalas-scale-ejes" class="slide level2">
+<h2>Escalas (scale): ejes</h2>
+<p>Una de las capas más importantes es la <span class="hl-yellow"><strong>capa de escalas</strong></span>: dentro de <code>aes()</code> solo le indicamos que variable mapeamos pero no sus ajustes.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Vamos a configurar el eje x para tener marcas cada 10 unidades (<code>scale_x_continuous()</code>)</p>
+</div><div class="column" style="width:53%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-534-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb773"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb773-1"><a href="#cb773-1"></a><span class="fu">ggplot</span>(gapminder_1997,</span>
+<span id="cb773-2"><a href="#cb773-2"></a>       <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp,</span>
+<span id="cb773-3"><a href="#cb773-3"></a>           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb773-4"><a href="#cb773-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb773-5"><a href="#cb773-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb773-6"><a href="#cb773-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>,</span>
+<span id="cb773-7"><a href="#cb773-7"></a>       <span class="at">title =</span> <span class="st">"Primer ggplot"</span>, <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>,</span>
+<span id="cb773-8"><a href="#cb773-8"></a>       <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="escalas-scale-colores" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>La misma idea la podemos aplicar a otro atríbuto como los <span class="hl-yellow"><strong>colores</strong></span> con <code>scale_color_...()</code> y <code>scale_fill_...()</code>: hemos indicado que mapeé dicho atributo por continente pero…¿qué colores usar?</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Con <code>scale_color_manual()</code> podemos indicar manualmente una <span class="hl-yellow"><strong>paleta</strong></span> (puedes buscar en <a href="https://htmlcolorcodes.com/" class="uri">https://htmlcolorcodes.com/</a>)</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-536-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb774"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb774-1"><a href="#cb774-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#A02B85"</span>, <span class="st">"#2DE86B"</span>, <span class="st">"#4FB2CA"</span>, <span class="st">"#E8DA2D"</span>, <span class="st">"#E84C2D"</span>)</span>
+<span id="cb774-2"><a href="#cb774-2"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb774-3"><a href="#cb774-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb774-4"><a href="#cb774-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb774-5"><a href="#cb774-5"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal) <span class="sc">+</span></span>
+<span id="cb774-6"><a href="#cb774-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb774-7"><a href="#cb774-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="escalas-scale-colores-1" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Otra opción es elegir alguna de las <span class="hl-yellow"><strong>paletas de colores diseñadas</strong></span> en el paquete <code>{ggthemes}</code>:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><code>scale_color_economist()</code>: paleta de colores basada en los colores de <strong>The Economist</strong>.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-538-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb775"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb775-1"><a href="#cb775-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb775-2"><a href="#cb775-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb775-3"><a href="#cb775-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb775-4"><a href="#cb775-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_economist</span>() <span class="sc">+</span></span>
+<span id="cb775-5"><a href="#cb775-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb775-6"><a href="#cb775-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-scale-colores-2" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Otra opción es elegir alguna de las <span class="hl-yellow"><strong>paletas de colores diseñadas</strong></span> en el paquete <code>{ggthemes}</code>:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><code>scale_color_colorblind()</code>: paleta de colores basada en los colores de <span class="hl-yellow"><strong>daltónicos/as</strong></span>.</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-540-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb776"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb776-1"><a href="#cb776-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb776-2"><a href="#cb776-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb776-3"><a href="#cb776-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb776-4"><a href="#cb776-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb776-5"><a href="#cb776-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb776-6"><a href="#cb776-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-scale-colores-3" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Incluso cargar <span class="hl-yellow"><strong>paletas de colores diseñadas en base a películas o arte</strong></span></p>
+<div class="columns">
+<div class="column" style="width:44%;">
+<ul>
+<li><span class="hl-yellow"><strong>películas</strong></span>: paquete <code>{harrypotter}</code> (repositorio de Github <code>aljrico/harrypotter</code>) usando <code>scale_color_hp_d()</code>.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/ravenclaw.png" style="width:20.0%"></p>
+<p></p><figcaption>Paleta basada en la casa Ravenclaw</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-543-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb777"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb777-1"><a href="#cb777-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"aljrico/harrypotter"</span>) </span>
+<span id="cb777-2"><a href="#cb777-2"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb777-3"><a href="#cb777-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb777-4"><a href="#cb777-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb777-5"><a href="#cb777-5"></a>  harrypotter<span class="sc">::</span><span class="fu">scale_color_hp_d</span>(<span class="at">option =</span> <span class="st">"ravenclaw"</span>)<span class="sc">+</span></span>
+<span id="cb777-6"><a href="#cb777-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb777-7"><a href="#cb777-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-scale-colores-4" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Incluso cargar <span class="hl-yellow"><strong>paletas de colores diseñadas en base a películas o arte</strong></span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><span class="hl-yellow"><strong>cuadros</strong></span>: paquete <code>{MetBrewer}</code> (repositorio de Github <code>BlakeRMills/MetBrewer</code>) usando <code>scale_colour_manual(values = met.brewer(...))</code>.</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-545-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb778"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb778-1"><a href="#cb778-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"BlakeRMills/MetBrewer"</span>) </span>
+<span id="cb778-2"><a href="#cb778-2"></a><span class="fu">library</span>(MetBrewer)</span>
+<span id="cb778-3"><a href="#cb778-3"></a></span>
+<span id="cb778-4"><a href="#cb778-4"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb778-5"><a href="#cb778-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb778-6"><a href="#cb778-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb778-7"><a href="#cb778-7"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">met.brewer</span>(<span class="st">"Monet"</span>)) <span class="sc">+</span></span>
+<span id="cb778-8"><a href="#cb778-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb778-9"><a href="#cb778-9"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-scale-colores-5" class="slide level2">
+<h2>Escalas (scale): colores</h2>
+<p>Incluso cargar <span class="hl-yellow"><strong>paletas de colores diseñadas en base a películas o arte</strong></span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><span class="hl-yellow"><strong>discos</strong></span>: paquete <code>{peRReo}</code> (repositorio de Github <code>jbgb13/peRReo</code>) usando <code>scale_colour_manual(values = latin_palette())</code>.</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-547-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb779"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb779-1"><a href="#cb779-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="at">repo =</span> <span class="st">"jbgb13/peRReo"</span>) </span>
+<span id="cb779-2"><a href="#cb779-2"></a><span class="fu">library</span>(peRReo)</span>
+<span id="cb779-3"><a href="#cb779-3"></a></span>
+<span id="cb779-4"><a href="#cb779-4"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb779-5"><a href="#cb779-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb779-6"><a href="#cb779-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb779-7"><a href="#cb779-7"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">latin_palette</span>(<span class="st">"rosalia"</span>)) <span class="sc">+</span></span>
+<span id="cb779-8"><a href="#cb779-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb779-9"><a href="#cb779-9"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escalas-otros-atributos" class="slide level2">
+<h2>Escalas : otros atributos</h2>
+<p>Lo mismo que hemos hecho para los ejes o colores podemos hacer para el <span class="hl-yellow"><strong>resto de atríbutos estéticos</strong></span></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Por ejemplo, vamos a indicarle que mapeé el tamaño en función de población pero indicándole el <span class="hl-yellow"><strong>rango de valores</strong></span> (continuo en este caso) entre los que moverse con <code>scale_size_continuous()</code></p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-549-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb780"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb780-1"><a href="#cb780-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb780-2"><a href="#cb780-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb780-3"><a href="#cb780-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb780-4"><a href="#cb780-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb780-5"><a href="#cb780-5"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb780-6"><a href="#cb780-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb780-7"><a href="#cb780-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>::: ::::</p>
+</section>
+<section id="tema-básico" class="slide level2">
+<h2>Tema (básico)</h2>
+<p>Por último en este primer gráfico, vamos personalizar el tema con alguna de las capas <code>theme_...()</code></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Por ejemplo, vamos a usar <code>theme_minimal()</code> para tener un tema “austero” y minimalista (aprenderemos a definir cada detalle de nuestro tema).</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-551-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb781"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb781-1"><a href="#cb781-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb781-2"><a href="#cb781-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb781-3"><a href="#cb781-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">35</span>, <span class="dv">85</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb781-4"><a href="#cb781-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb781-5"><a href="#cb781-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb781-6"><a href="#cb781-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb781-7"><a href="#cb781-7"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="clase-19" class="title-slide slide level1 center">
+<h1>Clase 19: profundizando en ggplot</h1>
+<p><span style="color:#444442;"><strong>Visualización de datos</strong></span></p>
+</section>
+<section id="resumen-de-capas" class="slide level2">
+<h2>Resumen de capas</h2>
+<p>Vamos a hacer un pequeño resumen de lo que llevamos aprendido hasta ahora respecto a <code>{ggplot2}</code></p>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Capa de datos</strong></span>: normalmente un gráfico en <code>{ggplot2}</code> empieza con <code>ggplot(datos)</code>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Mapeo de atributos estéticos</strong></span>: todo lo que queramos que se <span class="hl-purple"><strong>codifique en función de los datos</strong></span> debe ir dentro de <code>aes()</code></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Capa geométrica</strong></span>: para decidir si queremos un scatter plot, un diagrama de barras, un histograma, etc</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Capas de escalas</strong></span>: para decidir los ajustes personalizados de atributos estéticos (escala del alpha o size, paleta de colores, etc)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-yellow"><strong>Tema</strong></span>: tema para personalizar el gráfico (y etiquetas)</li>
+</ul>
+</div>
+</section>
+<section id="capa-de-escalas" class="slide level2">
+<h2>Capa de escalas</h2>
+<p>Vamos a profundizar un poco dentro de nuestro scatter plot en <span class="hl-yellow"><strong>escalas</strong></span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>¿Cómo <span class="hl-purple"><strong>fijar límites en los ejes</strong></span>? En <code>scale_x_continuous()</code> y <code>scale_y_continuous()</code>, además de “saltos” podemos indicar límites con <code>limits = ...</code></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-553-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb782"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb782-1"><a href="#cb782-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb782-2"><a href="#cb782-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb782-3"><a href="#cb782-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">70</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb782-4"><a href="#cb782-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">18000</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">18000</span>, <span class="at">by =</span> <span class="dv">1000</span>)) <span class="sc">+</span></span>
+<span id="cb782-5"><a href="#cb782-5"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb782-6"><a href="#cb782-6"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb782-7"><a href="#cb782-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb782-8"><a href="#cb782-8"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb782-9"><a href="#cb782-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-escalas-1" class="slide level2">
+<h2>Capa de escalas</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>¿Cómo <span class="hl-purple"><strong>etiquetar las unidades de los ejes</strong></span>? Haciendo uso del paquete <code>{scales}</code> podemos añadir <span class="hl-yellow"><strong>prefijos/sufijos</strong></span> con <code>labels = label_number(...)</code></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-555-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb783"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb783-1"><a href="#cb783-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb783-2"><a href="#cb783-2"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb783-3"><a href="#cb783-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb783-4"><a href="#cb783-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">70</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">5</span>),</span>
+<span id="cb783-5"><a href="#cb783-5"></a>                     <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">suffix =</span> <span class="st">" años"</span>)) <span class="sc">+</span></span>
+<span id="cb783-6"><a href="#cb783-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">18000</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">18000</span>, <span class="at">by =</span> <span class="dv">1000</span>),</span>
+<span id="cb783-7"><a href="#cb783-7"></a>                     <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">suffix =</span> <span class="st">" $"</span>)) <span class="sc">+</span></span>
+<span id="cb783-8"><a href="#cb783-8"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb783-9"><a href="#cb783-9"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb783-10"><a href="#cb783-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb783-11"><a href="#cb783-11"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb783-12"><a href="#cb783-12"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-escalas-2" class="slide level2">
+<h2>Capa de escalas</h2>
+<p>Vamos a profundizar un poco dentro de nuestro scatter plot en <span class="hl-yellow"><strong>escalas</strong></span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>¿Cómo <span class="hl-purple"><strong>cambiar los ajustes de tamaño, alpha, etc</strong></span>? Igual que tenemos <code>scale_x_...()</code> o <code>scale_color_...()</code>, tenemos también <code>scale_size_...()</code> y <code>scale_alpha_...()</code></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-557-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb784"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb784-1"><a href="#cb784-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb784-2"><a href="#cb784-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> pop)) <span class="sc">+</span></span>
+<span id="cb784-3"><a href="#cb784-3"></a>  <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb784-4"><a href="#cb784-4"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb784-5"><a href="#cb784-5"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb784-6"><a href="#cb784-6"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>, <span class="at">alpha =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb784-7"><a href="#cb784-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb784-8"><a href="#cb784-8"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb784-9"><a href="#cb784-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-escalas-3" class="slide level2">
+<h2>Capa de escalas</h2>
+<p>Vamos a profundizar un poco dentro de nuestro scatter plot en <span class="hl-yellow"><strong>escalas</strong></span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>¿Cómo <span class="hl-purple"><strong>cambiar la escala (relación) lineal entre los ejes</strong></span>? Con <code>scale_x_sqrt()</code> o <code>scale_x_log10()</code> podemos cambiar la escala de los ejes.</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-559-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb785"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb785-1"><a href="#cb785-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb785-2"><a href="#cb785-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb785-3"><a href="#cb785-3"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb785-4"><a href="#cb785-4"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb785-5"><a href="#cb785-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb785-6"><a href="#cb785-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb785-7"><a href="#cb785-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb785-8"><a href="#cb785-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scale_color-paleta-brewer" class="slide level2">
+<h2>scale_color: paleta Brewer</h2>
+<p>Una de las capas de escalas más importantes son las <span class="hl-yellow"><strong>capas de color</strong></span>. Ya vimos como definir paletas manuales, ¿pero qué <span class="hl-purple"><strong>opciones hay para escalas continuas de colores</strong></span>?</p>
+<div class="fragment">
+<p>Existen unas <span class="hl-yellow"><strong>paletas de colores conocidas como ColorBrewer</strong></span> pudiendo definirse de manera <strong>secuencial</strong>, <strong>divergente</strong> o de manera <strong>cualitativa</strong> (ver info en <a href="https://colorbrewer2.org" class="uri">https://colorbrewer2.org</a>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb786"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb786-1"><a href="#cb786-1"></a>RColorBrewer<span class="sc">::</span>brewer.pal.info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         maxcolors category colorblind
+BrBG            11      div       TRUE
+PiYG            11      div       TRUE
+PRGn            11      div       TRUE
+PuOr            11      div       TRUE
+RdBu            11      div       TRUE
+RdGy            11      div      FALSE
+RdYlBu          11      div       TRUE
+RdYlGn          11      div      FALSE
+Spectral        11      div      FALSE
+Accent           8     qual      FALSE
+Dark2            8     qual       TRUE
+Paired          12     qual       TRUE
+Pastel1          9     qual      FALSE
+Pastel2          8     qual      FALSE
+Set1             9     qual      FALSE
+Set2             8     qual       TRUE
+Set3            12     qual      FALSE
+Blues            9      seq       TRUE
+BuGn             9      seq       TRUE
+BuPu             9      seq       TRUE
+GnBu             9      seq       TRUE
+Greens           9      seq       TRUE
+Greys            9      seq       TRUE
+Oranges          9      seq       TRUE
+OrRd             9      seq       TRUE
+PuBu             9      seq       TRUE
+PuBuGn           9      seq       TRUE
+PuRd             9      seq       TRUE
+Purples          9      seq       TRUE
+RdPu             9      seq       TRUE
+Reds             9      seq       TRUE
+YlGn             9      seq       TRUE
+YlGnBu           9      seq       TRUE
+YlOrBr           9      seq       TRUE
+YlOrRd           9      seq       TRUE</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="scale_color-paleta-brewer-1" class="slide level2">
+<h2>scale_color: paleta Brewer</h2>
+<p>Con <code>RColorBrewer::brewer.pal()</code> podemos obtener el vector de n colores para una paleta dada</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb788"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb788-1"><a href="#cb788-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">name =</span> <span class="st">"RdYlBu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "#D7191C" "#FDAE61" "#FFFFBF" "#ABD9E9" "#2C7BB6"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Con <code>RColorBrewer::display.brewer.pal()</code> podemos <strong>visualizar los colores</strong> de dicha paleta</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb790"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb790-1"><a href="#cb790-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.pal</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">name =</span> <span class="st">"RdYlBu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-563-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="scale_color-paleta-brewer-2" class="slide level2">
+<h2>scale_color: paleta Brewer</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Para incluirlo podemos usar <code>scale_colour_brewer()</code> o bien <code>scale_color_distiller()</code> si queremos crear una <strong>escala continua</strong> (interpolando entre los colores)</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-564-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb791"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb791-1"><a href="#cb791-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> pop, <span class="at">color =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb791-2"><a href="#cb791-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb791-3"><a href="#cb791-3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb791-4"><a href="#cb791-4"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="st">"RdYlBu"</span>) <span class="sc">+</span></span>
+<span id="cb791-5"><a href="#cb791-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb791-6"><a href="#cb791-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Población"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb791-7"><a href="#cb791-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"esperanza de vida"</span>) <span class="sc">+</span></span>
+<span id="cb791-8"><a href="#cb791-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gradiente-de-color-manual" class="slide level2">
+<h2>Gradiente de color manual</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Tambien podemos crear un <span class="hl-yellow"><strong>gradiente de color manual</strong></span> son <code>scale_..._gradient()</code> para dos colores, <code>scale_..._gradient2()</code> para tres colores (bajo, medio y alto) y <code>scale_..._gradientn()</code> para n colores</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-566-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb792"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb792-1"><a href="#cb792-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> pop, <span class="at">color =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb792-2"><a href="#cb792-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb792-3"><a href="#cb792-3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb792-4"><a href="#cb792-4"></a>  <span class="fu">scale_color_gradient2</span>(<span class="at">low =</span> <span class="st">"#E92745"</span>, <span class="at">mid =</span> <span class="st">"#F4ED5B"</span>, <span class="at">high =</span> <span class="st">"#56B1F7"</span>, <span class="at">midpoint =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb792-5"><a href="#cb792-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Población"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb792-6"><a href="#cb792-6"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"esperanza de vida"</span>) <span class="sc">+</span></span>
+<span id="cb792-7"><a href="#cb792-7"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-coordenadas" class="slide level2">
+<h2>Capa de coordenadas</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Además de escalas tenemos una <span class="hl-yellow"><strong>capa de coordenadas</strong></span> con <code>coord_...</code> para indicar si queremos un sistema cartesiano (y sus límites), coordenadas polares (<code>coord_polar()</code>), si queremos coordenadas iguales (<code>coord_equal()</code>) o invertir su rol (<code>coord_flip()</code>)</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-568-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb793"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb793-1"><a href="#cb793-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> pop, <span class="at">color =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb793-2"><a href="#cb793-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb793-3"><a href="#cb793-3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb793-4"><a href="#cb793-4"></a>  <span class="fu">scale_color_gradient2</span>(<span class="at">low =</span> <span class="st">"#E92745"</span>, <span class="at">mid =</span> <span class="st">"#F4ED5B"</span>, <span class="at">high =</span> <span class="st">"#56B1F7"</span>, <span class="at">midpoint =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb793-5"><a href="#cb793-5"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb793-6"><a href="#cb793-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Población"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb793-7"><a href="#cb793-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"esperanza de vida"</span>) <span class="sc">+</span></span>
+<span id="cb793-8"><a href="#cb793-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-stats" class="slide level2">
+<h2>Capa de stats</h2>
+<p>Una capa importante es la <span class="hl-yellow"><strong>capa de estadísticas</strong></span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><code>stat_smooth()</code>: visualiza un <span class="hl-yellow"><strong>ajuste suavizado</strong></span> de los datos (reg. lineal, glm, loess, gam, etc).</li>
+</ul>
+<p>Con <code>stat_smooth(method = "lm", se = FALSE)</code> una recta de regresión (sin intervalos).</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-570-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb794"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb794-1"><a href="#cb794-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb794-2"><a href="#cb794-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> continent, <span class="at">size =</span> pop), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb794-3"><a href="#cb794-3"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb794-4"><a href="#cb794-4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb794-5"><a href="#cb794-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb794-6"><a href="#cb794-6"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb794-7"><a href="#cb794-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb794-8"><a href="#cb794-8"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb794-9"><a href="#cb794-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-stats-1" class="slide level2">
+<h2>Capa de stats</h2>
+<p>Una capa importante es la <span class="hl-yellow"><strong>capa de estadísticas</strong></span> que nos permite combinar en nuestro gráfico algunas funcionalidades</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Fíjate que si usas en la <span class="hl-yellow"><strong>primera capa parámetros estéticos</strong></span> se acaban <span class="hl-purple"><strong>heredando a capas posteriores</strong></span>, en concreto al ajuste visualizado.</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-572-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb795"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb795-1"><a href="#cb795-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb795-2"><a href="#cb795-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb795-3"><a href="#cb795-3"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb795-4"><a href="#cb795-4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb795-5"><a href="#cb795-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb795-6"><a href="#cb795-6"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb795-7"><a href="#cb795-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb795-8"><a href="#cb795-8"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb795-9"><a href="#cb795-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="geom_text" class="slide level2">
+<h2>geom_text()</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Podemos añadirle <span class="hl-yellow"><strong>textos simples</strong></span> con <code>geom_text(label = ...)</code>, por ejemplo, para añadir la correlación del ajuste.</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-574-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb796"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb796-1"><a href="#cb796-1"></a>cor <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">cor</span>(gapminder_1997<span class="sc">$</span>gdpPercap, gapminder_1997<span class="sc">$</span>lifeExp), <span class="dv">3</span>)</span>
+<span id="cb796-2"><a href="#cb796-2"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb796-3"><a href="#cb796-3"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> continent, <span class="at">size =</span> pop), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb796-4"><a href="#cb796-4"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb796-5"><a href="#cb796-5"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">50</span>, <span class="at">y =</span> <span class="dv">20000</span>, <span class="at">label =</span> <span class="fu">glue</span>(<span class="st">"Correlación: {cor}"</span>)),</span>
+<span id="cb796-6"><a href="#cb796-6"></a>                <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkcyan"</span>) <span class="sc">+</span></span>
+<span id="cb796-7"><a href="#cb796-7"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb796-8"><a href="#cb796-8"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb796-9"><a href="#cb796-9"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb796-10"><a href="#cb796-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb796-11"><a href="#cb796-11"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb796-12"><a href="#cb796-12"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-stats-2" class="slide level2">
+<h2>Capa de stats</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Dentro de <code>stat_smooth()</code> podemos especificarle otro <span class="hl-yellow"><strong>ajuste polinómico</strong></span> dándole expresión en <code>formula = ...</code></p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-576-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb797"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb797-1"><a href="#cb797-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb797-2"><a href="#cb797-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> continent, <span class="at">size =</span> pop), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb797-3"><a href="#cb797-3"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">3</span>) <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">4</span>) <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">5</span>),</span>
+<span id="cb797-4"><a href="#cb797-4"></a>              <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb797-5"><a href="#cb797-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb797-6"><a href="#cb797-6"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb797-7"><a href="#cb797-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb797-8"><a href="#cb797-8"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb797-9"><a href="#cb797-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-stats-3" class="slide level2">
+<h2>Capa de stats</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Con <code>stat_summary()</code> podemos incluso añadir <span class="hl-yellow"><strong>estadísticas por grupos</strong></span>, como la media o mediana.</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-578-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb798"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb798-1"><a href="#cb798-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb798-2"><a href="#cb798-2"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.7</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb798-3"><a href="#cb798-3"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"mean"</span>, <span class="at">size =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
+<span id="cb798-4"><a href="#cb798-4"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"median"</span>, <span class="at">size =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"darkcyan"</span>) <span class="sc">+</span></span>
+<span id="cb798-5"><a href="#cb798-5"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb798-6"><a href="#cb798-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb798-7"><a href="#cb798-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb798-8"><a href="#cb798-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="capa-de-stats-4" class="slide level2">
+<h2>Capa de stats</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Fíjate que si no tenemos una variable cuali, la media la hace con <code>n = 1</code> (es decir, es el propio punto).</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-580-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb799"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb799-1"><a href="#cb799-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> pop)) <span class="sc">+</span></span>
+<span id="cb799-2"><a href="#cb799-2"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.7</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb799-3"><a href="#cb799-3"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"mean"</span>, <span class="at">size =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
+<span id="cb799-4"><a href="#cb799-4"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"median"</span>, <span class="at">size =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"darkcyan"</span>) <span class="sc">+</span></span>
+<span id="cb799-5"><a href="#cb799-5"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb799-6"><a href="#cb799-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb799-7"><a href="#cb799-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb799-8"><a href="#cb799-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="componiendo-facet" class="slide level2">
+<h2>Componiendo (facet)</h2>
+<p>También podemos <span class="hl-yellow"><strong>desagregar los gráficos (facetar)</strong></span> por grupos, equivalente al <code>group_by()</code> en tidyverse.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Por ejemplo, vamos a crear un <span class="hl-yellow"><strong>gráfico por continente</strong></span>, mostrando todos los gráficos a la vez (pero por separado) con <code>facet_wrap(~continent)</code>.</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-582-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb800"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb800-1"><a href="#cb800-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb800-2"><a href="#cb800-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.75</span>) <span class="sc">+</span></span>
+<span id="cb800-3"><a href="#cb800-3"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb800-4"><a href="#cb800-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent) <span class="sc">+</span></span>
+<span id="cb800-5"><a href="#cb800-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb800-6"><a href="#cb800-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb800-7"><a href="#cb800-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb800-8"><a href="#cb800-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="componiendo-facet-1" class="slide level2">
+<h2>Componiendo (facet)</h2>
+<p>También podemos <span class="hl-yellow"><strong>desagregar los gráficos (facetar)</strong></span> por grupos, equivalente al <code>group_by()</code> en tidyverse.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Por defecto las escalas en los ejes son compartidas. Si queremos que la <span class="hl-yellow"><strong>escala de los ejes</strong></span> vaya por libre debemos usar <code>scales = "free_x"</code>, <code>scales = "free_y"</code> o <code>scales = "free"</code></p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-584-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb801"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb801-1"><a href="#cb801-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb801-2"><a href="#cb801-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.75</span>) <span class="sc">+</span></span>
+<span id="cb801-3"><a href="#cb801-3"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb801-4"><a href="#cb801-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb801-5"><a href="#cb801-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb801-6"><a href="#cb801-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb801-7"><a href="#cb801-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb801-8"><a href="#cb801-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="componiendo-facet-2" class="slide level2">
+<h2>Componiendo (facet)</h2>
+<p>También podemos <span class="hl-yellow"><strong>desagregar los gráficos (facetar)</strong></span> por grupos, equivalente al <code>group_by()</code> en tidyverse.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Con <code>nrow = ...</code> y <code>ncol = ...</code> podemos especificar cuantas columnas y filas tenemos en la cuadrícula de gráficas</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-586-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb802"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb802-1"><a href="#cb802-1"></a><span class="fu">ggplot</span>(gapminder_1997, <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb802-2"><a href="#cb802-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.75</span>) <span class="sc">+</span></span>
+<span id="cb802-3"><a href="#cb802-3"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb802-4"><a href="#cb802-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb802-5"><a href="#cb802-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb802-6"><a href="#cb802-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb802-7"><a href="#cb802-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb802-8"><a href="#cb802-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="componiendo-facet-3" class="slide level2">
+<h2>Componiendo (facet)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>También le podemos pasar dos argumentos (variables) para formar un <span class="hl-yellow"><strong>grid de gráficas</strong></span></p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-588-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb803"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb803-1"><a href="#cb803-1"></a><span class="fu">ggplot</span>(gapminder <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1962</span>), <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb803-2"><a href="#cb803-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb803-3"><a href="#cb803-3"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb803-4"><a href="#cb803-4"></a>  <span class="fu">facet_grid</span>(continent <span class="sc">~</span> year, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb803-5"><a href="#cb803-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb803-6"><a href="#cb803-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb803-7"><a href="#cb803-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb803-8"><a href="#cb803-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="componiendo-facet-4" class="slide level2">
+<h2>Componiendo (facet)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Aprenderemos distintas personalizaciones del tema pero con <code>theme(legend.position = ...)</code> podemos <span class="hl-yellow"><strong>decidir la posición de la leyenda</strong></span></p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-590-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb804"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb804-1"><a href="#cb804-1"></a><span class="fu">ggplot</span>(gapminder <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1962</span>), <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap, <span class="at">x =</span> lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb804-2"><a href="#cb804-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb804-3"><a href="#cb804-3"></a>  ggthemes<span class="sc">::</span><span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb804-4"><a href="#cb804-4"></a>  <span class="fu">facet_grid</span>(continent <span class="sc">~</span> year, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb804-5"><a href="#cb804-5"></a>  <span class="fu">guides</span>(<span class="at">size =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb804-6"><a href="#cb804-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Esperanza de vida"</span>, <span class="at">y =</span> <span class="st">"Renta per cápita"</span>, <span class="at">title =</span> <span class="st">"Primer ggplot"</span>,</span>
+<span id="cb804-7"><a href="#cb804-7"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>, <span class="at">color =</span> <span class="st">"continente"</span>) <span class="sc">+</span></span>
+<span id="cb804-8"><a href="#cb804-8"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb804-9"><a href="#cb804-9"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="variables-continuas" class="slide level2">
+<h2>Variables continuas</h2>
+<p>Hemos aprendido a realizar uno de los gráficos más famosos, un <span class="hl-yellow"><strong>diagrama de dispersión</strong></span>, pero…¿qué propiedades deben cumplir las variables?</p>
+<div class="fragment">
+<p>Para visualizar dos variables con un <span class="hl-yellow"><strong>diagrama de dispersión</strong></span> es necesario que ambas sean <span class="hl-purple"><strong>variables numéricas continuas</strong></span></p>
+</div>
+<div class="fragment">
+<p>¿Se te ocurre algúna gráfico básico para <span class="hl-yellow"><strong>variables discretas</strong></span>?</p>
+</div>
+</section>
+<section id="cualis-barras" class="slide level2">
+<h2>Cualis: barras</h2>
+<p>¿Y si tengo <span class="hl-yellow"><strong>variables discretas o cualitativas</strong></span>?</p>
+<div class="fragment">
+<p>Vamos a usar el ya conocido conjunto <code>starwars</code> para visualizar en un <span class="hl-yellow"><strong>diagrama de barras</strong></span>: vamos a representar la <span class="hl-yellow"><strong>frecuencia</strong></span> de una <span class="hl-yellow"><strong>variable cualitativa</strong></span> como es <code>sex</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb805"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb805-1"><a href="#cb805-1"></a>starwars <span class="sc">|&gt;</span>  </span>
+<span id="cb805-2"><a href="#cb805-2"></a>  <span class="fu">count</span>(sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  sex                n
+  &lt;chr&gt;          &lt;int&gt;
+1 female            16
+2 hermaphroditic     1
+3 male              60
+4 none               6
+5 &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="cualis-barras-1" class="slide level2">
+<h2>Cualis: barras</h2>
+<p>La ventaja de ggplot es que, al trabajar por <span class="hl-yellow"><strong>capas</strong></span>, todo lo que hemos aprendido nos sirve: solo tenemos que <span class="hl-purple"><strong>cambiar la geometría</strong></span>.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>En este caso para realizar un <span class="hl-yellow"><strong>diagrama de barras</strong></span> usaremos <code>geom_bar()</code> en lugar de <code>geom_point()</code>, indicando <span class="hl-purple"><strong>solo la variable de grupo</strong></span> con <code>x = sex</code> (ggplot hará solo el recuento)</p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-593-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb807"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb807-1"><a href="#cb807-1"></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
+<span id="cb807-2"><a href="#cb807-2"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb807-3"><a href="#cb807-3"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cualis-barras-2" class="slide level2">
+<h2>Cualis: barras</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Podemos aplicar lo aprendido sobre <span class="hl-yellow"><strong>colores para codificar</strong></span> la información, en este caso vamos a usar las paletas ya cargadas en <code>scale_color_colorblind()</code> del paquete <code>{ggthemes}</code></p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-595-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb808"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb808-1"><a href="#cb808-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb808-2"><a href="#cb808-2"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb808-3"><a href="#cb808-3"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb808-4"><a href="#cb808-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
+<span id="cb808-5"><a href="#cb808-5"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">color =</span> sex), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb808-6"><a href="#cb808-6"></a>  <span class="fu">scale_color_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb808-7"><a href="#cb808-7"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cualis-barras-3" class="slide level2">
+<h2>Cualis: barras</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Fíjate que ahora <span class="hl-red"><strong>solo nos ha coloreado el contorno</strong></span>: en otras geometrías, como las barras, será importante distinguir entre <code>color</code> y <code>fill</code></p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-597-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb809"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb809-1"><a href="#cb809-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb809-2"><a href="#cb809-2"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb809-3"><a href="#cb809-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
+<span id="cb809-4"><a href="#cb809-4"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb809-5"><a href="#cb809-5"></a>  <span class="fu">scale_fill_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb809-6"><a href="#cb809-6"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cualis-barras-4" class="slide level2">
+<h2>Cualis: barras</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Podemos <span class="hl-yellow"><strong>personalizar el gráfico</strong></span> haciendo uso de las opciones ya vistas, por ejemplo, con escalas en ejes, títulos de las variables, leyendas, etc</p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-599-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb810"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb810-1"><a href="#cb810-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb810-2"><a href="#cb810-2"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb810-3"><a href="#cb810-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
+<span id="cb810-4"><a href="#cb810-4"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb810-5"><a href="#cb810-5"></a>  <span class="fu">scale_fill_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb810-6"><a href="#cb810-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb810-7"><a href="#cb810-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"sexo"</span>, <span class="at">y =</span> <span class="st">"frecuencia absoluta"</span>, <span class="at">fill =</span> <span class="st">"sexo"</span>, <span class="at">title =</span> <span class="st">"Primer diagrama de barras"</span>,</span>
+<span id="cb810-8"><a href="#cb810-8"></a>       <span class="at">subtitle =</span> <span class="st">"Sexos: femenino, masculino, hemafrodita, ninguno y ausente"</span>,</span>
+<span id="cb810-9"><a href="#cb810-9"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>) <span class="sc">+</span></span>
+<span id="cb810-10"><a href="#cb810-10"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cualis-barras-5" class="slide level2">
+<h2>Cualis: barras</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Para cambiar el rol de los ejes, generando un diagrama de <span class="hl-yellow"><strong>barras horizontales</strong></span>, podemos dejar el gráfico igual y luego simplemente hacer <code>coord_flip()</code></p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-601-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb811"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb811-1"><a href="#cb811-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb811-2"><a href="#cb811-2"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb811-3"><a href="#cb811-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
+<span id="cb811-4"><a href="#cb811-4"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb811-5"><a href="#cb811-5"></a>  <span class="fu">scale_fill_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb811-6"><a href="#cb811-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb811-7"><a href="#cb811-7"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb811-8"><a href="#cb811-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"sexo"</span>, <span class="at">y =</span> <span class="st">"frecuencia absoluta"</span>, <span class="at">fill =</span> <span class="st">"sexo"</span>, <span class="at">title =</span> <span class="st">"Primer diagrama de barras"</span>,</span>
+<span id="cb811-9"><a href="#cb811-9"></a>       <span class="at">subtitle =</span> <span class="st">"Sexos: femenino, masculino, hemafrodita, ninguno y ausente"</span>,</span>
+<span id="cb811-10"><a href="#cb811-10"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>) <span class="sc">+</span></span>
+<span id="cb811-11"><a href="#cb811-11"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="paréntesis-temas" class="slide level2">
+<h2>Paréntesis: temas</h2>
+<p>Vamos a hacer un paréntesis y aprender a <span class="hl-yellow"><strong>personalizar más nuestras gráficas</strong></span></p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li><p><code>theme_set(theme_minimal())</code> fija tema base</p></li>
+<li><p><code>theme_update(...)</code> personaliza parámetros.</p></li>
+</ul>
+<p>Por ejemplo, en <code>plot.title</code> vamos a indicarle el <span class="hl-yellow"><strong>tamaño y negrita</strong></span> en el título, dentro de <code>element_text()</code></p>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-603-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb812"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb812-1"><a href="#cb812-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span>
+<span id="cb812-2"><a href="#cb812-2"></a><span class="fu">theme_update</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">25</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb812-3"><a href="#cb812-3"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb812-4"><a href="#cb812-4"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb812-5"><a href="#cb812-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
+<span id="cb812-6"><a href="#cb812-6"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb812-7"><a href="#cb812-7"></a>  <span class="fu">scale_fill_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb812-8"><a href="#cb812-8"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb812-9"><a href="#cb812-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"sexo"</span>, <span class="at">y =</span> <span class="st">"frecuencia absoluta"</span>, <span class="at">fill =</span> <span class="st">"sexo"</span>, <span class="at">title =</span> <span class="st">"Primer diagrama de barras"</span>,</span>
+<span id="cb812-10"><a href="#cb812-10"></a>       <span class="at">subtitle =</span> <span class="st">"Sexos: femenino, masculino, hemafrodita, ninguno y ausente"</span>, <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="paréntesis-temas-1" class="slide level2">
+<h2>Paréntesis: temas</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Podemos hacer lo mismo con otros textos con <code>plot.subtitle</code> o <code>plot.caption</code></p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-605-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb813"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb813-1"><a href="#cb813-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span>
+<span id="cb813-2"><a href="#cb813-2"></a><span class="fu">theme_update</span>(</span>
+<span id="cb813-3"><a href="#cb813-3"></a>  <span class="at">plot.title =</span></span>
+<span id="cb813-4"><a href="#cb813-4"></a>    <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">25</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb813-5"><a href="#cb813-5"></a>  <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>),</span>
+<span id="cb813-6"><a href="#cb813-6"></a>  <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="paréntesis-temas-2" class="slide level2">
+<h2>Paréntesis: temas</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Vamos incluso a <span class="hl-yellow"><strong>elegir fuente o el color</strong></span></p>
+<ul>
+<li><p><code>sysfonts::font_add_google()</code>: le indicaremos la tipografía de <a href="https://fonts.google.com/" class="uri">https://fonts.google.com/</a></p></li>
+<li><p><code>showtext_auto()</code> del paquete <code>{showtext}</code> nos permite su uso.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-607-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb814"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb814-1"><a href="#cb814-1"></a><span class="fu">library</span>(showtext)</span>
+<span id="cb814-2"><a href="#cb814-2"></a><span class="fu">library</span>(sysfonts)</span>
+<span id="cb814-3"><a href="#cb814-3"></a><span class="fu">font_add_google</span>(<span class="at">name =</span> <span class="st">"Roboto"</span>)</span>
+<span id="cb814-4"><a href="#cb814-4"></a><span class="fu">showtext_auto</span>()</span>
+<span id="cb814-5"><a href="#cb814-5"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">"Roboto"</span>)) </span>
+<span id="cb814-6"><a href="#cb814-6"></a></span>
+<span id="cb814-7"><a href="#cb814-7"></a><span class="co"># Configurar tema</span></span>
+<span id="cb814-8"><a href="#cb814-8"></a><span class="fu">theme_update</span>(</span>
+<span id="cb814-9"><a href="#cb814-9"></a>  <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#C34539"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">33</span>),</span>
+<span id="cb814-10"><a href="#cb814-10"></a>  <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#3E6FCB"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">21</span>),</span>
+<span id="cb814-11"><a href="#cb814-11"></a>  <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">19</span>),</span>
+<span id="cb814-12"><a href="#cb814-12"></a>  <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">19</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cualis-barras-apiladas" class="slide level2">
+<h2>Cualis: barras apiladas</h2>
+<p>¿Podríamos visualizar <span class="hl-yellow"><strong>dos variables discretas/cualis a la vez</strong></span>?</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Podemos incluir una en <code>x = ...</code> y otra en <code>fill = ...</code>, de manera que <span class="hl-yellow"><strong>por defecto nos visualiza barras apiladas</strong></span>, por ejemplo, para ver el reparto de sexos entre humanos y no humanos.</p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-609-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb815"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb815-1"><a href="#cb815-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb815-2"><a href="#cb815-2"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb815-3"><a href="#cb815-3"></a>  <span class="fu">mutate</span>(<span class="at">Human =</span> species <span class="sc">==</span> <span class="st">"Human"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb815-4"><a href="#cb815-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Human)) <span class="sc">+</span></span>
+<span id="cb815-5"><a href="#cb815-5"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb815-6"><a href="#cb815-6"></a>  <span class="fu">scale_fill_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb815-7"><a href="#cb815-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"¿Humanos?"</span>, <span class="at">y =</span> <span class="st">"frecuencia absoluta"</span>, <span class="at">fill =</span> <span class="st">"sexo"</span>, <span class="at">title =</span> <span class="st">"Primer diagrama de barras"</span>,</span>
+<span id="cb815-8"><a href="#cb815-8"></a>       <span class="at">subtitle =</span> <span class="st">"Sexos: femenino, masculino, hemafrodita, ninguno y ausente"</span>,</span>
+<span id="cb815-9"><a href="#cb815-9"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="cualis-barras-solapas" class="slide level2">
+<h2>Cualis: barras solapas</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Con <code>position = "dodge"</code> visualizamos las barras sin apilar, solapadas una al lado de otra</p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-611-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb816"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb816-1"><a href="#cb816-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb816-2"><a href="#cb816-2"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb816-3"><a href="#cb816-3"></a>  <span class="fu">mutate</span>(<span class="at">Human =</span> species <span class="sc">==</span> <span class="st">"Human"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb816-4"><a href="#cb816-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Human)) <span class="sc">+</span></span>
+<span id="cb816-5"><a href="#cb816-5"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex), <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> </span>
+<span id="cb816-6"><a href="#cb816-6"></a>  <span class="fu">scale_fill_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb816-7"><a href="#cb816-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"¿Humanos?"</span>, <span class="at">y =</span> <span class="st">"frecuencia absoluta"</span>, <span class="at">fill =</span> <span class="st">"sexo"</span>, <span class="at">title =</span> <span class="st">"Primer diagrama de barras"</span>,</span>
+<span id="cb816-8"><a href="#cb816-8"></a>       <span class="at">subtitle =</span> <span class="st">"Sexos: femenino, masculino, hemafrodita, ninguno y ausente"</span>,</span>
+<span id="cb816-9"><a href="#cb816-9"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cualis-barras-fill" class="slide level2">
+<h2>Cualis: barras fill</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Con <code>position = "fill"</code> visualizamos las barras en forma de <span class="hl-yellow"><strong>frecuencia relativa</strong></span>, con las barras de la misma altura para facilitar la comparativa.</p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-613-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb817"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb817-1"><a href="#cb817-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb817-2"><a href="#cb817-2"></a>  <span class="fu">drop_na</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb817-3"><a href="#cb817-3"></a>  <span class="fu">mutate</span>(<span class="at">Human =</span> species <span class="sc">==</span> <span class="st">"Human"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb817-4"><a href="#cb817-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Human)) <span class="sc">+</span></span>
+<span id="cb817-5"><a href="#cb817-5"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex), <span class="at">alpha =</span> <span class="fl">0.5</span>,  <span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span> </span>
+<span id="cb817-6"><a href="#cb817-6"></a>  <span class="fu">scale_fill_colorblind</span>() <span class="sc">+</span></span>
+<span id="cb817-7"><a href="#cb817-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"¿Humanos?"</span>, <span class="at">y =</span> <span class="st">"frecuencia relativa"</span>, <span class="at">fill =</span> <span class="st">"sexo"</span>, <span class="at">title =</span> <span class="st">"Primer diagrama de barras"</span>,</span>
+<span id="cb817-8"><a href="#cb817-8"></a>       <span class="at">subtitle =</span> <span class="st">"Sexos: femenino, masculino, hemafrodita, ninguno y ausente"</span>,</span>
+<span id="cb817-9"><a href="#cb817-9"></a>       <span class="at">caption =</span> <span class="st">"J. Álvarez Liébana"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="footer footer-default">
 <p><a href="..."><strong>Javier Álvarez Liébana</strong></a> • Grado en Ciencia de Datos Aplicada (UCM) • curso 2023-2024</p>
-</div>
 </div>
 </section></section>
 
