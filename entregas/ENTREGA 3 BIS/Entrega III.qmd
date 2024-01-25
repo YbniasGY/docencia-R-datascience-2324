@@ -97,7 +97,6 @@ datos_tidy |>
 
 > Teniendo en cuenta solo los datos de las primeras elecciones guardadas en el dataset (las más antiguas), ¿cuál fue el municipio con más censo en cada comunidad autonóma? Obtén los nombres del segundo archivo `cod_mun.csv` (con código, no de manera manual)
 
-
 ```{r}
 #| eval: false
 datos_ultimas <-
@@ -121,7 +120,7 @@ datos_ultimas <-
 
 -   VOX: "VOX"
 
--   NACIONALISTAS: los que contengan "BLOQUE NACIONALISTA GALEGO",  "ESQUERRA REPUBLICANA DE CATALUNYA", "PARTIDO NACIONALISTA VASCO" o "EUSKAL HERRIA BILDU"
+-   NACIONALISTAS: los que contengan "BLOQUE NACIONALISTA GALEGO", "ESQUERRA REPUBLICANA DE CATALUNYA", "PARTIDO NACIONALISTA VASCO" o "EUSKAL HERRIA BILDU"
 
 Todo lo que no sea alguno de los anteriores partidos deberá ser imputado como "OTROS"
 
@@ -131,7 +130,7 @@ Todo lo que no sea alguno de los anteriores partidos deberá ser imputado como "
 
 ### Ejercicio 6
 
-> Incopora como nueva variable el porcentaje de votos de cada partido (en cada cita electoral, en cada municipio). El porcentaje se calcula como votos del partido entre votos válidos (votos válidos = votos a partidos + blancos). IMPORTANTE: debes usar ya las siglas del ejercicio anterior (piensa antes cómo "reagrupar" los votos tras la recodificación anterior). 
+> Incopora como nueva variable el porcentaje de votos de cada partido (en cada cita electoral, en cada municipio). El porcentaje se calcula como votos del partido entre votos válidos (votos válidos = votos a partidos + blancos). IMPORTANTE: debes usar ya las siglas del ejercicio anterior (piensa antes cómo "reagrupar" los votos tras la recodificación anterior).
 
 ```{r}
 #| eval: false
@@ -142,14 +141,13 @@ Todo lo que no sea alguno de los anteriores partidos deberá ser imputado como "
 
 > ¿Quién ganó en las 15 ciudades más pobladas (con más censo) de España (en cada elección)?
 
-
 ```{r}
 #| eval: false
 ```
 
 ### Ejercicio 8
 
-> Tomando solo los datos de las últimas elecciones, ¿qué partido gano en cada comunidad autónoma y cuál quedó segundo? 
+> Tomando solo los datos de las últimas elecciones, ¿qué partido gano en cada comunidad autónoma y cuál quedó segundo?
 
 ```{r}
 #| eval: false
@@ -186,7 +184,3 @@ filtro_elec <- function(fecha, nombre_mun, ruta_file_mun = "./...") {
 ```{r}
 #| eval: false
 ```
-
-
-
-

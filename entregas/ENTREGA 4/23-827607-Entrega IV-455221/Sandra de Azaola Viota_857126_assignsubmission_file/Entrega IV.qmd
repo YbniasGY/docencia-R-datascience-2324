@@ -1,0 +1,193 @@
+---
+title: "Entrega IV"
+author: "C. Tangana - DNI: 00000000-X"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+rm(list = ls()) # Borramos variables de environment
+library(glue)
+library(tidyverse)
+library(readxl)
+library(nycflights13)
+```
+
+## Caso práctico: aviones
+
+### Ejercicio 1
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico
+
+![](./fig1.jpg)
+
+```{r}
+#| eval: false
+flights |> 
+  ggplot() + 
+  geom_bar(aes(x = month(month, label = TRUE), fill = month), alpha=0.7) +
+  theme_minimal() +
+  labs(x = "Mes", y = "Numero de vuelos")
+```
+
+
+
+### Ejercicio 2
+
+> Repite el ejercicio anterior personalizando el tema con al menos los siguientes items:
+
+-   Una fuente diferente a la por defecto para el título y el caption
+-   Los títulos de los ejes en un color que no sea el negro por defecto
+-   Leyenda abajo en horizontal
+
+```{r}
+#| eval: false
+library(sysfonts)
+library(showtext)
+sysfonts::font_add_google(name = "Roboto")
+showtext_auto()
+
+theme_set(theme_...(...))
+theme_update(
+  axis.title.x = ...,
+  axis.title.y = ...,
+  plot.caption = ...,
+  plot.subtitle = ...,
+  plot.title = ...,
+  legend.position = "Bottom")
+```
+
+### Ejercicio 3
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico, teniendo en cuenta que la línea vertical es la media global (sin desagregar por aerolíneas)
+
+![](./fig2.jpg)
+
+```{r}
+#| eval: false
+cruce <- 
+  flights |> 
+  left_join(airlines, by = "carrier")
+
+media_global <- 
+  cruce |> 
+  summarise(mean(minute))
+
+media_por_aerolinea <-
+  cruce |> 
+  group_by(name) |> 
+  summarise(retraso = mean(arr_delay, na.rm = TRUE))
+
+cruce |> 
+  ggplot() + 
+  geom_col(aes(x = name, fill = media_por_aerolinea), alpha = 0.7) +
+  ggthemes::scale_fill_colorblind() +
+  #scale_y_continuous(limits = c(-10,20)) +
+  geom_vline(xintercept = media_global) +
+  theme_minimal() +
+  labs(x = "Minutos", y = "Aerolineas")
+```
+
+```{r}
+cruce <- flights |> 
+  left_join(airlines, by = "carrier")
+
+# Calcular la media global de minutos
+media_global <- cruce |> 
+  summarise(mean_minute = mean(arr_delay, na.rm = TRUE))
+
+# Calcular la media por aerolínea
+media_por_aerolinea <- cruce |> 
+  group_by(name) |> 
+  summarise(retraso = mean(arr_delay, na.rm = TRUE))
+
+# Crear el gráfico utilizando geom_col y retraso como altura de las barras
+ggplot(media_por_aerolinea, aes(x = name, y = retraso, fill = as.factor(retraso))) +
+  geom_col(alpha = 0.7) +
+  ggthemes::scale_fill_colorblind() +
+  theme_minimal() +
+  coord_flip() +
+  labs(x = "Aerolíneas", y = "Minutos de Retraso")
+```
+
+## Caso práctico: probabilidades
+
+### Ejercicio 1
+
+> Haciendo uso del dataset de probabilidades intenta replicar lo más fielmente el siguiente gráfico (realiza las transformaciones previas a los datos que consideres)
+
+![](./fig3.jpg)
+
+```{r}
+datos <-
+  read_csv("https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv")
+
+# Pivotamos los datos para obtener un formato tidy
+resumen <- datos |> 
+  pivot_longer(cols = "Almost Certainly":"Chances Are Slight",
+               names_to = "Terminos", values_to = "Probabilidad")
+
+# Calculamos la Media 
+resumen_final <- resumen |> 
+  group_by(Terminos) |> 
+  summarise(P_media = mean(Probabilidad, na.rm = TRUE))
+
+ggplot(resumen_final, aes(x = Terminos, y = P_media, fill = P_media)) +
+  geom_col() +
+  theme_minimal()
+```
+
+### Ejercicio 2
+
+> Repite el gráfico anterior pero ordenando las barras por la probabilidad media (de menos a más). Busca info de fct_reorder (paquete forcats para tratar cualis, incluido en tidyverse)
+
+![](./fig4.jpg)
+
+```{r}
+library(scales)
+ggplot(resumen_final |> 
+         mutate(Terminos = fct_reorder(Terminos, P_media)),
+       aes(x = Terminos, y = P_media, fill = P_media)) +
+  geom_col() +
+  scale_fill_continuous() +
+  scale_y_continuous(labels = label_number(suffix = "%"))
+  theme_minimal()
+```
+
+### Ejercicio 3
+
+> Elimina los términos c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance"). Tras ello, ¿cómo podríamos visualizarlo de manera continua, sin tener que resumirlo (no valen boxplots, ver ejercicio siguiente)? Realiza el gráfico o gráficos que consideres de manera que haya un por término (y mostrados juntos). Decide una paleta adecuada de colores.
+
+```{r}
+terminos_a_eliminar <- c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance")
+
+resumen_filtrado <- resumen_final |> 
+  filter(!Terminos %in% terminos_a_eliminar)
+resumen_filtrado
+```
+
+### Ejercicio 4
+
+> ¿Qué tipo de gráfico es? ¿Qué parte del código de un gráfico decide que algo sea un diagrama de puntos o un boxplot? Intenta replicarlo
+
+![](./fig5.png)
+

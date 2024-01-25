@@ -135,46 +135,4 @@ datos_tidy |>
 write_...
 ```
 
-### Ejercicio 7
-
-> Crea una función propia que, dados dos vectores `partidos` y `votos`, proporcione como output las siglas del partido más votado.
-
-```{r}
-#| eval: false
-mas_votado <- function(..., ...) {
-  
-  ...
-  
-  return(...)
-}
-```
-
-### Ejercicio 8
-
-> Modifica la función anterior de manera que, dados dos vectores `partidos` y `votos`, nos proporcione como output las siglas del partido que ocupó la posición `n`, calculando por defecto el más votado.
-
-```{r}
-#| eval: false
-n_votado <- function(..., ..., ...) {
-  
-  ...
-  
-  return(...)
-}
-```
-
-### Ejercicio 9
-
-> Aplica la función anterior a la tabla y crea dos columnas nuevas: `ganador` y `segundo`. Tras ello, y tomando solo los datos de las últimas elecciones, ¿quién fue más veces el segundo partido cuando ganó el PP? ¿Y cuándo ganó el PSOE? ¿Y cuándo ganó UP? ¿Y cuándo ganó VOX? Comenta las diferencias
-
-```{r}
-#| eval: false
-```
-
-### Ejercicio 10
-
-> Tomando solo los datos de las últimas elecciones, ¿qué partido gano en cada comuniad autónoma y cuál quedó segundo? ¿Y para cada provincia?
-
-```{r}
-#| eval: false
-```
+/

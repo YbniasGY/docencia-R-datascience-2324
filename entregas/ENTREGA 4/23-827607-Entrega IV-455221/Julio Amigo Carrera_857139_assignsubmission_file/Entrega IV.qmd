@@ -1,0 +1,157 @@
+---
+title: "Entrega IV"
+author: "Julio Amigo Carrera - DNI: 54443040-Q"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+rm(list = ls()) # Borramos variables de environment
+library(glue)
+library(tidyverse)
+library(readxl)
+library(nycflights13)
+library(ggplot2)
+```
+
+## Caso práctico: aviones
+
+### Ejercicio 1
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico
+
+![](./fig1.jpg)
+
+```{r}
+library(nycflights13) 
+library(ggplot2)
+  ggplot(nycflights13, aes(x="Mes")) + 
+    geom_bar(aes(fill=number_of_flights, alpha=1)) + 
+    scale_fill_colorblind() +
+    theme_minimal() +
+    labs(x="Mes", y ="Numero de vuelos", title="Diagrama de barras", caption="J. Álvarez Liébana", subtitle="month: ene,feb,mar,abr,may,jun,jul,ago,sep,oct,nov,dic", fill="number_of_flights")
+```
+
+### Ejercicio 2
+
+> Repite el ejercicio anterior personalizando el tema con al menos los siguientes items:
+
+-   Una fuente diferente a la por defecto para el título y el caption
+-   Los títulos de los ejes en un color que no sea el negro por defecto
+-   Leyenda abajo en horizontal
+
+```{r}
+library(sysfonts)
+library(showtext)
+sysfonts::font_add_google(name = "Noto Sans Japanese")
+showtext_auto()
+
+theme_set(theme_minimal(base_family = "Noto Sans Japanese"))
+theme_update(
+  axis.title.x = element.text(size=45, face="bold", color="red" ),
+  axis.title.y = element.text(size=27, face="bold", color="blue"),
+  plot.caption = element.text(size=56, face="bold", color="purple"),
+  plot.subtitle = ..element.text(size=42, face="bold", color="green"),
+  theme(legend.position = "bottom",legend.direction = "horizontal"),
+)
+```
+
+### Ejercicio 3
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico, teniendo en cuenta que la línea vertical es la media global (sin desagregar por aerolíneas)
+
+![](./fig2.jpg)
+
+```{r}
+cruce <- 
+  full_join()
+#nose de lo que tengo que hacer el join, lo siento
+media_global <- 
+  mean(TMinutos$Aerolineas)
+#donde T minutos es la suma total de todos los retrasos aereos, y Aerolineas, es la cantidad total de aerolineas
+
+#| eval: false
+ggplot(cruce) + 
+  geom_bar(aes(x = Minutos, y = Aerolineas, alpha=0.4)) +
+  scale_color_brewer(palette="ROYG") +
+  geom_vline(xintercept = media_global, color="black", linetype="dashed") +
+  theme_minimal() +
+  labs(x="Minutos",y="Aerolineas",Caption="J. Álvarez Liébana",fill="Minitos", title="Diagrama de barras",Subtitle="Retaso medio en llegada: " )
+```
+
+## Caso práctico: probabilidades
+
+### Ejercicio 1
+
+> Haciendo uso del dataset de probabilidades intenta replicar lo más fielmente el siguiente gráfico (realiza las transformaciones previas a los datos que consideres)
+
+![](./fig3.jpg)
+
+```{r}
+datos <-
+  read_csv("https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv")
+
+Probabilida_media<-
+  q1 = quantile(datos, 0.25)
+  q2 = quantile(datos, 0.5)
+  q3 = quantile(datos, 0.75)
+
+ggplot(datos) |> 
+  drop.na(datos) |> 
+  geom_bar(aes(fill="Terminos", x="Terminos", y=Probabilida_media, alpha=0.5)) + 
+  scale_fill_colorblind() + 
+  scale_y_continuous(breaks=seq(0, 100, by= 25)) + 
+  labs(x="Terminos", y="Probabilidad media", Title="Percepción de la probabilidad", Subtitle="Prob- media", fill="Términos")+
+  theme_minimal()
+  
+```
+
+### Ejercicio 2
+
+> Repite el gráfico anterior pero ordenando las barras por la probabilidad media (de menos a más). Busca info de fct_reorder (paquete forcats para tratar cualis, incluido en tidyverse)
+
+![](./fig4.jpg)
+
+```{r}
+#| eval: false
+ggplot(resumen |> mutate(termino = fct_reorder(..., ...))) +
+  ...
+```
+
+### Ejercicio 3
+
+> Elimina los términos c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance"). Tras ello, ¿cómo podríamos visualizarlo de manera continua, sin tener que resumirlo (no valen boxplots, ver ejercicio siguiente)? Realiza el gráfico o gráficos que consideres de manera que haya un por término (y mostrados juntos). Decide una paleta adecuada de colores.
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 4
+
+> ¿Qué tipo de gráfico es? ¿Qué parte del código de un gráfico decide que algo sea un diagrama de puntos o un boxplot? Intenta replicarlo
+
+![](./fig5.png)
+
+```{r}
+#| eval: false
+geom_boxplot()
+```

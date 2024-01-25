@@ -1,0 +1,155 @@
+---
+title: "Entrega IV"
+author: "C. Tangana - DNI: 00000000-X"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+rm(list = ls()) # Borramos variables de environment
+library(glue)
+library(tidyverse)
+library(readxl)
+library(nycflights13)
+```
+
+## Caso práctico: aviones
+
+### Ejercicio 1
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico
+
+![](./fig1.jpg)
+
+```{r}
+library(ggthemes)
+  
+  ggplot(flights) +
+  geom_bar(aes(x = month, fill = month)) +
+  theme_minimal() +
+  labs(x = "Mes", y = "Número de vuelos", title = "Diagrama de barras",
+       caption = "Autor: j. Álvarez Liébana")
+```
+
+### Ejercicio 2
+
+> Repite el ejercicio anterior personalizando el tema con al menos los siguientes items:
+
+-   Una fuente diferente a la por defecto para el título y el caption
+-   Los títulos de los ejes en un color que no sea el negro por defecto
+-   Leyenda abajo en horizontal
+
+```{r}
+library(sysfonts)
+library(showtext)
+sysfonts::font_add_google(name = "Poppins")
+showtext_auto()
+
+ ggplot(flights) +
+  geom_bar(aes(x = month)) +
+  theme_minimal() +
+  labs(x = "Mes", y = "Número de vuelos", title = "Diagrama de barras",
+       caption = "Autor: j. Álvarez Liébana", fill = "Mes") +
+  theme_set(theme_classic(10)) +
+  theme_update(
+    axis.title.x = element_text(size = 25, face = "bold", color = "red"),
+    axis.title.y = element_text(size = 20, color = "blue"),
+    plot.caption = element_text(family = "Poppins"),
+    plot.title = element_text(family = "Poppins"),
+    legend.position = "bottom")
+```
+
+### Ejercicio 3
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico, teniendo en cuenta que la línea vertical es la media global (sin desagregar por aerolíneas)
+
+![](./fig2.jpg)
+
+```{r}
+cruce <- 
+  flights %>% left_join(airlines, by = "carrier")
+
+media_global <- 
+  cruce %>% drop_na() %>% summarise(media = mean(arr_delay))
+
+medias_por_aerolinea <-
+  cruce %>% drop_na() %>% group_by(name) %>% 
+  summarise(media = mean(arr_delay)) %>% ungroup()
+
+  ggplot(medias_por_aerolinea) + 
+    geom_col(aes(x = name, y = media, fill = media)) +
+    scale_fill_gradient(low = "#80DB3D", high = "#B00229") +
+    geom_vline(xintercept = 6.895377) +
+    theme_minimal() +
+    labs(x = "Aerolineas", y = "Minutos", caption = "Autor: j. Álvarez Liébana",
+         title = "Diagrama de barras") +
+    coord_flip()
+  
+
+```
+
+He creado un cruce de vuelos con aerolineas usando **`left_join`** porque no quiero valores NA. He calculado la media global de retraso usando el **`summarise`**, igual que en la media por aerolinea (aun que para esta he usado un **`group_by`** para poder ver la media de cada aerolinea especificamente)
+
+## Caso práctico: probabilidades
+
+### Ejercicio 1
+
+> Haciendo uso del dataset de probabilidades intenta replicar lo más fielmente el siguiente gráfico (realiza las transformaciones previas a los datos que consideres)
+
+![](./fig3.jpg)
+
+```{r}
+datos <-
+  read_csv("https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv")
+resumen <- datos %>% 
+  pivot_longer(cols = c("Almost Certainly":"Chances Are Slight"), 
+               names_to = "probabilidad")
+  
+```
+
+### Ejercicio 2
+
+> Repite el gráfico anterior pero ordenando las barras por la probabilidad media (de menos a más). Busca info de fct_reorder (paquete forcats para tratar cualis, incluido en tidyverse)
+
+![](./fig4.jpg)
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 3
+
+> Elimina los términos c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance"). Tras ello, ¿cómo podríamos visualizarlo de manera continua, sin tener que resumirlo (no valen boxplots, ver ejercicio siguiente)? Realiza el gráfico o gráficos que consideres de manera que haya un por término (y mostrados juntos). Decide una paleta adecuada de colores.
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 4
+
+> ¿Qué tipo de gráfico es? ¿Qué parte del código de un gráfico decide que algo sea un diagrama de puntos o un boxplot? Intenta replicarlo
+
+![](./fig5.png)
+
+```{r}
+#| eval: false
+```

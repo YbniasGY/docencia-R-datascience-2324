@@ -1,0 +1,196 @@
+---
+title: "Entrega IV"
+author: "Hugo Ballestero Martín - DNI: 49193836-X"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+rm(list = ls()) # Borramos variables de environment
+library(glue)
+library(tidyverse)
+library(readxl)
+library(nycflights13)
+```
+
+## Caso práctico: aviones
+
+### Ejercicio 1
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico
+
+![](./fig1.jpg)
+
+```{r}
+library(lubridate)
+library(ggplot2)
+
+ggplot(flights |> 
+         group_by(month) |> 
+         count(flight) |> 
+         ungroup() |> 
+         mutate(month = month(month, label=TRUE))) + 
+  geom_col(aes(x = month, y = n, fill = month)) +
+  theme_minimal() +
+  labs(x = "Mes", y = "Número de vuelos", caption = "Autor: J. Álvarez Liébana", title = "Diagrama de barras")
+
+```
+
+### Ejercicio 2
+
+> Repite el ejercicio anterior personalizando el tema con al menos los siguientes items:
+
+-   Una fuente diferente a la por defecto para el título y el caption
+-   Los títulos de los ejes en un color que no sea el negro por defecto
+-   Leyenda abajo en horizontal
+
+```{r}
+library(sysfonts)
+library(showtext)
+sysfonts::font_add_google(name = "Roboto")
+showtext_auto()
+
+theme_set(theme_minimal(base_family = "Roboto"))
+theme_update(
+  axis.title.x = element_text(color="Blue"),
+  axis.title.y = element_text(color="Blue"),
+  plot.caption = element_text(family="Roboto"),
+  plot.subtitle = element_text(family="Roboto"),
+  plot.title = element_text(family="Roboto"),
+  legend.position = "bottom",
+  legend.direction = "horizontal")
+
+ggplot(flights |> 
+         group_by(month) |> 
+         count(flight) |> 
+         ungroup() |> 
+         mutate(month = month(month, label=TRUE))) + 
+  geom_col(aes(x = month, y = n, fill = month)) +
+  labs(x = "Mes", y = "Número de vuelos", caption = "Autor: J. Álvarez Liébana", title = "Diagrama de barras")
+```
+
+### Ejercicio 3
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico, teniendo en cuenta que la línea vertical es la media global (sin desagregar por aerolíneas)
+
+![](./fig2.jpg)
+
+```{r}
+
+cruce <- airlines |> 
+  inner_join(flights, by=c("carrier"="carrier")) |> 
+  group_by(name) |> 
+  summarise(retraso_medio=mean(arr_delay, na.rm = TRUE)) |> 
+  ungroup()
+
+
+media_global <- 
+  flights |> 
+  drop_na(arr_delay) |> 
+  summarise(mean(arr_delay))
+
+ggplot(cruce) + 
+  geom_col(aes(x = retraso_medio, y = name, fill=retraso_medio))+
+  scale_fill_gradient2(low="#ccdba3", high="#ae4157", mid="#e6bd7b") +
+  geom_vline(xintercept = media_global$'mean(arr_delay)') +
+  theme_minimal() +
+  labs(x="Minutos", y="Aerolienas", title="Diagrama de barras", caption="Autor: J. Álvarez Liébana", fill="Retraso medio en llegadas")
+```
+
+## Caso práctico: probabilidades
+
+### Ejercicio 1
+
+> Haciendo uso del dataset de probabilidades intenta replicar lo más fielmente el siguiente gráfico (realiza las transformaciones previas a los datos que consideres)
+
+![](./fig3.jpg)
+
+```{r}
+
+datos <-
+  read_csv("https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv") |> 
+ select("About Even", "Almost Certainly", "Almost No Chance", "Better Than Even", "Highly Likely", "Highly Unlikely", "Likely", "Probably Not", "Unlikely", "Very Good Chance", "We Believe", "We Doubt" ) |> 
+  pivot_longer(cols=everything(),
+               names_to="tipo_prob", values_to= "probabilidad", values_drop_na=TRUE)
+
+resumen <- datos |>  
+  summarise((mean(probabilidad)/100 ) , .by=tipo_prob) |> 
+  rename(media_prob='(mean(probabilidad)/100)')
+
+ggplot(resumen) +
+  geom_col(aes(x=tipo_prob, y=media_prob, fill=media_prob)) +
+  scale_fill_gradient2(low="#de504d",high="#4e6a9b",mid="#feecd2", midpoint=0.5) +
+  theme_minimal() +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(x="Términos", y="Probabilidad media", title="Percepción de probabilidad", fill="Prob_media") +
+   theme(axis.text.x = element_text(size = 5, angle=45))
+  
+```
+
+### Ejercicio 2
+
+> Repite el gráfico anterior pero ordenando las barras por la probabilidad media (de menos a más). Busca info de fct_reorder (paquete forcats para tratar cualis, incluido en tidyverse)
+
+![](./fig4.jpg)
+
+```{r}
+resumen_2 <- resumen |> 
+  mutate(termino = fct_reorder(tipo_prob, media_prob))
+
+ggplot(resumen_2) +
+  geom_col(aes(x=termino, y=media_prob, fill=media_prob)) +
+  scale_fill_gradient2(low="#de504d",high="#4e6a9b",mid="#feecd2", midpoint=0.5) +
+  theme_minimal() +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(x="Términos", y="Probabilidad media", title="Percepción de probabilidad", fill="Prob_media") +
+   theme(axis.text.x = element_text(size = 5, angle=45))
+```
+
+### Ejercicio 3
+
+> Elimina los términos c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance"). Tras ello, ¿cómo podríamos visualizarlo de manera continua, sin tener que resumirlo (no valen boxplots, ver ejercicio siguiente)? Realiza el gráfico o gráficos que consideres de manera que haya un por término (y mostrados juntos). Decide una paleta adecuada de colores.
+
+```{r}
+library(MetBrewer)
+resumen_3 <- datos |> 
+  filter(! tipo_prob%in% c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance"))
+
+ggplot(resumen_3) +
+  geom_point(aes(x=tipo_prob, y=probabilidad, color=probabilidad), size=1, alpha=0.75) +
+  scale_color_gradient(low="#2c2d54", high="#87bcbd") +
+  facet_wrap(~tipo_prob) +
+  theme(axis.text.x = element_blank())
+  
+  
+  
+```
+
+### Ejercicio 4
+
+> ¿Qué tipo de gráfico es? ¿Qué parte del código de un gráfico decide que algo sea un diagrama de puntos o un boxplot? Intenta replicarlo
+
+![](./fig5.png)
+
+```{r}
+#| eval: false
+...
+```

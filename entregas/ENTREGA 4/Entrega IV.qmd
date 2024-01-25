@@ -1,0 +1,200 @@
+---
+title: "Entrega IV"
+author: "C. Tangana - DNI: 00000000-X"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+rm(list = ls()) # Borramos variables de environment
+library(glue)
+library(tidyverse)
+library(readxl)
+library(nycflights13)
+```
+
+## Caso práctico: vuelos en Nueva York
+
+```{r}
+library(nycflights13)
+library(tidyverse)
+ggplot(flights) + 
+  geom_bar(aes(x = month, color = month)) +
+  scale_x_continuous(breaks = 1:12) +
+  ggthemes::scale_fill_colorblind() +
+  theme_minimal() +
+  labs(x = "Mes", y = "Número de registros",
+       title = "Diagrama de barras")
+```
+
+
+### Ejercicio 1
+
+> Carga el **archivo de datos electorales** del Ministerio del Interior, que recopila datos de citas electorales al Congreso de los Diputados de España desde 2008 hasta la actualidad.
+>
+> Tras la carga, convierte las variables que creas que es necesaria la conversión y elimina la información redundante que no aporta
+
+Las variables son las siguientes:
+
+-   `tipo_eleccion`: tipo de elección (02 si es elección al congreso)
+-   `anno`, `mes`: año y mes de las elecciones
+-   `vuelta`: vuelta electoral (1 si es primera vuelta)
+-   `codigo_ccaa, codigo_provincia, codigo_municipio, codigo_distrito_electoral`: código de la ccaa, provincia, municipio y distrito electoral.
+-   `numero_mesas`: número de mesas electorales
+-   `censo`: censo electoral
+-   `participacion_1, participacion_2`: participación en el primer avance (14:00) y segundo avance (18:00) antes del cierre de urnas (20:00)
+-   `votos_blancos`: votos en blanco
+-   `votos_candidaturas`: votos a papeletas de partidos
+-   `votos_nulos`: votos nulos
+-   una variable por partido
+
+```{r}
+#| eval: false
+#| warning: false
+#| message: false
+datos_brutos <-
+  ... |> 
+  ... |> 
+  ...
+datos_brutos
+```
+
+### Ejercicio 2
+
+> Convierte el archivo a tidydata de manera adecuada, sin NA ni partidos con 0 votos.
+
+```{r}
+#| eval: false
+datos_tidy <-
+  datos_brutos |> 
+  ... |> 
+  ...
+datos_tidy
+```
+
+### Ejercicio 3
+
+> ¿Cuántos municipios había registrados en cada una de las citas electorales? Crea las variables identificadores que necesitas para dar respuesta. Pista: en ninguna cita electoral había menos de 5000 ni más de 15000 municipios.
+
+```{r}
+#| eval: false
+datos_tidy <-
+  datos_tidy |> 
+  mutate(...)
+
+datos_tidy |> 
+  ... |> 
+  ... |> 
+  count()
+```
+
+### Ejercicio 4
+
+> Teniendo en cuenta solo los datos de las primeras elecciones guardadas en el dataset (las más antiguas), ¿cuál fue el municipio con más censo en cada comunidad autonóma? Obtén los nombres del segundo archivo `cod_mun.csv` (con código, no de manera manual)
+
+```{r}
+#| eval: false
+datos_ultimas <-
+  datos_tidy |>
+  ...
+
+...
+```
+
+### Ejercicio 5
+
+> Teniendo en cuenta todas las elecciones, crea una variable de siglas de manera que agrupe (a lo mejor con detectar palabras clave sirve...)
+
+-   PSOE: los que contengan "PARTIDO SOCIALISTA OBRERO", "PARTIT DELS SOCIALISTES DE CATALUNYA" o "PARTIDO DOS SOCIALISTAS DE GALICIA"
+
+-   PP: los que contengan "PARTIDO POPULAR"
+
+-   CS: los que contengan "CIUDADANOS" o "CIUTADANS"
+
+-   UP: los que contengan "PODEMOS", "UNIDAS PODEMOS", "UNIDOS PODEMOS", "EN COMÚ PODEM"
+
+-   VOX: "VOX"
+
+-   NACIONALISTAS: los que contengan "BLOQUE NACIONALISTA GALEGO", "ESQUERRA REPUBLICANA DE CATALUNYA", "PARTIDO NACIONALISTA VASCO" o "EUSKAL HERRIA BILDU"
+
+Todo lo que no sea alguno de los anteriores partidos deberá ser imputado como "OTROS"
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 6
+
+> Incopora como nueva variable el porcentaje de votos de cada partido (en cada cita electoral, en cada municipio). El porcentaje se calcula como votos del partido entre votos válidos (votos válidos = votos a partidos + blancos). IMPORTANTE: debes usar ya las siglas del ejercicio anterior (piensa antes cómo "reagrupar" los votos tras la recodificación anterior).
+
+```{r}
+#| eval: false
+
+```
+
+### Ejercicio 7
+
+> ¿Quién ganó en las 15 ciudades más pobladas (con más censo) de España (en cada elección)?
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 8
+
+> Tomando solo los datos de las últimas elecciones, ¿qué partido gano en cada comunidad autónoma y cuál quedó segundo?
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 9
+
+> Crea una función propia que, dada una fecha y el NOMBRE de un municipio como argumentos, nos filtre el dataset (para dicha cita electoral y dicho nombre de municipio). El output debe ser la tabla filtrada, en caso de que los argumentos sean correctos. Si la fecha no existe y/o el nombre del municipio es incorrecto, debe devolver un mensaje de error similar a "LO SIENTO, ARGUMENTOS INCORRECTOS". Hazlo de manera que no importe si el nombre del municipio está en mayúscula o minúscula
+
+```{r}
+#| eval: false
+filtro_elec <- function(fecha, nombre_mun, ruta_file_mun = "./...") {
+  
+  cod_mun_data <- read_csv(file = ruta_file_mun)
+  
+  ...
+  
+  if (...) {
+    
+    return(...)
+    
+  } else {
+    
+    return(...)
+  }
+  
+}
+```
+
+### Ejercicio 10
+
+> Usa la función anterior para filtrar solo los datos de las 2 últimas elecciones y de los municipios de Madrid y Barcelona
+
+```{r}
+#| eval: false
+```

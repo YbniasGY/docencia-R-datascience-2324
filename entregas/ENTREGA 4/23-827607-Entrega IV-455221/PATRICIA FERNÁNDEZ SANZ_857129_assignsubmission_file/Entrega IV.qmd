@@ -1,0 +1,242 @@
+---
+title: "Entrega IV"
+author: "P. FERNÁNDEZ - DNI: 47412079-V"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+rm(list = ls()) # Borramos variables de environment
+library(glue)
+library(tidyverse)
+library(readxl)
+library(nycflights13)
+```
+
+## Caso práctico: aviones
+
+### Ejercicio 1
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico
+
+![](./fig1.jpg)
+
+```{r}
+#| eval: true
+
+vuelos <- nycflights13::flights
+
+vuelos |> 
+  ggplot(aes(x = factor(month))) +
+  geom_bar(aes(fill = factor(month)), alpha = 0.8) +
+  scale_fill_gradient(low = "purple", high = "yellow") + 
+  theme_minimal() +
+  labs(title = "Diagrama de barras",
+       x = "Mes",
+       y = "Número de vuelos",
+       caption = "Autor. J. Álvarez Liébana") +
+  scale_x_discrete(labels = c("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic")) +
+  scale_fill_discrete(labels = c("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"))
+```
+
+### Ejercicio 2
+
+> Repite el ejercicio anterior personalizando el tema con al menos los siguientes items:
+
+-   Una fuente diferente a la por defecto para el título y el caption
+-   Los títulos de los ejes en un color que no sea el negro por defecto
+-   Leyenda abajo en horizontal
+
+```{r}
+#| eval: true
+
+library(showtext)
+library(sysfonts)
+font_add_google(name = "Lexend")
+font_add_google(name = "Poppins")
+showtext_auto()
+
+theme_set(theme_minimal(base_family = "Lexend"))
+
+tema_sencillo <- theme(legend.position = "bottom",
+                       plot.background = element_rect(fill = "lavenderblush2"),
+                       panel.background = element_rect(fill = "ghostwhite"),
+                       panel.grid.major = element_line(colour = "lavenderblush3",
+                                                       linewidth = 0.5),
+                       panel.grid.minor = element_blank(),
+                       plot.title = element_text(face = "bold", size = 20),
+                       axis.title.x = element_text(color = "purple"),
+                       axis.title.y = element_text(color = "purple"))
+
+vuelos |> 
+  ggplot(aes(x = factor(month))) +
+  geom_bar(aes(fill = factor(month)), alpha = 0.8) +
+  scale_fill_gradient(low = "purple", high = "yellow") + 
+  tema_sencillo +
+  labs(title = "Diagrama de barras",
+       x = "Mes",
+       y = "Número de vuelos",
+       caption = "Autor. J. Álvarez Liébana") +
+  scale_x_discrete(labels = c("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic")) +
+  scale_fill_discrete(labels = c("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"))
+
+```
+
+### Ejercicio 3
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico, teniendo en cuenta que la línea vertical es la media global (sin desagregar por aerolíneas)
+
+![](./fig2.jpg)
+
+```{r}
+#| eval: true
+
+vuelo <- nycflights13::flights
+aerolinea <- nycflights13::airlines
+cruce <- vuelo |>
+  inner_join(aerolinea, by = "carrier")
+cruce
+
+media_global <- 
+  cruce |> 
+  select(arr_delay, name) |> 
+  group_by(name) |> 
+  summarise(med = mean(arr_delay, na.rm = TRUE)) |> 
+  distinct(name, .keep_all = TRUE)
+
+media_global
+
+ggplot(media_global) +
+  geom_col(aes(x = med, y = name, fill = med)) +
+  scale_fill_gradient(low = "green", high = "red") +
+  geom_vline(xintercept = 7)+
+  theme_minimal() +
+  labs(
+    subtitle = "Diagrama de barras",
+    x = "Minutos",
+    y = "Aerolíneas",
+    caption = "Autor: J. Álvarez Liébana",
+    color = "Retraso medio de llegada"
+  )
+
+
+```
+
+## Caso práctico: probabilidades
+
+### Ejercicio 1
+
+> Haciendo uso del dataset de probabilidades intenta replicar lo más fielmente el siguiente gráfico (realiza las transformaciones previas a los datos que consideres)
+
+![](./fig3.jpg)
+
+```{r}
+#| eval: true
+datos <-
+  read_csv("https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv")
+
+resumen <- datos |> 
+  pivot_longer(cols = "Almost Certainly" : "Chances Are Slight") |> 
+  group_by (name) |> 
+  summarise(prob = mean(value)) |> 
+  slice(c(1,2,3,4,6,7,9,13,14,15,16,17))
+
+resumen
+
+resumen |> 
+ggplot(aes(x = name, y = prob)) +
+  geom_col(aes(fill = prob)) +
+  scale_fill_gradient2(low = "brown2", high = "navy", mid = "khaki", midpoint = 50) + 
+  scale_y_continuous(labels = scales::label_number(suffix = "%"))+
+  theme_minimal() +
+  labs(
+    subtitle = "Percepción de la Probabilidad",
+    x = "Términos",
+    y = "Probabilidad media",
+    color = "Prob.media"
+  )
+  
+```
+
+### Ejercicio 2
+
+> Repite el gráfico anterior pero ordenando las barras por la probabilidad media (de menos a más). Busca info de fct_reorder (paquete forcats para tratar cualis, incluido en tidyverse)
+
+![](./fig4.jpg)
+
+```{r}
+#| eval: true
+
+ggplot(resumen, aes(x = fct_reorder(name, prob), y = prob)) +
+  geom_col(aes(fill = prob)) +
+  scale_fill_gradient2(low = "brown2", high = "navy", mid = "khaki", midpoint = 50) +
+  scale_y_continuous(labels = scales::label_number(suffix = "%")) +
+  theme_minimal() +
+  labs(
+    subtitle = "Percepción de la Probabilidad",
+    x = "Términos",
+    y = "Probabilidad media",
+    color = "Prob.media"
+  )
+```
+
+### Ejercicio 3
+
+> Elimina los términos c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance"). Tras ello, ¿cómo podríamos visualizarlo de manera continua, sin tener que resumirlo (no valen boxplots, ver ejercicio siguiente)? Realiza el gráfico o gráficos que consideres de manera que haya un por término (y mostrados juntos). Decide una paleta adecuada de colores.
+
+```{r}
+#| eval: true
+
+library(ggridges)
+
+datos1 <- datos |> 
+  pivot_longer(cols = "Almost Certainly" : "Chances Are Slight") |> 
+ filter(!name %in% c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance"))
+
+ggplot(datos1)+
+  ggridges::geom_density_ridges (aes(x = value, y = name, fill = value), alpha = 0.8,) +
+  scale_fill_gradient(low = "coral2", high = "mediumorchid2") +
+  labs(title = "Percepción de la probabilidad", 
+       y = "términos") +
+  tema_sencillo
+  
+```
+
+### Ejercicio 4
+
+> ¿Qué tipo de gráfico es? ¿Qué parte del código de un gráfico decide que algo sea un diagrama de puntos o un boxplot? Intenta replicarlo
+
+![](./fig5.png)
+
+```{r}
+#| eval: true
+
+ggplot(datos1) +
+  geom_boxplot(aes(x = fct_reorder(name, value), y = value))+
+  scale_fill_gradient2(low = "red", mid = "white", high = "navy") +
+  labs(title = "Percepción de la probabilidad", 
+       x = "términos",
+       y = "probabilidad") +
+  tema_sencillo
+```
+
+Es un box-plot, muestra la mediana y los cuartiles de los valores que toman las distintas variables. Los puntos que aparecen son valores anómalos.

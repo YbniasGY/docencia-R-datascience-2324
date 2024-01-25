@@ -1,0 +1,217 @@
+---
+title: "Entrega IV"
+author: "Laura Díaz - DNI: 47410711-Y"
+format:
+  html:
+    theme: [style.scss]
+    toc: true
+    toc-location: right
+    toc-title: Índice
+editor: visual
+---
+
+## Instrucciones (leer antes de empezar)
+
+-   Modifica dentro del documento `.qmd` tus datos personales (nombre y DNI) ubicados en la cabecera del archivo.
+
+-   Asegúrate, **ANTES de seguir editando** el documento, que el archivo `.qmd` se renderiza correctamente y se genera el `.html` correspondiente en tu carpeta local de tu ordenador.
+
+-   Los chunks (cajas de código) creados están o vacíos o incompletos, de ahí que la mayoría tengan la opción `#| eval: false`. Una vez que edites lo que consideres, debes ir cambiando cada chunck a `#| eval: true` (o quitarlo directamente) para que se ejecuten.
+
+-   Recuerda que puedes ejecutar chunk a chunk con el botón *play* o ejecutar todos los chunk hasta uno dado (con el botón a la izquierda del anterior).
+
+### Paquetes necesarios
+
+Necesitaremos los siguientes paquetes (haz play en el chunk para que se carguen):
+
+```{r paquetes}
+#| warning: false
+rm(list = ls()) # Borramos variables de environment
+library(glue)
+library(tidyverse)
+library(readxl)
+library(nycflights13)
+```
+
+## Caso práctico: aviones
+
+### Ejercicio 1
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico
+
+![](./fig1.jpg)
+
+```{r}
+#| eval: true
+nycflights13::flights |> 
+ggplot() + 
+  geom_bar(aes(x = month, fill = month)) +
+  scale_color_brewer() +
+  theme_minimal()+
+  theme(legend.position = "right") +
+  scale_fill_brewer()+
+  labs(x= 'Mes', 
+       y= 'Número de vuelos', 
+       fill = 'Mes',
+       title = 'Diagrama de barras',
+       caption = 'Author: L. Díaz Cárdenas')
+```
+
+### Ejercicio 2
+
+> Repite el ejercicio anterior personalizando el tema con al menos los siguientes items:
+
+-   Una fuente diferente a la por defecto para el título y el caption
+-   Los títulos de los ejes en un color que no sea el negro por defecto
+-   Leyenda abajo en horizontal
+
+```{r}
+#| eval: true
+library(tidyverse)
+library(sysfonts)
+library(showtext)
+font_add_google(name= 'Urbanist')
+showtext_auto()
+
+theme_set(theme_minimal(base_family = 'Urbanist'))
+tema_morado <-
+  theme(legend.position = 'bottom',
+        plot.title = element_text(face= 'bold', size= 40, hjust = 0.5, margin = margin(t = 5, b= 20), color = '#FEFAE0'),
+        plot.subtitle = element_text(face = 'italic',size = 15, hjust = 0.5, margin = margin(b = 10), color = '#FEFAE0'),
+        plot.background = element_rect(fill = '#533747'),
+        panel.background = element_rect(fill = '#FEFAE0'),
+        panel.grid.major = element_line(color = '#B9B59D'),
+        panel.grid.minor = element_blank(),
+        plot.margin = margin(t = 20, b = 10, l = 15, r= 15),
+        axis.text = element_text(face = 'bold', size = 15, color = '#FEFAE0'),  # Tamaño del texto de los ejes
+        axis.title = element_text(face = 'italic', size = 16, color = '#FEFAE0'),  # Tamaño del texto de los títulos de ejes
+        legend.text = element_text(size = 15, color = '#FEFAE0'),  # Tamaño del texto de la leyenda
+        legend.title = element_text(face = 'italic', size = 16, color = '#FEFAE0')
+        
+        )
+
+nycflights13::flights |> 
+ggplot() + 
+  geom_bar(aes(x = month, fill= month, color = month)) +
+  scale_color_brewer() +
+  tema_morado+
+  labs(x= 'Mes', 
+       y= 'Número de vuelos', 
+       fill = 'Mes',
+       color = 'Mes',
+       title = 'Diagrama de barras',
+       caption = 'Author: L. Díaz Cárdenas')
+```
+
+### Ejercicio 3
+
+> Haciendo uso de los datasets del paquete {nycflights13}, reproduce lo más fielmente posible el siguiente gráfico, teniendo en cuenta que la línea vertical es la media global (sin desagregar por aerolíneas)
+
+![](./fig2.jpg)
+
+```{r}
+
+nycflights13::airlines
+nycflights13::flights
+#| eval: true
+cruce <- 
+  flights |> 
+  left_join(airlines, by = 'carrier') 
+
+media_global <- 
+  cruce |> 
+  summarise(mean_arr_delay = mean(arr_delay, na.rm = TRUE)) |> 
+  pull(mean_arr_delay)
+
+
+#| eval: true
+ggplot(cruce, aes(x = name, y = arr_delay, fill= arr_delay)) + 
+  geom_bar(stat = "identity") +
+  scale_fill_gradient2(low = "#B9D2B1", high = "#EE2E31", mid= 'yellow') +
+  geom_vline(xintercept = media_global) +
+  coord_flip()+
+  theme_minimal() +
+  labs(x ='Aerolíneas',
+       y = 'Minutos',
+       color = 'Retraso medio en llegada',
+       fill = 'Retraso medio en llegada',
+       title = 'Diagrama de barras',
+       caption = 'Author: L. Díaz Cárdenas')
+```
+
+## Caso práctico: probabilidades
+
+### Ejercicio 1
+
+> Haciendo uso del dataset de probabilidades intenta replicar lo más fielmente el siguiente gráfico (realiza las transformaciones previas a los datos que consideres)
+
+![](./fig3.jpg)
+
+```{r}
+#| eval: true
+datos <-
+  read_csv("https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv")
+
+resumen <-
+  datos |> 
+  select('Almost Certainly':'Very Good Chance', 'Likely', 'We Believe': 'We Doubt', 'Unlikely':'Probably Not', 'Almost No Chance': 'Highly Unlikely') |> 
+  pivot_longer(cols = c('Almost Certainly':'Very Good Chance', 'Likely', 'We Believe': 'We Doubt', 'Unlikely':'Probably Not', 'Almost No Chance': 'Highly Unlikely'), names_to = "Vote", values_to = "Porcentaje")
+
+ggplot(resumen) +
+  geom_col(aes(x = Vote, y = Porcentaje, fill = Porcentaje)) +
+  theme_minimal() +
+  scale_fill_gradient2(low = '#EE4266', mid = '#EEF1BD', high = '#00AFB5')+
+  scale_y_continuous(breaks= seq(0, 100, by = 25),
+    labels  = scales:: label_number(suffix = '%')) +
+  theme(legend.position = "right")+
+  labs( x = 'Términos', 
+        y = 'Probabilidad Media', 
+        title = 'Percepción de la probabilidad',
+        color= 'Prob.media',
+        fill = 'Prob.media',
+        caption = 'Author: L. Díaz Cárdenas')
+```
+
+### Ejercicio 2
+
+> Repite el gráfico anterior pero ordenando las barras por la probabilidad media (de menos a más). Busca info de fct_reorder (paquete forcats para tratar cualis, incluido en tidyverse)
+
+![](./fig4.jpg)
+
+```{r}
+#| eval: false
+
+ggplot(resumen |> mutate(termino = fct_reorder(Vote, Porcentaje))) +
+  geom_col(aes(x = Vote, y = Porcentaje, fill = Porcentaje)) +
+  theme_minimal() +
+  scale_fill_gradient2(low = '#EE4266', mid = '#EEF1BD', high = '#00AFB5')+
+  scale_y_continuous(breaks= seq(0, 100, by = 25),
+    labels  = scales:: label_number(suffix = '%')) +
+  theme(legend.position = "right")+
+  labs( x = 'Términos', 
+        y = 'Probabilidad Media', 
+        title = 'Percepción de la probabilidad',
+        color= 'Prob.media',
+        fill = 'Prob.media',
+        caption = 'Author: L. Díaz Cárdenas')
+  ...
+```
+
+### Ejercicio 3
+
+> Elimina los términos c("Chances Are Slight", "Improbable", "Probably Not", "Probable", "Likely", "Very Good Chance"). Tras ello, ¿cómo podríamos visualizarlo de manera continua, sin tener que resumirlo (no valen boxplots, ver ejercicio siguiente)? Realiza el gráfico o gráficos que consideres de manera que haya un por término (y mostrados juntos). Decide una paleta adecuada de colores.
+
+```{r}
+#| eval: false
+```
+
+### Ejercicio 4
+
+> ¿Qué tipo de gráfico es? ¿Qué parte del código de un gráfico decide que algo sea un diagrama de puntos o un boxplot? Intenta replicarlo
+
+![](./fig5.png)
+
+```{r}
+#| eval: false
+...
+```
